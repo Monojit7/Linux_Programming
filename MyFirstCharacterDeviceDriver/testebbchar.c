@@ -9,7 +9,6 @@
  * @see http://www.derekmolloy.ie/ for a full description and follow-up descriptions.
 */
 
-// Just to create pull request for git
 
 #include<stdio.h>
 #include<stdlib.h>
