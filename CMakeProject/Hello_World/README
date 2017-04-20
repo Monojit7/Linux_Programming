@@ -1,0 +1,11 @@
+
+
+command to run:
+
+apt-get install cmake ( To install cmake )
+
+cmake . ( To generate cmake files in current directory )
+
+make   ( To compile the binary )
+
+
