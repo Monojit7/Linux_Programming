@@ -1,0 +1,14 @@
+command to run:
+
+cd build/
+
+
+cmake ..
+
+
+make
+
+
+Note: In CMakeLists.txt 
+
+link_directories ( Better to provide absoulte path here )
