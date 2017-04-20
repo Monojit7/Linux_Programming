@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/monojit/WindowsHostShared/Shared_Folder/Experiment/April/gitRepos/Linux_Programming/CMakeProject/StaticLibraryWithCMake/src/student.cpp
+stdio.h
+-
+

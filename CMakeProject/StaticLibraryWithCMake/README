@@ -1,0 +1,19 @@
+command to run:
+
+cd build
+
+## Below command to start the build from current directory by taking parent dir CMakeLists.txt
+
+cmake ..
+
+make 
+
+make install
+
+cd build/
+
+nm -C *.a
+
+Note: Only change to create static library from Dynamic is CMakeLists.txt below line
+
+add_library( Name Static ${SOURCES}

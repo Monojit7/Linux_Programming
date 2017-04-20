@@ -1,0 +1,2 @@
+/usr/bin/ar cr libHello_World.a  CMakeFiles/Hello_World.dir/src/student.cpp.o
+/usr/bin/ranlib libHello_World.a
