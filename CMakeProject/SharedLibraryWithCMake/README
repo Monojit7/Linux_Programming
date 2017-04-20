@@ -1,0 +1,11 @@
+command to run:
+
+cd build
+
+## Below command to start the build from current directory by taking parent dir CMakeLists.txt
+
+cmake ..
+
+make 
+
+make install
