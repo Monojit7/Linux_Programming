@@ -1,0 +1,7 @@
+constructor : String
+copying :Monojitobject to the new object 
+The string is : Monojit
+The string is : Monojit
+Changing the string from: Monojit toMark Zuckerburg
+The string is : Monojit
+The string is : Mark Zuckerburg
