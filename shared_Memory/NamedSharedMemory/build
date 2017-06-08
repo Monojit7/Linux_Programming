@@ -1,0 +1,5 @@
+#!/bin/sh
+
+g++ -ggdb consume*.cpp -o consumer -lrt
+
+g++ -ggdb produce*.cpp -o producer -lrt
