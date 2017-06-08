@@ -1,0 +1,623 @@
+{
+  "ccsFeaturePolicies": {
+    "promptPolicies": [
+      {
+        "messageCode": 0,
+        "commentMessageName": "avenue b initial auth",
+        "numberOfRetries": 10,
+        "promptSecondsAfterPowerOn": 10,
+        "onlyConsentPromptWhileNotDriving": false,
+        "userActions": [
+          {
+            "userAction": "affirmative",
+            "priority": 1,
+            "conditions": [
+              {
+                "entityType": 1,
+                "entityID": 1,
+                "commentEntityName": "Traffic",
+                "entityBitSetting": "bSAllowOnOff_True"
+              }
+            ],
+            "effects": [
+              {
+                "entityType": 0,
+                "entityID": 1,
+                "commentEntityName": "Vehicle Connectivity",
+                "action": "bUAllowOnOff_True"
+              },
+              {
+                "entityType": 0,
+                "entityID": 4,
+                "commentEntityName": "Location",
+                "action": "bUAllowOnOff_True"
+              },
+              {
+                "entityType": 0,
+                "entityID": 5,
+                "commentEntityName": "Vehicle Data",
+                "action": "bUAllowOnOff_True"
+              },
+              {
+                "entityType": 1,
+                "entityID": 1,
+                "commentEntityName": "Traffic",
+                "action": "bUAllowOnOff_True"
+              }
+            ]
+          },
+      {
+        "userAction": "affirmative",
+        "priority": 2,
+        "conditions": [
+          {
+            "entityType": 1,
+            "entityID": 1,
+            "commentEntityName": "Traffic",
+            "entityBitSetting": "bSAllowOnOff_False"
+          }
+        ],
+        "effects": [
+          {
+            "entityType": 0,
+            "entityID": 1,
+            "commentEntityName": "Vehicle Connectivity",
+            "action": "bUAllowOnOff_True"
+          },
+          {
+            "entityType": 0,
+            "entityID": 4,
+            "commentEntityName": "Location",
+            "action": "bUAllowOnOff_True"
+          },
+          {
+            "entityType": 0,
+            "entityID": 5,
+            "commentEntityName": "Vehicle Data",
+            "action": "bUAllowOnOff_True"
+          }
+        ]
+      }
+	  ]
+	  },
+      {
+        "messageCode": 1,
+        "commentMessageName": "avenue b final auth",
+        "userActions": [
+          {
+            "userAction": "affirmative",
+            "priority": 1,
+            "conditions": null,
+            "effects": null
+          }
+        ]
+      },
+      {
+        "messageCode": 2,
+        "commentMessageName": "avenue a",
+        "numberOfRetries": 10,
+        "promptSecondsAfterPowerOn": 10,
+        "onlyConsentPromptWhileNotDriving": false,
+        "userActions": [
+          {
+            "userAction": "affirmative",
+            "priority": 2,
+            "conditions": null,
+            "effects": [
+              {
+                "entityType": 0,
+                "entityID": 1,
+                "commentEntityName": "Vehicle Connectivity",
+                "action": "bUAllowOnOff_True"
+              }
+            ]
+          },
+          {
+            "userAction": "affirmativeWithCheckbox",
+			"priority": 1,
+            "conditions": null,
+            "effects": [
+              {
+                "entityType": 0,
+                "entityID": 1,
+                "commentEntityName": "Vehicle Connectivity",
+                "action": "bUAllowOnOff_True"
+              },
+			  {
+                "entityType": 0,
+                "entityID": 5,
+                "commentEntityName": "Vehicle Data",
+                "action": "bUAllowOnOff_True"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "messageCode": 3,
+        "commentMessageName": "avenue b w/o 24h wait",
+        "numberOfRetries": 10,
+        "promptSecondsAfterPowerOn": 10,
+        "onlyConsentPromptWhileNotDriving": false,
+        "userActions": [
+          {
+            "userAction": "affirmative",
+            "priority": 1,
+            "conditions": [
+              {
+                "entityType": 1,
+                "entityID": 1,
+                "commentEntityName": "Traffic",
+                "entityBitSetting": "bFAllowOnOff_True"
+              }
+            ],
+            "effects": [
+              {
+                "entityType": 0,
+                "entityID": 1,
+                "commentEntityName": "Vehicle Connectivity",
+                "action": "bUAllowOnOff_True"
+              },
+              {
+                "entityType": 0,
+                "entityID": 4,
+                "commentEntityName": "Location",
+                "action": "bUAllowOnOff_True"
+              },
+              {
+                "entityType": 0,
+                "entityID": 5,
+                "commentEntityName": "Vehicle Data",
+                "action": "bUAllowOnOff_True"
+              },
+              {
+                "entityType": 1,
+                "entityID": 1,
+                "commentEntityName": "Traffic",
+                "action": "bUAllowOnOff_True"
+              }
+            ]
+          },
+          {
+            "userAction": "affirmative",
+            "priority": 2,
+            "conditions": [
+              {
+                "entityType": 1,
+                "entityID": 1,
+                "commentEntityName": "Traffic",
+                "entityBitSetting": "bFAllowOnOff_False"
+              }
+            ],
+            "effects": [
+              {
+                "entityType": 0,
+                "entityID": 1,
+                "commentEntityName": "Vehicle Connectivity",
+                "action": "bUAllowOnOff_True"
+              },
+              {
+                "entityType": 0,
+                "entityID": 4,
+                "commentEntityName": "Location",
+                "action": "bUAllowOnOff_True"
+              },
+              {
+                "entityType": 0,
+                "entityID": 5,
+                "commentEntityName": "Vehicle Data",
+                "action": "bUAllowOnOff_True"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "regionDefinitions": [
+      {
+        "region": "EU",
+        "countries": [
+          "DE",
+          "UK",
+          "FR",
+          "CA",
+          "IT"
+        ]
+      },
+      {
+        "region": "NA",
+        "countries": [
+          "US",
+          "MX"
+        ]
+      },
+      {
+        "region": "APA",
+        "countries": [
+          "CZ"
+        ]
+      }
+    ],
+    "controllingEntities": [
+      {
+        "priority": 1,
+        "conditions": [
+          {
+            "entityType": 0,
+            "entityID": 1,
+            "commentEntityName": "Vehicle Connectivity",
+            "entityBitSetting": "bUAllowOnOff_False"
+          }
+        ],
+        "effects": [
+          {
+            "entityType": 1,
+            "entityID": 1,
+            "commentEntityName": "Traffic",
+            "action": "unselectable_switch"
+          },
+          {
+            "entityType": 0,
+            "entityID": 4,
+            "commentEntityName": "Location",
+            "action": "unselectable_switch"
+          },
+          {
+            "entityType": 0,
+            "entityID": 5,
+            "commentEntityName": "Vehicle Data",
+            "action": "unselectable_switch"
+          }
+        ]
+      },
+      {
+        "priority": 2,
+        "conditions": [
+          {
+            "entityType": 0,
+            "entityID": 4,
+            "commentEntityName": "Location",
+            "entityBitSetting": "bUAllowOnOff_False"
+          }
+        ],
+        "effects": [
+          {
+            "entityType": 1,
+            "entityID": 1,
+            "commentEntityName": "Traffic",
+            "action": "unselectable_switch"
+          }
+        ]
+      }
+    ],
+    "menuPolicies": [
+      {
+        "priority": 4,
+        "regions": [
+          "default"
+        ],
+        "conditions": [
+          {
+            "entityType": 0,
+            "entityID": 2,
+            "commentEntityName": "User Authorization Pending",
+            "entityBitSetting": "bPAllowOnOff_False"
+          },
+          {
+            "entityType": 0,
+            "entityID": 3,
+            "commentEntityName": "TCU Authorized",
+            "entityBitSetting": "bPAllowOnOff_False"
+          }
+        ],
+        "messageCodeReference": "partialActivationMessageCode",
+        "showInMenu": [
+          {
+            "sequence": 1,
+            "entityType": 0,
+            "entityID": 1,
+            "commentEntityName": "Vehicle Connectivity"
+          },
+          {
+            "sequence": 2,
+            "entityType": 0,
+            "entityID": 5,
+            "commentEntityName": "Vehicle Data"
+          }
+        ]
+      },
+      {
+        "priority": 3,
+        "regions": [
+          "EU",
+		  "NA",
+          "APA"
+        ],
+        "conditions": [
+          {
+            "entityType": 0,
+            "entityID": 2,
+            "commentEntityName": "User Authorization Pending",
+            "entityBitSetting": "bPAllowOnOff_True"
+          }
+        ],
+        "messageCodeReference": "fullAuthMessageCode",
+        "showInMenu": [
+          {
+            "sequence": 1,
+            "entityType": 0,
+            "entityID": 1,
+            "commentEntityName": "Vehicle Connectivity"
+          },
+          {
+            "sequence": 2,
+            "entityType": 0,
+            "entityID": 4,
+            "commentEntityName": "Location"
+          },
+          {
+            "sequence": 3,
+            "entityType": 0,
+            "entityID": 5,
+            "commentEntityName": "Vehicle Data"
+          },
+          {
+            "sequence": 4,
+            "entityType": 1,
+            "entityID": 1,
+            "commentEntityName": "Traffic"
+          }
+        ]
+      },
+      {
+        "priority": 2,
+        "regions": [
+          "EU",
+		  "NA",
+          "APA"
+        ],
+        "conditions": [
+          {
+            "entityType": 0,
+            "entityID": 3,
+            "commentEntityName": "TCU Authorized",
+            "entityBitSetting": "bPAllowOnOff_True"
+          }
+        ],
+		"messageCodeReference": "fullAuthMessageCode",
+        "showInMenu": [
+          {
+            "sequence": 1,
+            "entityType": 0,
+            "entityID": 1,
+            "commentEntityName": "Vehicle Connectivity"
+          },
+          {
+            "sequence": 2,
+            "entityType": 0,
+            "entityID": 4,
+            "commentEntityName": "Location"
+          },
+          {
+            "sequence": 3,
+            "entityType": 0,
+            "entityID": 5,
+            "commentEntityName": "Vehicle Data"
+          },
+          {
+            "sequence": 4,
+            "entityType": 1,
+            "entityID": 1,
+            "commentEntityName": "Traffic"
+          }
+        ]
+      },
+      {
+        "priority": 1,
+        "regions": [
+          "default"
+        ],
+        "conditions": [
+          {
+            "entityType": 1,
+            "entityID": 2,
+            "commentEntityName": "Fleet",
+            "entityBitSetting": "bSAllowOnOff_True"
+          }
+        ],
+		"messageCodeReference": "fullAuthMessageCode",
+        "showInMenu": [
+          {
+            "sequence": 1,
+            "entityType": 1,
+            "entityID": 2,
+            "commentEntityName": "Fleet"
+          },
+          {
+            "sequence": 2,
+            "entityType": 1,
+            "entityID": 1,
+            "commentEntityName": "Traffic"
+          }
+        ]
+      }
+    ],
+    "iconRules": [
+            {
+        "priority": 4,
+        "conditions": [
+		  {
+            "entityType": 1,
+            "entityID": 2,
+            "commentEntityName": "Fleet",
+            "entityBitSetting": "bSAllowOnOff_True"
+          }
+        ],
+        "messageCode": 8,
+        "commentMessageName": "Fleet"
+      },
+	  {
+        "priority": 1,
+        "conditions": [
+          {
+            "entityType": 0,
+            "entityID": 1,
+            "commentEntityName": "Vehicle Connectivity",
+            "entityBitSetting": "bUAllowOnOff_True"
+          },
+          {
+            "entityType": 0,
+            "entityID": 4,
+            "commentEntityName": "Location",
+            "entityBitSetting": "bUAllowOnOff_True"
+          },
+          {
+            "entityType": 0,
+            "entityID": 5,
+            "commentEntityName": "Vehicle Data",
+            "entityBitSetting": "bUAllowOnOff_True"
+          },
+		  {
+            "entityType": 1,
+            "entityID": 2,
+            "commentEntityName": "Fleet",
+            "entityBitSetting": "bSAllowOnOff_False"
+          }
+        ],
+        "messageCode": 5,
+        "commentMessageName": "Vehicle Data & Remote Ctrl"
+      },
+      {
+        "priority": 2,
+        "conditions": [
+          {
+            "entityType": 0,
+            "entityID": 1,
+            "commentEntityName": "Vehicle Connectivity",
+            "entityBitSetting": "bUAllowOnOff_True"
+          },
+          {
+            "entityType": 0,
+            "entityID": 5,
+            "commentEntityName": "Vehicle Data",
+            "entityBitSetting": "bUAllowOnOff_False"
+          },
+          {
+            "entityType": 0,
+            "entityID": 4,
+            "commentEntityName": "Location",
+            "entityBitSetting": "bUAllowOnOff_True"
+          },
+		   {
+            "entityType": 1,
+            "entityID": 2,
+            "commentEntityName": "Fleet",
+            "entityBitSetting": "bSAllowOnOff_False"
+          }
+        ],
+        "messageCode": 6,
+        "commentMessageName": "Location"
+      },
+      {
+        "priority": 3,
+        "conditions": [
+          {
+            "entityType": 0,
+            "entityID": 1,
+            "commentEntityName": "Vehicle Connectivity",
+            "entityBitSetting": "bUAllowOnOff_True"
+          },
+          {
+            "entityType": 0,
+            "entityID": 4,
+            "commentEntityName": "Location",
+            "entityBitSetting": "bUAllowOnOff_False"
+          },
+          {
+            "entityType": 0,
+            "entityID": 5,
+            "commentEntityName": "Vehicle Data",
+            "entityBitSetting": "bUAllowOnOff_True"
+          },
+		   {
+            "entityType": 1,
+            "entityID": 2,
+            "commentEntityName": "Fleet",
+            "entityBitSetting": "bSAllowOnOff_False"
+          }
+        ],
+        "messageCode": 4,
+        "commentMessageName": "Vehicle Data"
+      }
+    ],
+    "featurePolicies": [
+      {
+        "entityType": 0,
+        "entityID": 1,
+        "commentEntityName": "Vehicle Connectivity",
+        "userConsentRequired": true,
+        "optInSwitch": true,
+        "infoBookIcon": true,
+        "fullAuthMessageCode": 0,
+        "commentFullAuthMessageName": "initial full authorization",
+        "partialActivationMessageCode": 2,
+        "commentPartialActivationMessageName": "Avenue A partial activation"
+      },
+      {
+        "entityType": 1,
+        "entityID": 1,
+        "commentEntityName": "Traffic",
+        "userConsentRequired": true,
+        "optInSwitch": true,
+        "infoBookIcon": true,
+        "fullAuthMessageCode": 7,
+        "commentFullAuthMessageName": "Traffic",
+        "partialActivationMessageCode": null,
+        "commentPartialActivationMessageName": null
+      },
+      {
+        "entityType": 0,
+        "entityID": 5,
+        "commentEntityName": "Vehicle Data",
+        "userConsentRequired": true,
+        "fullAuthMessageCode": 5,
+        "commentFullAuthMessageName": "Vehicle Data and Remote Control ave B",
+        "partialActivationMessageCode": 4,
+        "commentPartialActivationMessageName": "Vehicle Data ave A",
+        "optInSwitch": true,
+        "infoBookIcon": true
+      },
+      {
+        "entityType": 0,
+        "entityID": 4,
+        "commentEntityName": "Location",
+        "userConsentRequired": true,
+        "fullAuthMessageCode": 6,
+        "commentFullAuthMessageName": "Location Sharing",
+        "partialActivationMessageCode": null,
+        "commentPartialActivationMessageName": null,
+        "optInSwitch": true,
+        "infoBookIcon": true
+      },
+      {
+        "entityType": 1,
+        "entityID": 2,
+        "commentEntityName": "Fleet",
+        "userConsentRequired": false,
+        "fullAuthMessageCode": 8,
+        "commentFullAuthMessageName": "Fleet",
+        "partialActivationMessageCode": null,
+        "commentPartialActivationMessageName": null,
+        "optInSwitch": false,
+        "infoBookIcon": true
+      }
+    ],
+    "featureSubscriptions": [
+      {
+        "entityType": 1,
+        "entityID": 1,
+        "subscriptionExpirationDate": "2015-10-09T18:07:21Z"
+      }
+    ]
+  }
+}

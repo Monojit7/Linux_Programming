@@ -1,0 +1,2 @@
+/home/yoctoadm/work/FORDSDK/Ford-SDK-17155/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-ar cq libCCOIPresCtrl_ccoipresctrl_types_static_stub.a  CMakeFiles/CCOIPresCtrl_ccoipresctrl_types_static_stub.dir/provides/v2/com/harman/voice/CCOIPresCtrlStubDefault.cpp.o
+/home/yoctoadm/work/FORDSDK/Ford-SDK-17155/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-ranlib libCCOIPresCtrl_ccoipresctrl_types_static_stub.a

@@ -1,0 +1,7 @@
+/home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build/CMakeFiles/target.dir
+/home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build/CMakeFiles/cleanall.dir
+/home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build/CMakeFiles/compile.dir
+/home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build/src/CMakeFiles/CCOIPresCtrl.dir
+/home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build/gen/CMakeFiles/CCOIPresCtrl-dbus.dir
+/home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build/src-gen/CMakeFiles/CCOIPresCtrl_ccoipresctrl_types_static_stub.dir
+/home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build/CMakeFiles/generate.dir

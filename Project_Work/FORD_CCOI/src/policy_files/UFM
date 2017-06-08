@@ -1,0 +1,956 @@
+{
+	"consumer_friendly_messages": {
+		"messageCode": {
+			"100": {
+				"displaySize": {
+					"largeDisplay": {
+						"languages": {
+							"en-gb": {
+								"promptType": {
+									"ford_app": {
+										"textBody": "FordPass"
+									},
+									"lincoln_app": {
+										"textBody": "LincolnWay"
+									},
+									"ford_brand": {
+										"textBody": "Ford"
+									},
+									"lincoln_brand": {
+										"textBody": "Lincoln"
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"0": {
+				"comment": "avenue b initial auth",
+				"displaySize": {
+					"largeDisplay": {
+						"languages": {
+							"en-gb": {
+								"promptType": {
+									"initialPrompt": {
+										"textBody": "Confirm %appName% Connection? \r\n\r\n Please confirm the association of this vehicle to %elementName%’s %appName% account. \r\n\r\n See %appName% for details on what data is sent and how it is used. You can customize your preferences in Settings.",
+										"button1ConfirmationText": null,
+										"button2ConfirmationText": "You have chosen to not associate this vehicle with your %appName% account. No remote vehicle features or services will be available. \r\n\r\n Certain system software updates may be possible through other connections, like Wi-Fi. Data charges may apply. See the Automatic System Update Setting and your Owner's Manual for more details.",
+										"infoText": "Please see connectivity settings for more information.",
+										"line1": null,
+										"line1_checkbox_vis": false,
+										"line1_checkbox_default_checked": null,
+										"infoIcon_vis": false
+									},
+									"menuConsentPrompt": {
+										"textBody": "Enable your vehicle’s data connection for automatic system software updates and other connected vehicle features and services like %appName% remote vehicle functions.",
+										"confirmation_off_plusIVSU": "System updates are in progress. Disabling your vehicle’s data connection will affect its ability to continue to stay up-to-date with %vehicleMake% system software updates and disable other connected vehicle features and functions, including those found in this menu. See your Owner's Manual for more details.",
+										"confirmation_off": "Disabling your vehicle’s data connection will affect its ability to continue to stay up-to-date with %vehicleMake% system software updates and disable other connected vehicle features and functions, including those found in this menu. See your Owner's Manual for more details."
+									},
+									"menu": {
+										"settingsMenuText": "Vehicle Connectivity",
+										"infoText": "Enabling connectivity will associate this vehicle to a %appName% account and use the vehicle’s data connection for features, services and for automatic downloads of the latest available system software updates. \r\n\r\n Disabling will impact other connected vehicle features and functions, including those found in this menu. See %appName% and Owner’s Manual for details.",
+										"infoTextNotSubscribed": null
+									}
+								}
+							},
+							"cz-cz": {
+								"promptType": {
+									"initialPrompt": {
+										"textBody": "确认%appName% 连接？ \r\n\r\n 请确认是否将您的车辆连接至 %elementName% 的 %appName% 账号。 \r\n\r\n 请查看%appName%了解数据传输详情，您可以随时在系统设置中打开或关闭此功能。",
+										"button1ConfirmationText": null,
+										"button2ConfirmationText": "您已拒绝将车辆与您的%appName%账号进行连接， 车辆远程遥控功能将无法使用。 \r\n\r\n 某些系统软件需要连接WiFi才能更新，同时可能产生流量费用。详情请查看”自动更新系统“说明和用户手册。",
+										"infoText": "请查看连接设置获取更多信息。",
+										"line1": null,
+										"line1_checkbox_vis": false,
+										"line1_checkbox_default_checked": null,
+										"infoIcon_vis": false
+									},
+									"menuConsentPrompt": {
+										"textBody": "启用您的车辆数据传输功能以获取自动系统更新和其他车载服务，例如%appName%的远程车辆遥控功能。",
+										"confirmation_off_plusIVSU": "系统正在更新。禁用您的车辆数据连接将无法更新%vehicleMake%的系统软件，同时会禁用菜单中其他相关功能。详情请查看用户手册。",
+										"confirmation_off": "禁用您的车辆数据连接功能会影响%vehicleMake%系统软件更新及菜单中其他相关功能。请查看用户手册了解详情。"
+									},
+									"menu": {
+										"settingsMenuText": "车辆连接",
+										"infoText": "启用连接后会将车辆与%appName%账号进行关联并使用车辆的数据连接服务和功能，并自动下载和更新至最新的系统软件版本。 \r\n\r\n 禁用后会影响菜单内其他相关功能。详情请查看%appName%和用户手册。",
+										"infoTextNotSubscribed": null
+									}
+								}
+							}
+						}
+					},
+					"smallDisplay": {
+						"languages": {
+							"en-gb": {
+								"promptType": {
+									"initialPrompt": {
+										"textBody": "Confirm %appName% Connection? \r\n\r\n Please confirm the association of this vehicle to %elementName%’s %appName% account. \r\n\r\n Click on the Info button for details on what data is sent and how it is used. You can customize your preferences in Settings.",
+										"button1ConfirmationText": "",
+										"button2ConfirmationText": "You have chosen to not associate this vehicle with your %appName% account. No remote vehicle features or services will be available. \r\n\r\n Certain system software updates may be possible through other connections, like Wi-Fi. Data charges may apply. See the Automatic System Update Setting and your Owner's Manual for more details.",
+										"infoText": "Please see connectivity settings for more information.",
+										"line1": null,
+										"line1_checkbox_vis": false,
+										"line1_checkbox_default_checked": null,
+										"infoIcon_vis": false
+									},
+									"menuConsentPrompt": {
+										"textBody": "Enable your vehicle’s data connection for automatic system software updates and other connected vehicle features and services like %appName% remote vehicle functions.",
+										"confirmation_off_plusIVSU": "System updates are in progress. Disabling your vehicle’s data connection will affect its ability to continue to stay up-to-date with %vehicleMake% system software updates and disable other connected vehicle features and functions, including those found in this menu. See your Owner's Manual for feature impact.",
+										"confirmation_off": "Disabling your vehicle’s data connection will affect its ability to continue to stay up-to-date with %vehicleMake% system software updates and disable other connected vehicle features and functions, including those found in this menu. See your owner's manual for feature impact."
+									},
+									"menu": {
+										"settingsMenuText": "Vehicle Connectivity",
+										"infoText": "Enabling connectivity will associate this vehicle to a %appName% account and use the vehicle’s data connection for features, services and for automatic downloads of the latest available system software updates. \r\n\r\n Disabling will impact other connected vehicle features and functions, including those found in this menu. See %appName% and Owner’s Manual for details.",
+										"infoTextNotSubscribed": null
+									}
+								}
+							},
+							"cz-cz": {
+								"promptType": {
+									"initialPrompt": {
+										"textBody": "确认%appName% 连接？ \r\n\r\n 请确认是否将您的车辆连接至 %elementName% 的 %appName% 账号。 \r\n\r\n 请查看%appName%了解数据传输详情，您可以随时在系统设置中打开或关闭此功能。",
+										"button1ConfirmationText": null,
+										"button2ConfirmationText": "您已拒绝将车辆与您的%appName%账号进行连接， 车辆远程遥控功能将无法使用。 \r\n\r\n 某些系统软件需要连接WiFi才能更新，同时可能产生流量费用。详情请查看”自动更新系统“说明和用户手册。",
+										"infoText": "请查看连接设置获取更多信息。",
+										"line1": null,
+										"line1_checkbox_vis": false,
+										"line1_checkbox_default_checked": null,
+										"infoIcon_vis": false
+									},
+									"menuConsentPrompt": {
+										"textBody": "启用您的车辆数据传输功能以获取自动系统更新和其他车载服务，例如%appName%的远程车辆遥控功能。",
+										"confirmation_off_plusIVSU": "系统正在更新。禁用您的车辆数据连接将无法更新%vehicleMake%的系统软件，同时会禁用菜单中其他相关功能。详情请查看用户手册。",
+										"confirmation_off": "禁用您的车辆数据连接功能会影响%vehicleMake%系统软件更新及菜单中其他相关功能。请查看用户手册了解详情。"
+									},
+									"menu": {
+										"settingsMenuText": "车辆连接",
+										"infoText": "启用连接后会将车辆与%appName%账号进行关联并使用车辆的数据连接服务和功能，并自动下载和更新至最新的系统软件版本。 \r\n\r\n 禁用后会影响菜单内其他相关功能。详情请查看%appName%和用户手册。",
+										"infoTextNotSubscribed": null
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"1": {
+				"comment": "avenue b final auth",
+				"displaySize": {
+					"largeDisplay": {
+						"languages": {
+							"en-gb": {
+								"promptType": {
+									"initialPrompt": {
+										"textBody": "This is a confirmation of this vehicle's authorization with your %appName% account. Location services are now enabled on the app.",
+										"button1ConfirmationText": "",
+										"button2ConfirmationText": "",
+										"infoText": "",
+										"line1": null,
+										"line1_checkbox_vis": false,
+										"line1_checkbox_default_checked": false,
+										"infoIcon_vis": false
+									}
+								}
+							},
+							"cz-cz": {
+								"promptType": {
+									"initialPrompt": {
+										"textBody": "您的车辆已获取授权并与您的%appName%账号建立连接。应用中已启用位置服务。",
+										"button1ConfirmationText": "",
+										"button2ConfirmationText": "",
+										"infoText": "",
+										"line1": null,
+										"line1_checkbox_vis": false,
+										"line1_checkbox_default_checked": false,
+										"infoIcon_vis": false
+									}
+								}
+							}
+						}
+					},
+					"smallDisplay": {
+						"languages": {
+							"en-gb": {
+								"promptType": {
+									"initialPrompt": {
+										"textBody": "This is a confirmation of this vehicle's authorization with your %appName% account. Location services are now enabled on the app.",
+										"button1ConfirmationText": "",
+										"button2ConfirmationText": "",
+										"infoText": "",
+										"line1": null,
+										"line1_checkbox_vis": false,
+										"line1_checkbox_default_checked": false,
+										"infoIcon_vis": false
+									}
+								}
+							},
+							"cz-cz": {
+								"promptType": {
+									"initialPrompt": {
+										"textBody": "您的车辆已获取授权并与您的%appName%账号建立连接。应用中已启用位置服务。",
+										"button1ConfirmationText": "",
+										"button2ConfirmationText": "",
+										"infoText": "",
+										"line1": null,
+										"line1_checkbox_vis": false,
+										"line1_checkbox_default_checked": false,
+										"infoIcon_vis": false
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"2": {
+				"comment": "avenue a",
+				"displaySize": {
+					"largeDisplay": {
+						"languages": {
+							"en-gb": {
+								"promptType": {
+									"initialPrompt": {
+										"textBody": "Welcome to your Connected Car! \r\n\r\n Get the benefits of automatic system updates and remote diagnostics through the power of your connected car. \r\n\r\n Click on the Info button for details on what data is sent and how it is used. You can customize your preferences at any time in Settings. \r\n\r\n Connect my car?",
+										"button1ConfirmationText": "Take full advantage of all your connected car has to offer with the %appName% App! \r\n\r\nTo download and for more information on compatibility, go to your app store today.",
+										"button2ConfirmationText": "Not enabling your vehicle’s data connection will affect its ability to download system updates. \r\n\r\n Certain updates may be possible through Wi-Fi. See the Automatic system updates setting for more details. \r\n\r\n You can customize your preferences any time in Settings.",
+										"infoText": "Connected car data helps us provide you with benefits and exciting services and keeps you current with the latest features, enhancements and security updates. Connected car data includes information like: \r\n - status, performance, and diagnostics of vehicle systems (e.g. trouble codes and warning lights, fuel consumption, tire pressure) \r\n - data on how you use and interact with your vehicle (like acceleration, seat belt status, braking, speed) \r\n Data collected will also be anonymized after collection and may be used for insights and improvements in areas like safety, warranty and maintenance, and the development of new features, services and offers for our customers. See your Owner’s Manual for more details.",
+										"line1": null,
+										"line1_checkbox_vis": false,
+										"line1_checkbox_default_checked": true,
+										"infoIcon_vis": true
+									},
+									"menuConsentPrompt": {
+										"textBody": "Enable your vehicle’s data connection to stay up-to-date with %vehicleMake% system software updates?",
+										"confirmation_off_plusIVSU": "System updates are in progress. Disabling your vehicle’s data connection will affect its ability to continue to stay up-to-date with %vehicleMake% system software updates. See your Owner's Manual for details.",
+										"confirmation_off": "Disabling your vehicle’s data connection will affect its ability to stay up-to-date with %vehicleMake% system software updates. See your Owner's Manual for details."
+									},
+									"menu": {
+										"settingsMenuText": "Vehicle Connectivity",
+										"infoText": "Keep your vehicle connected using its data connection to stay current and automatically get the latest available system software features, enhancements, and security updates. Vehicle information needed to perform the update will be sent to %vehicleMake% U.S. See your Owner’s Manual for more details.",
+										"infoTextNotSubscribed": null
+									}
+								}
+							},
+							"en-us": {
+								"promptType": {
+									"initialPrompt": {
+										"textBody": "Welcome to your Connected Car! \r\n\r\n Get the benefits of automatic system updates and remote diagnostics through the power of your connected car. \r\n\r\n Click on the Info button for details on what data is sent and how it is used. You can customize your preferences at any time in Settings. \r\n\r\n Connect my car?",
+										"button1ConfirmationText": "Take full advantage of all your connected car has to offer with the %appName% App! \r\n\r\nTo download and for more information on compatibility, go to your app store today.",
+										"button2ConfirmationText": "Not enabling your vehicle’s data connection will affect its ability to download system updates. \r\n\r\n Certain updates may be possible through Wi-Fi. See the Automatic system updates setting for more details. \r\n\r\n You can customize your preferences any time in Settings.",
+										"infoText": "Connected car data helps us provide you with benefits and exciting services and keeps you current with the latest features, enhancements and security updates. Connected car data includes information like: \r\n - status, performance, and diagnostics of vehicle systems (e.g. trouble codes and warning lights, fuel consumption, tire pressure) \r\n - data on how you use and interact with your vehicle (like acceleration, seat belt status, braking, speed) \r\n %vehicleMake% will also use connected car data for insights and improvements in areas like safety, warranty and maintenance, and the development of new features, services and offers for our customers. See your Owner’s Manual for more details.",
+										"line1": null,
+										"line1_checkbox_vis": false,
+										"line1_checkbox_default_checked": null,
+										"infoIcon_vis": true
+									},
+									"menuConsentPrompt": {
+										"textBody": "Enable your vehicle’s data connection to stay up-to-date with %vehicleMake% system software updates?",
+										"confirmation_off_plusIVSU": "System updates are in progress. Disabling your vehicle’s data connection will affect its ability to continue to stay up-to-date with %vehicleMake% system software updates. See your Owner's Manual for details.",
+										"confirmation_off": "Disabling your vehicle’s data connection will affect its ability to stay up-to-date with %vehicleMake% system software updates. See your Owner's Manual for details."
+									},
+									"menu": {
+										"settingsMenuText": "Vehicle Connectivity",
+										"infoText": "Keep your vehicle connected using its data connection to stay current and automatically get the latest available system software features, enhancements, and security updates. Vehicle information needed to perform the update will be sent to %vehicleMake% U.S. See your Owner’s Manual for more details.",
+										"infoTextNotSubscribed": null
+									}
+								}
+							},
+							"cz-cz": {
+								"promptType": {
+									"initialPrompt": {
+										"textBody": "欢迎使用福特车联！\r\n\r\n 通过连接车辆，您可以获取自动系统软件更新和远程诊断功能。 \r\n\r\n 点击信息按钮查看如何传输和使用车辆数据。您可以随时在设置中自定义此功能。",
+										"button1ConfirmationText": "连接至%appName%开启您车辆的所有服务！ \r\n\r\n 请至您的应用商店下载并了解详情。",
+										"button2ConfirmationText": "禁用车辆数据连接会导致无法下载更新系统软件。\r\n\r\n 系统更新可能需要使用WiFI连接。请查看自动系统更新获取更多信息。 \r\n\r\n 您可以随时在设置中自定义此功能。",
+										"infoText": "车辆数据将帮助福特会为用户提供更好的服务，包括保持现有功能更新强化，提升服务质量和增强安全性。车辆数据包括信息如： \r\n - 车辆系统状态、性能和诊断数据（例如：错误代码和警示灯，耗油量，胎压） \r\n - 您使用车辆时的偏好数据（例如车辆加速度， 安全太状态，刹车情况，车辆速度） \r\n 数据会以匿名形式收集，用于分析和提升车辆安全性、保修和维护等领域，以及为客户开发新的功能和服务。查看您的用户手册了解更多信息。",
+										"line1": null,
+										"line1_checkbox_vis": false,
+										"line1_checkbox_default_checked": true,
+										"infoIcon_vis": true
+									},
+									"menuConsentPrompt": {
+										"textBody": "是否启用您的车辆数据连接以确保获取最新的%vehicleMake%系统软件更新？",
+										"confirmation_off_plusIVSU": "系统正在更新。禁用车辆数据连接将会影响您的%vehicleMake%系统软件更新。请查看用户手册了解详情。",
+										"confirmation_off": "禁用您的车辆数据连接功能会影响%vehicleMake%系统更新。请查看用户手册了解详情。"
+									},
+									"menu": {
+										"settingsMenuText": "车辆连接",
+										"infoText": "保持车辆连接以接收最新的车辆系统软件功能，增强和安全更新。执行更新所需的特定车辆信息将发送到美国%vehicleMake%。请查看用户手册了解详情。",
+										"infoTextNotSubscribed": null
+									}
+								}
+							}
+						}
+					},
+					"smallDisplay": {
+						"languages": {
+							"en-gb": {
+								"promptType": {
+									"initialPrompt": {
+										"textBody": "Welcome to your Connected Car! \r\n\r\n Get the benefits of automatic system updates and remote diagnostics through the power of your connected car. \r\n\r\n Click on the Info button for details on what data is sent and how it is used. You can customize your preferences at any time in Settings. \r\n\r\n Connect my car?",
+										"button1ConfirmationText": "Take full advantage of all your connected car has to offer with the %appName% App! \r\n\r\nTo download and for more information on compatibility, go to your app store today.",
+										"button2ConfirmationText": "Not enabling your vehicle’s data connection will affect its ability to download system updates. \r\n\r\n Certain updates may be possible through Wi-Fi. See the Automatic system updates setting for more details. \r\n\r\n You can customize your preferences any time in Settings.",
+										"infoText": "Connected car data helps us provide you with benefits and exciting services and keeps you current with the latest features, enhancements and security updates. Connected car data includes information like: \r\n - status, performance, and diagnostics of vehicle systems (e.g. trouble codes and warning lights, fuel consumption, tire pressure) \r\n - data on how you use and interact with your vehicle (like acceleration, seat belt status, braking, speed) \r\n Data collected will also be anonymized after collection and may be used for insights and improvements in areas like safety, warranty and maintenance, and the development of new features, services and offers for our customers. See your Owner’s Manual for more details.",
+										"line1": null,
+										"line1_checkbox_vis": false,
+										"line1_checkbox_default_checked": true,
+										"infoIcon_vis": true
+									},
+									"menuConsentPrompt": {
+										"textBody": "Enable your vehicle’s data connection to stay up-to-date with %vehicleMake% system software updates?",
+										"confirmation_off_plusIVSU": "System updates are in progress. Disabling your vehicle’s data connection will affect its ability to continue to stay up-to-date with %vehicleMake% system software updates. See your Owner's Manual for details.",
+										"confirmation_off": "Disabling your vehicle’s data connection will affect its ability to stay up-to-date with %vehicleMake% system software updates. See your Owner's Manual for details."
+									},
+									"menu": {
+										"settingsMenuText": "Vehicle Connectivity",
+										"infoText": "Keep your vehicle connected using its data connection to stay current and automatically get the latest available system software features, enhancements, and security updates. Vehicle information needed to perform the update will be sent to %vehicleMake% U.S. See your Owner’s Manual for more details.",
+										"infoTextNotSubscribed": null
+									}
+								}
+							},
+							"en-us": {
+								"promptType": {
+									"initialPrompt": {
+										"textBody": "Welcome to your Connected Car! \r\n\r\n Get the benefits of automatic system updates and remote diagnostics through the power of your connected car. \r\n\r\n Click on the Info button for details on what data is sent and how it is used. You can customize your preferences at any time in Settings. \r\n\r\n Connect my car?",
+										"button1ConfirmationText": "Take full advantage of all your connected car has to offer with the %appName% App! \r\n\r\nTo download and for more information on compatibility, go to your app store today.",
+										"button2ConfirmationText": "Not enabling your vehicle’s data connection will affect its ability to download system updates. \r\n\r\n Certain updates may be possible through Wi-Fi. See the Automatic system updates setting for more details. \r\n\r\n You can customize your preferences any time in Settings.",
+										"infoText": "Connected car data helps us provide you with benefits and exciting services and keeps you current with the latest features, enhancements and security updates. Connected car data includes information like: \r\n - status, performance, and diagnostics of vehicle systems (e.g. trouble codes and warning lights, fuel consumption, tire pressure) \r\n - data on how you use and interact with your vehicle (like acceleration, seat belt status, braking, speed) \r\n %vehicleMake% will also use connected car data for insights and improvements in areas like safety, warranty and maintenance, and the development of new features, services and offers for our customers. See your Owner’s Manual for more details.",
+										"line1": null,
+										"line1_checkbox_vis": false,
+										"line1_checkbox_default_checked": null,
+										"infoIcon_vis": true
+									},
+									"menuConsentPrompt": {
+										"textBody": "Enable your vehicle’s data connection to stay up-to-date with %vehicleMake% system software updates?",
+										"confirmation_off_plusIVSU": "System updates are in progress. Disabling your vehicle’s data connection will affect its ability to continue to stay up-to-date with %vehicleMake% system software updates. See your Owner's Manual for details.",
+										"confirmation_off": "Disabling your vehicle’s data connection will affect its ability to stay up-to-date with %vehicleMake% system software updates. See your Owner's Manual for details."
+									},
+									"menu": {
+										"settingsMenuText": "Vehicle Connectivity",
+										"infoText": "Keep your vehicle connected using its data connection to stay current and automatically get the latest available system software features, enhancements, and security updates. Vehicle information needed to perform the update will be sent to %vehicleMake% U.S. See your Owner’s Manual for more details.",
+										"infoTextNotSubscribed": null
+									}
+								}
+							},
+							"cz-cz": {
+								"promptType": {
+									"initialPrompt": {
+										"textBody": "欢迎使用福特车联！\r\n\r\n 通过连接车辆，您可以获取自动系统软件更新和远程诊断功能。 \r\n\r\n 点击信息按钮查看如何传输和使用车辆数据。您可以随时在设置中自定义此功能。",
+										"button1ConfirmationText": "连接至%appName%开启您车辆的所有服务！ \r\n\r\n 请至您的应用商店下载并了解详情。",
+										"button2ConfirmationText": "禁用车辆数据连接会导致无法下载更新系统软件。\r\n\r\n 系统更新可能需要使用WiFI连接。请查看自动系统更新获取更多信息。 \r\n\r\n 您可以随时在设置中自定义此功能。",
+										"infoText": "车辆数据将帮助福特会为用户提供更好的服务，包括保持现有功能更新强化，提升服务质量和增强安全性。车辆数据包括信息如： \r\n - 车辆系统状态、性能和诊断数据（例如：错误代码和警示灯，耗油量，胎压） \r\n - 您使用车辆时的偏好数据（例如车辆加速度， 安全太状态，刹车情况，车辆速度） \r\n 数据会以匿名形式收集，用于分析和提升车辆安全性、保修和维护等领域，以及为客户开发新的功能和服务。查看您的用户手册了解更多信息。",
+										"line1": null,
+										"line1_checkbox_vis": false,
+										"line1_checkbox_default_checked": true,
+										"infoIcon_vis": true
+									},
+									"menuConsentPrompt": {
+										"textBody": "是否启用您的车辆数据连接以确保获取最新的%vehicleMake%系统软件更新？",
+										"confirmation_off_plusIVSU": "系统正在更新。禁用车辆数据连接将会影响您的%vehicleMake%系统软件更新。请查看用户手册了解详情。",
+										"confirmation_off": "禁用您的车辆数据连接功能会影响%vehicleMake%系统更新。请查看用户手册了解详情。"
+									},
+									"menu": {
+										"settingsMenuText": "车辆连接",
+										"infoText": "保持车辆连接以接收最新的车辆系统软件功能，增强和安全更新。执行更新所需的特定车辆信息将发送到美国%vehicleMake%。请查看用户手册了解详情。",
+										"infoTextNotSubscribed": null
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"3": {
+				"comment": "avenue b w/o 24h wait",
+				"displaySize": {
+					"largeDisplay": {
+						"languages": {
+							"en-gb": {
+								"initialPrompt": {
+									"textBody": "Confirm %appName% Connection? \r\n\r\n Please confirm the association of this vehicle to %elementName%’s %appName% account. \r\n\r\n See %appName% for details on what data is sent and how it is used. You can customize your preferences in Settings.",
+									"button1ConfirmationText": "",
+									"button2ConfirmationText": "You have chosen to not associate this vehicle with your %appName% account. No remote vehicle features or services will be available. \r\n\r\n Certain system software updates may be possible through other connections, like Wi-Fi. Data charges may apply. See the Automatic System Update Setting and your Owner's Manual for more details.",
+									"infoText": "Associating this vehicle to your %appName% account enables vehicle connectivity and sends data, including location and use information, to %vehicleMake% for features and services.",
+									"line1": null,
+									"line1_checkbox_vis": false,
+									"line1_checkbox_default_checked": false,
+									"infoIcon_vis": true
+								},
+								"menuConsentPrompt": {
+									"textBody": "Enable your vehicle’s data connection for automatic system software updates and other connected vehicle features and services like %appName% remote vehicle functions.",
+									"confirmation_off_plusIVSU": "System updates are in progress. Disabling your vehicle’s data connection will affect its ability to continue to stay up-to-date with %vehicleMake% system software updates and disable other connected vehicle features and functions, including those found in this menu. See your Owner's Manual for more details.",
+									"confirmation_off": "System updates are in progress. Disabling your vehicle’s data connection will affect its ability to continue to stay up-to-date with %vehicleMake% system software updates and disable other connected vehicle features and functions, including those found in this menu. See your Owner's Manual for more details."
+								},
+								"menu": {
+									"settingsMenuText": "Vehicle Connectivity",
+									"infoText": "Enabling connectivity will associate this vehicle to a %appName% account and use the vehicle’s data connection for features, services and for automatic downloads of the latest available system software updates. \r\n\r\n Disabling will impact other connected vehicle features and functions, including those found in this menu. See %appName% and Owner’s Manual for details.",
+									"infoTextNotSubscribed": null
+								}
+							},
+							"cz-cz": {
+								"initialPrompt": {
+									"textBody": "是否连接%appName%？ \r\n 请确认是否将车辆与%elementName%的%appName%账号进行关联。 \r\n\r\n 请查看%appName%了解数据传输和使用情况。您可以在设置中随时开启或关闭此功能。",
+									"button1ConfirmationText": "",
+									"button2ConfirmationText": "您选择不将您的车辆关联至您的%appName%账号。车辆远程功能和服务将被禁用。 \r\n\r\n 某些系统软件需要连接WiFi才能更新，同时可能产生流量费用。请查看自动系统更新或用户手册了解详情。",
+									"infoText": "将车辆与您的%appName%关联后，将会启用车辆连接功能，发送车辆位置信息和用户信息至%vehicleMake%。",
+									"line1": null,
+									"line1_checkbox_vis": false,
+									"line1_checkbox_default_checked": false,
+									"infoIcon_vis": true
+								},
+								"menuConsentPrompt": {
+									"textBody": "启用您的车辆数据传输功能以获取自动系统更新和其他车载服务，例如%appName%的远程车辆遥控功能。",
+									"confirmation_off_plusIVSU": "系统正在更新。禁用您的车辆数据连接将无法更新%vehicleMake%的系统软件，同时会禁用菜单中其他相关功能。详情请查看用户手册。",
+									"confirmation_off": "禁用您的车辆数据连接功能会影响%vehicleMake%系统软件更新及菜单中其他相关功能。请查看用户手册了解详情。"
+								},
+								"menu": {
+									"settingsMenuText": "车辆连接",
+									"infoText": "启用连接后会将车辆与%appName%账号进行关联并使用车辆的数据连接服务和功能，并自动下载和更新至最新的系统软件版本。 \r\n\r\n 禁用后会影响菜单内其他相关功能。详情请查看%appName%和用户手册。",
+									"infoTextNotSubscribed": null
+								}
+							}
+						}
+					},
+					"smallDisplay": {
+						"languages": {
+							"en-gb": {
+								"promptType": {
+									"initialPrompt": {
+										"textBody": "Confirm %appName% Connection? \r\n\r\n Please confirm the association of this vehicle to %elementName%’s %appName% account, which will send vehicle data, including location and use information, and enable automatic vehicle system software updates. \r\n\r\n You may change your preferences any time in Settings.",
+										"button1ConfirmationText": "You may change your preferences any time in Settings. \r\n\r\n Certain system updates may be possible through a the %appName% App or Wi-Fi. Data charges may apply. See the Automatic System Update Setting and your Owners Manual for more details.",
+										"button2ConfirmationText": "You have chosen to not associate this vehicle with your %appName% account. No remote vehicle features will be available. \r\n\r\n Certain system software updates may be possible through the %appName% App or Wi-Fi. Data charges may apply. See the Automatic System Update Setting and your Owners Manual for more details. \r\n\r\n You may change your preferences any time in Settings.",
+										"infoText": "Confirming the connection will send vehicle data including location and use information such as driving characteristics for remote vehicle features, and allows the vehicle to automatically download the latest system software features, enhancements, and security updates. \r\n Certain updates may require additional steps through the %appName% App or Wi-Fi. Data charges may apply. \r\n See Automatic System Update Setting, Owners Manual and %appName% Terms and Privacy for more details.",
+										"line1": null,
+										"line1_checkbox_vis": false,
+										"line1_checkbox_default_checked": false,
+										"infoIcon_vis": true
+									},
+									"menuConsentPrompt": {
+										"textBody": "Enabling connectivity will associate this vehicle to the pending %appName% association request. See %appName% for details.",
+										"confirmation_off_plusIVSU": "System updates are in progress. %appName% remote control and other connected features will be disabled if vehicle conectivity is off.",
+										"confirmation_off": "Disabling will stop sending vehicle data, disable Remote Vehicle Features and will affect the vehicle's ability to download system software updates."
+									},
+									"menu": {
+										"settingsMenuText": "Vehicle Connectivity",
+										"infoText": "Enabling connectivity associates this vehicle to a %appName% account and uses the vehicle’s data connection to automatically get the latest available system software updates. \r\n\r\n Disabling will impact other connected vehicle features and functions, including those found in this menu. See %appName% and Owner’s Manual for details.",
+										"infoTextNotSubscribed": null
+									}
+								}
+							},
+							"cz-cz": {
+								"promptType": {
+									"initialPrompt": {
+										"textBody": "是否连接%appName%？ \r\n 请确认是否将车辆与%elementName%的%appName%账号进行关联，关联后将会上传车辆位置和使用信息等车辆数据，并且启用车辆自动系统更新功能。您可以随时在设置中开启或关闭此功能。",
+										"button1ConfirmationText": "您可以随时在设置中进行修改。 \r\n\r\n 系统更新可能需要通过%appName%应用或WiFi连接，可能产生流量费用。请查看自动系统更新或用户手册了解详情。",
+										"button2ConfirmationText": "您选择不将车辆与您的%appName%账号进行关联。远程车辆功能将被禁用。 \r\n\r\n 系统更新可能需要通过%appName%应用或WiFi连接，可能产生流量费用。请查看自动系统更新或用户手册了解详情。\r\n\r\n您可以随时在设置中进行修改。",
+										"infoText": "确认连接后将发送您的车辆数据用于远程车辆功能，车辆位置数据和使用信息，例如驾驶特性等，同时会车辆会自动下载最新的车辆内系统软件，增强和安全更新。\r\n\r\n 系统更新可能需要通过%appName%应用或WiFi连接，可能产生流量费用。请查看自动系统更新或用户手册了解详情。",
+										"line1": null,
+										"line1_checkbox_vis": false,
+										"line1_checkbox_default_checked": false,
+										"infoIcon_vis": true
+									},
+									"menuConsentPrompt": {
+										"textBody": "启用连接会将此车辆与待处理的％appName％请求相关联。详情请查看%appName%。",
+										"confirmation_off_plusIVSU": "系统正在更新。如关闭连接功能，%appName%远程遥控和其他相关的功能将会无法使用。",
+										"confirmation_off": "禁用后会停止传输车辆数据，禁用车辆远程遥控功能并影响车辆内系统软件更新。"
+									},
+									"menu": {
+										"settingsMenuText": "车辆连接",
+										"infoText": "启用连接会将车辆关联至您的%appName%账号并使用车辆数据连接自动获取最新的车辆内软件更新。 \r\n\r\n 禁用后影响菜单内其他相关功能。 \r\n\r\n请查看%appName%或用户手册了解详情。",
+										"infoTextNotSubscribed": null
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"4": {
+				"comment": "Vehicle Data",
+				"displaySize": {
+					"largeDisplay": {
+						"languages": {
+							"en-gb": {
+								"promptType": {
+									"menuConsentPrompt": {
+										"textBody": "Send connected vehicle data to %vehicleMake% U.S. to help improve quality, products and services?",
+										"confirmation_off": "Disabling will stop the sending of vehicle data for quality and product improvement purposes."
+									},
+									"menu": {
+										"settingsMenuText": "Send Vehicle Data",
+										"infoText": "Connected vehicle data helps us provide you with benefits and exciting services and keeps you current with the latest features, enhancements and security updates. Connected vehicle data includes information like: \r\n - status, performance, and diagnostics of vehicle systems (e.g. trouble codes and warning lights, fuel consumption, tire pressure) \r\n - data on how you use and interact with your vehicle (like acceleration, seat belt status, braking, speed) \r\n Data collected will also be anonymized after collection and may be used for insights and improvements in areas like safety, warranty and maintenance, and the development of new features, services and offers for our customers. See your Owner’s Manual for more details.",
+										"infoTextNotSubscribed": null,
+										"icon": "icon_sharing_data.png",
+										"data_sharing_popup": "Vehicle data sharing is enabled. Press the data sharing icon in the status bar to view Connectivity Settings. Pair a device to disable this prompt."
+									}
+								}
+							},
+							"en-us": {
+								"promptType": {
+									"menuConsentPrompt": {
+										"textBody": "Send connected vehicle data to %vehicleMake% U.S. to help improve quality, products and services?",
+										"confirmation_off": "Disabling will stop the sending of vehicle data for quality and product improvement purposes."
+									},
+									"menu": {
+										"settingsMenuText": "Send Vehicle Data",
+										"infoText": "Connected vehicle data helps us provide you with benefits and exciting services and keeps you current with the latest features, enhancements and security updates. Connected vehicle data includes information like: \r\n - status, performance, and diagnostics of vehicle systems (e.g. trouble codes and warning lights, fuel consumption, tire pressure) \r\n - data on how you use and interact with your vehicle (like acceleration, seat belt status, braking, speed) \r\n %vehicleMake% will also use connected vehicle data for insights and improvements in areas like safety, warranty and maintenance, and the development of new features, services and offers for our customers. See your Owner’s Manual for more details.",
+										"infoTextNotSubscribed": null,
+										"icon": "icon_sharing_data.png",
+										"data_sharing_popup": "Vehicle data sharing is enabled. Press the data sharing icon in the status bar to view Connectivity Settings. Pair a device to disable this prompt."
+									}
+								}
+							},
+							"cz-cz": {
+								"promptType": {
+									"menuConsentPrompt": {
+										"textBody": "是否同意发送车辆数据至美国%vehicleMake%，用于提升产品质量和服务？",
+										"confirmation_off": "禁用后会停止传输用于提升服务质量的车辆数据。"
+									},
+									"menu": {
+										"settingsMenuText": "发送车辆数据。",
+										"infoText": "车辆数据将帮助福特会为用户提供更好的服务，包括保持现有功能更新强化，提升服务质量和增强安全性。车辆数据包括信息如： \r\n - 车辆系统状态、性能和诊断数据（例如：错误代码和警示灯，耗油量，胎压） \r\n - 您使用车辆时的偏好数据（例如车辆加速度， 安全太状态，刹车情况，车辆速度） \r\n - 数据会以匿名形式收集，用于分析和提升车辆安全性、保修和维护等领域，以及为客户开发新的功能和服务。 请查看用户手册了解详情。",
+										"infoTextNotSubscribed": null,
+										"icon": "icon_sharing_data.png",
+										"data_sharing_popup": "共享车辆数据功能已开启。点击状态栏中的数据共享图标以查看数据设置。提示框在配对设备后关闭。"
+									}
+								}
+							}
+						}
+					},
+					"smallDisplay": {
+						"languages": {
+							"en-gb": {
+								"promptType": {
+									"menuConsentPrompt": {
+										"textBody": "Send connected vehicle data to %vehicleMake% U.S. to help improve quality, products and services?",
+										"confirmation_off": "Disabling will stop the sending of vehicle data for quality and product improvement purposes."
+									},
+									"menu": {
+										"settingsMenuText": "Send Vehicle Data",
+										"infoText": "Connected car data helps us provide you with benefits and exciting services and keeps you current with the latest features, enhancements and security updates. Connected car data includes information like: \r\n - status, performance, and diagnostics of vehicle systems (e.g. trouble codes and warning lights, fuel consumption, tire pressure) \r\n - data on how you use and interact with your vehicle (like acceleration, seat belt status, braking, speed) \r\n Data collected will also be anonymized after collection and may be used for insights and improvements in areas like safety, warranty and maintenance, and the development of new features, services and offers for our customers. See your Owner’s Manual for more details.",
+										"infoTextNotSubscribed": null,
+										"icon": "icon_sharing_data.png",
+										"data_sharing_popup": "Vehicle data sharing is enabled. Change preferences in Connectivity Settings. Pair a device to disable this prompt."
+									}
+								}
+							},
+							"cz-cz": {
+								"promptType": {
+									"menuConsentPrompt": {
+										"textBody": "是否同意发送车辆数据至美国%vehicleMake%，用于提升产品质量和服务？",
+										"confirmation_off": "禁用后会停止传输用于提升服务质量的车辆数据。"
+									},
+									"menu": {
+										"settingsMenuText": "发送车辆数据。",
+										"infoText": "车辆数据将帮助福特会为用户提供更好的服务，包括保持现有功能更新强化，提升服务质量和增强安全性。车辆数据包括信息如： \r\n - 车辆系统状态、性能和诊断数据（例如：错误代码和警示灯，耗油量，胎压） \r\n - 您使用车辆时的偏好数据（例如车辆加速度， 安全太状态，刹车情况，车辆速度） \r\n - 数据会以匿名形式收集，用于分析和提升车辆安全性、保修和维护等领域，以及为客户开发新的功能和服务。 请查看用户手册了解详情。",
+										"infoTextNotSubscribed": null,
+										"icon": "icon_sharing_data.png",
+										"data_sharing_popup": "共享车辆数据功能已开启。点击状态栏中的数据共享图标以查看数据设置。提示框在配对设备后关闭。"
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"5": {
+				"comment": "Vehicle Data & Remote Ctrl",
+				"displaySize": {
+					"largeDisplay": {
+						"languages": {
+							"en-gb": {
+								"promptType": {
+									"menuConsentPrompt": {
+										"textBody": "Send connected vehicle data, including location and use information, to %vehicleMake% for features and services like %appName%.",
+										"confirmation_off": "If disabled, certain features and services will be unavailable. %appName% remote vehicle functions will be disabled. See %appName% and your Owner's Manual for details."
+									},
+									"menu": {
+										"settingsMenuText": "Vehicle Data & Remote Ctrl",
+										"infoText": "Sends connected vehicle data, including location and use information, to %vehicleMake% for features and services like %appName%. If disabled, certain %appname% features may be unavailable. See %appname% and Owner’s Manual for details.",
+										"infoTextNotSubscribed": null,
+										"icon": "icon_sharing_data_and_location.png",
+										"data_sharing_popup": "Location and vehicle data sharing is enabled. Press the data sharing icon in the status bar to view Connectivity Settings. Pair a device to disable this prompt."
+									}
+								}
+							},
+							"cz-cz": {
+								"promptType": {
+									"menuConsentPrompt": {
+										"textBody": "发送车辆数据用于%appName%的功能和服务，数据包括位置数据和使用信息。",
+										"confirmation_off": "如禁用该功能，某些功能和服务将无法使用。%appName%远程车辆功能将被禁用。请查看%appName%和用户手册了解详情。"
+									},
+									"menu": {
+										"settingsMenuText": "发送车辆数据用于%appName%的功能和服务，数据包括位置数据和使用信息。如禁用，%appName%某些功能将被禁用。请查看%appName%和用户手册了解详情。",
+										"infoText": "",
+										"infoTextNotSubscribed": null,
+										"icon": "icon_sharing_data_and_location.png",
+										"data_sharing_popup": "位置信息和车辆数据共享已启用。点击状态栏中的数据共享图标跳转至连接设置。请配对设备已关闭提示框。"
+									}
+								}
+							}
+						}
+					},
+					"smallDisplay": {
+						"languages": {
+							"en-gb": {
+								"promptType": {
+									"menuConsentPrompt": {
+										"textBody": "Send connected vehicle data, including location and use information, to %vehicleMake% for features and services like %appName%.",
+										"confirmation_off": "If disabled, certain features and services will be unavailable. %appName% remote vehicle functions will be disabled. See %appName% and your Owner's Manual for details."
+									},
+									"menu": {
+										"settingsMenuText": "Vehicle Data & Remote Ctrl",
+										"infoText": "Sends connected vehicle data, including location and use information, to %vehicleMake% for features and services like %appName%. If disabled, certain %appname% features may be unavailable. See %appname% and Owner’s Manual for details.",
+										"infoTextNotSubscribed": null,
+										"icon": "icon_sharing_data_and_location.png",
+										"data_sharing_popup": "Location and vehicle data sharing is enabled. Change preferences in Connectivity Settings. Pair a device to disable this prompt."
+									}
+								}
+							},
+							"cz-cz": {
+								"promptType": {
+									"menuConsentPrompt": {
+										"textBody": "发送车辆数据用于%appName%的功能和服务，数据包括位置数据和使用信息。",
+										"confirmation_off": "如禁用该功能，某些功能和服务将无法使用。%appName%远程车辆功能将被禁用。请查看%appName%和用户手册了解详情。"
+									},
+									"menu": {
+										"settingsMenuText": "车辆数据和远程遥控",
+										"infoText": "发送车辆数据用于%appName%的功能和服务，数据包括位置数据和使用信息。如禁用，%appName%某些功能将被禁用。请查看%appName%和用户手册了解详情。",
+										"infoTextNotSubscribed": null,
+										"icon": "icon_sharing_data_and_location.png",
+										"data_sharing_popup": "位置信息和车辆数据共享已启用。点击状态栏中的数据共享图标跳转至连接设置。请配对设备已关闭提示框。"
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"6": {
+				"comment": "Location",
+				"displaySize": {
+					"largeDisplay": {
+						"languages": {
+							"en-us": {
+								"promptType": {
+									"menuConsentPrompt": {
+										"textBody": "Send vehicle location information to %vehicleMake% and service providers for use with your %appname% account?",
+										"confirmation_off": "Stop sending vehicle location for all location-based features and services, including %appName% vehicle locator and with Mobile Apps (if previously enabled). Sharing location with Mobile Apps may be individually re-enabled in the Mobile Apps settings menu."
+									},
+									"menu": {
+										"settingsMenuText": "Location",
+										"infoText": "Sends vehicle location information to %vehicleMake% and service providers for use with your %appname% account. If disabled, certain location-based features and services will be unavailable, including sharing with Mobile Apps (if previously enabled). Sharing location with Mobile Apps may be individually re-enabled in the Mobile Apps settings menu. See %appname% and Owner’s Manual for details.",
+										"infoTextNotSubscribed": null,
+										"icon": "icon_sharing_location.png",
+										"data_sharing_popup": "Location sharing is enabled. Press the location icon in the status bar to view Connectivity Settings. Pair a device to disable this prompt."
+									}
+								}
+							},
+							"en-gb": {
+								"promptType": {
+									"menuConsentPrompt": {
+										"textBody": "Send vehicle location information to %vehicleMake% and service providers for use with your %appname% account?",
+										"confirmation_off": "Stop sending vehicle location for all location-based features and services, including %appName% vehicle locator and with Mobile Apps (if previously enabled). Sharing location with Mobile Apps may be individually re-enabled in the Mobile Apps settings menu."
+									},
+									"menu": {
+										"settingsMenuText": "Location",
+										"infoText": "Sends vehicle location information to %vehicleMake% and service providers for use with your %appname% account. If disabled, certain location-based features and services will be unavailable, including sharing with Mobile Apps (if previously enabled). Sharing location with Mobile Apps may be individually re-enabled in the Mobile Apps settings menu. eCall functionality not affected. See %appname% and Owner’s Manual for details.",
+										"infoTextNotSubscribed": null,
+										"icon": "icon_sharing_location.png",
+										"data_sharing_popup": "Location sharing is enabled. Press the location icon in the status bar to view Connectivity Settings. Pair a device to disable this prompt."
+									}
+								}
+							},
+							"cz-cz": {
+								"promptType": {
+									"menuConsentPrompt": {
+										"textBody": "是否将%appName%账号和车辆位置信息发送至%vehicleMake%和服务提供商？",
+										"confirmation_off": "停止与位置相关的功能服务使用车辆位置信息，包括%appName%和手机应用端的车辆定位（如已启用）。手机应用设置菜单中可以重新打开只允许手机应用使用位置信息的功能。"
+									},
+									"menu": {
+										"settingsMenuText": "位置",
+										"infoText": "将%appName%账号和车辆位置信息发送至%vehicleMake%和服务提供商。如禁用，与位置相关的功能服务都将无法使用，包括分享位置至手机应用（如已启用）。手机应用设置菜单中可以重新打开只允许手机应用使用位置信息的功能。请查看%appName%和用户手册了解详情。",
+										"infoTextNotSubscribed": null,
+										"icon": "icon_sharing_location.png",
+										"data_sharing_popup": "位置分享已启用。点击状态栏中位置图标查看连接设置。提示框在配对设备后关闭。"
+									}
+								}
+							}
+						}
+					},
+					"smallDisplay": {
+						"languages": {
+							"en-gb": {
+								"promptType": {
+									"menuConsentPrompt": {
+										"textBody": "Send vehicle location information to %vehicleMake% and service providers for use with your %appname% account?",
+										"confirmation_off": "Stop sending vehicle location for all location-based features and services, including %appName% vehicle locator and with Mobile Apps (if previously enabled). Sharing location with Mobile Apps may be individually re-enabled in the Mobile Apps settings menu."
+									},
+									"menu": {
+										"settingsMenuText": "Location",
+										"infoText": "Sends vehicle location information to %vehicleMake% and service providers for use with your %appname% account. If disabled, certain location-based features and services will be unavailable, including sharing with Mobile Apps (if previously enabled). Sharing location with Mobile Apps may be individually re-enabled in the Mobile Apps settings menu. See %appname% and Owner’s Manual for details.",
+										"infoTextNotSubscribed": null,
+										"icon": "icon_sharing_location.png",
+										"data_sharing_popup": "Location sharing is enabled. Change preferences in Connectivity Settings. Pair a device to disable this prompt."
+									}
+								}
+							},
+							"cz-cz": {
+								"promptType": {
+									"menuConsentPrompt": {
+										"textBody": "是否将%appName%账号和车辆位置信息发送至%vehicleMake%和服务提供商？",
+										"confirmation_off": "停止与位置相关的功能服务使用车辆位置信息，包括%appName%和手机应用端的车辆定位（如已启用）。手机应用设置菜单中可以重新打开只允许手机应用使用位置信息的功能。"
+									},
+									"menu": {
+										"settingsMenuText": "位置",
+										"infoText": "将%appName%账号和车辆位置信息发送至%vehicleMake%和服务提供商。如禁用，与位置相关的功能服务都将无法使用，包括分享位置至手机应用（如已启用）。手机应用设置菜单中可以重新打开只允许手机应用使用位置信息的功能。请查看%appName%和用户手册了解详情。",
+										"infoTextNotSubscribed": null,
+										"icon": "icon_sharing_location.png",
+										"data_sharing_popup": "位置分享已启用。可以在连接设置中进行修改。提示框在配对设备后关闭。"
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"7": {
+				"comment": "Online Trafic",
+				"displaySize": {
+					"largeDisplay": {
+						"languages": {
+							"en-gb": {
+								"promptType": {
+									"menuConsentPrompt": {
+										"textBody": "SYNC Connect Live Traffic requires sharing vehicle data, including location information, with %vehicleMake% and the service provider. See %appName% and the Live Traffic service provider for more information.",
+										"confirmation_off": "Disabling will stop sharing vehicle data, including location information, for SYNC Connect Live Traffic. It does not cancel your subscription. See %appName% to manage your subscription and for more information."
+									},
+									"menu": {
+										"settingsMenuText": "SYNC Connect Live Traffic",
+										"infoText": "Your SYNC Connect Live Traffic subscription is active. It expires on %expirationDate%. Other terms and conditions may apply. See %appName% for details. Requires connected vehicle data sharing, including location, with %vehicleMake% and the service provider.",
+										"infoTextNotSubscribed": "Subscribe to SYNC Connect Live Traffic through your %appname% account for current traffic conditions. Other terms and conditions may apply. See %appname% for details. Requires sharing connected vehicle data, including location, with %vehicleMake% and the service provider."
+									}
+								}
+							},
+							"cz-cz": {
+								"promptType": {
+									"menuConsentPrompt": {
+										"textBody": "SYNC实时交通需要分享您的车辆数据至%vehicleMake%和服务提供商，车辆数据包括位置信息。请查看%appName%和实时交通服务提供商了解详情。",
+										"confirmation_off": "正在停止分享车辆位置信息至SYNC实时交通。该操作不会取消您的订阅服务。查看%appName%管理并了解详情。"
+									},
+									"menu": {
+										"settingsMenuText": "SYNC实时交通",
+										"infoText": "您的SYNC实时交通订阅服务已激活。过期日期%expirationDate%。其他服务和条款可能适用。请查看%appName%了解详情。需要共享车辆位置数据至%vehicleMake%和服务提供商。",
+										"infoTextNotSubscribed": "请通过%appName%账号订阅SYNC实时交通服务以了解当前交通状况。其他服务和条款可能适用。请查看%appName%了解详情。需要共享车辆位置数据至%vehicleMake%和服务提供商。"
+									}
+								}
+							}
+						}
+					},
+					"smallDisplay": {
+						"languages": {
+							"en-gb": {
+								"promptType": {
+									"menuConsentPrompt": {
+										"textBody": "SYNC Connect Live Traffic requires sharing vehicle data, including location information, with %vehicleMake% and the service provider. See %appName% and the Live Traffic service provider for more information.",
+										"confirmation_off": "Disabling will stop sharing vehicle data, including location information, for SYNC Connect Live Traffic. It does not cancel your subscription. See %appName% to manage your subscription and for more information."
+									},
+									"menu": {
+										"settingsMenuText": "SYNC Connect Live Traffic",
+										"infoText": "Your SYNC Connect Live Traffic subscription is active. It expires on %expirationDate%. Other terms and conditions may apply. See %appName% for details. Requires connected vehicle data sharing, including location, with %vehicleMake% and the service provider.",
+										"infoTextNotSubscribed": "Subscribe to SYNC Connect Live Traffic through your %appname% account for current traffic conditions. Other terms and conditions may apply. See %appname% for details. Requires sharing connected vehicle data, including location, with %vehicleMake% and the service provider."
+									}
+								}
+							},
+							"cz-cz": {
+								"promptType": {
+									"menuConsentPrompt": {
+										"textBody": "SYNC实时交通需要分享您的车辆数据至%vehicleMake%和服务提供商，车辆数据包括位置信息。请查看%appName%和实时交通服务提供商了解详情。",
+										"confirmation_off": "正在停止分享车辆位置信息至SYNC实时交通。该操作不会取消您的订阅服务。查看%appName%管理并了解详情。"
+									},
+									"menu": {
+										"settingsMenuText": "SYNC实时交通",
+										"infoText": "您的SYNC实时交通订阅服务已激活。过期日期%expirationDate%。其他服务和条款可能适用。请查看%appName%了解详情。需要共享车辆位置数据至%vehicleMake%和服务提供商。",
+										"infoTextNotSubscribed": "请通过%appName%账号订阅SYNC实时交通服务以了解当前交通状况。其他服务和条款可能适用。请查看%appName%了解详情。需要共享车辆位置数据至%vehicleMake%和服务提供商。"
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"8": {
+				"comment": "Fleet",
+				"displaySize": {
+					"largeDisplay": {
+						"languages": {
+							"en-gb": {
+								"promptType": {
+									"menu": {
+										"settingsMenuText": "Fleet Telematics",
+										"infoText": "Connectivity Settings for Fleet vehicles are managed in the owner's portal.",
+										"infoTextNotSubscribed": null
+									}
+								}
+							},
+							"cz-cz": {
+								"promptType": {
+									"menu": {
+										"settingsMenuText": "车队互联",
+										"infoText": "车队连接设置请在网站端进行管理。",
+										"infoTextNotSubscribed": null
+									}
+								}
+							}
+						}
+					},
+					"smallDisplay": {
+						"languages": {
+							"en-gb": {
+								"promptType": {
+									"menu": {
+										"settingsMenuText": "Fleet Telematics",
+										"infoText": "Connectivity Settings for Fleet vehicles are managed in the owner's portal.",
+										"infoTextNotSubscribed": null
+									}
+								}
+							},
+							"cz-cz": {
+								"promptType": {
+									"menu": {
+										"settingsMenuText": "车队互联",
+										"infoText": "车队连接设置请在网站端进行管理。",
+										"infoTextNotSubscribed": null
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"9": {
+				"comment": "Unrecoverable_Error",
+				"displaySize": {
+					"largeDisplay": {
+						"languages": {
+							"en-gb": {
+								"promptType": {
+									"error": {
+										"textBody": "Connectivity settings are not available at this time. If the problem persists, please see your dealer."
+									}
+								}
+							},
+							"cz-cz": {
+								"promptType": {
+									"error": {
+										"textBody": "连接设置暂时无法适用。如需帮助请联系您的经销商."
+									}
+								}
+							}
+						}
+					},
+					"smallDisplay": {
+						"languages": {
+							"en-gb": {
+								"promptType": {
+									"error": {
+										"textBody": "Connectivity settings are not available at this time. If the problem persists, please see your dealer."
+									}
+								}
+							},
+							"cz-cz": {
+								"promptType": {
+									"error": {
+										"textBody": "连接设置暂时无法适用。如需帮助请联系您的经销商."
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"10": {
+				"comment": "Invalid",
+				"displaySize": {
+					"largeDisplay": {
+						"languages": {
+							"en-gb": {
+								"promptType": {
+									"error": {
+										"textBody": "The connectivity settings menu cannot be displayed at the moment. Ensure ignition is on. Please try again later."
+									}
+								}
+							},
+							"cz-cz": {
+								"promptType": {
+									"error": {
+										"textBody": "连接设置菜单暂时无法显示。请确保车辆已经点火启动，并稍后再试。"
+									}
+								}
+							}
+						}
+					},
+					"smallDisplay": {
+						"languages": {
+							"en-gb": {
+								"promptType": {
+									"error": {
+										"textBody": "The connectivity settings menu cannot be displayed at the moment. Ensure ignition is on. Please try again later."
+									}
+								}
+							},
+							"cz-cz": {
+								"promptType": {
+									"error": {
+										"textBody": "连接设置菜单暂时无法显示。请确保车辆已经点火启动，并稍后再试。"
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"11": {
+				"comment": "Connectivity Settings",
+				"displaySize": {
+					"largeDisplay": {
+						"languages": {
+							"en-gb": {
+								"promptType": {
+									"menu": {
+										"infoText": "This menu provides control of the data and features enabled through your vehicle's data connection. See your Owner’s Manual for more information."
+									}
+								}
+							},
+							"cz-cz": {
+								"promptType": {
+									"menu": {
+										"infoText": "您可以在该菜单栏中自定义车辆功能。请查看用户手册了解详情。"
+									}
+								}
+							}
+						}
+					},
+					"smallDisplay": {
+						"languages": {
+							"en-gb": {
+								"promptType": {
+									"menu": {
+										"infoText": "This menu provides control of the data and features enabled through your vehicle's data connection. See your Owner’s Manual for more information."
+									}
+								}
+							},
+							"cz-cz": {
+								"promptType": {
+									"menu": {
+										"infoText": "您可以在该菜单栏中自定义车辆功能。请查看用户手册了解详情。"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
