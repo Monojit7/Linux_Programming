@@ -1,0 +1,7 @@
+#!/bin/sh
+
+g++ *_server.cpp -o shared_memory_server -lrt
+
+g++ *_client.cpp -o shared_memory_client -lrt
+
+echo "build completed"
