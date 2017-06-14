@@ -1,0 +1,3 @@
+#!/bin/sh
+
+g++ *.cpp -o add_1_to_100

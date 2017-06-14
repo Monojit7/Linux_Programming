@@ -1,0 +1,12 @@
+This program use template metaprogramming. Template metaprogramming is a concept in which computation is done
+preprocessing time instead of compile time, so program will execute first.
+
+below concepts use in template metaprogramming
+i> When template argument is a constant value, compiler creates new instance of it.
+ii> Enumerations are calculated during compilation
+
+
+compile instruction:
+
+g++ *.cpp -o Binary
+
