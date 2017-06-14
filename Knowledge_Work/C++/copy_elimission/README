@@ -1,0 +1,16 @@
+Instead of calling copy constructor , copy elimission technique directly push the data into existing constructor
+
+B ob = "copy me";
+
+When compiler does not optimize:
+
+B ob = B("copy me"); // copy constructor called
+
+                     // constructor called
+
+
+When compiler optimize:
+
+B ob = "copy me";
+
+B ob("copy me");
