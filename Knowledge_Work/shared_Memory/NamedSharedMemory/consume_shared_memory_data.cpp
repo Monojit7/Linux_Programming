@@ -26,7 +26,7 @@ if( shmadr != (char*) -1)
 {
 
 char* s = shmadr;
-for ( int i = 0; i < 7; i++ )
+for ( int i = 0; i < strlen(s); i++ )
 {
 
 printf("%c", s[i]);
