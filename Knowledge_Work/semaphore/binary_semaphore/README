@@ -1,0 +1,12 @@
+
+
+This is a producer and consumer problem in which producer has max limit of 5 when this is reached , producer has to wait ( semaphore )
+till consumer is consuming atleast one item whereas when there is no item is produced consumer has to wait ( semaphore )
+
+Producer wait will be unblocked by consumer sem_post after decrementing stock_count of the item.
+Consumer wait will be unblocked by producer sem_post after incrementing stock_count of the item.
+
+Producer production rate is twice ( 1 sec wait ) than consumer consumtion rate( 2 sec) .
+
+So Producer after incrementing the value go the max limit and Wait in that.
+Consumer than consume the item by decrementing the value.
