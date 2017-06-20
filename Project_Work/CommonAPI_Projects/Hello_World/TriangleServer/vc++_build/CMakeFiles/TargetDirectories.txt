@@ -1,0 +1,9 @@
+D:/FORD/Ubuntu_Vmware/Shared_Folder/Example_Program_Ford/Hello_World/TriangleServer/vc++_build/CMakeFiles/generate.dir
+D:/FORD/Ubuntu_Vmware/Shared_Folder/Example_Program_Ford/Hello_World/TriangleServer/vc++_build/CMakeFiles/compile.dir
+D:/FORD/Ubuntu_Vmware/Shared_Folder/Example_Program_Ford/Hello_World/TriangleServer/vc++_build/CMakeFiles/target.dir
+D:/FORD/Ubuntu_Vmware/Shared_Folder/Example_Program_Ford/Hello_World/TriangleServer/vc++_build/CMakeFiles/cleanall.dir
+D:/FORD/Ubuntu_Vmware/Shared_Folder/Example_Program_Ford/Hello_World/TriangleServer/vc++_build/CMakeFiles/ALL_BUILD.dir
+D:/FORD/Ubuntu_Vmware/Shared_Folder/Example_Program_Ford/Hello_World/TriangleServer/vc++_build/CMakeFiles/ZERO_CHECK.dir
+D:/FORD/Ubuntu_Vmware/Shared_Folder/Example_Program_Ford/Hello_World/TriangleServer/vc++_build/gen/CMakeFiles/TriangleServer-dbus.dir
+D:/FORD/Ubuntu_Vmware/Shared_Folder/Example_Program_Ford/Hello_World/TriangleServer/vc++_build/src/CMakeFiles/TriangleServer.dir
+D:/FORD/Ubuntu_Vmware/Shared_Folder/Example_Program_Ford/Hello_World/TriangleServer/vc++_build/src-gen/CMakeFiles/TriangleServer_triangleServer_types_static_stub.dir

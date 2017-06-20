@@ -1,5 +1,5 @@
-set(CMAKE_C_COMPILER "/home/yoctoadm/work/FORDSDK/Ford-SDK-17155/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-gcc")
-set(CMAKE_C_COMPILER_ARG1 "  -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/home/yoctoadm/work/FORDSDK/Ford-SDK-17155/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi")
+set(CMAKE_C_COMPILER "/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-gcc")
+set(CMAKE_C_COMPILER_ARG1 "  -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi")
 set(CMAKE_C_COMPILER_ID "GNU")
 set(CMAKE_C_COMPILER_VERSION "5.2.0")
 set(CMAKE_C_COMPILE_FEATURES "c_function_prototypes;c_restrict;c_variadic_macros;c_static_assert")
@@ -11,9 +11,9 @@ set(CMAKE_C_PLATFORM_ID "Linux")
 set(CMAKE_C_SIMULATE_ID "")
 set(CMAKE_C_SIMULATE_VERSION "")
 
-set(CMAKE_AR "/home/yoctoadm/work/FORDSDK/Ford-SDK-17155/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-ar")
-set(CMAKE_RANLIB "/home/yoctoadm/work/FORDSDK/Ford-SDK-17155/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-ranlib")
-set(CMAKE_LINKER "/home/yoctoadm/work/FORDSDK/Ford-SDK-17155/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-ld")
+set(CMAKE_AR "/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/bin/ar")
+set(CMAKE_RANLIB "/usr/bin/ranlib")
+set(CMAKE_LINKER "/usr/bin/ld")
 set(CMAKE_COMPILER_IS_GNUCC 1)
 set(CMAKE_C_COMPILER_LOADED 1)
 set(CMAKE_C_COMPILER_WORKS TRUE)
@@ -56,7 +56,7 @@ endif()
 
 
 set(CMAKE_C_IMPLICIT_LINK_LIBRARIES "c")
-set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "/home/yoctoadm/work/FORDSDK/Ford-SDK-17155/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0;/home/yoctoadm/work/FORDSDK/Ford-SDK-17155/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/lib;/home/yoctoadm/work/FORDSDK/Ford-SDK-17155/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0;/home/yoctoadm/work/FORDSDK/Ford-SDK-17155/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib")
+set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0;/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/lib;/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0;/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib")
 set(CMAKE_C_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")
 
 

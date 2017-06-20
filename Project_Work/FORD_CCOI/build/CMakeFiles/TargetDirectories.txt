@@ -1,7 +1,7 @@
-/home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build/CMakeFiles/target.dir
-/home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build/CMakeFiles/cleanall.dir
-/home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build/CMakeFiles/compile.dir
-/home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build/src/CMakeFiles/CCOIPresCtrl.dir
-/home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build/gen/CMakeFiles/CCOIPresCtrl-dbus.dir
-/home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build/src-gen/CMakeFiles/CCOIPresCtrl_ccoipresctrl_types_static_stub.dir
-/home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build/CMakeFiles/generate.dir
+/home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build/CMakeFiles/target.dir
+/home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build/CMakeFiles/cleanall.dir
+/home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build/CMakeFiles/compile.dir
+/home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build/src/CMakeFiles/CCOIPresCtrl.dir
+/home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build/gen/CMakeFiles/CCOIPresCtrl-dbus.dir
+/home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build/src-gen/CMakeFiles/CCOIPresCtrl_ccoipresctrl_types_static_stub.dir
+/home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build/CMakeFiles/generate.dir

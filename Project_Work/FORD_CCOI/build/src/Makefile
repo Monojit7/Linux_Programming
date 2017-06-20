@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/yoctoadm/work/FORDSDK/Ford-SDK-17155/sysroots/x86_64-elinasdk-linux/usr/bin/cmake
+CMAKE_COMMAND = /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake
 
 # The command to remove a file.
-RM = /home/yoctoadm/work/FORDSDK/Ford-SDK-17155/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E remove -f
+RM = /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/yoctoadm/work/customerOptIn_srcV2/customeroptin
+CMAKE_SOURCE_DIR = /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build
+CMAKE_BINARY_DIR = /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/yoctoadm/work/FORDSDK/Ford-SDK-17155/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/yoctoadm/work/FORDSDK/Ford-SDK-17155/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build/CMakeFiles /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build/src/CMakeFiles/progress.marks
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build/CMakeFiles 0
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build/CMakeFiles /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build/src/CMakeFiles/progress.marks
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/CMakeFiles/CCOIPresCtrl.dir/rule:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/CCOIPresCtrl.dir/rule
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/CCOIPresCtrl.dir/rule
 .PHONY : src/CMakeFiles/CCOIPresCtrl.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ CCOIPresCtrl: src/CMakeFiles/CCOIPresCtrl.dir/rule
 
 # fast build rule for target.
 CCOIPresCtrl/fast:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/build
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/build
 .PHONY : CCOIPresCtrl/fast
 
 main.o: main.cpp.o
@@ -131,7 +131,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/main.cpp.o
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -140,7 +140,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/main.cpp.i
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -149,7 +149,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/main.cpp.s
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 provides/v0/com/harman/voice/CCOIButton.o: provides/v0/com/harman/voice/CCOIButton.cpp.o
@@ -158,7 +158,7 @@ provides/v0/com/harman/voice/CCOIButton.o: provides/v0/com/harman/voice/CCOIButt
 
 # target to build an object file
 provides/v0/com/harman/voice/CCOIButton.cpp.o:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIButton.cpp.o
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIButton.cpp.o
 .PHONY : provides/v0/com/harman/voice/CCOIButton.cpp.o
 
 provides/v0/com/harman/voice/CCOIButton.i: provides/v0/com/harman/voice/CCOIButton.cpp.i
@@ -167,7 +167,7 @@ provides/v0/com/harman/voice/CCOIButton.i: provides/v0/com/harman/voice/CCOIButt
 
 # target to preprocess a source file
 provides/v0/com/harman/voice/CCOIButton.cpp.i:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIButton.cpp.i
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIButton.cpp.i
 .PHONY : provides/v0/com/harman/voice/CCOIButton.cpp.i
 
 provides/v0/com/harman/voice/CCOIButton.s: provides/v0/com/harman/voice/CCOIButton.cpp.s
@@ -176,7 +176,7 @@ provides/v0/com/harman/voice/CCOIButton.s: provides/v0/com/harman/voice/CCOIButt
 
 # target to generate assembly for a file
 provides/v0/com/harman/voice/CCOIButton.cpp.s:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIButton.cpp.s
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIButton.cpp.s
 .PHONY : provides/v0/com/harman/voice/CCOIButton.cpp.s
 
 provides/v0/com/harman/voice/CCOILang.o: provides/v0/com/harman/voice/CCOILang.cpp.o
@@ -185,7 +185,7 @@ provides/v0/com/harman/voice/CCOILang.o: provides/v0/com/harman/voice/CCOILang.c
 
 # target to build an object file
 provides/v0/com/harman/voice/CCOILang.cpp.o:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOILang.cpp.o
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOILang.cpp.o
 .PHONY : provides/v0/com/harman/voice/CCOILang.cpp.o
 
 provides/v0/com/harman/voice/CCOILang.i: provides/v0/com/harman/voice/CCOILang.cpp.i
@@ -194,7 +194,7 @@ provides/v0/com/harman/voice/CCOILang.i: provides/v0/com/harman/voice/CCOILang.c
 
 # target to preprocess a source file
 provides/v0/com/harman/voice/CCOILang.cpp.i:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOILang.cpp.i
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOILang.cpp.i
 .PHONY : provides/v0/com/harman/voice/CCOILang.cpp.i
 
 provides/v0/com/harman/voice/CCOILang.s: provides/v0/com/harman/voice/CCOILang.cpp.s
@@ -203,7 +203,7 @@ provides/v0/com/harman/voice/CCOILang.s: provides/v0/com/harman/voice/CCOILang.c
 
 # target to generate assembly for a file
 provides/v0/com/harman/voice/CCOILang.cpp.s:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOILang.cpp.s
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOILang.cpp.s
 .PHONY : provides/v0/com/harman/voice/CCOILang.cpp.s
 
 provides/v0/com/harman/voice/CCOILog.o: provides/v0/com/harman/voice/CCOILog.cpp.o
@@ -212,7 +212,7 @@ provides/v0/com/harman/voice/CCOILog.o: provides/v0/com/harman/voice/CCOILog.cpp
 
 # target to build an object file
 provides/v0/com/harman/voice/CCOILog.cpp.o:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOILog.cpp.o
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOILog.cpp.o
 .PHONY : provides/v0/com/harman/voice/CCOILog.cpp.o
 
 provides/v0/com/harman/voice/CCOILog.i: provides/v0/com/harman/voice/CCOILog.cpp.i
@@ -221,7 +221,7 @@ provides/v0/com/harman/voice/CCOILog.i: provides/v0/com/harman/voice/CCOILog.cpp
 
 # target to preprocess a source file
 provides/v0/com/harman/voice/CCOILog.cpp.i:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOILog.cpp.i
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOILog.cpp.i
 .PHONY : provides/v0/com/harman/voice/CCOILog.cpp.i
 
 provides/v0/com/harman/voice/CCOILog.s: provides/v0/com/harman/voice/CCOILog.cpp.s
@@ -230,7 +230,7 @@ provides/v0/com/harman/voice/CCOILog.s: provides/v0/com/harman/voice/CCOILog.cpp
 
 # target to generate assembly for a file
 provides/v0/com/harman/voice/CCOILog.cpp.s:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOILog.cpp.s
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOILog.cpp.s
 .PHONY : provides/v0/com/harman/voice/CCOILog.cpp.s
 
 provides/v0/com/harman/voice/CCOIManager.o: provides/v0/com/harman/voice/CCOIManager.cpp.o
@@ -239,7 +239,7 @@ provides/v0/com/harman/voice/CCOIManager.o: provides/v0/com/harman/voice/CCOIMan
 
 # target to build an object file
 provides/v0/com/harman/voice/CCOIManager.cpp.o:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIManager.cpp.o
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIManager.cpp.o
 .PHONY : provides/v0/com/harman/voice/CCOIManager.cpp.o
 
 provides/v0/com/harman/voice/CCOIManager.i: provides/v0/com/harman/voice/CCOIManager.cpp.i
@@ -248,7 +248,7 @@ provides/v0/com/harman/voice/CCOIManager.i: provides/v0/com/harman/voice/CCOIMan
 
 # target to preprocess a source file
 provides/v0/com/harman/voice/CCOIManager.cpp.i:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIManager.cpp.i
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIManager.cpp.i
 .PHONY : provides/v0/com/harman/voice/CCOIManager.cpp.i
 
 provides/v0/com/harman/voice/CCOIManager.s: provides/v0/com/harman/voice/CCOIManager.cpp.s
@@ -257,7 +257,7 @@ provides/v0/com/harman/voice/CCOIManager.s: provides/v0/com/harman/voice/CCOIMan
 
 # target to generate assembly for a file
 provides/v0/com/harman/voice/CCOIManager.cpp.s:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIManager.cpp.s
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIManager.cpp.s
 .PHONY : provides/v0/com/harman/voice/CCOIManager.cpp.s
 
 provides/v0/com/harman/voice/CCOIMegaTP.o: provides/v0/com/harman/voice/CCOIMegaTP.cpp.o
@@ -266,7 +266,7 @@ provides/v0/com/harman/voice/CCOIMegaTP.o: provides/v0/com/harman/voice/CCOIMega
 
 # target to build an object file
 provides/v0/com/harman/voice/CCOIMegaTP.cpp.o:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIMegaTP.cpp.o
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIMegaTP.cpp.o
 .PHONY : provides/v0/com/harman/voice/CCOIMegaTP.cpp.o
 
 provides/v0/com/harman/voice/CCOIMegaTP.i: provides/v0/com/harman/voice/CCOIMegaTP.cpp.i
@@ -275,7 +275,7 @@ provides/v0/com/harman/voice/CCOIMegaTP.i: provides/v0/com/harman/voice/CCOIMega
 
 # target to preprocess a source file
 provides/v0/com/harman/voice/CCOIMegaTP.cpp.i:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIMegaTP.cpp.i
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIMegaTP.cpp.i
 .PHONY : provides/v0/com/harman/voice/CCOIMegaTP.cpp.i
 
 provides/v0/com/harman/voice/CCOIMegaTP.s: provides/v0/com/harman/voice/CCOIMegaTP.cpp.s
@@ -284,7 +284,7 @@ provides/v0/com/harman/voice/CCOIMegaTP.s: provides/v0/com/harman/voice/CCOIMega
 
 # target to generate assembly for a file
 provides/v0/com/harman/voice/CCOIMegaTP.cpp.s:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIMegaTP.cpp.s
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIMegaTP.cpp.s
 .PHONY : provides/v0/com/harman/voice/CCOIMegaTP.cpp.s
 
 provides/v0/com/harman/voice/CCOIMessagesUtil.o: provides/v0/com/harman/voice/CCOIMessagesUtil.cpp.o
@@ -293,7 +293,7 @@ provides/v0/com/harman/voice/CCOIMessagesUtil.o: provides/v0/com/harman/voice/CC
 
 # target to build an object file
 provides/v0/com/harman/voice/CCOIMessagesUtil.cpp.o:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIMessagesUtil.cpp.o
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIMessagesUtil.cpp.o
 .PHONY : provides/v0/com/harman/voice/CCOIMessagesUtil.cpp.o
 
 provides/v0/com/harman/voice/CCOIMessagesUtil.i: provides/v0/com/harman/voice/CCOIMessagesUtil.cpp.i
@@ -302,7 +302,7 @@ provides/v0/com/harman/voice/CCOIMessagesUtil.i: provides/v0/com/harman/voice/CC
 
 # target to preprocess a source file
 provides/v0/com/harman/voice/CCOIMessagesUtil.cpp.i:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIMessagesUtil.cpp.i
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIMessagesUtil.cpp.i
 .PHONY : provides/v0/com/harman/voice/CCOIMessagesUtil.cpp.i
 
 provides/v0/com/harman/voice/CCOIMessagesUtil.s: provides/v0/com/harman/voice/CCOIMessagesUtil.cpp.s
@@ -311,7 +311,7 @@ provides/v0/com/harman/voice/CCOIMessagesUtil.s: provides/v0/com/harman/voice/CC
 
 # target to generate assembly for a file
 provides/v0/com/harman/voice/CCOIMessagesUtil.cpp.s:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIMessagesUtil.cpp.s
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIMessagesUtil.cpp.s
 .PHONY : provides/v0/com/harman/voice/CCOIMessagesUtil.cpp.s
 
 provides/v0/com/harman/voice/CCOIPersist.o: provides/v0/com/harman/voice/CCOIPersist.cpp.o
@@ -320,7 +320,7 @@ provides/v0/com/harman/voice/CCOIPersist.o: provides/v0/com/harman/voice/CCOIPer
 
 # target to build an object file
 provides/v0/com/harman/voice/CCOIPersist.cpp.o:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIPersist.cpp.o
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIPersist.cpp.o
 .PHONY : provides/v0/com/harman/voice/CCOIPersist.cpp.o
 
 provides/v0/com/harman/voice/CCOIPersist.i: provides/v0/com/harman/voice/CCOIPersist.cpp.i
@@ -329,7 +329,7 @@ provides/v0/com/harman/voice/CCOIPersist.i: provides/v0/com/harman/voice/CCOIPer
 
 # target to preprocess a source file
 provides/v0/com/harman/voice/CCOIPersist.cpp.i:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIPersist.cpp.i
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIPersist.cpp.i
 .PHONY : provides/v0/com/harman/voice/CCOIPersist.cpp.i
 
 provides/v0/com/harman/voice/CCOIPersist.s: provides/v0/com/harman/voice/CCOIPersist.cpp.s
@@ -338,7 +338,7 @@ provides/v0/com/harman/voice/CCOIPersist.s: provides/v0/com/harman/voice/CCOIPer
 
 # target to generate assembly for a file
 provides/v0/com/harman/voice/CCOIPersist.cpp.s:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIPersist.cpp.s
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIPersist.cpp.s
 .PHONY : provides/v0/com/harman/voice/CCOIPersist.cpp.s
 
 provides/v0/com/harman/voice/CCOIProxyManager.o: provides/v0/com/harman/voice/CCOIProxyManager.cpp.o
@@ -347,7 +347,7 @@ provides/v0/com/harman/voice/CCOIProxyManager.o: provides/v0/com/harman/voice/CC
 
 # target to build an object file
 provides/v0/com/harman/voice/CCOIProxyManager.cpp.o:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIProxyManager.cpp.o
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIProxyManager.cpp.o
 .PHONY : provides/v0/com/harman/voice/CCOIProxyManager.cpp.o
 
 provides/v0/com/harman/voice/CCOIProxyManager.i: provides/v0/com/harman/voice/CCOIProxyManager.cpp.i
@@ -356,7 +356,7 @@ provides/v0/com/harman/voice/CCOIProxyManager.i: provides/v0/com/harman/voice/CC
 
 # target to preprocess a source file
 provides/v0/com/harman/voice/CCOIProxyManager.cpp.i:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIProxyManager.cpp.i
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIProxyManager.cpp.i
 .PHONY : provides/v0/com/harman/voice/CCOIProxyManager.cpp.i
 
 provides/v0/com/harman/voice/CCOIProxyManager.s: provides/v0/com/harman/voice/CCOIProxyManager.cpp.s
@@ -365,7 +365,7 @@ provides/v0/com/harman/voice/CCOIProxyManager.s: provides/v0/com/harman/voice/CC
 
 # target to generate assembly for a file
 provides/v0/com/harman/voice/CCOIProxyManager.cpp.s:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIProxyManager.cpp.s
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIProxyManager.cpp.s
 .PHONY : provides/v0/com/harman/voice/CCOIProxyManager.cpp.s
 
 provides/v0/com/harman/voice/CCOITimer.o: provides/v0/com/harman/voice/CCOITimer.cpp.o
@@ -374,7 +374,7 @@ provides/v0/com/harman/voice/CCOITimer.o: provides/v0/com/harman/voice/CCOITimer
 
 # target to build an object file
 provides/v0/com/harman/voice/CCOITimer.cpp.o:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOITimer.cpp.o
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOITimer.cpp.o
 .PHONY : provides/v0/com/harman/voice/CCOITimer.cpp.o
 
 provides/v0/com/harman/voice/CCOITimer.i: provides/v0/com/harman/voice/CCOITimer.cpp.i
@@ -383,7 +383,7 @@ provides/v0/com/harman/voice/CCOITimer.i: provides/v0/com/harman/voice/CCOITimer
 
 # target to preprocess a source file
 provides/v0/com/harman/voice/CCOITimer.cpp.i:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOITimer.cpp.i
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOITimer.cpp.i
 .PHONY : provides/v0/com/harman/voice/CCOITimer.cpp.i
 
 provides/v0/com/harman/voice/CCOITimer.s: provides/v0/com/harman/voice/CCOITimer.cpp.s
@@ -392,7 +392,7 @@ provides/v0/com/harman/voice/CCOITimer.s: provides/v0/com/harman/voice/CCOITimer
 
 # target to generate assembly for a file
 provides/v0/com/harman/voice/CCOITimer.cpp.s:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOITimer.cpp.s
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOITimer.cpp.s
 .PHONY : provides/v0/com/harman/voice/CCOITimer.cpp.s
 
 provides/v0/com/harman/voice/CCOIUserPromptScreenData.o: provides/v0/com/harman/voice/CCOIUserPromptScreenData.cpp.o
@@ -401,7 +401,7 @@ provides/v0/com/harman/voice/CCOIUserPromptScreenData.o: provides/v0/com/harman/
 
 # target to build an object file
 provides/v0/com/harman/voice/CCOIUserPromptScreenData.cpp.o:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIUserPromptScreenData.cpp.o
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIUserPromptScreenData.cpp.o
 .PHONY : provides/v0/com/harman/voice/CCOIUserPromptScreenData.cpp.o
 
 provides/v0/com/harman/voice/CCOIUserPromptScreenData.i: provides/v0/com/harman/voice/CCOIUserPromptScreenData.cpp.i
@@ -410,7 +410,7 @@ provides/v0/com/harman/voice/CCOIUserPromptScreenData.i: provides/v0/com/harman/
 
 # target to preprocess a source file
 provides/v0/com/harman/voice/CCOIUserPromptScreenData.cpp.i:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIUserPromptScreenData.cpp.i
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIUserPromptScreenData.cpp.i
 .PHONY : provides/v0/com/harman/voice/CCOIUserPromptScreenData.cpp.i
 
 provides/v0/com/harman/voice/CCOIUserPromptScreenData.s: provides/v0/com/harman/voice/CCOIUserPromptScreenData.cpp.s
@@ -419,7 +419,7 @@ provides/v0/com/harman/voice/CCOIUserPromptScreenData.s: provides/v0/com/harman/
 
 # target to generate assembly for a file
 provides/v0/com/harman/voice/CCOIUserPromptScreenData.cpp.s:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIUserPromptScreenData.cpp.s
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/CCOIUserPromptScreenData.cpp.s
 .PHONY : provides/v0/com/harman/voice/CCOIUserPromptScreenData.cpp.s
 
 provides/v0/com/harman/voice/util/Sha256.o: provides/v0/com/harman/voice/util/Sha256.cpp.o
@@ -428,7 +428,7 @@ provides/v0/com/harman/voice/util/Sha256.o: provides/v0/com/harman/voice/util/Sh
 
 # target to build an object file
 provides/v0/com/harman/voice/util/Sha256.cpp.o:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/util/Sha256.cpp.o
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/util/Sha256.cpp.o
 .PHONY : provides/v0/com/harman/voice/util/Sha256.cpp.o
 
 provides/v0/com/harman/voice/util/Sha256.i: provides/v0/com/harman/voice/util/Sha256.cpp.i
@@ -437,7 +437,7 @@ provides/v0/com/harman/voice/util/Sha256.i: provides/v0/com/harman/voice/util/Sh
 
 # target to preprocess a source file
 provides/v0/com/harman/voice/util/Sha256.cpp.i:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/util/Sha256.cpp.i
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/util/Sha256.cpp.i
 .PHONY : provides/v0/com/harman/voice/util/Sha256.cpp.i
 
 provides/v0/com/harman/voice/util/Sha256.s: provides/v0/com/harman/voice/util/Sha256.cpp.s
@@ -446,7 +446,7 @@ provides/v0/com/harman/voice/util/Sha256.s: provides/v0/com/harman/voice/util/Sh
 
 # target to generate assembly for a file
 provides/v0/com/harman/voice/util/Sha256.cpp.s:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/util/Sha256.cpp.s
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/util/Sha256.cpp.s
 .PHONY : provides/v0/com/harman/voice/util/Sha256.cpp.s
 
 provides/v0/com/harman/voice/util/zlibWrapper.o: provides/v0/com/harman/voice/util/zlibWrapper.cpp.o
@@ -455,7 +455,7 @@ provides/v0/com/harman/voice/util/zlibWrapper.o: provides/v0/com/harman/voice/ut
 
 # target to build an object file
 provides/v0/com/harman/voice/util/zlibWrapper.cpp.o:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/util/zlibWrapper.cpp.o
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/util/zlibWrapper.cpp.o
 .PHONY : provides/v0/com/harman/voice/util/zlibWrapper.cpp.o
 
 provides/v0/com/harman/voice/util/zlibWrapper.i: provides/v0/com/harman/voice/util/zlibWrapper.cpp.i
@@ -464,7 +464,7 @@ provides/v0/com/harman/voice/util/zlibWrapper.i: provides/v0/com/harman/voice/ut
 
 # target to preprocess a source file
 provides/v0/com/harman/voice/util/zlibWrapper.cpp.i:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/util/zlibWrapper.cpp.i
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/util/zlibWrapper.cpp.i
 .PHONY : provides/v0/com/harman/voice/util/zlibWrapper.cpp.i
 
 provides/v0/com/harman/voice/util/zlibWrapper.s: provides/v0/com/harman/voice/util/zlibWrapper.cpp.s
@@ -473,7 +473,7 @@ provides/v0/com/harman/voice/util/zlibWrapper.s: provides/v0/com/harman/voice/ut
 
 # target to generate assembly for a file
 provides/v0/com/harman/voice/util/zlibWrapper.cpp.s:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/util/zlibWrapper.cpp.s
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v0/com/harman/voice/util/zlibWrapper.cpp.s
 .PHONY : provides/v0/com/harman/voice/util/zlibWrapper.cpp.s
 
 provides/v2/com/harman/voice/CCOIPresCtrlStubImpl.o: provides/v2/com/harman/voice/CCOIPresCtrlStubImpl.cpp.o
@@ -482,7 +482,7 @@ provides/v2/com/harman/voice/CCOIPresCtrlStubImpl.o: provides/v2/com/harman/voic
 
 # target to build an object file
 provides/v2/com/harman/voice/CCOIPresCtrlStubImpl.cpp.o:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v2/com/harman/voice/CCOIPresCtrlStubImpl.cpp.o
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v2/com/harman/voice/CCOIPresCtrlStubImpl.cpp.o
 .PHONY : provides/v2/com/harman/voice/CCOIPresCtrlStubImpl.cpp.o
 
 provides/v2/com/harman/voice/CCOIPresCtrlStubImpl.i: provides/v2/com/harman/voice/CCOIPresCtrlStubImpl.cpp.i
@@ -491,7 +491,7 @@ provides/v2/com/harman/voice/CCOIPresCtrlStubImpl.i: provides/v2/com/harman/voic
 
 # target to preprocess a source file
 provides/v2/com/harman/voice/CCOIPresCtrlStubImpl.cpp.i:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v2/com/harman/voice/CCOIPresCtrlStubImpl.cpp.i
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v2/com/harman/voice/CCOIPresCtrlStubImpl.cpp.i
 .PHONY : provides/v2/com/harman/voice/CCOIPresCtrlStubImpl.cpp.i
 
 provides/v2/com/harman/voice/CCOIPresCtrlStubImpl.s: provides/v2/com/harman/voice/CCOIPresCtrlStubImpl.cpp.s
@@ -500,7 +500,7 @@ provides/v2/com/harman/voice/CCOIPresCtrlStubImpl.s: provides/v2/com/harman/voic
 
 # target to generate assembly for a file
 provides/v2/com/harman/voice/CCOIPresCtrlStubImpl.cpp.s:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v2/com/harman/voice/CCOIPresCtrlStubImpl.cpp.s
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src/CMakeFiles/CCOIPresCtrl.dir/build.make src/CMakeFiles/CCOIPresCtrl.dir/provides/v2/com/harman/voice/CCOIPresCtrlStubImpl.cpp.s
 .PHONY : provides/v2/com/harman/voice/CCOIPresCtrlStubImpl.cpp.s
 
 # Help Target
@@ -565,6 +565,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

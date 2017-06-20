@@ -1,4 +1,4 @@
-# Install script for directory: /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/src-gen
+# Install script for directory: /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/src-gen
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/yoctoadm/work/FORDSDK/Ford-SDK-17155/sysroots/x86_64-elinasdk-linux/usr/bin/cmake
+CMAKE_COMMAND = /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake
 
 # The command to remove a file.
-RM = /home/yoctoadm/work/FORDSDK/Ford-SDK-17155/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E remove -f
+RM = /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/yoctoadm/work/customerOptIn_srcV2/customeroptin
+CMAKE_SOURCE_DIR = /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build
+CMAKE_BINARY_DIR = /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/yoctoadm/work/FORDSDK/Ford-SDK-17155/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -70,7 +70,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/yoctoadm/work/FORDSDK/Ford-SDK-17155/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -80,14 +80,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build/CMakeFiles /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build/src-gen/CMakeFiles/progress.marks
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f CMakeFiles/Makefile2 src-gen/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build/CMakeFiles 0
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build/CMakeFiles /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build/src-gen/CMakeFiles/progress.marks
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f CMakeFiles/Makefile2 src-gen/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f CMakeFiles/Makefile2 src-gen/clean
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f CMakeFiles/Makefile2 src-gen/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f CMakeFiles/Makefile2 src-gen/preinstall
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f CMakeFiles/Makefile2 src-gen/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f CMakeFiles/Makefile2 src-gen/preinstall
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f CMakeFiles/Makefile2 src-gen/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src-gen/CMakeFiles/CCOIPresCtrl_ccoipresctrl_types_static_stub.dir/rule:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f CMakeFiles/Makefile2 src-gen/CMakeFiles/CCOIPresCtrl_ccoipresctrl_types_static_stub.dir/rule
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f CMakeFiles/Makefile2 src-gen/CMakeFiles/CCOIPresCtrl_ccoipresctrl_types_static_stub.dir/rule
 .PHONY : src-gen/CMakeFiles/CCOIPresCtrl_ccoipresctrl_types_static_stub.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ CCOIPresCtrl_ccoipresctrl_types_static_stub: src-gen/CMakeFiles/CCOIPresCtrl_cco
 
 # fast build rule for target.
 CCOIPresCtrl_ccoipresctrl_types_static_stub/fast:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src-gen/CMakeFiles/CCOIPresCtrl_ccoipresctrl_types_static_stub.dir/build.make src-gen/CMakeFiles/CCOIPresCtrl_ccoipresctrl_types_static_stub.dir/build
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src-gen/CMakeFiles/CCOIPresCtrl_ccoipresctrl_types_static_stub.dir/build.make src-gen/CMakeFiles/CCOIPresCtrl_ccoipresctrl_types_static_stub.dir/build
 .PHONY : CCOIPresCtrl_ccoipresctrl_types_static_stub/fast
 
 provides/v2/com/harman/voice/CCOIPresCtrlStubDefault.o: provides/v2/com/harman/voice/CCOIPresCtrlStubDefault.cpp.o
@@ -131,7 +131,7 @@ provides/v2/com/harman/voice/CCOIPresCtrlStubDefault.o: provides/v2/com/harman/v
 
 # target to build an object file
 provides/v2/com/harman/voice/CCOIPresCtrlStubDefault.cpp.o:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src-gen/CMakeFiles/CCOIPresCtrl_ccoipresctrl_types_static_stub.dir/build.make src-gen/CMakeFiles/CCOIPresCtrl_ccoipresctrl_types_static_stub.dir/provides/v2/com/harman/voice/CCOIPresCtrlStubDefault.cpp.o
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src-gen/CMakeFiles/CCOIPresCtrl_ccoipresctrl_types_static_stub.dir/build.make src-gen/CMakeFiles/CCOIPresCtrl_ccoipresctrl_types_static_stub.dir/provides/v2/com/harman/voice/CCOIPresCtrlStubDefault.cpp.o
 .PHONY : provides/v2/com/harman/voice/CCOIPresCtrlStubDefault.cpp.o
 
 provides/v2/com/harman/voice/CCOIPresCtrlStubDefault.i: provides/v2/com/harman/voice/CCOIPresCtrlStubDefault.cpp.i
@@ -140,7 +140,7 @@ provides/v2/com/harman/voice/CCOIPresCtrlStubDefault.i: provides/v2/com/harman/v
 
 # target to preprocess a source file
 provides/v2/com/harman/voice/CCOIPresCtrlStubDefault.cpp.i:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src-gen/CMakeFiles/CCOIPresCtrl_ccoipresctrl_types_static_stub.dir/build.make src-gen/CMakeFiles/CCOIPresCtrl_ccoipresctrl_types_static_stub.dir/provides/v2/com/harman/voice/CCOIPresCtrlStubDefault.cpp.i
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src-gen/CMakeFiles/CCOIPresCtrl_ccoipresctrl_types_static_stub.dir/build.make src-gen/CMakeFiles/CCOIPresCtrl_ccoipresctrl_types_static_stub.dir/provides/v2/com/harman/voice/CCOIPresCtrlStubDefault.cpp.i
 .PHONY : provides/v2/com/harman/voice/CCOIPresCtrlStubDefault.cpp.i
 
 provides/v2/com/harman/voice/CCOIPresCtrlStubDefault.s: provides/v2/com/harman/voice/CCOIPresCtrlStubDefault.cpp.s
@@ -149,7 +149,7 @@ provides/v2/com/harman/voice/CCOIPresCtrlStubDefault.s: provides/v2/com/harman/v
 
 # target to generate assembly for a file
 provides/v2/com/harman/voice/CCOIPresCtrlStubDefault.cpp.s:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(MAKE) -f src-gen/CMakeFiles/CCOIPresCtrl_ccoipresctrl_types_static_stub.dir/build.make src-gen/CMakeFiles/CCOIPresCtrl_ccoipresctrl_types_static_stub.dir/provides/v2/com/harman/voice/CCOIPresCtrlStubDefault.cpp.s
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(MAKE) -f src-gen/CMakeFiles/CCOIPresCtrl_ccoipresctrl_types_static_stub.dir/build.make src-gen/CMakeFiles/CCOIPresCtrl_ccoipresctrl_types_static_stub.dir/provides/v2/com/harman/voice/CCOIPresCtrlStubDefault.cpp.s
 .PHONY : provides/v2/com/harman/voice/CCOIPresCtrlStubDefault.cpp.s
 
 # Help Target
@@ -175,6 +175,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

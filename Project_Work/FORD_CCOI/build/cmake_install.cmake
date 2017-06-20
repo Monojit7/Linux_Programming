@@ -1,4 +1,4 @@
-# Install script for directory: /home/yoctoadm/work/customerOptIn_srcV2/customeroptin
+# Install script for directory: /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

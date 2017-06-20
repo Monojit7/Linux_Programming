@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\FORD\Ubuntu_Vmware\Shared_Folder\Example_Program_Ford\Hello_World\TriangleClient\gen\dbus\consumes\v1\com\monojit\TriangleDBusDeployment.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\FORD\Ubuntu_Vmware\Shared_Folder\Example_Program_Ford\Hello_World\TriangleClient\gen\dbus\consumes\v1\com\monojit\TriangleDBusProxy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\FORD\Ubuntu_Vmware\Shared_Folder\Example_Program_Ford\Hello_World\TriangleClient\gen\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4C4A33DA-51A4-30E5-82EA-1810E2CCBDBE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

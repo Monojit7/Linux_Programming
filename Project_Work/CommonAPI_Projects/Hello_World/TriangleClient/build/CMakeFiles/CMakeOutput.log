@@ -1,0 +1,543 @@
+The target system is: Linux -  - cortexa9hf
+The host system is: Linux - 3.19.0-15-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-gcc -march=armv7-a;-marm;-mthumb-interwork;-mfloat-abi=hard;-mfpu=neon;-mtune=cortex-a9;--sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi
+Build flags: ;-O2;-pipe;-g;-feliminate-unused-debug-types
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/3.3.1/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-g++ -march=armv7-a;-marm;-mthumb-interwork;-mfloat-abi=hard;-mfpu=neon;-mtune=cortex-a9;--sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi
+Build flags: ;-O2;-pipe;-g;-feliminate-unused-debug-types
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/3.3.1/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make" "cmTC_13eba/fast"
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make -f CMakeFiles/cmTC_13eba.dir/build.make CMakeFiles/cmTC_13eba.dir/build
+make[1]: Entering directory '/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_13eba.dir/testCCompiler.c.o
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-gcc   -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi  -O2 -pipe -g -feliminate-unused-debug-types    -o CMakeFiles/cmTC_13eba.dir/testCCompiler.c.o   -c /home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_13eba
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_13eba.dir/link.txt --verbose=1
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-gcc   -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi  -O2 -pipe -g -feliminate-unused-debug-types    -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_13eba.dir/testCCompiler.c.o  -o cmTC_13eba -rdynamic 
+make[1]: Leaving directory '/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make" "cmTC_08f76/fast"
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make -f CMakeFiles/cmTC_08f76.dir/build.make CMakeFiles/cmTC_08f76.dir/build
+make[1]: Entering directory '/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_08f76.dir/CMakeCCompilerABI.c.o
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-gcc   -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/  -O2 -pipe -g -feliminate-unused-debug-types    -o CMakeFiles/cmTC_08f76.dir/CMakeCCompilerABI.c.o   -c /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share/cmake-3.3/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_08f76
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_08f76.dir/link.txt --verbose=1
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-gcc   -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/  -O2 -pipe -g -feliminate-unused-debug-types    -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -v CMakeFiles/cmTC_08f76.dir/CMakeCCompilerABI.c.o  -o cmTC_08f76 -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-gcc
+COLLECT_LTO_WRAPPER=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/lto-wrapper
+Target: arm-elina-linux-gnueabi
+Configured with: /home/buildserver/work/jenkins/var/lib/jenkins/workspace/Ford-Daily-Build-Master/project/elina-distro/build-cpm-ford-lcis/tmp/work-shared/gcc-5.2.0-r0/gcc-5.2.0/configure --build=x86_64-linux --host=x86_64-elinasdk-linux --target=arm-elina-linux-gnueabi --prefix=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr --exec_prefix=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr --bindir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi --sbindir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi --libexecdir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi --datadir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share --sysconfdir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/etc --sharedstatedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/com --localstatedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/var --libdir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi --includedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/include --oldincludedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/include --infodir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share/info --mandir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share/man --disable-silent-rules --disable-dependency-tracking --with-libtool-sysroot=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/Ford-Daily-Build-Master/project/elina-distro/build-cpm-ford-lcis/tmp/sysroots/x86_64-nativesdk-elinasdk-linux --with-gnu-ld --enable-shared --enable-languages=c,c++ --enable-threads=posix --enable-multilib --enable-c99 --enable-long-long --enable-symvers=gnu --enable-libstdcxx-pch --program-prefix=arm-elina-linux-gnueabi- --without-local-prefix --enable-target-optspace --enable-lto --enable-libssp --disable-bootstrap --disable-libmudflap --with-system-zlib --with-linker-hash-style=gnu --enable-linker-build-id --with-ppl=no --with-cloog=no --enable-checking=release --enable-cheaders=c_global --without-isl --with-gxx-include-dir=/not/exist/usr/include/c++/5.2.0 --with-build-time-tools=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/Ford-Daily-Build-Master/project/elina-distro/build-cpm-ford-lcis/tmp/sysroots/x86_64-linux/usr/arm-elina-linux-gnueabi/bin --with-sysroot=/not/exist --with-build-sysroot=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/Ford-Daily-Build-Master/project/elina-distro/build-cpm-ford-lcis/tmp/sysroots/lcis-f004-b1 --enable-poison-system-directories --with-mpfr=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/Ford-Daily-Build-Master/project/elina-distro/build-cpm-ford-lcis/tmp/sysroots/x86_64-nativesdk-elinasdk-linux --with-mpc=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/Ford-Daily-Build-Master/project/elina-distro/build-cpm-ford-lcis/tmp/sysroots/x86_64-nativesdk-elinasdk-linux --enable-nls --with-arch=armv7-a
+Thread model: posix
+gcc version 5.2.0 (GCC) 
+COMPILER_PATH=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/
+LIBRARY_PATH=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/:/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/lib/:/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0/:/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/
+COLLECT_GCC_OPTIONS='--sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/' '-march=armv7-a' '-marm' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'cmTC_08f76' '-rdynamic' '-mtls-dialect=gnu'
+ /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/collect2 -plugin /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/liblto_plugin.so -plugin-opt=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccWrOtvA.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/ --build-id --eh-frame-hdr --hash-style=gnu -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTC_08f76 /opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/crt1.o /opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/crti.o /opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0/crtbegin.o -L/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0 -L/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/lib -L/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0 -L/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib -O1 --hash-style=gnu --as-needed CMakeFiles/cmTC_08f76.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0/crtend.o /opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/crtn.o
+make[1]: Leaving directory '/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(arm-elina-linux-gnueabi-ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make" "cmTC_08f76/fast"]
+  ignore line: [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make -f CMakeFiles/cmTC_08f76.dir/build.make CMakeFiles/cmTC_08f76.dir/build]
+  ignore line: [make[1]: Entering directory '/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_08f76.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-gcc   -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/  -O2 -pipe -g -feliminate-unused-debug-types    -o CMakeFiles/cmTC_08f76.dir/CMakeCCompilerABI.c.o   -c /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share/cmake-3.3/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_08f76]
+  ignore line: [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_08f76.dir/link.txt --verbose=1]
+  ignore line: [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-gcc   -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/  -O2 -pipe -g -feliminate-unused-debug-types    -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -v CMakeFiles/cmTC_08f76.dir/CMakeCCompilerABI.c.o  -o cmTC_08f76 -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/lto-wrapper]
+  ignore line: [Target: arm-elina-linux-gnueabi]
+  ignore line: [Configured with: /home/buildserver/work/jenkins/var/lib/jenkins/workspace/Ford-Daily-Build-Master/project/elina-distro/build-cpm-ford-lcis/tmp/work-shared/gcc-5.2.0-r0/gcc-5.2.0/configure --build=x86_64-linux --host=x86_64-elinasdk-linux --target=arm-elina-linux-gnueabi --prefix=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr --exec_prefix=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr --bindir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi --sbindir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi --libexecdir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi --datadir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share --sysconfdir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/etc --sharedstatedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/com --localstatedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/var --libdir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi --includedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/include --oldincludedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/include --infodir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share/info --mandir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share/man --disable-silent-rules --disable-dependency-tracking --with-libtool-sysroot=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/Ford-Daily-Build-Master/project/elina-distro/build-cpm-ford-lcis/tmp/sysroots/x86_64-nativesdk-elinasdk-linux --with-gnu-ld --enable-shared --enable-languages=c,c++ --enable-threads=posix --enable-multilib --enable-c99 --enable-long-long --enable-symvers=gnu --enable-libstdcxx-pch --program-prefix=arm-elina-linux-gnueabi- --without-local-prefix --enable-target-optspace --enable-lto --enable-libssp --disable-bootstrap --disable-libmudflap --with-system-zlib --with-linker-hash-style=gnu --enable-linker-build-id --with-ppl=no --with-cloog=no --enable-checking=release --enable-cheaders=c_global --without-isl --with-gxx-include-dir=/not/exist/usr/include/c++/5.2.0 --with-build-time-tools=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/Ford-Daily-Build-Master/project/elina-distro/build-cpm-ford-lcis/tmp/sysroots/x86_64-linux/usr/arm-elina-linux-gnueabi/bin --with-sysroot=/not/exist --with-build-sysroot=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/Ford-Daily-Build-Master/project/elina-distro/build-cpm-ford-lcis/tmp/sysroots/lcis-f004-b1 --enable-poison-system-directories --with-mpfr=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/Ford-Daily-Build-Master/project/elina-distro/build-cpm-ford-lcis/tmp/sysroots/x86_64-nativesdk-elinasdk-linux --with-mpc=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/Ford-Daily-Build-Master/project/elina-distro/build-cpm-ford-lcis/tmp/sysroots/x86_64-nativesdk-elinasdk-linux --enable-nls --with-arch=armv7-a]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 5.2.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/]
+  ignore line: [LIBRARY_PATH=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/:/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/lib/:/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0/:/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='--sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/' '-march=armv7-a' '-marm' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'cmTC_08f76' '-rdynamic' '-mtls-dialect=gnu']
+  link line: [ /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/collect2 -plugin /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/liblto_plugin.so -plugin-opt=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccWrOtvA.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/ --build-id --eh-frame-hdr --hash-style=gnu -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTC_08f76 /opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/crt1.o /opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/crti.o /opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0/crtbegin.o -L/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0 -L/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/lib -L/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0 -L/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib -O1 --hash-style=gnu --as-needed CMakeFiles/cmTC_08f76.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0/crtend.o /opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/crtn.o]
+    arg [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccWrOtvA.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-linux-armhf.so.3] ==> ignore
+    arg [-X] ==> ignore
+    arg [-m] ==> ignore
+    arg [armelf_linux_eabi] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_08f76] ==> ignore
+    arg [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/crt1.o] ==> ignore
+    arg [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/crti.o] ==> ignore
+    arg [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0/crtbegin.o] ==> ignore
+    arg [-L/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0] ==> dir [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0]
+    arg [-L/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/lib] ==> dir [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/lib]
+    arg [-L/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0] ==> dir [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0]
+    arg [-L/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib] ==> dir [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib]
+    arg [-O1] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [CMakeFiles/cmTC_08f76.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0/crtend.o] ==> ignore
+    arg [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/crtn.o] ==> ignore
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  collapse library dir [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0] ==> [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0]
+  collapse library dir [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/lib] ==> [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/lib]
+  collapse library dir [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0] ==> [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0]
+  collapse library dir [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib] ==> [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib]
+  implicit libs: [c]
+  implicit dirs: [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0;/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/lib;/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0;/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make" "cmTC_d9c2d/fast"
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make -f CMakeFiles/cmTC_d9c2d.dir/build.make CMakeFiles/cmTC_d9c2d.dir/build
+make[1]: Entering directory '/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d9c2d.dir/feature_tests.c.o
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-gcc   -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi  -O2 -pipe -g -feliminate-unused-debug-types    -std=c11 -o CMakeFiles/cmTC_d9c2d.dir/feature_tests.c.o   -c /home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_d9c2d
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d9c2d.dir/link.txt --verbose=1
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-gcc   -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi  -O2 -pipe -g -feliminate-unused-debug-types    -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_d9c2d.dir/feature_tests.c.o  -o cmTC_d9c2d -rdynamic 
+make[1]: Leaving directory '/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make" "cmTC_89a13/fast"
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make -f CMakeFiles/cmTC_89a13.dir/build.make CMakeFiles/cmTC_89a13.dir/build
+make[1]: Entering directory '/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_89a13.dir/feature_tests.c.o
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-gcc   -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi  -O2 -pipe -g -feliminate-unused-debug-types    -std=c99 -o CMakeFiles/cmTC_89a13.dir/feature_tests.c.o   -c /home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_89a13
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_89a13.dir/link.txt --verbose=1
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-gcc   -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi  -O2 -pipe -g -feliminate-unused-debug-types    -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_89a13.dir/feature_tests.c.o  -o cmTC_89a13 -rdynamic 
+make[1]: Leaving directory '/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make" "cmTC_7aad1/fast"
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make -f CMakeFiles/cmTC_7aad1.dir/build.make CMakeFiles/cmTC_7aad1.dir/build
+make[1]: Entering directory '/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7aad1.dir/feature_tests.c.o
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-gcc   -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi  -O2 -pipe -g -feliminate-unused-debug-types    -std=c90 -o CMakeFiles/cmTC_7aad1.dir/feature_tests.c.o   -c /home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_7aad1
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7aad1.dir/link.txt --verbose=1
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-gcc   -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi  -O2 -pipe -g -feliminate-unused-debug-types    -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_7aad1.dir/feature_tests.c.o  -o cmTC_7aad1 -rdynamic 
+make[1]: Leaving directory '/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make" "cmTC_6c770/fast"
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make -f CMakeFiles/cmTC_6c770.dir/build.make CMakeFiles/cmTC_6c770.dir/build
+make[1]: Entering directory '/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_6c770.dir/testCXXCompiler.cxx.o
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-g++   -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi   -O2 -pipe -g -feliminate-unused-debug-types    -o CMakeFiles/cmTC_6c770.dir/testCXXCompiler.cxx.o -c /home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_6c770
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6c770.dir/link.txt --verbose=1
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-g++   -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi   -O2 -pipe -g -feliminate-unused-debug-types    -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_6c770.dir/testCXXCompiler.cxx.o  -o cmTC_6c770 -rdynamic 
+make[1]: Leaving directory '/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make" "cmTC_e9e2e/fast"
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make -f CMakeFiles/cmTC_e9e2e.dir/build.make CMakeFiles/cmTC_e9e2e.dir/build
+make[1]: Entering directory '/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e9e2e.dir/CMakeCXXCompilerABI.cpp.o
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-g++   -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/   -O2 -pipe -g -feliminate-unused-debug-types    -o CMakeFiles/cmTC_e9e2e.dir/CMakeCXXCompilerABI.cpp.o -c /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share/cmake-3.3/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_e9e2e
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e9e2e.dir/link.txt --verbose=1
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-g++   -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/   -O2 -pipe -g -feliminate-unused-debug-types    -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -v CMakeFiles/cmTC_e9e2e.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_e9e2e -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-g++
+COLLECT_LTO_WRAPPER=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/lto-wrapper
+Target: arm-elina-linux-gnueabi
+Configured with: /home/buildserver/work/jenkins/var/lib/jenkins/workspace/Ford-Daily-Build-Master/project/elina-distro/build-cpm-ford-lcis/tmp/work-shared/gcc-5.2.0-r0/gcc-5.2.0/configure --build=x86_64-linux --host=x86_64-elinasdk-linux --target=arm-elina-linux-gnueabi --prefix=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr --exec_prefix=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr --bindir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi --sbindir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi --libexecdir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi --datadir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share --sysconfdir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/etc --sharedstatedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/com --localstatedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/var --libdir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi --includedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/include --oldincludedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/include --infodir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share/info --mandir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share/man --disable-silent-rules --disable-dependency-tracking --with-libtool-sysroot=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/Ford-Daily-Build-Master/project/elina-distro/build-cpm-ford-lcis/tmp/sysroots/x86_64-nativesdk-elinasdk-linux --with-gnu-ld --enable-shared --enable-languages=c,c++ --enable-threads=posix --enable-multilib --enable-c99 --enable-long-long --enable-symvers=gnu --enable-libstdcxx-pch --program-prefix=arm-elina-linux-gnueabi- --without-local-prefix --enable-target-optspace --enable-lto --enable-libssp --disable-bootstrap --disable-libmudflap --with-system-zlib --with-linker-hash-style=gnu --enable-linker-build-id --with-ppl=no --with-cloog=no --enable-checking=release --enable-cheaders=c_global --without-isl --with-gxx-include-dir=/not/exist/usr/include/c++/5.2.0 --with-build-time-tools=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/Ford-Daily-Build-Master/project/elina-distro/build-cpm-ford-lcis/tmp/sysroots/x86_64-linux/usr/arm-elina-linux-gnueabi/bin --with-sysroot=/not/exist --with-build-sysroot=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/Ford-Daily-Build-Master/project/elina-distro/build-cpm-ford-lcis/tmp/sysroots/lcis-f004-b1 --enable-poison-system-directories --with-mpfr=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/Ford-Daily-Build-Master/project/elina-distro/build-cpm-ford-lcis/tmp/sysroots/x86_64-nativesdk-elinasdk-linux --with-mpc=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/Ford-Daily-Build-Master/project/elina-distro/build-cpm-ford-lcis/tmp/sysroots/x86_64-nativesdk-elinasdk-linux --enable-nls --with-arch=armv7-a
+Thread model: posix
+gcc version 5.2.0 (GCC) 
+COMPILER_PATH=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/
+LIBRARY_PATH=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/:/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/lib/:/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0/:/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/
+COLLECT_GCC_OPTIONS='--sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/' '-march=armv7-a' '-marm' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'cmTC_e9e2e' '-rdynamic' '-shared-libgcc' '-mtls-dialect=gnu'
+ /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/collect2 -plugin /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/liblto_plugin.so -plugin-opt=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccdxfHj4.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/ --build-id --eh-frame-hdr --hash-style=gnu -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTC_e9e2e /opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/crt1.o /opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/crti.o /opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0/crtbegin.o -L/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0 -L/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/lib -L/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0 -L/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib -O1 --hash-style=gnu --as-needed CMakeFiles/cmTC_e9e2e.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0/crtend.o /opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/crtn.o
+make[1]: Leaving directory '/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(arm-elina-linux-gnueabi-ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make" "cmTC_e9e2e/fast"]
+  ignore line: [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make -f CMakeFiles/cmTC_e9e2e.dir/build.make CMakeFiles/cmTC_e9e2e.dir/build]
+  ignore line: [make[1]: Entering directory '/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_e9e2e.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-g++   -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/   -O2 -pipe -g -feliminate-unused-debug-types    -o CMakeFiles/cmTC_e9e2e.dir/CMakeCXXCompilerABI.cpp.o -c /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share/cmake-3.3/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_e9e2e]
+  ignore line: [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e9e2e.dir/link.txt --verbose=1]
+  ignore line: [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-g++   -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/   -O2 -pipe -g -feliminate-unused-debug-types    -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -v CMakeFiles/cmTC_e9e2e.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_e9e2e -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-g++]
+  ignore line: [COLLECT_LTO_WRAPPER=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/lto-wrapper]
+  ignore line: [Target: arm-elina-linux-gnueabi]
+  ignore line: [Configured with: /home/buildserver/work/jenkins/var/lib/jenkins/workspace/Ford-Daily-Build-Master/project/elina-distro/build-cpm-ford-lcis/tmp/work-shared/gcc-5.2.0-r0/gcc-5.2.0/configure --build=x86_64-linux --host=x86_64-elinasdk-linux --target=arm-elina-linux-gnueabi --prefix=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr --exec_prefix=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr --bindir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi --sbindir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi --libexecdir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi --datadir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share --sysconfdir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/etc --sharedstatedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/com --localstatedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/var --libdir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi --includedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/include --oldincludedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/include --infodir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share/info --mandir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share/man --disable-silent-rules --disable-dependency-tracking --with-libtool-sysroot=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/Ford-Daily-Build-Master/project/elina-distro/build-cpm-ford-lcis/tmp/sysroots/x86_64-nativesdk-elinasdk-linux --with-gnu-ld --enable-shared --enable-languages=c,c++ --enable-threads=posix --enable-multilib --enable-c99 --enable-long-long --enable-symvers=gnu --enable-libstdcxx-pch --program-prefix=arm-elina-linux-gnueabi- --without-local-prefix --enable-target-optspace --enable-lto --enable-libssp --disable-bootstrap --disable-libmudflap --with-system-zlib --with-linker-hash-style=gnu --enable-linker-build-id --with-ppl=no --with-cloog=no --enable-checking=release --enable-cheaders=c_global --without-isl --with-gxx-include-dir=/not/exist/usr/include/c++/5.2.0 --with-build-time-tools=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/Ford-Daily-Build-Master/project/elina-distro/build-cpm-ford-lcis/tmp/sysroots/x86_64-linux/usr/arm-elina-linux-gnueabi/bin --with-sysroot=/not/exist --with-build-sysroot=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/Ford-Daily-Build-Master/project/elina-distro/build-cpm-ford-lcis/tmp/sysroots/lcis-f004-b1 --enable-poison-system-directories --with-mpfr=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/Ford-Daily-Build-Master/project/elina-distro/build-cpm-ford-lcis/tmp/sysroots/x86_64-nativesdk-elinasdk-linux --with-mpc=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/Ford-Daily-Build-Master/project/elina-distro/build-cpm-ford-lcis/tmp/sysroots/x86_64-nativesdk-elinasdk-linux --enable-nls --with-arch=armv7-a]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 5.2.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/]
+  ignore line: [LIBRARY_PATH=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/:/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/lib/:/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0/:/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='--sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/' '-march=armv7-a' '-marm' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'cmTC_e9e2e' '-rdynamic' '-shared-libgcc' '-mtls-dialect=gnu']
+  link line: [ /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/collect2 -plugin /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/liblto_plugin.so -plugin-opt=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccdxfHj4.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/ --build-id --eh-frame-hdr --hash-style=gnu -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTC_e9e2e /opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/crt1.o /opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/crti.o /opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0/crtbegin.o -L/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0 -L/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/lib -L/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0 -L/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib -O1 --hash-style=gnu --as-needed CMakeFiles/cmTC_e9e2e.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0/crtend.o /opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/crtn.o]
+    arg [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccdxfHj4.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-linux-armhf.so.3] ==> ignore
+    arg [-X] ==> ignore
+    arg [-m] ==> ignore
+    arg [armelf_linux_eabi] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_e9e2e] ==> ignore
+    arg [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/crt1.o] ==> ignore
+    arg [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/crti.o] ==> ignore
+    arg [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0/crtbegin.o] ==> ignore
+    arg [-L/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0] ==> dir [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0]
+    arg [-L/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/lib] ==> dir [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/lib]
+    arg [-L/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0] ==> dir [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0]
+    arg [-L/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib] ==> dir [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib]
+    arg [-O1] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [CMakeFiles/cmTC_e9e2e.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0/crtend.o] ==> ignore
+    arg [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/crtn.o] ==> ignore
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  collapse library dir [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0] ==> [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0]
+  collapse library dir [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/lib] ==> [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/lib]
+  collapse library dir [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0] ==> [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0]
+  collapse library dir [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib] ==> [/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib]
+  implicit libs: [stdc++;m;c]
+  implicit dirs: [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/arm-elina-linux-gnueabi/gcc/arm-elina-linux-gnueabi/5.2.0;/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/lib;/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib/arm-elina-linux-gnueabi/5.2.0;/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/usr/lib]
+  implicit fwks: []
+
+
+
+
+Detecting CXX [-std=c++14] compiler features compiled with the following output:
+Change Dir: /home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make" "cmTC_c76c4/fast"
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make -f CMakeFiles/cmTC_c76c4.dir/build.make CMakeFiles/cmTC_c76c4.dir/build
+make[1]: Entering directory '/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c76c4.dir/feature_tests.cxx.o
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-g++   -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi   -O2 -pipe -g -feliminate-unused-debug-types    -std=c++14 -o CMakeFiles/cmTC_c76c4.dir/feature_tests.cxx.o -c /home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_c76c4
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c76c4.dir/link.txt --verbose=1
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-g++   -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi   -O2 -pipe -g -feliminate-unused-debug-types    -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_c76c4.dir/feature_tests.cxx.o  -o cmTC_c76c4 -rdynamic 
+make[1]: Leaving directory '/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++11] compiler features compiled with the following output:
+Change Dir: /home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make" "cmTC_6cfcb/fast"
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make -f CMakeFiles/cmTC_6cfcb.dir/build.make CMakeFiles/cmTC_6cfcb.dir/build
+make[1]: Entering directory '/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_6cfcb.dir/feature_tests.cxx.o
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-g++   -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi   -O2 -pipe -g -feliminate-unused-debug-types    -std=c++11 -o CMakeFiles/cmTC_6cfcb.dir/feature_tests.cxx.o -c /home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_6cfcb
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6cfcb.dir/link.txt --verbose=1
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-g++   -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi   -O2 -pipe -g -feliminate-unused-debug-types    -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_6cfcb.dir/feature_tests.cxx.o  -o cmTC_6cfcb -rdynamic 
+make[1]: Leaving directory '/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++98] compiler features compiled with the following output:
+Change Dir: /home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make" "cmTC_efffb/fast"
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make -f CMakeFiles/cmTC_efffb.dir/build.make CMakeFiles/cmTC_efffb.dir/build
+make[1]: Entering directory '/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_efffb.dir/feature_tests.cxx.o
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-g++   -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi   -O2 -pipe -g -feliminate-unused-debug-types    -std=c++98 -o CMakeFiles/cmTC_efffb.dir/feature_tests.cxx.o -c /home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_efffb
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_efffb.dir/link.txt --verbose=1
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-g++   -march=armv7-a -marm  -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi   -O2 -pipe -g -feliminate-unused-debug-types    -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_efffb.dir/feature_tests.cxx.o  -o cmTC_efffb -rdynamic 
+make[1]: Leaving directory '/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleClient/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:0cxx_alias_templates
+    Feature record: CXX_FEATURE:0cxx_alignas
+    Feature record: CXX_FEATURE:0cxx_alignof
+    Feature record: CXX_FEATURE:0cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:0cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:0cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:0cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:0cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:0cxx_default_function_template_args
+    Feature record: CXX_FEATURE:0cxx_defaulted_functions
+    Feature record: CXX_FEATURE:0cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:0cxx_delegating_constructors
+    Feature record: CXX_FEATURE:0cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:0cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:0cxx_explicit_conversions
+    Feature record: CXX_FEATURE:0cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:0cxx_extern_templates
+    Feature record: CXX_FEATURE:0cxx_final
+    Feature record: CXX_FEATURE:0cxx_func_identifier
+    Feature record: CXX_FEATURE:0cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:0cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:0cxx_inline_namespaces
+    Feature record: CXX_FEATURE:0cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:0cxx_local_type_template_args
+    Feature record: CXX_FEATURE:0cxx_long_long_type
+    Feature record: CXX_FEATURE:0cxx_noexcept
+    Feature record: CXX_FEATURE:0cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:0cxx_nullptr
+    Feature record: CXX_FEATURE:0cxx_override
+    Feature record: CXX_FEATURE:0cxx_range_for
+    Feature record: CXX_FEATURE:0cxx_raw_string_literals
+    Feature record: CXX_FEATURE:0cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:0cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:0cxx_rvalue_references
+    Feature record: CXX_FEATURE:0cxx_sizeof_member
+    Feature record: CXX_FEATURE:0cxx_static_assert
+    Feature record: CXX_FEATURE:0cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:0cxx_thread_local
+    Feature record: CXX_FEATURE:0cxx_trailing_return_types
+    Feature record: CXX_FEATURE:0cxx_unicode_literals
+    Feature record: CXX_FEATURE:0cxx_uniform_initialization
+    Feature record: CXX_FEATURE:0cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:0cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:0cxx_variadic_macros
+    Feature record: CXX_FEATURE:0cxx_variadic_templates

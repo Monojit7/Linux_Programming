@@ -1,0 +1,2 @@
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-ar cq libTriangleServer_triangleServer_types_static_stub.a  CMakeFiles/TriangleServer_triangleServer_types_static_stub.dir/provides/v1/com/monojit/TriangleStubDefault.cpp.o
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/arm-elina-linux-gnueabi/arm-elina-linux-gnueabi-ranlib libTriangleServer_triangleServer_types_static_stub.a

@@ -1,0 +1,32 @@
+package com.monojit
+
+
+
+interface Triangle {
+version {
+major 1
+minor 0
+}
+<** @description: Example comment**>
+method Area {
+out {
+String output
+}
+}
+broadcast AreaResult {
+out { String e }
+}
+
+
+attribute UInt32 height 
+
+attribute UInt32 width
+
+}
+
+
+
+
+
+
+

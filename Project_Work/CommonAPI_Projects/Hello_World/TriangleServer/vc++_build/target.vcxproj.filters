@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\FORD\Ubuntu_Vmware\Shared_Folder\Example_Program_Ford\Hello_World\TriangleServer\CMakeLists.txt" />
+    <CustomBuild Include="D:\FORD\Ubuntu_Vmware\Shared_Folder\Example_Program_Ford\Hello_World\TriangleServer\vc++_build\CMakeFiles\64b891b53a79dd3294815c16da3b3aa9\target.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\FORD\Ubuntu_Vmware\Shared_Folder\Example_Program_Ford\Hello_World\TriangleServer\vc++_build\CMakeFiles\target" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{869584A8-9563-34C7-80B1-592233FDF95C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

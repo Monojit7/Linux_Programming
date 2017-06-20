@@ -1,0 +1,22 @@
+import fidl "intf/Hello_World.fidl"
+
+package Hello_World{
+	generator true
+	
+	
+    component TriangleServer {
+    	language cpp
+    	rpc dbus
+	
+        provides interface com.monojit.Triangle as TriangleServerInstance
+
+    }
+
+    component TriangleClient {
+    	language cpp
+    	rpc dbus
+
+        consumes interface com.monojit.Triangle instance TriangleServer :: TriangleServerInstance as TriangleClientInstance
+	}
+	
+}

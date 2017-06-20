@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/yoctoadm/work/FORDSDK/Ford-SDK-17155/sysroots/x86_64-elinasdk-linux/usr/bin/cmake
+CMAKE_COMMAND = /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake
 
 # The command to remove a file.
-RM = /home/yoctoadm/work/FORDSDK/Ford-SDK-17155/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E remove -f
+RM = /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/yoctoadm/work/customerOptIn_srcV2/customeroptin
+CMAKE_SOURCE_DIR = /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build
+CMAKE_BINARY_DIR = /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build
 
 # Utility rule file for cleanall.
 
@@ -54,8 +54,8 @@ CMAKE_BINARY_DIR = /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build
 include CMakeFiles/cleanall.dir/progress.make
 
 CMakeFiles/cleanall:
-	cmake -E remove_directory /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/gen
-	cmake -E remove_directory /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/src-gen
+	cmake -E remove_directory /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/gen
+	cmake -E remove_directory /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/src-gen
 
 cleanall: CMakeFiles/cleanall
 cleanall: CMakeFiles/cleanall.dir/build.make
@@ -72,6 +72,6 @@ CMakeFiles/cleanall.dir/clean:
 .PHONY : CMakeFiles/cleanall.dir/clean
 
 CMakeFiles/cleanall.dir/depend:
-	cd /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/yoctoadm/work/customerOptIn_srcV2/customeroptin /home/yoctoadm/work/customerOptIn_srcV2/customeroptin /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build /home/yoctoadm/work/customerOptIn_srcV2/customeroptin/build/CMakeFiles/cleanall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build /home/monojit/FORD/Linux_Programming/Linux_Programming/Project_Work/FORD_CCOI/build/CMakeFiles/cleanall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/cleanall.dir/depend
 

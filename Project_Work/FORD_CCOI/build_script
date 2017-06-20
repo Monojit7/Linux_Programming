@@ -1,0 +1,11 @@
+#!/bin/sh
+
+
+cmake -DCMAKE_SYSROOT=/opt/elina/2.0.2015143A/sysroots/cortexa9hf-vfp-neon-elina-linux-gnueabi/ ../
+
+
+
+sleep 1
+
+
+make compile

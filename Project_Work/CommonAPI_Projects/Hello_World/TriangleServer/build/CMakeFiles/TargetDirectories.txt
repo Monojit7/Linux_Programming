@@ -1,0 +1,7 @@
+/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleServer/build/CMakeFiles/target.dir
+/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleServer/build/CMakeFiles/cleanall.dir
+/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleServer/build/CMakeFiles/compile.dir
+/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleServer/build/gen/CMakeFiles/TriangleServer-dbus.dir
+/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleServer/build/CMakeFiles/generate.dir
+/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleServer/build/src/CMakeFiles/TriangleServer.dir
+/home/monojit/FORD/Linux_Programming/CommonAPI/Hello_World/TriangleServer/build/src-gen/CMakeFiles/TriangleServer_triangleServer_types_static_stub.dir

@@ -1,0 +1,8 @@
+D:/FORD/Ubuntu_Vmware/Shared_Folder/Example_Program_Ford/Hello_World/TriangleClient/vc++_build/CMakeFiles/generate.dir
+D:/FORD/Ubuntu_Vmware/Shared_Folder/Example_Program_Ford/Hello_World/TriangleClient/vc++_build/CMakeFiles/compile.dir
+D:/FORD/Ubuntu_Vmware/Shared_Folder/Example_Program_Ford/Hello_World/TriangleClient/vc++_build/CMakeFiles/target.dir
+D:/FORD/Ubuntu_Vmware/Shared_Folder/Example_Program_Ford/Hello_World/TriangleClient/vc++_build/CMakeFiles/cleanall.dir
+D:/FORD/Ubuntu_Vmware/Shared_Folder/Example_Program_Ford/Hello_World/TriangleClient/vc++_build/CMakeFiles/ALL_BUILD.dir
+D:/FORD/Ubuntu_Vmware/Shared_Folder/Example_Program_Ford/Hello_World/TriangleClient/vc++_build/CMakeFiles/ZERO_CHECK.dir
+D:/FORD/Ubuntu_Vmware/Shared_Folder/Example_Program_Ford/Hello_World/TriangleClient/vc++_build/gen/CMakeFiles/TriangleClient-dbus.dir
+D:/FORD/Ubuntu_Vmware/Shared_Folder/Example_Program_Ford/Hello_World/TriangleClient/vc++_build/src/CMakeFiles/TriangleClient.dir
