@@ -1,7 +1,0 @@
-/home/monojit/FORD/Linux_Programming/CommonAPI/MyTestingHelloWorld/Hello_World/E04PhoneBook/E04PhoneBookServer/build/CMakeFiles/target.dir
-/home/monojit/FORD/Linux_Programming/CommonAPI/MyTestingHelloWorld/Hello_World/E04PhoneBook/E04PhoneBookServer/build/CMakeFiles/cleanall.dir
-/home/monojit/FORD/Linux_Programming/CommonAPI/MyTestingHelloWorld/Hello_World/E04PhoneBook/E04PhoneBookServer/build/CMakeFiles/compile.dir
-/home/monojit/FORD/Linux_Programming/CommonAPI/MyTestingHelloWorld/Hello_World/E04PhoneBook/E04PhoneBookServer/build/gen/CMakeFiles/E04PhoneBookServer-dbus.dir
-/home/monojit/FORD/Linux_Programming/CommonAPI/MyTestingHelloWorld/Hello_World/E04PhoneBook/E04PhoneBookServer/build/src/CMakeFiles/E04PhoneBookServer.dir
-/home/monojit/FORD/Linux_Programming/CommonAPI/MyTestingHelloWorld/Hello_World/E04PhoneBook/E04PhoneBookServer/build/src-gen/CMakeFiles/E04PhoneBookServer_E04PhoneBookServer_types_static_stub.dir
-/home/monojit/FORD/Linux_Programming/CommonAPI/MyTestingHelloWorld/Hello_World/E04PhoneBook/E04PhoneBookServer/build/CMakeFiles/generate.dir
