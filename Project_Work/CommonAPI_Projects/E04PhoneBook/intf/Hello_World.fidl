@@ -1,0 +1,42 @@
+
+package com.monojit
+
+typeCollection TriangleTypes
+{
+	struct mStruct
+	{
+		String s
+		Int32 data
+	}
+} 
+
+
+interface Triangle {
+version {
+major 1
+minor 0
+}
+<** @description: Example comment**>
+method Area {
+out {
+TriangleTypes.mStruct output
+}
+}
+broadcast AreaResult {
+out { TriangleTypes.mStruct e }
+}
+
+
+attribute TriangleTypes.mStruct  height readonly 
+
+attribute UInt32 width 
+
+}
+
+
+
+
+
+
+
+

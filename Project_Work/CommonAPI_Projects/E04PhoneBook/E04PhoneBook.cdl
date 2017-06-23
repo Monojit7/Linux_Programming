@@ -1,0 +1,20 @@
+import fidl "intf/E04PhoneBook.fidl"
+
+package E04PhoneBook{
+	generator true
+	
+	
+    component E04PhoneBookServer {
+    	language cpp
+	    rpc dbus
+        provides interface commonapi.examples.E04PhoneBook as E04PhoneBookServerInstance
+
+    }
+
+    component E04PhoneBookClient {
+    	language cpp
+        rpc dbus
+        consumes interface commonapi.examples.E04PhoneBook instance E04PhoneBookServer :: E04PhoneBookServerInstance as E04PhoneBookClientInstance
+	}
+	
+}
