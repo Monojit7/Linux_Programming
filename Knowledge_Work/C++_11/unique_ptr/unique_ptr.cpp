@@ -51,6 +51,7 @@ int main()
 
 unique_ptr<X> a( new X());
 
+//unique_ptr<X> c = a;// This line will fail in compilation since unique_ptr does not support copy constructor
 unique_ptr<X> b = move(a);
 
 cout << "a.get():" << a.get() << endl;
