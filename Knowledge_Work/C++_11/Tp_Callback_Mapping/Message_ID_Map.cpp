@@ -26,8 +26,8 @@ DataHandler()
 }
 
 void initDataHandler();
-bool nameReceived(tpdata data );
-
+bool nameReceived      ( tpdata data );
+bool albumNameReceived ( tpdata data );
 void func(vector<string> namelist, int value);
 
 };
@@ -54,6 +54,20 @@ cout << "data value is:  " << i << endl;
 }
 
 
+
+bool DataHandler::albumNameReceived      ( tpdata data )
+{
+
+cout << "   " << __FUNCTION__ << "   " << __LINE__ << endl;
+
+for ( auto i : (*data))
+cout << "data value is:  " << i << endl;
+
+
+
+}
+
+
 void DataHandler::initDataHandler()
 {
 
@@ -61,7 +75,8 @@ cout << "   " << __FUNCTION__ << "   " << __LINE__ << endl;
 
     messageIdHandlerMap_ = 
     {
-        /* trackNameSt */       {   0x46,   bind ( &DataHandler::nameReceived, this,   _1 )   } 
+        /* trackNameSt */       {   0x46,   bind ( &DataHandler::nameReceived, this,   _1 )   },
+        /* AlbumName */         {   0x56,   bind ( &DataHandler::albumNameReceived, this,   _1 )   } 
     };
 
 }
@@ -70,9 +85,11 @@ int main()
 {
 
   DataHandler obj;
-  vector <string> namelist = {"Monojit", "Chatterjee", "GarhJoypur", "Purulia"};
+  vector <string> namelist = { "Monojit" , "Chatterjee" , "GarhJoypur" , "Purulia" };
   obj.func(namelist, 0x46 );
  
+  vector <string> albumList = { "Rabindranath" ,  "Tagore" , "Ekla Chalo re" ,  "by Amitabh Bachan" };
+  obj. func ( albumList, 0x56 );
   return 0;
 
 }
