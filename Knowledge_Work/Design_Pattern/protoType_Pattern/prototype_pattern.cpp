@@ -1,3 +1,12 @@
+/*
+
+Prototype allows us to hide the complexity of making new instances from the client. In this sample, 
+we used prototype manager to set the registry of concrete prototypes.Basically the intention 
+is to hide the complexity of the type of the object and use the same prototype object for other 
+similar kind of operations.
+
+*/
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
