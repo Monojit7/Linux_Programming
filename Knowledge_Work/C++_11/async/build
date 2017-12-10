@@ -1,0 +1,5 @@
+#!/bin/sh
+
+g++ -std=c++11 async_call.cpp -lpthread  -o  async_call
+
+./async_call

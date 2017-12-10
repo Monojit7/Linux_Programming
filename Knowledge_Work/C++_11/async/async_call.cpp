@@ -26,7 +26,7 @@ using namespace std;
 string reverse_string(const string& ss)
 {
 
-cout << " reverse string " <<endl;
+cout << " reverse string " << ss <<endl;
 
 sleep(5);
 
@@ -40,7 +40,7 @@ return s;
 int main()
 {
 
-future<string> f = async(launch::async,reverse_string , "potpal");
+future < string > f = async(launch::async,reverse_string , "potpal");
 auto g = async(launch::async, reverse_string , "elibom"); // returns std::future object which holds the result of the object
 auto e = async(launch::async, reverse_string , "igadnij");
 
