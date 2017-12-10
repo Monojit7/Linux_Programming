@@ -8,28 +8,28 @@ class shared_refptr
 
 public:
 
-int refCount;
-T* Pointee;
+int refCount_;
+T* Pointee_;
 
-explicit shared_refptr(T* pointee = NULL): refCount(0),Pointee(NULL)
+explicit shared_refptr( T* pointee = nullptr ): refCount_( 0 ),Pointee_( nullptr )
 {
 
-this->refCount = 1;
+this->refCount_ = 1;
 
-cout << "shared_refptr:constructor:: refcount" << this->refCount << endl;
+cout << "shared_refptr:constructor:: refcount" << this->refCount_ << endl;
 
-this->Pointee = pointee;
+this->Pointee_ = pointee;
  
 }
 
 void release()
 {
-this->refCount--;
-cout << "shared_refptr:release:: refcount" << this->refCount << endl;
-if(this->refCount == 0)
+this->refCount_--;
+cout << "shared_refptr:release:: refcount" << this->refCount_ << endl;
+if(this->refCount_ == 0)
 {
 
-delete this->Pointee;
+delete this->Pointee_;
 
 cout << "shared_refptr deleting memory" << endl;
 }
@@ -39,36 +39,36 @@ cout << "shared_refptr deleting memory" << endl;
 shared_refptr(const shared_refptr<T>& mshared_ptr)
 {
 
-this->refCount = mshared_ptr.refCount;
-this->Pointee = mshared_ptr.Pointee;
+this->refCount_ = mshared_ptr.refCount_;
+this->Pointee_ = mshared_ptr.Pointee_;
 
-this->refCount++;
+this->refCount_++;
 
-cout << "shared_refptr:copy constructor:: refcount" << this->refCount << endl;
+cout << "shared_refptr:copy constructor:: refcount" << this->refCount_ << endl;
 }
 
 shared_refptr<T>& operator= (const shared_refptr<T>& mshared_ptr)
 {
 this->release();
-this->refCount = mshared_ptr.refCount;
-this->Pointee = mshared_ptr.Pointee;
+this->refCount_ = mshared_ptr.refCount_;
+this->Pointee_ = mshared_ptr.Pointee_;
 
-this->refCount++;
-cout << "shared_refptr:assignment operator:: refcount" << this->refCount << endl;
+this->refCount_++;
+cout << "shared_refptr:assignment operator:: refcount" << this->refCount_ << endl;
 //return *this;
 }
 
 T* operator->()
 {
 
- return this->Pointee;
+ return this->Pointee_;
 }
 
 
 T& operator* ()
 {
 
-return *(this->Pointee);
+return *(this->Pointee_);
 }
 
 ~shared_refptr()

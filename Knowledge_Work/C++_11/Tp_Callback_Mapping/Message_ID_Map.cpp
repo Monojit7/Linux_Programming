@@ -47,7 +47,7 @@ bool DataHandler::nameReceived(tpdata data)
 
 cout << "   " << __FUNCTION__ << "   " << __LINE__ << endl;
 
-for ( auto i : (*data))
+for ( auto i : ( * data ) )
 cout << "data value is:  " << i << endl;
 
 
@@ -60,7 +60,7 @@ bool DataHandler::albumNameReceived      ( tpdata data )
 
 cout << "   " << __FUNCTION__ << "   " << __LINE__ << endl;
 
-for ( auto i : (*data))
+for ( auto i : ( * data ) )
 cout << "data value is:  " << i << endl;
 
 

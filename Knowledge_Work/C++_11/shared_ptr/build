@@ -1,0 +1,5 @@
+#!/bin/sh
+
+g++ -std=c++11 shared_ptr.cpp -lpthread  -o  shared_ptr
+
+./shared_ptr

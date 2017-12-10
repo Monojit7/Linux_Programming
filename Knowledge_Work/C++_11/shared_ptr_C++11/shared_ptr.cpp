@@ -34,14 +34,15 @@ public:
 X(int data)
 {
 
-cout << "X: constructor" << endl;
 this->data = data;
+cout  << __FUNCTION__ << __LINE__ << "< data >" << this->data<< endl;
 } 
 
 ~X()
 {
 
- cout << "X: destructor" << this->data << endl;
+cout  << __FUNCTION__ << __LINE__ << "< data >" << this->data << endl;
+
 
 }
 
@@ -49,6 +50,7 @@ int getvalue()
 {
 
 return this->data;
+
 }
 };
 

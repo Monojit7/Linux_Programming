@@ -1,0 +1,5 @@
+#!/bin/sh
+
+g++ -std=c++11 unique_ptr.cpp  -lpthread  -o  unique_ptr
+
+./unique_ptr

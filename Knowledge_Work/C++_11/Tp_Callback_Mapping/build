@@ -1,0 +1,5 @@
+#!/bin/sh
+
+g++ -std=c++11 Message_ID_Map.cpp -lpthread  -o  Message_ID_Map
+
+./Message_ID_Map
