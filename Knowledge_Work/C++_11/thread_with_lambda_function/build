@@ -1,0 +1,5 @@
+#!/bin/sh
+
+g++ -std=c++11 thread_with_lambda.cpp -lpthread  -o  thread_with_lambda
+
+./thread_with_lambda
