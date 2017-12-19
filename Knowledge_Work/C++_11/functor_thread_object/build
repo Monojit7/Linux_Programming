@@ -1,0 +1,5 @@
+#!/bin/sh
+
+g++ -std=c++11 functor_thread_object.cpp -lpthread  -o  functor_thread_object
+
+./functor_thread_object

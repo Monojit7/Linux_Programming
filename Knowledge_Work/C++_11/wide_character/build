@@ -1,0 +1,5 @@
+#!/bin/sh
+
+g++ -std=c++11 wide_character.cpp -lpthread  -o wide_character
+
+./wide_character
