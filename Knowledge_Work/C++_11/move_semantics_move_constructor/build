@@ -1,0 +1,7 @@
+#!/bin/sh
+
+rm move_semantics_move_constructor
+
+g++ -std=c++11 move_semantics_move_constructor.cpp -lpthread  -o  move_semantics_move_constructor
+
+./move_semantics_move_constructor

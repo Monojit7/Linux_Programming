@@ -1,0 +1,5 @@
+#!/bin/sh
+
+g++ -std=c++11 thread_with_move_semantics.cpp  -lpthread  -o  thread_with_move_semantics
+
+./thread_with_move_semantics
