@@ -93,7 +93,7 @@ void printList ( struct Node** headref )
 void SortedMerge ( struct Node** headref, struct Node* newNode  )
 {
 
-	printf ("%s %d \n", __FUNCTION__ , __LINE__ );
+	printf ("Calling %s and line : %d  \n", __FUNCTION__, __LINE__  );
 	struct Node dummyNode;
 	// result will hold dummyNode address , dummyNode -> next or result ->next 
 	// will hold head pointer 
@@ -146,7 +146,7 @@ void MoveNode ( struct Node** destRef, struct Node** sourceRef )
 // This works by appending the result parameter 
 struct Node*    SortInsert ( struct Node** headref  )
 {
-	printf ("%s %d \n", __FUNCTION__ , __LINE__ );
+	printf ("Calling %s and line : %d  \n", __FUNCTION__, __LINE__  );
 
 
 	struct Node* current = *headref;
@@ -167,6 +167,7 @@ struct Node*    SortInsert ( struct Node** headref  )
 
 	*headref = result;
 
+	printf ("Calling %s and line : %d  \n", __FUNCTION__, __LINE__  );
 	printf ("%s %d  sorted the list  \n", __FUNCTION__ , __LINE__ );
 	return result;
 
@@ -183,6 +184,54 @@ struct Node* getNewNode ( int data )
 	return newNode;
 }
 
+
+
+
+// This function will split a linkedlist into two halves , frontRef will be having frontRef and
+// backRef will hold the second halve of the list 
+void SplitNode ( struct Node* source , struct Node** frontRef, struct Node** backRef )
+{
+
+
+	
+
+	struct Node* current = source ;
+	int count = 0;
+	// Retriving the count of the linkedlist
+	while ( current != NULL )
+	{
+		count++;
+		current = current ->next;
+	}
+
+
+	// If the count is even then first halve will be count / 2 
+	// If the count is odd then first halve will be ( count + 1 ) / 2
+	
+	if ( count % 2 != 0 )
+	{
+		count = count + 1;
+	}
+
+	struct Node* front = source;
+
+	*frontRef = front ;
+	// Moving through the end of first halve
+	for ( int i = 0; i < (count /2 ); i++ )
+	{
+
+		front = front ->next;
+
+	}
+
+	// second halve start from next of end of first halve
+
+	*backRef = front ->next;
+
+	front->next = NULL;
+
+
+}
 int main ()
 {
 
@@ -211,7 +260,15 @@ int main ()
 	struct Node*  newHead = SortInsert ( &head );
 	printList ( &newHead );
 
+	struct Node* frontNode = NULL;
+	struct Node* backNode = NULL;
+	SplitNode ( newHead, &frontNode, &backNode  );
+	printf (" printing frontList  details \n"); 
+	printList ( &frontNode );
+	printf (" printing backList  details \n"); 
+	printList ( &backNode );
 	deleteList ( &head );
 
+	deleteList ( &backNode );
 	return 0;
 }
