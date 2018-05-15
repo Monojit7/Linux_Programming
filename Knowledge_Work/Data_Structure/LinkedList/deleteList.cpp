@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#include <assert.h>
+
 struct Node
 {
 
@@ -127,6 +129,14 @@ void SortedMerge ( struct Node** headref, struct Node* newNode  )
 
 }
 
+// This function is a utility function which removes one node from sourceRef and 
+// adding the same node to the destination.
+// Example : sourceRef = {1, 2, 3, 4}
+//           destRef = {3, 4, 5 }
+//           MoveNode will make :
+//           destRef = { 1, 3, 4, 5 }
+//           sourceRf = { 2, 3, 4  }
+
 void MoveNode ( struct Node** destRef, struct Node** sourceRef )
 
 {
@@ -134,6 +144,7 @@ void MoveNode ( struct Node** destRef, struct Node** sourceRef )
 	printf ("%s %d \n", __FUNCTION__ , __LINE__ );
 
 	struct Node* newNode = *sourceRef;
+	assert ( newNode != NULL );
 	*sourceRef = newNode ->next;
 	newNode ->next = *destRef;
 	*destRef = newNode;
@@ -232,6 +243,179 @@ void SplitNode ( struct Node* source , struct Node** frontRef, struct Node** bac
 
 
 }
+
+
+// This function is used to add Node at the end of the linkedlist
+
+void append ( struct Node** headRef, struct Node* newNode )
+{
+	if ( *headRef == NULL )
+	{
+		newNode ->next = *headRef;
+		*headRef = newNode;
+	}
+
+	else
+	{
+		struct Node* current = *headRef;
+  		while ( current -> next != NULL )
+		{
+			current = current -> next;
+		}
+
+		current ->next = newNode ;
+	}
+}
+
+
+// This function is used to remove duplicate values if any of a sorted linked list
+
+void RemoveDuplicates ( struct Node** headRef )
+{
+
+	printf ("Calling %s and line : %d  \n", __FUNCTION__, __LINE__  );
+	struct Node* current = *headRef;
+	struct Node* next_next = NULL ;
+	while ( current -> next != NULL )
+	{
+		// In case of sorted linked list duplicate value present only to the next node
+		if ( current -> data == current -> next ->data )
+		{
+			next_next = current -> next -> next;
+			free ( current -> next );
+			current -> next = next_next;
+
+		}
+		else
+		{
+			current = current -> next;
+		}
+	}
+
+}
+
+
+// This function is used to move one Node from source Node 
+// and add the Same Node to the end of destination Node 
+// Ex: sourceNode = { 1, 2, 3, 4 }
+//     destinationNode = {2, 4, 5, 6 }
+//     After MoveNode AtEnd
+//     sourceNode = { 2, 3, 4  }
+//     destinationNode = { 2, 4, 5, 6, 1} 
+
+void MoveNodeAtEnd ( struct Node** destRef , struct Node** sourceRef )
+{
+	// If the destination does not any Node then adding 
+	// new Node at the begining 
+	if ( *destRef == NULL )
+	{
+		MoveNode ( destRef , sourceRef );
+	}
+	else
+	{
+		// If the destination node has nodes then
+		// Moving to the end of the linkedlist 
+		// and adding a node at the end
+		struct Node* currentDest = *destRef;
+		while ( currentDest -> next != NULL )
+		{
+			currentDest = currentDest -> next;
+		}
+
+		struct Node* newNode = *sourceRef;
+		*sourceRef = newNode -> next;
+		currentDest -> next = newNode;
+		newNode ->next = NULL;
+	}
+}	
+
+// This function is used to split the linked list in alternative order
+// Example : source = { 2 , 4, 5, 6, 7 , 8 }
+//  After AlternativeSplit 
+//           aRef = { 2, 5, 7 }
+//           bRef = { 4, 6, 8 }
+
+void AlternativeSplit ( struct Node* source , struct Node** aRef, struct Node** bRef )
+{
+
+	printf ("Calling %s and line : %d  \n", __FUNCTION__, __LINE__  );
+	struct Node* current = source ;
+	while ( current != NULL )
+	{
+		// Move the node from beginning of current to end of aRef
+		
+		MoveNodeAtEnd ( aRef, &current );
+		if ( current != NULL )
+		{
+			// Move the node from begining of current to end of bRef
+			MoveNodeAtEnd ( bRef, &current ); 
+		}
+	}
+
+
+}
+
+
+// This function is used to merge two sorted linked list and result list also will be in sorted order
+struct Node*       SortedMerge ( struct Node** aRef, struct Node** bRef   )
+{
+
+	struct Node* result = NULL;
+	struct Node** listptrRef = &result ;
+
+	// Below program works in a way by moving node one after another to result linkedlist
+	// moving of node will be based on the value. Whichever value is lesser will be moved 
+	// to the result list.
+	//
+	// In the process of moving either *aRef will be out of Node meaning will become NULL
+	// or *bRef .
+	//
+	// When one of the linkedlist will be NULL , while ( 1 ) will be terminated
+	
+	while ( 1 )
+	{
+		if ( *aRef == NULL )
+		{
+			*listptrRef = *bRef;
+			break;
+		}
+		else if ( *bRef == NULL )
+		{
+			*listptrRef  = *aRef;
+			break;
+		}
+
+		else
+		{
+			if ( (*aRef ) -> data <= ( *bRef ) -> data )
+			{
+				// Moving value one after another from aRef to listptrRef
+				MoveNode ( listptrRef , aRef );
+			}
+			else
+			{
+
+				// Moving value one after another from bRef to listptrRef
+				MoveNode ( listptrRef , bRef );
+			}
+
+			// once one node is moved to listptrRef. listptrRef must go to the next node
+			// to maintain the sorting order
+
+			listptrRef = &(( *listptrRef ) -> next ); 
+			
+		}
+
+
+
+	}
+
+	
+	return result;
+
+}
+
+
 int main ()
 {
 
@@ -267,6 +451,17 @@ int main ()
 	printList ( &frontNode );
 	printf (" printing backList  details \n"); 
 	printList ( &backNode );
+	struct Node* firstSplit = NULL;
+        struct Node* secondSplit = NULL;
+	AlternativeSplit ( frontNode, &firstSplit, &secondSplit );
+
+	printf (" printing firstSplit  details \n"); 
+	printList ( &firstSplit );
+	printf (" printing secondSplit  details \n"); 
+	printList ( &secondSplit );
+	struct Node* mergelist = SortedMerge ( &firstSplit, &secondSplit );
+	printf (" printing mergelist  details \n"); 
+	printList ( &mergelist );
 	deleteList ( &head );
 
 	deleteList ( &backNode );
