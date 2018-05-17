@@ -179,7 +179,6 @@ struct Node*    SortInsert ( struct Node** headref  )
 	*headref = result;
 
 	printf ("Calling %s and line : %d  \n", __FUNCTION__, __LINE__  );
-	printf ("%s %d  sorted the list  \n", __FUNCTION__ , __LINE__ );
 	return result;
 
 
@@ -357,9 +356,10 @@ void AlternativeSplit ( struct Node* source , struct Node** aRef, struct Node** 
 
 
 // This function is used to merge two sorted linked list and result list also will be in sorted order
-struct Node*       SortedMerge ( struct Node** aRef, struct Node** bRef   )
+struct Node*       SortedMergeLinked ( struct Node** aRef, struct Node** bRef   )
 {
 
+	printf ("Calling %s and line : %d  \n", __FUNCTION__, __LINE__  );
 	struct Node* result = NULL;
 	struct Node** listptrRef = &result ;
 
@@ -401,11 +401,10 @@ struct Node*       SortedMerge ( struct Node** aRef, struct Node** bRef   )
 
 			// once one node is moved to listptrRef. listptrRef must go to the next node
 			// to maintain the sorting order
-
-			listptrRef = &(( *listptrRef ) -> next ); 
 			
 		}
 
+			listptrRef = &(( *listptrRef ) -> next ); 
 
 
 	}
@@ -413,6 +412,36 @@ struct Node*       SortedMerge ( struct Node** aRef, struct Node** bRef   )
 	
 	return result;
 
+}
+
+
+
+// This function is used to  merge sort two sort a given linkedList 
+
+
+void  MergeSort ( struct Node** head )
+{
+
+	printf ("Calling %s and line : %d  \n", __FUNCTION__, __LINE__  );
+
+	struct Node* current = *head;
+	struct Node* a = NULL;
+	struct Node* b = NULL;
+
+	if ( ( current == NULL ) || ( current ->next == NULL ) )
+			{
+		            printf (" current is NULL : %s ", __FUNCTION__ );	 
+			    return ; 
+			}
+        SplitNode ( *head, &a , &b );
+
+        MergeSort ( &a );
+        MergeSort ( &b );
+	
+       *head  = SortedMergeLinked ( &a , &b );
+      
+	printf ("Calling %s and line : %d  \n", __FUNCTION__, __LINE__  );
+	
 }
 
 
@@ -459,9 +488,18 @@ int main ()
 	printList ( &firstSplit );
 	printf (" printing secondSplit  details \n"); 
 	printList ( &secondSplit );
-	struct Node* mergelist = SortedMerge ( &firstSplit, &secondSplit );
+	struct Node* mergelist = SortedMergeLinked ( &firstSplit, &secondSplit );
 	printf (" printing mergelist  details \n"); 
+
 	printList ( &mergelist );
+
+	push ( &head, getNewNode ( 134 )  );
+	push ( &head, getNewNode ( 112 )  );
+        push ( &head, getNewNode ( 114 )  );
+	push ( &head, getNewNode ( 24 )  );
+	 MergeSort ( &head );
+	printf (" printing MergeSorted  details \n"); 
+	printList ( &head );
 	deleteList ( &head );
 
 	deleteList ( &backNode );
