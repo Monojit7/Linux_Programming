@@ -1,8 +1,0 @@
-import "TrailTypes.fidl"
-import "../common/CommonTypes.fdepl"
-import "../configuration/ConfigurationTypes.fdepl"
-import "../some_ip.fdepl"
-
-define someip.franca.SOMEIP_Deployment for typeCollection
-org.harman.nav.ctrl.ln.TrailTypes as org.harman.nav.ctrl.ln.TrailTypes {
-}

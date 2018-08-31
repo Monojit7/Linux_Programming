@@ -1,9 +1,0 @@
-import "SpeechLocationInputTypes.fidl"
-import "../some_ip.fdepl"
-import "LocationInputTypes.fdepl"
-import "../common/CommonTypes.fdepl"
-
-define someip.franca.SOMEIP_Deployment for typeCollection
-org.harman.nav.ctrl.di.SpeechLocationInputTypes
-as org.harman.nav.ctrl.di.SpeechLocationInputTypes {
-}

@@ -1,9 +1,0 @@
-import "IconProviderTypes.fidl"
-import "../some_ip.fdepl"
-import "../common/CommonTypes.fdepl"
-
-define someip.franca.SOMEIP_Deployment for typeCollection
-org.harman.nav.ctrl.icon.IconProviderTypes
-as org.harman.nav.ctrl.icon.IconProviderTypes {
-ServiceID = 5000
-}

@@ -1,8 +1,0 @@
-import "MapViewControlTypes.fidl"
-import "../some_ip.fdepl"
-import "../common/CommonTypes.fdepl"
-
-define someip.franca.SOMEIP_Deployment for typeCollection
-org.harman.nav.ctrl.mapv.MapViewControlTypes
-as org.harman.nav.ctrl.mapv.MapViewControlTypes {
-}

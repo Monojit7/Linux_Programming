@@ -1,8 +1,0 @@
-import "SpeedCamOnlineServiceTypes.fidl"
-import "../some_ip.fdepl"
-import "../common/CommonTypes.fdepl"
-
-define someip.franca.SOMEIP_Deployment for typeCollection
-org.harman.nav.ctrl.speedcam.SpeedCamOnlineServiceTypes
-as org.harman.nav.ctrl.speedcam.SpeedCamOnlineServiceTypes {
-}

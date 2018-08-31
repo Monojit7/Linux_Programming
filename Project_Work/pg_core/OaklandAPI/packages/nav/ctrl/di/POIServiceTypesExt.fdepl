@@ -1,8 +1,0 @@
-import "POIServiceTypesExt.fidl"
-import "../common/CommonTypes.fdepl"
-import "../some_ip.fdepl"
-
-define someip.franca.SOMEIP_Deployment for typeCollection
-org.harman.nav.ctrl.di.POIServiceTypesExt
-as org.harman.nav.ctrl.di.POIServiceTypesExt {
-}
