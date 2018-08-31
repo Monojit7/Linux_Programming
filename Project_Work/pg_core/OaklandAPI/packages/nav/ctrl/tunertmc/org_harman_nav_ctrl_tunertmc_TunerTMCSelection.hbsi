@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DSI>
+<Name>org_harman_nav_ctrl_tunertmc_TunerTMCSelection</Name>
+   <ID>2</ID>
+   <Extern>true</Extern>
+	<Version>
+      <Major>1</Major>
+      <Minor>0</Minor>
+   </Version>
+   <Includes>
+   
+   </Includes>
+   
+   
+
+
+
+   <DataTypes>
+          
+          
+
+<DataType>
+   <Name>THBVector_CHBString_</Name>
+   <ID>2</ID>
+   <Description> textual description of all selectable stations</Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>CHBString</BaseType>		   
+</DataType>
+   </DataTypes>
+	<Attributes>
+		      <Attribute>
+		         <Name>aenabled</Name>
+		         <Description>Current mode of TMC selection</Description>
+		         <ID>2</ID>
+		<Type>bool</Type>
+		         
+		         <Notify>OnChange</Notify>
+		      </Attribute>
+		      <Attribute>
+		         <Name>aisAutoMode</Name>
+		         <Description>This attribute shows whether the station selection is in automatic mode (value true) or manual mode (value false)</Description>
+		         <ID>3</ID>
+		<Type>bool</Type>
+		         
+		         <Notify>OnChange</Notify>
+		      </Attribute>
+		      <Attribute>
+		         <Name>acurrentStation</Name>
+		         <Description>Currently tuned TMC radio station</Description>
+		         <ID>4</ID>
+		<Type>CHBString</Type>
+		         
+		         <Notify>OnChange</Notify>
+		      </Attribute>
+	</Attributes>
+<Methods>
+		<Method>
+		
+		   <Name>SetEnabled</Name>
+		   <ID>1100</ID>
+		         <Type>Request</Type>
+		  		   <Description>Current mode of TMC selection</Description>
+		<Response>SetEnabled</Response>
+		  		   <Parameters>
+			  		   <Parameter>
+		<Name>s_Enabled</Name>
+		                   <Description>Current mode of TMC selection</Description>
+		                   <ID>6</ID>
+		<Type>bool</Type>
+		                    <IsDefault>false</IsDefault>
+			  		   </Parameter>
+		  		   </Parameters>
+		</Method>
+		<Method>
+		<Name>SetEnabled</Name>
+		         <ID>2100</ID>
+		         <Type>Response</Type>
+		  		   <Description>Current mode of TMC selection</Description>
+		  		   <Parameters>
+			  		   <Parameter>
+		<Name>s_Enabled</Name>
+		                   <Description>Current mode of TMC selection</Description>
+		                   <ID>8</ID>
+		<Type>bool</Type>
+		                    <IsDefault>false</IsDefault>
+			  		   </Parameter>
+		  		   </Parameters>
+		</Method>
+			<Method>
+			
+			   <Name>getSelectableStations</Name>
+			   <ID>1200</ID>
+			         <Type>Request</Type>
+			  		   <Description>This method returns all TMC-providing stations, which can currently be selected.
+			  		                        This list neednt contain all possible stations, but some pre-selection might have
+			  		                        happened according to country code, bad reception quality, etc.</Description>
+			<Response>getSelectableStations</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getSelectableStations</Name>
+			<ID>2200</ID>
+			         <Type>Response</Type>
+			  		   <Description>This method returns all TMC-providing stations, which can currently be selected.
+			  		                        This list neednt contain all possible stations, but some pre-selection might have
+			  		                        happened according to country code, bad reception quality, etc.</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getSelectableStations_selectableStations</Name>
+			            <Description>textual description of all selectable stations</Description>
+			          <ID>11</ID>
+			<Type>THBVector_CHBString_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>selectStation</Name>
+			   <ID>1201</ID>
+			         <Type>Request</Type>
+			  		   <Description>This method allows the selection of a TMC-providing station</Description>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>selectStation_R_selectedStation</Name>
+			    		            <Description>Name of the selected station. If an empty name is specified automatic selection mode will be activated.
+			    		                                       Otherwise the tuner will try to tune to the provided station whenever possible.</Description>
+			    		          <ID>13</ID>
+			    		<Type>CHBString</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+</Methods>
+
+
+</DSI>
+

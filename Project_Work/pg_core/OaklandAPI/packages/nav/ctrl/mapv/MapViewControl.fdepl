@@ -1,0 +1,391 @@
+import "MapViewControl.fidl"
+import "../some_ip.fdepl"
+import "../common/CommonTypes.fdepl"
+import "MapViewControlTypes.fdepl"
+
+define someip.franca.SOMEIP_Deployment for interface
+org.harman.nav.ctrl.mapv.MapViewControl {
+	use org.harman.nav.ctrl.CommonTypes use
+	org.harman.nav.ctrl.mapv.MapViewControlTypes
+	ServiceID = 5000
+
+   attribute status {
+		NMethodID = 100
+		NInEventGroups = {
+			0
+		}
+	}
+   
+	method getVersion {
+		MMethodID = 200
+	}
+
+	method createMapViewInstance {
+		MMethodID = 201
+	}
+
+	method releaseMapViewInstance {
+		MMethodID = 202
+	}
+
+	method getMapViewType {
+		MMethodID = 203
+	}
+
+	method getSupportedMapViewTypes {
+		MMethodID = 204
+	}
+
+	method setTargetPoint {
+		MMethodID = 205
+	}
+
+	method getTargetPoint {
+		MMethodID = 206
+	}
+
+	method setFollowCarMode {
+		MMethodID = 207
+	}
+
+	method getFollowCarMode {
+		MMethodID = 208
+	}
+
+	method setCameraPosition {
+		MMethodID = 209
+	}
+
+	method getCameraPosition {
+		MMethodID = 210
+	}
+
+	method setCameraHeadingAngle {
+		MMethodID = 211
+	}
+
+	method setCameraHeadingToTarget {
+		MMethodID = 212
+	}
+
+	method setCameraHeadingTrackUp {
+		MMethodID = 213
+	}
+
+	method getCameraHeading {
+		MMethodID = 214
+	}
+
+	method setCameraTiltAngle {
+		MMethodID = 215
+	}
+
+	method getCameraTiltAngle {
+		MMethodID = 216
+	}
+
+	method setCameraRollAngle {
+		MMethodID = 217
+	}
+
+	method getCameraRollAngle {
+		MMethodID = 218
+	}
+
+	method setCameraDistanceFromTargetPoint {
+		MMethodID = 219
+	}
+
+	method getCameraDistanceFromTargetPoint {
+		MMethodID = 220
+	}
+
+	method setMapViewScaleMode {
+		MMethodID = 221
+	}
+
+	method getMapViewScaleMode {
+		MMethodID = 222
+	}
+
+	method getSupportedMapViewScaleModes {
+		MMethodID = 223
+	}
+
+	method addMapViewScaleChangedListener {
+		MMethodID = 224
+	}
+
+	method removeMapViewScaleChangedListener {
+		MMethodID = 225
+	}
+
+	method setCameraHeight {
+		MMethodID = 226
+	}
+
+	method getCameraHeight {
+		MMethodID = 227
+	}
+
+	method setMapViewPerspective {
+		MMethodID = 228
+	}
+
+	method getMapViewPerspective {
+		MMethodID = 229
+	}
+
+	method getSupportedMapViewPerspectives {
+		MMethodID = 230
+	}
+
+	method setMapViewObjectVisibility {
+		MMethodID = 231
+	}
+
+	method getMapViewObjectVisibility {
+		MMethodID = 232
+	}
+
+	method getSupportedMapViewObjectVisibilities {
+		MMethodID = 233
+	}
+
+	method getScaleList {
+		MMethodID = 234
+	}
+
+	method setMapViewScale {
+		MMethodID = 235
+	}
+
+	method setMapViewScaleByDelta {
+		MMethodID = 236
+	}
+
+	method setMapViewScaleByMetersPerPixel {
+		MMethodID = 237
+	}
+
+	method getMapViewScale {
+		MMethodID = 238
+	}
+
+	method setMapViewBoundingBox {
+		MMethodID = 239
+	}
+
+	method getMapViewBoundingBox {
+		MMethodID = 240
+	}
+
+	method setMapViewSaveArea {
+		MMethodID = 241
+	}
+
+	method getMapViewSaveArea {
+		MMethodID = 242
+	}
+
+	method setMapViewPan {
+		MMethodID = 243
+	}
+
+	method setMapViewRotation {
+		MMethodID = 244
+	}
+
+	method getMapViewRotation {
+		MMethodID = 245
+	}
+
+	method setMapViewVisibilityMode {
+		MMethodID = 246
+	}
+
+	method getMapViewVisibilityMode {
+		MMethodID = 247
+	}
+
+	method getSupportedMapViewVisibilityModes {
+		MMethodID = 248
+	}
+
+	method setMapViewPerformanceLevel {
+		MMethodID = 249
+	}
+
+	method getMapViewPerformanceLevel {
+		MMethodID = 250
+	}
+
+	method getSupportedMapViewPerformanceLevels {
+		MMethodID = 251
+	}
+
+	method displayRoute {
+		MMethodID = 252
+	}
+
+	method hideRoute {
+		MMethodID = 253
+	}
+
+	method getDisplayedRoutes {
+		MMethodID = 254
+	}
+
+	method addKml {
+		MMethodID = 255
+	}
+
+	method deleteKml {
+		MMethodID = 256
+	}
+
+	method setKmlVisibility {
+		MMethodID = 257
+	}
+
+	method pushSettings {
+		MMethodID = 258
+	}
+
+	method popSettings {
+		MMethodID = 259
+	}
+
+	method resetSettings {
+		MMethodID = 260
+	}
+
+	method displayObjectList {
+		MMethodID = 261
+	}
+
+	method hideObjectList {
+		MMethodID = 262
+	}
+
+	method highlightObjectListItem {
+		MMethodID = 263
+	}
+
+	method centerOnObjectListItems {
+		MMethodID = 264
+	}
+
+	method getPoiCategoriesVisible {
+		MMethodID = 265
+	}
+
+	method setPoiCategoriesVisible {
+		MMethodID = 266
+	}
+
+	method setPoiCategoriesVisibleMode {
+		MMethodID = 267
+	}
+
+	method setPoiCategoriesVisibleWithinLimits {
+		MMethodID = 268
+	}
+
+	method setPoiCategoriesNotVisible {
+		MMethodID = 269
+	}
+
+	method setTrafficIncidentsVisibility {
+		MMethodID = 270
+	}
+
+	method setMapViewTheme {
+		MMethodID = 271
+	}
+
+	method getMapViewTheme {
+		MMethodID = 272
+	}
+
+	method getSupportedMapViewThemes {
+		MMethodID = 273
+	}
+
+	method convertPixelCoordsToGeoCoords {
+		MMethodID = 274
+	}
+
+	method convertGeoCoordsToPixelCoords {
+		MMethodID = 275
+	}
+
+	method displayCustomElements {
+		MMethodID = 276
+	}
+
+	method hideCustomElements {
+		MMethodID = 277
+	}
+
+	method getDisplayedCustomElements {
+		MMethodID = 278
+	}
+
+	method selectElementsOnMap {
+		MMethodID = 279
+	}
+
+	method mapViewGesture {
+		MMethodID = 280
+	}
+
+	method mapShowRouteOverview {
+		MMethodID = 281
+	}
+
+	method mapSetStyle {
+		MMethodID = 282
+	}
+
+	method getMapModeList {
+		MMethodID = 283
+	}
+
+	method setMapMode {
+		MMethodID = 284
+	}
+
+	method getMapMode {
+		MMethodID = 285
+	}
+
+	method setAutozoomSetting {
+		MMethodID = 286
+	}
+
+	method getAutozoomSetting {
+		MMethodID = 287
+	}
+
+	method setAutozoomEnabled {
+		MMethodID = 288
+	}
+
+	method getAutozoomEnabled {
+		MMethodID = 289
+	}
+
+	broadcast mapViewScaleChanged {
+		BMethodID = 300
+	}
+
+	broadcast mapViewVisibilityChanged {
+		BMethodID = 301
+	}
+
+	broadcast displayedRoutes {
+		BMethodID = 302
+	}
+
+}

@@ -1,0 +1,13 @@
+package org.harman.nav.ctrl
+
+import org.harman.nav.ctrl.CommonTypes.* from "../common/CommonTypes.fidl"
+
+typeCollection SimulationTypes {
+	
+	enumeration SimulationStatus extends BasicEnum {
+		SIMULATION_STATUS_NO_SIMULATION		= "0x0220"
+		SIMULATION_STATUS_RUNNING			= "0x0221"
+		SIMULATION_STATUS_PAUSED			= "0x0222"
+		SIMULATION_STATUS_FIXED_POSITION	= "0x0223"
+	}	
+}

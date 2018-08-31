@@ -1,0 +1,8 @@
+import "PositioningTypes.fidl"
+import "../some_ip.fdepl"
+import "../configuration/ConfigurationTypes.fdepl"
+import "../common/CommonTypes.fdepl"
+
+define someip.franca.SOMEIP_Deployment for typeCollection
+org.harman.nav.ctrl.PositioningTypes as org.harman.nav.ctrl.PositioningTypes {
+}

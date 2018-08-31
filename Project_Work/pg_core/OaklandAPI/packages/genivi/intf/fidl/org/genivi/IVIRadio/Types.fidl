@@ -1,0 +1,228 @@
+package IVIRadio.Types 
+ 
+<** 
+	@author : EGMG_Tuner 
+**> 
+typeCollection Types { 
+	version { 
+		major 2 
+		minor 1 
+	} 
+	array arrayStationSelectors of StationSelectors 
+ 
+	array Activations of Activation 
+ 
+	array DeviceTypes of DeviceType 
+ 
+	array SourceTypes of SourceType 
+ 
+	struct StationSelector { 
+ 
+		<** 
+			@description : device the station is transmitted on 
+		**> 
+		UInt32 deviceType 
+ 
+		<** 
+			@description : unique id to identify a station in the system 
+		**> 
+		UInt32s id 
+	} 
+ 
+	array StationSelectors of StationSelector 
+ 
+	array Booleans of Boolean 
+ 
+	array Strings of String 
+ 
+	array UInt32s of UInt32 
+ 
+	typedef DateTime is String 
+ 
+	enumeration Activation { 
+		ACTIVE 
+		INACTIVE 
+	} 
+ 
+	<** 
+		@description : Contains different Errorcodes that can be transmitted in the broadcasts to give a feedback if an error occurs. 
+	**> 
+	enumeration ErrorCodes { 
+		EC_NOTACTIVATED 
+		EC_NOTRECEIVABLE 
+		EC_OUTOFRESSOURCES 
+		EC_NOERROR 
+		EC_NOSTATIONACTIVE 
+		EC_INVALIDCOMPONENTID 
+		EC_NODATAAVAILABLE 
+		EC_NOTACTIVE 
+		EC_COMPONENTNOTSUPPORTED 
+		EC_FUNCTIONALITYNOTSUPPORTED 
+	} 
+ 
+	<** 
+		@description : Result of a request 
+	**> 
+	enumeration Feedback { 
+		DONE 
+		INTERRUPTED 
+		NOT_APPLICABLE 
+		ALREADY_SET 
+		FAILURE 
+		DELAYED 
+	} 
+ 
+	<** 
+		@description : Tuner Source type of frequency/station 
+	**> 
+	enumeration SourceType { 
+ 
+		<** 
+			@description : no special source 
+		**> 
+		UNDEF_SOURCE = 0 //0x0000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : fm frequency modulation 87.5 kHz - 108 kHz 
+		**> 
+		AMFM_FM = 1 //0x0001 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : medium wave amplitude modulation. 0.3 - 3 MHz 
+		**> 
+		AMFM_MW = 2 //0x0002 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : long wave amplitude modulation. 30 - 300 KHz 
+		**> 
+		AMFM_LW = 4 //0x0004 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : amplitude modulation short wave modulation. 3 - 30 MHz 
+		**> 
+		AMFM_SW = 8 //0x0008 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : NAR weather band 
+		**> 
+		AMFM_WB = 16 //0x0010 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : JAP traffic band 
+		**> 
+		AMFM_TF = 32 //0x0020 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : additional digital technologie using the amfm stations to transmit additional data. hosted in USA  
+		**> 
+		AMFM_HD = 64 //0x0040 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : amfm digital radio mondiale. digital alternative on the same frequency band like am and fm analog radio 
+		**> 
+		AMFM_DRM = 128 //0x0080 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : digital audio broadcast L band. 1.46 GHz 
+		**> 
+		DAB_L = 256 //0x0100 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : digital audio broadcast band III. 174 MHz - 230 MHz 
+		**> 
+		DAB_III = 512 //0x0200 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Digital analog broadcast all wavebands 
+		**> 
+		DAB_DAB = 1024 //0x0400 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : digital analog radio plus all wavebands 
+		**> 
+		DAB_DAB_PLUS = 2048 //0x0800 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : digital multimedia broadcast. additional multimedia audio contents to dab 
+		**> 
+		DAB_DMBA = 4096 //0x1000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : digital multimedia broadcast. additional multimedia visual contents to dab 
+		**> 
+		DAB_DMBV = 8192 //0x2000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : satellite radio provider SIRIUS 
+		**> 
+		SDARS_SIRIUS = 16384 //0x4000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : satellite radio provider XM 
+		**> 
+		SDARS_XM = 32768 //0x8000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : TV standard plain audio services (e.g. DVB-x radio channel) 
+		**> 
+		TV_A = 65536 //0x10000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : TV standard audio / video 
+		**> 
+		TV_AV = 131072 //0x20000 replaced hex value by dec because of buggy CommonaAPI-3.1
+	} 
+ 
+	<** 
+		@description : Enumeration of announcement types. 
+	**> 
+	enumeration DeviceType { 
+ 
+		<** 
+			@description : all device types are meant. with this it is possible to act over all standards 
+		**> 
+		UNDEF_DEVICE = 0 //0x0000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Only AM FM device is considered: AMFM_FM | AMFM_MW | AMFM_LW | AMFM_SW | AMFM_WB | AMFM_TF | AMFM_HD | AMFM_DRM 
+		**> 
+		AMFM = 255 //0x00FF replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Only DAB device is considered: DAB_L | DAB_III | DAB_DAB | DAB_DABPLUS | DAB_DMBA | DAB_DMBV 
+		**> 
+		DAB = 16128 //0x3F00 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Only SDARS device is considered: SDARS_SIRIUS | SDARS_XM 
+		**> 
+		SDARS = 49152 //0xC000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Only TV device is considered: TV_A | TV_AV 
+		**> 
+		TV = 196608 //0x30000 replaced hex value by dec because of buggy CommonaAPI-3.1
+	} 
+ 
+	<** 
+		@description : ûpdate types 
+	**> 
+	enumeration UpdateType { 
+ 
+		<** 
+			@description : no more updates for this handle 
+		**> 
+		UT_NONE 
+ 
+		<** 
+			@description : trigger one update 
+		**> 
+		UT_ONCE 
+ 
+		<** 
+			@description : keep me up to date and send me notifications 
+		**> 
+		UT_NOTIFICATION 
+	} 
+ 
+} 

@@ -1,0 +1,12 @@
+import fidl "intf/fidl/com/harman/persistence/PersAdminService.fidl"
+
+package PersAdminService{
+	generator true
+
+	component PersAdminService	{
+		language cpp
+		buildType CMake
+		rpc dbus
+		provides interface com.harman.persistence.PersAdminService as Instance
+	}
+}

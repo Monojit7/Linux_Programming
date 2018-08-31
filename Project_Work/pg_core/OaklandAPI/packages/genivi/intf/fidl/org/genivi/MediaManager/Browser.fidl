@@ -1,0 +1,367 @@
+ /**
+  * Copyright (C) 2014, Jaguar Land Rover
+  *
+  * Author: Jonatan Palsson <jonatan.palsson@pelagicore.com>
+  *
+  * This interface is heavily inspired by the dLeyna-server and MediaServer2
+  * APIs: https://01.org/dleyna/documentation/server-objects
+  *       https://wiki.gnome.org/Projects/Rygel/MediaServer2Spec
+  *
+  *
+  * This file is part of the GENIVI Media Manager Proof-of-Concept
+  * For further information, see http://genivi.org/
+  *
+  * This Source Code Form is subject to the terms of the Mozilla Public
+  * License, v. 2.0. If a copy of the MPL was not distributed with this
+  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+  */
+
+package org.genivi.mediamanager
+
+import org.genivi.mediamanager.BrowserTypes.* from "BrowserTypes.fidl"
+import org.genivi.mediamanager.MediaTypes.* from "MediaTypes.fidl"
+
+
+interface Browser {
+    version {
+        major 1
+        minor 0
+    }
+
+    <** @description: Return a list of all media manager identifiers. These are
+         used to indicate which media manager we should interact with.
+         returns: A list of all media managers found
+    **>
+    method discoverMediaManagers {
+        out {
+            String[] identifiers
+            BrowserError e
+        }
+    }
+
+    <** @description: List all containers below the given path.
+         returns: ResultMapList of all containers with the given path as parent.
+         	   	  See MediaTypes.fidl for a list of allowed keys.
+         errors: NO_CONNECTION if no connection can be established to underlying
+                 browsing engine
+                 BAD_PATH if path parameter is invalid
+        @param: path The path to search for containers. The format of the path
+                depends on the underlying browsing backend
+        @param: offset: The offset to use for indexing the results list
+        @param: count: The number of results to return, starting from offset
+        @param: filter: Array of keys to include in resulting ResultMapList
+    **>
+    method listContainers {
+        in {
+            String path
+            UInt64 offset
+            UInt64 count
+            String[] filter
+        }
+
+        out {
+            ResultMapList	m
+            BrowserError 	e
+        }
+    }
+
+    <** @description: Extends ListContainers with sorting capabilities
+        @param: sortKey Key to sort ResultMapList on
+    **>
+    method listContainersEx {
+        in {
+            String path
+            UInt64 offset
+            UInt64 count
+            String[] filter
+            SortKey[] sortKey
+        }
+
+        out {
+            ResultMapList	m
+            BrowserError 	e
+        }
+    }
+
+    <** @description: List all items in the given container
+         returns: A ResultMapList of all items with the given container as parent.
+         		  See MediaTypes.fidl for a list of allowed keys.
+         errors: NO_CONNECTION if no connection can be established to underlying
+                 browsing engine
+                 BAD_PATH if path parameter is invalid
+        @param: path The path of the container to search for items.
+                The format of the path depends on the underlying browsing
+                backend
+        @param: offset: The offset to use for indexing the results list
+        @param: count: The number of results to return, starting from offset
+        @param: filter: Array of keys to include in resulting ResultMapList
+    **>
+    method listItems {
+        in {
+            String path
+            UInt64 offset
+            UInt64 count
+            String[] filter
+        }
+
+        out{
+            ResultMapList	m
+            BrowserError 	e
+        }
+    }
+
+    <** @description: Extends ListItems with sorting capabilities
+        @param: sortKey Key to sort ResultMapList
+    **>
+    method listItemsEx {
+        in {
+            String path
+            UInt64 offset
+            UInt64 count
+            String[] filter
+            SortKey[] sortKey
+        }
+
+        out{
+            ResultMapList	m
+            BrowserError 	e
+        }
+    }
+
+    <** @description: List all children in the given container
+         returns: A ResultMapList of all children with the given container as parent.
+         		  See MediaTypes.fidl for a list of allowed keys.
+         errors: NO_CONNECTION if no connection can be established to underlying
+                  browsing engine
+                  BAD_PATH if path parameter is invalid
+        @param: path The path of the container to search for children.
+                The format of the path depends on the underlying browsing
+                backend
+        @param: offset: The offset to use for indexing the results list
+        @param: count: The number of results to return, starting from offset
+        @param: filter: Array of keys to include in resulting ResultMapList
+    **>
+    method listChildren {
+        in {
+            String path
+            UInt64 offset
+            UInt64 count
+            String[] filter
+        }
+
+        out{
+            ResultMapList	m
+            BrowserError 	e
+        }
+    }
+
+    <** @description: Extends ListChildren with sorting capabilities
+        @param: sortKey Key to sort ResultMapList on
+    **>
+    method listChildrenEx {
+        in {
+            String path
+            UInt64 offset
+            UInt64 count
+            String[] filter
+            SortKey[] sortKey
+        }
+
+        out{
+            ResultMapList	m
+            BrowserError 	e
+        }
+    }
+
+    <** @description: get ojbect attributes
+        @param: path:  object path returned by listXX intefaces.
+        			 item: /com/harman/media/1/music/1/0/5 
+        			 containter
+        @param: filter: attributes list want to retrive.
+                Title Artist
+    **>
+	method getAttributes {
+		in {
+			String path
+			String[] filter
+		}
+		out {
+            ResultMap		m
+            BrowserError 	e
+		}
+	}
+	
+    <** @description: Retrieve the count of searching objects in the given container
+         returns:     count of searching objects
+         errors:      S_OK if no error. otherwise, error occurred.
+        @param: path The path of the container to search for children.
+                The format of the path depends on the underlying browsing
+                backend
+        @param: query Search query to match children against. The format of the
+                query depends on the underlying browsing backend
+    **>
+     method getSearchObjectsCount {
+        in {
+            String path
+            String query
+        }
+
+        out{
+            UInt64 count
+            BrowserError e
+        }
+    }
+    
+    <** @description: Retrieve the playback uri of searching objects in the given container
+         returns:     playback uri, this uri will contain all the serach results.
+         errors:      S_OK if no error. otherwise, error occurred.
+        @param: path The path of the container used by search api.
+    **>
+    method getSearchObjectsUri {
+    	in {
+    		String path
+    	}
+    	out {
+    		String 	uri
+    		BrowserError e
+    	}
+    }
+
+    <** @description: Retrieve the first letter and index for Alpha Jump
+         returns:     Vector for letter and index.
+         errors:      S_OK if no error. otherwise, error occurred.
+        @param: path The path of the container to search for children.
+                The format of the path depends on the underlying browsing
+                backend
+        @param: query Search query to match children against. The format of the
+                query depends on the underlying browsing backend
+    **>
+    method getAlphaJumpInfo {
+        in {
+            String path
+            SortKey sortKey
+        }
+        
+        out{
+            arAlphaIndex ajList
+            BrowserError e
+        }
+    } 
+    
+    <** @description: Search for children in the given container
+         returns: A ResultMapList of all children matching the search criteria with
+                   the given container as parent.See MediaTypes.fidl for a list of
+                   allowed keys.
+         errors: NO_CONNECTION if no connection can be established to underlying
+                 browsing engine
+                 BAD_PATH if path parameter is invalid
+        @param: path The path of the container to search for children.
+                The format of the path depends on the underlying browsing
+                backend
+        @param: query Search query to match children against. The format of the
+                query depends on the underlying browsing backend
+        @param: offset: The offset to use for indexing the results list
+        @param: count: The number of results to return, starting from offset
+        @param: filter: Array of keys to include in resulting ResultMapList
+    **>
+    method searchObjects {
+        in {
+            String path
+            String query
+            UInt64 offset
+            UInt64 count
+            String[] filter
+        }
+
+        out{
+            ResultMapList	m
+            BrowserError 	e
+        }
+    }
+
+    <** @description: Extends SearchObjects with sorting capabilities
+        @param: sortKey Key to sort ResultMapList on
+    **>
+    method searchObjectsEx {
+        in {
+            String path
+            String query
+            UInt64 offset
+            UInt64 count
+            String[] filter
+            SortKey[] sortKey
+        }
+
+        out{
+            ResultMapList	m
+            BrowserError e
+        }
+    }
+
+    <** @description: Get a list of all initial letters and their index in the
+                      given container
+         returns: A list of tuples of initial letters and their first
+                   observed position when sorting according to sortKey
+         errors: NO_CONNECTION if no connection can be established to underlying
+                 browsing engine
+                 BAD_PATH if path parameter is invalid
+         @param: container: Container to build index list for
+         @param: count: How many (unsorted) items should be traversed to build
+                         index
+         @param: filter: List of initial letters to include
+         @param: sortKey: Key to sort on when building index list
+    **>
+    method listIndexes {
+        in {
+            String container
+            UInt64 count
+            String[] filter
+            SortKey sortKey
+        }
+
+        out {
+            String indexes
+            BrowserError e
+        }
+    }
+
+    <** @description: Create a new empty container with path used as root
+         returns: Path identifier for the newly created container
+         errors: NO_CONNECTION if no connection can be established to underlying
+                  browsing engine
+                  BAD_PATH if path parameter is invalid
+        @param: path: Path to place the newly created container in
+        @param: displayName: Display name for the new container
+        @param: childTypes: Array of allowed types on children in new container
+    **>
+    method createContainer {
+        in {
+            String path
+            String displayName
+            String[] childTypes
+        }
+        out {
+            String pathIdentifier
+            BrowserError e
+        }
+    }
+
+    <** @description: Place a reference in a container, pointing to an object
+         returns: Path identifier for the container containing the reference
+         errors: NO_CONNECTION if no connection can be established to underlying
+                  browsing engine
+                  BAD_PATH if path parameter is invalid
+        @param: path: Path to place the newly created container in
+        @param: objectPath: Path to object to create reference to
+    **>
+    method createReference {
+        in {
+            String path
+            String objectPath
+        }
+        out {
+            String pathIdentifier
+            BrowserError e
+        }
+    }
+}

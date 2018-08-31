@@ -1,0 +1,89 @@
+package com.harman.audio.audioPresCtrl
+
+import com.harman.audio.audioPresCtrl.audioPresCtrlTypes.* from "audioPresctrlTypes.fidl"
+ 
+<** @description 	: This is a Common API DBUS diagnostics interface of audio presentation controller for Orinoco 2.0
+    @author			: AYatheesh 
+**>
+interface audioPresCtrlDiag {
+	
+	version {major 1 minor 0}
+	
+		    
+    <** @description : For diagnostic purpose to test one or multiple speakers
+	(at)return eAudioPresErrors
+	**>
+	method TestSpeakerOn {
+        in 
+		{
+			<**
+				@description : indicates speaker mask (FR, FL, RR, RL)
+			**>
+			UInt16      speakerMask
+			<**
+				@description : Tone to be played
+			**>
+			String		testToneName
+			Float		frequency			
+			<**
+				@description : volume level to be used to play specified tone
+			**>
+			UInt16      volume			
+		}
+		error eAudioPresErrors       
+    } 
+	
+	<** @description : For diagnostic purpose to turn OFF one or more speakers
+	(at)return eAudioPresErrors
+	**>
+	method TestMultiSpeakersOff {
+        in 
+		{
+			<**
+				@description : indicates speaker mask  (FR, FL, RR, RL)
+			**>
+			UInt16      speakerMask					
+		}
+		error eAudioPresErrors       
+    } 
+    
+    <** @description : This function is used to play a sine signal with sine generator with special parameters.
+    (at)return eAudioPresErrors
+    **>
+    method playSineTone {
+    	in
+    	{
+    		eSampleRateType sampleRate
+			
+            <**
+                @description : Frequency of the generated sound. Only a range from  0~22050 according to the sample rate. 
+            **>
+			Int16 frequency
+			
+            <**
+                @description : Time duration of the pause in ms between two pulses. Set on 0 it will result into a permanently played tone. 
+            **>
+			Int16 pauseTime
+			
+            <**
+                @description : Time duration of the pulse in ms. Not support right now. 
+            **>
+			Int16 pulseTime
+			
+            <**
+                @description : Number of repetitions for the wave playing. Range is 0~0xFFFF. 
+				if repeat count is set to 0xFFFF it will play continuously otherwise only play the given times. 
+            **>
+			Int16 repeatCount
+    	}
+    	error eAudioPresErrors
+    }
+    
+    <** @description : This function is used to stop playing sine tone for diagnostics purpose
+    (at)return eAudioPresErrors
+    **>
+    method StopSineTone {
+    	error eAudioPresErrors
+    }
+       
+}

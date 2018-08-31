@@ -1,0 +1,80 @@
+package org.harman.nav.ctrl.tpegoverip
+
+import org.harman.nav.ctrl.tpegoverip.* from "TpegOverIPTypes.fidl"
+
+
+interface TpegOverIP {
+   version { major 0  minor 2}
+   
+   <** @description: State of the online connection, through which TPEG over IP shall be retreived. **>
+   attribute TpegOverIPTypes.ServiceState serviceState readonly
+
+   <** @description: List of possible configurations, for which the server can send TPEG over IP. 
+                     A client should only register for this attribute when it would also approve communication to the server via internet. **>
+   attribute TpegOverIPTypes.ServerConfigs serverConfigs readonly
+
+   <** @description: This method initializes a session of traffic over IP.
+                     A client should only hold a session when it would also approve communication to the server via internet. **>
+   method createSession{
+      in 
+      {
+         <** @description: Configuration parameters, which shall be used for all traffic data requests **>
+         TpegOverIPTypes.ClientConfig config
+      }
+      out 
+      {
+         <** @description: Session identifier, for which traffc data can be requested
+                           The session identifier of -1 indicates an error. **>
+         TpegOverIPTypes.Handle sessionId
+      }
+   }
+
+   <** @description: This method associates an ordered list of waypoints with the sesion. The vehicle is expected to
+                     reach these waypoints in the provided order when continuing its current drive. If an empty list
+                     of waypoints is provided, then it is not known (and cannot be estimated) where the vehicle is
+                     traveling next. **>
+   method setWaypoints{
+      in
+      {
+         <** @description: Session identifier, for which traffic data can be requested **>
+         TpegOverIPTypes.Handle sessionId
+         <** @description: Ordered list of points (e.g., destinations), the vehicle is expected to travel to next.
+                           Typically, if only one waypoint is given, this waypoint indicates the set destination of the current trip. **>
+         TpegOverIPTypes.Coordinate2D [] wayPoints
+      }
+   }
+
+   <** @description: This method requests traffic data over IP, as suggested by the TPEGoverHTTP specification. **>
+   method getTpegData{
+      in 
+      {
+         <** @description: Session identifier, for which traffc data is requested **>
+         TpegOverIPTypes.Handle sessionId
+         <** @description: Position (in WGS84), around which traffic data is requested **>
+         TpegOverIPTypes.Coordinate2D position
+         <** @description: Geographic heading in degrees (0° is north, 90° is west, ...), describing the direction in which the vehicle is traveling.
+                           The values 0,...,359 are admissible, the value 360 is reserved to indicate that no heading is known/relevant. **>
+         UInt16 heading
+         <** @description: Current velocity of the vehicle in km/h.
+                           The values 0x0000,...,0xFFFE are admissible, the value 0xFFFF is reserved to indicate that no velocity is known/relevant. **>
+         UInt16 velocity
+      }
+      out 
+      {
+         <** @description: Traffic data as configured for the session (see CompressionType, EncryptionType, DataType), as suggested by the TPEGoverHTTP specification **>
+         ByteBuffer tpegData
+      }
+      error TpegOverIPTypes.ErrorCode
+   }
+
+   <** @description: This method releases an existing session and explicitly permits the implementation unit to discard
+                     all data, which was associated with the session.
+                     A client should only hold a session when it would also approve communication to the server via internet. **>
+   method deleteSession{
+      in
+      {
+         <** @description: Identifier of the session, which can be released **>
+         TpegOverIPTypes.Handle sessionId
+      }
+   }
+}

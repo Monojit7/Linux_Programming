@@ -1,0 +1,75 @@
+package org.genivi.NodeStartupController1
+
+	<**
+	   @description : Interface for managing the GENIVI LUC (Last User Context)
+
+    The GENIVI Node Startup Controller remembers applications that were used
+    in the last session of a user. It is used in order to restore these
+    applications on the next start-up.
+
+    The Node Startup Controller is a passive component in the sense that it
+    does not remember applications on its own; instead, applications need to
+    register and deregister themselves proactively.
+
+    Applications can be registered for different LUC types, the standard ones
+    @author: Giridhar
+    **>
+    
+interface NodeStartupController {
+	
+	version { major 1 minor 0 }	
+	
+	
+	<** @description :    BeginLUCRegistration:
+
+      Initialises the LUC registration sequence at shutdown in order to register
+      the applications which are running in the LUC in this moment.
+  	  consumer.
+      @author: Giridhar 
+    **>
+	method BeginLUCRegistration {
+		in {
+	
+   //   <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+		}
+	}
+	
+		<** @description :    RegisterWithLUC:
+      apps: A dictionary that maps LUC types to arrays of application unit names.
+
+      Registers one or more applications for certain LUC types. Applications may
+      be listed multiple times. For LUC types where only a single application may
+      be registered at a time, the last application in the corresponding list wins.
+
+      An example for the apps parameter would be:
+
+        {
+          0 : [ "app1.unit" ],
+          1 : [ "app2.unit", "app3.unit" ],
+          2 : [ "app3.unit" ]
+        }
+
+     where 0 = "foreground", 1 = background , 2 = "audible"
+     @author: Giridhar 
+    **>
+	method RegisterWithLUC {
+		in {
+			//array apps{}
+			
+    //  <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+   //   <arg name="apps" type="a{ias}" direction="in"/>
+		}
+	}
+	
+		<** @description :     FinishLUCRegistration:
+
+      Finishes the LUC registration sequence and atomically replaces the
+      previous LUC.
+      consumer.
+      @author: Giridhar 
+    **>
+	method FinishLUCRegistration {
+	//  <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+    
+	}
+}

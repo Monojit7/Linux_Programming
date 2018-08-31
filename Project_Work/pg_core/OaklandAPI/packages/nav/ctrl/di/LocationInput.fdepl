@@ -1,0 +1,93 @@
+import "LocationInput.fidl"
+import "../some_ip.fdepl"
+import "LocationInputTypes.fdepl"
+import "../common/CommonTypes.fdepl"
+define someip.franca.SOMEIP_Deployment for interface
+org.harman.nav.ctrl.di.LocationInput {
+	use org.harman.nav.ctrl.CommonTypes use
+	org.harman.nav.ctrl.di.LocationInputTypes
+
+	// needed for attributes
+	ServiceID = 5000
+	
+	method getVersion {
+		MMethodID = 200
+	}
+
+	method createLocationInput {
+		MMethodID = 201
+	}
+
+	method deleteLocationInput {
+		MMethodID = 202
+	}
+
+	method getSupportedAddressAttributes {
+		MMethodID = 203
+	}
+
+	method setAddress {
+		MMethodID = 204
+	}
+
+	method setSelectionCriterion {
+		MMethodID = 205
+	}
+
+	method spell {
+		MMethodID = 206
+	}
+
+	method search {
+		MMethodID = 207
+	}
+
+	method requestListUpdate {
+		MMethodID = 208
+	}
+
+	method selectEntry {
+		MMethodID = 209
+	}
+
+	method getEntry {
+		MMethodID = 210
+	}
+
+	method validateAddress {
+		MMethodID = 211
+	}
+
+	method reverseGeocode {
+		MMethodID = 212
+	}
+
+	broadcast currentSelectionCriterion {
+		BMethodID = 300
+	}
+
+	broadcast searchStatus {
+		BMethodID = 301
+	}
+
+	broadcast spellResult {
+		BMethodID = 302
+	}
+
+	broadcast searchResultList {
+		BMethodID = 303
+	}
+
+	broadcast searchResultListSizeChanged {
+		BMethodID = 304
+	}
+
+	broadcast contentUpdated {
+		BMethodID = 305
+	}
+
+	broadcast addressValidationResult {
+		BMethodID = 306
+	}
+
+}

@@ -1,0 +1,46 @@
+
+import cdl "../genivi/Genivi.cdl"
+import cdl "../swpl/orinoco_base.cdl"
+
+import fidl "../genivi/intf/fidl/org/genivi/am/RoutingInterface.fidl" 
+import fidl "intf/fidl/com/harman/mm/ModeManagerTypes.fidl"
+import fidl "intf/fidl/com/harman/mm/ModeManagerService.fidl"
+import fidl "../media/intf/fidl/com/harman/media/DeviceManager.fidl"
+
+
+package orinoco_mm {
+
+	generator true
+
+	/*
+	 * ModeManager Service
+	 */
+	component ModeManager extends orinoco_component {
+		buildType CMake
+		language cpp
+		rpc dbus
+
+		/*
+         * Provided Interface
+         */
+		provides interface com.harman.mm.ModeManagerService as inst0
+
+		/*
+         * Used Interfaces
+         */
+		consumes interface org.genivi.am.CommandControl instance dynamic as am
+		consumes interface org.genivi.am.RoutingControlObserver instance dynamic as am
+		
+		consumes interface IVIRadio.Station.Station instance dynamic as station
+		
+		consumes interface org.genivi.mediamanager.Player instance dynamic as mediaPlayer
+		consumes interface com.harman.media.DeviceManager instance dynamic as deviceManager
+	}
+
+	component ModeManagerTestClient {
+		buildType CMake
+		language cpp
+		rpc dbus
+		consumes interface com.harman.mm.ModeManagerService instance ModeManager::inst0 as mmProxy
+	}
+}

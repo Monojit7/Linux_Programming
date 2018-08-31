@@ -1,0 +1,22 @@
+package com.harman.RVCservice
+
+interface RVC
+{
+		version { major 0 minor 1}
+		
+		method startCamera
+		{
+			out
+			{
+				Int8 ack
+			}
+		}
+	
+		method stopCamera
+		{
+			out 
+			{
+				Int8 ack
+			}
+		}
+}

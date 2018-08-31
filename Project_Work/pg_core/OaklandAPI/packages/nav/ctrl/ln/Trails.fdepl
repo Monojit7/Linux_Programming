@@ -1,0 +1,64 @@
+import "Trails.fidl"
+import "../some_ip.fdepl"
+import "../configuration/ConfigurationTypes.fdepl"
+import "../common/list/ListTypes.fdepl"
+import "TrailTypes.fdepl"
+import "../common/CommonTypes.fdepl"
+
+define someip.franca.SOMEIP_Deployment for interface
+org.harman.nav.ctrl.ln.Trails {
+	use org.harman.nav.ctrl.configuration.ConfigurationTypes use
+	org.harman.nav.ctrl.common.list.ListTypes use
+	org.harman.nav.ctrl.ln.TrailTypes use org.harman.nav.ctrl.CommonTypes
+
+   ServiceID = 1
+   
+	method getSettings {
+		MMethodID = 200
+	}
+
+	method setSettings {
+		MMethodID = 201
+	}
+
+	method getListSize {
+		MMethodID = 202
+	}
+
+	method createView {
+		MMethodID = 203
+	}
+
+	method deleteView {
+		MMethodID = 204
+	}
+
+	method setViewSize {
+		MMethodID = 205
+	}
+
+	method setViewPosition {
+		MMethodID = 206
+	}
+
+	method setViewAnchor {
+		MMethodID = 207
+	}
+
+	method getViewData {
+		MMethodID = 208
+	}
+
+	method getDetails {
+		MMethodID = 209
+	}
+
+	broadcast viewUpdate {
+		BMethodID = 300
+	}
+
+	broadcast listSize {
+		BMethodID = 301
+	}
+
+}

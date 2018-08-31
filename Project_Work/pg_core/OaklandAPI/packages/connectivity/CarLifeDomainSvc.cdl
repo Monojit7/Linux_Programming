@@ -1,0 +1,21 @@
+import fidl "intf/fidl/com/harman/connectivity/CarLifeDomainSvc.fidl"
+
+package coc_media_carlife{
+	generator true
+
+	component CarLife {
+	 	buildType CMake
+		language cpp
+		rpc dbus
+		provides interface com.harman.service.CarLifeDomainSvc as inst0
+
+	}
+	
+	component CarLifeProxy {
+	 	buildType CMake
+		language cpp
+		rpc dbus
+		consumes interface com.harman.service.CarLifeDomainSvc instance CarLife::inst0 as CarLifeProxy
+
+	}
+}

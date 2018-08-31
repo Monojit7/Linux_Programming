@@ -1,0 +1,889 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DSI>
+<Name>org_harman_nav_ctrl_Routing</Name>
+   <ID>2</ID>
+   <Extern>true</Extern>
+	<Version>
+      <Major>1</Major>
+      <Minor>3</Minor>
+   </Version>
+   <Includes>
+   
+   <Include>
+         <Name>api/nav/ctrl/pf/rg/org_harman_nav_ctrl_RoutingTypes.hbtd</Name>
+         <Major>1</Major>
+         <Minor>2</Minor>
+   </Include>
+   <Include>
+         <Name>api/nav/ctrl/pf/common/org_harman_nav_ctrl_CommonTypes.hbtd</Name>
+         <Major>1</Major>
+         <Minor>0</Minor>
+   </Include>
+   </Includes>
+   
+   
+
+
+
+   <DataTypes>
+          
+          
+
+<DataType>
+   <Name>THBVector_CostModel_</Name>
+   <ID>2</ID>
+   <Description> </Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_RoutingTypes::CostModel</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_RoutePreference_</Name>
+   <ID>2</ID>
+   <Description> </Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_RoutingTypes::RoutePreference</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_ConiditionPreference_</Name>
+   <ID>2</ID>
+   <Description> </Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_RoutingTypes::ConiditionPreference</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_Schedule_</Name>
+   <ID>2</ID>
+   <Description> </Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_RoutingTypes::Schedule</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_WayPoint_</Name>
+   <ID>2</ID>
+   <Description> </Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_RoutingTypes::WayPoint</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_Handle_</Name>
+   <ID>2</ID>
+   <Description> </Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_CommonTypes::Handle</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_RouteOverviewType_</Name>
+   <ID>2</ID>
+   <Description> </Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_RoutingTypes::RouteOverviewType</BaseType>		   
+</DataType>
+               
+               
+     
+     <DataType>
+        <Name>THBVector_RouteSettingType_</Name>
+        <ID>2</ID>
+        <Description> </Description>	  	
+        <Kind>Typedef</Kind>
+        <Container>THBVector</Container>
+     <BaseType>org_harman_nav_ctrl_RoutingTypes::RouteSettingType</BaseType>		   
+     </DataType>
+   </DataTypes>
+	<Methods>
+			<Method>
+			
+			   <Name>createRoute</Name>
+			   <ID>1200</ID>
+			         <Type>Request</Type>
+			  		   <Description>This method creates a route</Description>
+			<Response>createRoute</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>createRoute</Name>
+			<ID>2200</ID>
+			         <Type>Response</Type>
+			  		   <Description>This method creates a route</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>createRoute_routeHandle</Name>
+			            <Description>Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			          <ID>4</ID>
+			<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>deleteRoute</Name>
+			   <ID>1201</ID>
+			         <Type>Request</Type>
+			  		   <Description>This method deletes a route and its associated resources</Description>
+			<Response>deleteRoute</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>deleteRoute_R_routeHandle</Name>
+			    		            <Description>Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>6</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>deleteRoute</Name>
+			<ID>2201</ID>
+			         <Type>Response</Type>
+			  		   <Description>This method deletes a route and its associated resources</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setCostModel</Name>
+			   <ID>1202</ID>
+			         <Type>Request</Type>
+			  		   <Description>This method sets the cost model</Description>
+			<Response>setCostModel</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setCostModel_R_routeHandle</Name>
+			    		            <Description>Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>9</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setCostModel_R_costModel</Name>
+			    		            <Description>enum(INVALID,FASTEST,SHORTEST,ECOLOGICAL,SCENIC,EASY,OFF_ROAD,BALANCED,CHEAPEST, ... )</Description>
+			    		          <ID>10</ID>
+			    		<Type>org_harman_nav_ctrl_RoutingTypes::CostModel</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setCostModel</Name>
+			<ID>2202</ID>
+			         <Type>Response</Type>
+			  		   <Description>This method sets the cost model</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getCostModel</Name>
+			   <ID>1203</ID>
+			         <Type>Request</Type>
+			  		   <Description>This method retrieves the selected cost model</Description>
+			<Response>getCostModel</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getCostModel_R_routeHandle</Name>
+			    		            <Description>Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>13</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getCostModel</Name>
+			<ID>2203</ID>
+			         <Type>Response</Type>
+			  		   <Description>This method retrieves the selected cost model</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getCostModel_costModel</Name>
+			            <Description>enum(INVALID,FASTEST,SHORTEST,ECOLOGICAL,SCENIC,EASY,OFF_ROAD,BALANCED,CHEAPEST, ... )</Description>
+			          <ID>15</ID>
+			<Type>org_harman_nav_ctrl_RoutingTypes::CostModel</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getSupportedCostModels</Name>
+			   <ID>1204</ID>
+			         <Type>Request</Type>
+			  		   <Description>This method retrieves a list of supported cost models</Description>
+			<Response>getSupportedCostModels</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getSupportedCostModels</Name>
+			<ID>2204</ID>
+			         <Type>Response</Type>
+			  		   <Description>This method retrieves a list of supported cost models</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getSupportedCostModels_costModelsList</Name>
+			            <Description></Description>
+			          <ID>18</ID>
+			<Type>THBVector_CostModel_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setRoutePreferences</Name>
+			   <ID>1205</ID>
+			         <Type>Request</Type>
+			  		   <Description>This method sets a list of route preferences</Description>
+			<Response>setRoutePreferences</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setRoutePreferences_R_routeHandle</Name>
+			    		            <Description>Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>20</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setRoutePreferences_R_roadPreferenceList</Name>
+			    		            <Description></Description>
+			    		          <ID>21</ID>
+			    		<Type>THBVector_RoutePreference_</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setRoutePreferences_R_conditionPreferenceList</Name>
+			    		            <Description></Description>
+			    		          <ID>22</ID>
+			    		<Type>THBVector_ConiditionPreference_</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setRoutePreferences</Name>
+			<ID>2205</ID>
+			         <Type>Response</Type>
+			  		   <Description>This method sets a list of route preferences</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getRoutePreferences</Name>
+			   <ID>1206</ID>
+			         <Type>Request</Type>
+			  		   <Description>This method retrieves a list of selected route preferences</Description>
+			<Response>getRoutePreferences</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getRoutePreferences_R_routeHandle</Name>
+			    		            <Description>Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>25</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getRoutePreferences</Name>
+			<ID>2206</ID>
+			         <Type>Response</Type>
+			  		   <Description>This method retrieves a list of selected route preferences</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getRoutePreferences_roadPreferenceList</Name>
+			            <Description></Description>
+			          <ID>27</ID>
+			<Type>THBVector_RoutePreference_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			        <Parameter>
+			            <Name>getRoutePreferences_conditionPreferenceList</Name>
+			            <Description></Description>
+			          <ID>28</ID>
+			<Type>THBVector_ConiditionPreference_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getSupportedRoutePreferences</Name>
+			   <ID>1207</ID>
+			         <Type>Request</Type>
+			  		   <Description>This method retrieves a list of supported route preferences</Description>
+			<Response>getSupportedRoutePreferences</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getSupportedRoutePreferences</Name>
+			<ID>2207</ID>
+			         <Type>Response</Type>
+			  		   <Description>This method retrieves a list of supported route preferences</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getSupportedRoutePreferences_routePreferencesList</Name>
+			            <Description></Description>
+			          <ID>31</ID>
+			<Type>THBVector_RoutePreference_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			        <Parameter>
+			            <Name>getSupportedRoutePreferences_conditionPreferenceList</Name>
+			            <Description></Description>
+			          <ID>32</ID>
+			<Type>THBVector_ConiditionPreference_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setRouteSchedule</Name>
+			   <ID>1208</ID>
+			         <Type>Request</Type>
+			  		   <Description>This method sets the time schedule for the route to be calculated</Description>
+			<Response>setRouteSchedule</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setRouteSchedule_R_routeHandle</Name>
+			    		            <Description>Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>34</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setRouteSchedule_R_routeSchedule</Name>
+			    		            <Description></Description>
+			    		          <ID>35</ID>
+			    		<Type>org_harman_nav_ctrl_RoutingTypes::RouteSchedule</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setRouteSchedule</Name>
+			<ID>2208</ID>
+			         <Type>Response</Type>
+			  		   <Description>This method sets the time schedule for the route to be calculated</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getRouteSchedule</Name>
+			   <ID>1209</ID>
+			         <Type>Request</Type>
+			  		   <Description>This method gets the time schedule for the route to be calculated</Description>
+			<Response>getRouteSchedule</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getRouteSchedule_R_routeHandle</Name>
+			    		            <Description>Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>38</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>getRouteSchedule_R_valuesToReturn</Name>
+			    		            <Description></Description>
+			    		          <ID>39</ID>
+			    		<Type>THBVector_Schedule_</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getRouteSchedule</Name>
+			<ID>2209</ID>
+			         <Type>Response</Type>
+			  		   <Description>This method gets the time schedule for the route to be calculated</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getRouteSchedule_routeSchedule</Name>
+			            <Description></Description>
+			          <ID>41</ID>
+			<Type>org_harman_nav_ctrl_RoutingTypes::RouteSchedule</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setWaypoints</Name>
+			   <ID>1210</ID>
+			         <Type>Request</Type>
+			  		   <Description>setWaypoints = This method sets a list of waypoints</Description>
+			<Response>setWaypoints</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setWaypoints_R_routeHandle</Name>
+			    		            <Description>routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>43</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setWaypoints_R_startFromCurrentPosition</Name>
+			    		            <Description>startFromCurrentPosition = flag indicating if the current position is used as starting point</Description>
+			    		          <ID>44</ID>
+			    		<Type>bool</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setWaypoints_R_waypointsList</Name>
+			    		            <Description></Description>
+			    		          <ID>45</ID>
+			    		<Type>THBVector_WayPoint_</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setWaypoints</Name>
+			<ID>2210</ID>
+			         <Type>Response</Type>
+			  		   <Description>setWaypoints = This method sets a list of waypoints</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getWaypoints</Name>
+			   <ID>1211</ID>
+			         <Type>Request</Type>
+			  		   <Description>getWaypoints = This method retrieves a list of waypoints</Description>
+			<Response>getWaypoints</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getWaypoints_R_routeHandle</Name>
+			    		            <Description>routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>48</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getWaypoints</Name>
+			<ID>2211</ID>
+			         <Type>Response</Type>
+			  		   <Description>getWaypoints = This method retrieves a list of waypoints</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getWaypoints_startFromCurrentPosition</Name>
+			            <Description>startFromCurrentPosition = flag indicating if the current position is used as starting point</Description>
+			          <ID>50</ID>
+			<Type>bool</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			        <Parameter>
+			            <Name>getWaypoints_waypointsList</Name>
+			            <Description></Description>
+			          <ID>51</ID>
+			<Type>THBVector_WayPoint_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>calculateRoute</Name>
+			   <ID>1212</ID>
+			         <Type>Request</Type>
+			  		   <Description>calculateRoute = This method starts a route calculation</Description>
+			<Response>calculateRoute</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>calculateRoute_R_routeHandle</Name>
+			    		            <Description>routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>53</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>calculateRoute</Name>
+			<ID>2212</ID>
+			         <Type>Response</Type>
+			  		   <Description>calculateRoute = This method starts a route calculation</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>cancelRouteCalculation</Name>
+			   <ID>1213</ID>
+			         <Type>Request</Type>
+			  		   <Description>cancelRouteCalculation = This method cancels a route calculation</Description>
+			<Response>cancelRouteCalculation</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>cancelRouteCalculation_R_routeHandle</Name>
+			    		            <Description>routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>56</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>cancelRouteCalculation</Name>
+			<ID>2213</ID>
+			         <Type>Response</Type>
+			  		   <Description>cancelRouteCalculation = This method cancels a route calculation</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>calculateAlternateRoute</Name>
+			   <ID>1214</ID>
+			         <Type>Request</Type>
+			  		   <Description>calculateAlternateRoute = This method calculates an alternate route based on an existing handle. Optionally a different CostModel and RoutePreferences can be used.</Description>
+			<Response>calculateAlternateRoute</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>calculateAlternateRoute_R_calculatedRoute</Name>
+			    		            <Description></Description>
+			    		          <ID>59</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>calculateAlternateRoute</Name>
+			<ID>2214</ID>
+			         <Type>Response</Type>
+			  		   <Description>calculateAlternateRoute = This method calculates an alternate route based on an existing handle. Optionally a different CostModel and RoutePreferences can be used.</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>calculateAlternateRoute_alternativeRouteList</Name>
+			            <Description></Description>
+			          <ID>61</ID>
+			<Type>THBVector_Handle_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getRouteOverview</Name>
+			   <ID>1215</ID>
+			         <Type>Request</Type>
+			  		   <Description>getRouteOverview = This method retrieves general information about a given route</Description>
+			<Response>getRouteOverview</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getRouteOverview_R_routeHandle</Name>
+			    		            <Description>routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>63</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>getRouteOverview_R_valuesToReturn</Name>
+			    		            <Description></Description>
+			    		          <ID>64</ID>
+			    		<Type>THBVector_RouteOverviewType_</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getRouteOverview</Name>
+			<ID>2215</ID>
+			         <Type>Response</Type>
+			  		   <Description>getRouteOverview = This method retrieves general information about a given route</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getRouteOverview_routeOverview</Name>
+			            <Description></Description>
+			          <ID>66</ID>
+			<Type>org_harman_nav_ctrl_RoutingTypes::RouteOverview</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getAllRoutes</Name>
+			   <ID>1216</ID>
+			         <Type>Request</Type>
+			  		   <Description>getAllRoutes = This method retrieves the handles of all created routes</Description>
+			<Response>getAllRoutes</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getAllRoutes</Name>
+			<ID>2216</ID>
+			         <Type>Response</Type>
+			  		   <Description>getAllRoutes = This method retrieves the handles of all created routes</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getAllRoutes_routesList</Name>
+			            <Description></Description>
+			          <ID>69</ID>
+			<Type>THBVector_Handle_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setBlockedRouteStretch</Name>
+			   <ID>1217</ID>
+			         <Type>Request</Type>
+			  		   <Description>setBlockedRouteStretches = This method sets blocked streches on a given route</Description>
+			<Response>setBlockedRouteStretch</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setBlockedRouteStretch_R_routeHandle</Name>
+			    		            <Description>routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>71</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setBlockedRouteStretch_R_length</Name>
+			    		            <Description>Length in meters, from the current car position, to be blocked.</Description>
+			    		          <ID>72</ID>
+			    		<Type>UInt32</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setBlockedRouteStretch</Name>
+			<ID>2217</ID>
+			         <Type>Response</Type>
+			  		   <Description>setBlockedRouteStretches = This method sets blocked streches on a given route</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setRouteSettings</Name>
+			   <ID>1218</ID>
+			         <Type>Request</Type>
+			  		   <Description>setRouteSetting = This method sets global route preference settings</Description>
+			<Response>setRouteSettings</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setRouteSettings_R_settings</Name>
+			    		            <Description></Description>
+			    		          <ID>75</ID>
+			    		<Type>org_harman_nav_ctrl_RoutingTypes::RouteSettings</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setRouteSettings</Name>
+			<ID>2218</ID>
+			         <Type>Response</Type>
+			  		   <Description>setRouteSetting = This method sets global route preference settings</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getRouteSettings</Name>
+			   <ID>1219</ID>
+			         <Type>Request</Type>
+			  		   <Description>setRouteSetting = This method gets the global route preference settings</Description>
+			<Response>getRouteSettings</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getRouteSettings</Name>
+			<ID>2219</ID>
+			         <Type>Response</Type>
+			  		   <Description>setRouteSetting = This method gets the global route preference settings</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getRouteSettings_settings</Name>
+			            <Description></Description>
+			          <ID>79</ID>
+			<Type>org_harman_nav_ctrl_RoutingTypes::RouteSettings</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+               <Method>
+                  <Name>routeSettingsChanged</Name>
+                  <Description>routeSettingsChanged = This signal is emitted to inform clients that the global route settings has been changed.</Description>
+         <ID>2300</ID>
+                  <Type>Information</Type>
+                  <Description>routeSettingsChanged = This signal is emitted to inform clients that the global route settings has been changed.</Description>
+                  <Parameters>
+                          <Parameter>
+                              <Name>routeSettingsChanged_settings</Name>
+                              <Description></Description>
+                            <ID>81</ID>
+                  <Type>THBVector_RouteSettingType_</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                  </Parameters>
+               </Method>
+               <Method>
+                  <Name>routeDeleted</Name>
+                  <Description>routeDeleted = This signal is emitted to inform clients that the current route has been deleted</Description>
+         <ID>2301</ID>
+                  <Type>Information</Type>
+                  <Description>routeDeleted = This signal is emitted to inform clients that the current route has been deleted</Description>
+                  <Parameters>
+                          <Parameter>
+                              <Name>routeDeleted_routeHandle</Name>
+                              <Description>routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+                            <ID>83</ID>
+                  <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                  </Parameters>
+               </Method>
+               <Method>
+                  <Name>routeCalculationCancelled</Name>
+                  <Description>routeCalculationCancelled = This signal informs a client that a route calculation was cancelled</Description>
+         <ID>2302</ID>
+                  <Type>Information</Type>
+                  <Description>routeCalculationCancelled = This signal informs a client that a route calculation was cancelled</Description>
+                  <Parameters>
+                          <Parameter>
+                              <Name>routeCalculationCancelled_routeHandle</Name>
+                              <Description>routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+                            <ID>85</ID>
+                  <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                  </Parameters>
+               </Method>
+               <Method>
+                  <Name>routeCalculationSuccessful</Name>
+                  <Description>routeCalculationSuccessful = This signal informs a client that a route calculation was successful</Description>
+         <ID>2303</ID>
+                  <Type>Information</Type>
+                  <Description>routeCalculationSuccessful = This signal informs a client that a route calculation was successful</Description>
+                  <Parameters>
+                          <Parameter>
+                              <Name>routeCalculationSuccessful_routeHandle</Name>
+                              <Description>routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+                            <ID>87</ID>
+                  <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                          <Parameter>
+                              <Name>routeCalculationSuccessful_unfullfilledPreferences</Name>
+                              <Description></Description>
+                            <ID>88</ID>
+                  <Type>org_harman_nav_ctrl_RoutingTypes::RoutePreference</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                  </Parameters>
+               </Method>
+               <Method>
+                  <Name>routeCalculationFailed</Name>
+                  <Description>routeCalculationFailed = This signal informs a client that a route calculation failed</Description>
+         <ID>2304</ID>
+                  <Type>Information</Type>
+                  <Description>routeCalculationFailed = This signal informs a client that a route calculation failed</Description>
+                  <Parameters>
+                          <Parameter>
+                              <Name>routeCalculationFailed_Handle</Name>
+                              <Description>routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+                            <ID>90</ID>
+                  <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                          <Parameter>
+                              <Name>routeCalculationFailed_errorCode</Name>
+                              <Description>errorCode = enum(INVALID,UNMATCHED_POSITION,UNREACHABLE_DESTINATION,UNFULFILLED_PREFERENCE_MODE, ... )</Description>
+                            <ID>91</ID>
+                  <Type>org_harman_nav_ctrl_RoutingTypes::CalculationError</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                          <Parameter>
+                              <Name>routeCalculationFailed_unfullfilledPreferences</Name>
+                              <Description></Description>
+                            <ID>92</ID>
+                  <Type>org_harman_nav_ctrl_RoutingTypes::RoutePreference</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                  </Parameters>
+               </Method>
+               <Method>
+                  <Name>routeCalculationProgressUpdate</Name>
+                  <Description>routeCalculationProgressUpdate = This signal informs a client about a route calculation progress</Description>
+         <ID>2305</ID>
+                  <Type>Information</Type>
+                  <Description>routeCalculationProgressUpdate = This signal informs a client about a route calculation progress</Description>
+                  <Parameters>
+                          <Parameter>
+                              <Name>routeCalculationProgressUpdate_routeHandle</Name>
+                              <Description>routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+                            <ID>94</ID>
+                  <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                          <Parameter>
+                              <Name>routeCalculationProgressUpdate_percentage</Name>
+                              <Description>percentage = progress status. Range [0:100]</Description>
+                            <ID>95</ID>
+                  <Type>Int8</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                  </Parameters>
+               </Method>
+               <Method>
+                  <Name>alternativeRoutesAvailable</Name>
+                  <Description>alternativeRoutesAvailable = This signal is emitted when alternative routes have been computed in the background and are available for guidance.</Description>
+         <ID>2306</ID>
+                  <Type>Information</Type>
+                  <Description>alternativeRoutesAvailable = This signal is emitted when alternative routes have been computed in the background and are available for guidance.</Description>
+                  <Parameters>
+                          <Parameter>
+                              <Name>alternativeRoutesAvailable_routeHandlesList</Name>
+                              <Description></Description>
+                            <ID>97</ID>
+                  <Type>THBVector_Handle_</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                  </Parameters>
+               </Method>
+</Methods>
+
+
+</DSI>
+

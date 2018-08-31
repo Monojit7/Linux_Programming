@@ -1,0 +1,66 @@
+package com.harman.infotainment.systeminfrastructure.versionmanager.versionmanagertypes
+
+<**
+    @description : Required types for Version Manager interface.
+    @author : Dinesh D(Dinesh.Dhanaraja(at)harman.com)
+**>
+typeCollection versionmanagertypes {
+    version {
+        major 1
+        minor 0
+    }
+
+    <**
+        @description : Information about version of a single component/module
+    **>
+    struct VersionInfo {
+        
+        <**
+            @description : Name of the component/module for which VersionInfo is provided
+        **>
+        String versionName
+
+        <**
+            @description : The actual version information of the component/module in the string format
+            Valid only when version status is "VERSION_STATUS_INFO_AVAILABLE"
+        **>
+        String versionData
+        
+        <**
+            @description : Information about the status of the version information
+        **>
+        VersionStatus versionStatus
+    }
+    
+    <**
+        @description : list of all the known version informations
+    **>
+    array VersionInfoList of VersionInfo
+
+    <**
+        @description : Information about the status of the version information
+    **>
+    enumeration VersionStatus {
+
+        <**
+        @description : 
+            Version information is already available for a specific component as one of the client provided the version already
+        **>
+        VERSION_STATUS_INFO_AVAILABLE
+
+        <**
+        @description : 
+            Version information is not available yet for a specific component as no client has provided the version
+        **>
+        VERSION_STATUS_INFO_NOT_AVAILABLE
+
+        <**
+        @description : 
+            As per client Version information could not be retrieved for a specific client component 
+            due to an internal error
+            (reason for failure is not in the scope of VersionManager)
+        **>
+        VERSION_STATUS_ERROR
+    }
+
+}

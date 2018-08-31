@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+.././inc/core/IPluginBase.h
+string
+-
+core/PresCtrlTypes.h
+-
+
+.././inc/core/PresCtrlTypes.h
+stdint.h
+-
+functional
+-
+
+/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/CoreTest/CoreTestPlugin.h
+core/IPluginBase.h
+-
+iostream
+-
+
+/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/CoreTest/testplugin.cpp
+CoreTestPlugin.h
+/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/CoreTest/CoreTestPlugin.h
+iostream
+-
+

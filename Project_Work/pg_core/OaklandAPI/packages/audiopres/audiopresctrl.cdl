@@ -1,0 +1,35 @@
+import cdl 	"../../packages/swpl/orinoco_base.cdl"
+import cdl "../../packages/audio/audioManager.cdl"
+import cdl "../../packages/audio/wavePlayer.cdl"
+
+import fidl "fidl/audioPresctrlControls.fidl"
+import fidl "fidl/audioPresctrlDiagnostics.fidl"
+import fidl "fidl/audioPresctrlSettings.fidl"
+
+package AudioPresCtrl
+{
+	generator true
+	
+	component AudioPresCtrl extends orinoco_component {
+		language 	cpp
+		rpc 		dbus
+		buildType 	CMake
+		
+		provides interface com.harman.audio.audioPresCtrl.audioPresCtrlControls as controlsInst
+		provides interface com.harman.audio.audioPresCtrl.audioPresCtrlDiag 	as diagInst
+		provides interface com.harman.audio.audioPresCtrl.audioPresCtrlSettings as settingsInst		
+		
+		consumes interface org.genivi.am.commandinterface.CommandControl 		 	instance audioManager::commandInst 		  as commandProxy
+		consumes interface com.harman.audio.waveplayer.wavePlayer 					instance providerComp::wavePlayerProvider as waveplayerProxy 
+	}
+	
+	component AudioPresCtrlClient {
+		language 	cpp
+		rpc 		dbus
+		buildType 	CMake
+		
+		consumes interface com.harman.audio.audioPresCtrl.audioPresCtrlControls instance AudioPresCtrl::controlsInst  as controlProxy
+		consumes interface com.harman.audio.audioPresCtrl.audioPresCtrlDiag 	instance AudioPresCtrl::diagInst 	  as diagProxy
+		consumes interface com.harman.audio.audioPresCtrl.audioPresCtrlSettings instance AudioPresCtrl::settingsInst as settingsProxy  
+	}  	
+}

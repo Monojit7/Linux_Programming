@@ -1,0 +1,24 @@
+local SRCS_MOCCA =
+	CSomeIPOneBoxSearchClientBase.cpp
+	CSomeIPOneBoxSearchServerBase.cpp
+	OneBoxSearchServiceConstants.cpp
+   ;
+
+if $(TARGET_OS) = WIN32
+{
+	local HB_CC_WARNING_FLAGS  = [ Differences $(HB_CC_WARNING_FLAGS)  : -Werror /WX ] ;
+	local HB_C++_WARNING_FLAGS = [ Differences $(HB_C++_WARNING_FLAGS) : -Werror /WX ] ;
+
+	HBLibrary $(LIB_NAME) : $(SRCS_MOCCA) ;
+}
+else
+{
+	if $(HB_DLL) = "TRUE"
+	{
+		HBLibrary $(LIB_NAME) : $(SRCS_MOCCA) : shared ;
+	}
+	else
+	{
+		HBLibrary $(LIB_NAME) : $(SRCS_MOCCA) ;
+	}		
+}

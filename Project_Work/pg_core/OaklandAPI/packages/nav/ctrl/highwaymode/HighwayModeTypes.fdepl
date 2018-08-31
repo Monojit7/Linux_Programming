@@ -1,0 +1,12 @@
+import "HighwayModeTypes.fidl"
+import "../common/CommonTypes.fdepl"
+import "../di/LocationInputTypes.fdepl"
+import "../some_ip.fdepl"
+import "../di/POIServiceTypes.fdepl"
+import "../traffic/TrafficInformationTypes.fdepl"
+import "../common/list/ListTypes.fdepl"
+
+define someip.franca.SOMEIP_Deployment for typeCollection
+org.harman.nav.ctrl.highwaymode.HighwayModeTypes
+as org.harman.nav.ctrl.highwaymode.HighwayModeTypes {
+}

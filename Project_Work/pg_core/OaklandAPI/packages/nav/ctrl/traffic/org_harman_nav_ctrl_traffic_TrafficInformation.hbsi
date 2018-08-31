@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DSI>
+<Name>org_harman_nav_ctrl_traffic_TrafficInformation</Name>
+   <ID>2</ID>
+   <Extern>true</Extern>
+	<Version>
+      <Major>2</Major>
+      <Minor>1</Minor>
+   </Version>
+   <Includes>
+   
+   <Include>
+         <Name>api/nav/ctrl/pf/common/org_harman_nav_ctrl_CommonTypes.hbtd</Name>
+         <Major>1</Major>
+         <Minor>0</Minor>
+   </Include>
+   <Include>
+         <Name>api/nav/ctrl/pf/common/list/org_harman_nav_ctrl_common_list_ListTypes.hbtd</Name>
+         <Major>1</Major>
+         <Minor>0</Minor>
+   </Include>
+   <Include>
+         <Name>api/nav/ctrl/pf/traffic/org_harman_nav_ctrl_traffic_TrafficInformationTypes.hbtd</Name>
+         <Major>2</Major>
+         <Minor>1</Minor>
+   </Include>
+   </Includes>
+   
+   
+	  <Enums>
+        <Enum>
+         <Name>Error</Name>
+          <ID>2</ID>
+         <Description>This is the type for error responses.</Description>
+         <EnumIDs>
+             <EnumID>
+                <Name>ERROR_ListError_INVALID</Name>
+                <ID>3</ID>
+                <Value>0x0000</Value>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_ListError_INVALID_LIST_ID</Name>
+                <ID>4</ID>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_ListError_INVALID_VIEW</Name>
+                <ID>5</ID>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_ListError_INVALID_PARAMETER</Name>
+                <ID>6</ID>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_ListError_SIZE_LIMIT_EXCEEDED</Name>
+                <ID>7</ID>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_ListError_OUT_OF_RESSOURCES</Name>
+                <ID>8</ID>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_ListError_OUT_OF_RANGE_POSITION</Name>
+                <ID>9</ID>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_ListError_POLICY_DENIED</Name>
+                <ID>10</ID>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_TrafficInformationError_MESSAGE_NOT_AVAILABLE</Name>
+                <ID>11</ID>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_TrafficInformationError_FAILED</Name>
+                <ID>12</ID>
+             </EnumID>
+
+    </EnumIDs>
+    </Enum>
+</Enums>
+
+   <DataTypes>
+          
+<DataType>
+   <Name>THBVector_ListId_</Name>
+   <ID>13</ID>
+   <Description> The list ids which can be queried from this interface</Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+   <BaseType>org_harman_nav_ctrl_common_list_ListTypes::ListId</BaseType>
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_SourceSelection_</Name>
+   <ID>13</ID>
+   <Description> list of all supported sources for traffic data</Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_traffic_TrafficInformationTypes::SourceSelection</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_CHBString_</Name>
+   <ID>13</ID>
+   <Description> list of all TMC stations, which are currently available in the tuner</Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>CHBString</BaseType>		   
+</DataType>
+   </DataTypes>
+	<Attributes>
+		      <Attribute>
+		         <Name>aconfiguration</Name>
+		         <Description>configuration attribute of the TrafficInformation interface
+		         
+		                 this attribute must be set by client/hmi at startup and everytime
+		                 a basic configuration (e.g. language selection) has changed.</Description>
+		         <ID>13</ID>
+		<Type>org_harman_nav_ctrl_traffic_TrafficInformationTypes::SConfig</Type>
+		         
+		         <Notify>OnChange</Notify>
+		      </Attribute>
+		      <Attribute>
+		         <Name>asource</Name>
+		         <Description>indicator of currently available TrafficInformation source</Description>
+		         <ID>14</ID>
+		<Type>org_harman_nav_ctrl_traffic_TrafficInformationTypes::SourceSelection</Type>
+		         
+		         <Notify>OnChange</Notify>
+		      </Attribute>
+		      <Attribute>
+		         <Name>acurrentTmcStation</Name>
+		         <Description>the tmc station to which the radio is currently tuned (or empty string if no reception)</Description>
+		         <ID>15</ID>
+		<Type>CHBString</Type>
+		         
+		         <Notify>OnChange</Notify>
+		      </Attribute>
+		      <Attribute>
+		         <Name>aavailableLists</Name>
+		         <Description>The list ids which can be queried from this interface</Description>
+		         <ID>16</ID>
+		<Type>THBVector_ListId_</Type>
+		         
+		         <Notify>OnChange</Notify>
+		      </Attribute>
+	</Attributes>
+<Methods>
+		<Method>
+		
+		   <Name>SetConfiguration</Name>
+		   <ID>1100</ID>
+		         <Type>Request</Type>
+		  		   <Description>configuration attribute of the TrafficInformation interface
+		  		   
+		  		           this attribute must be set by client/hmi at startup and everytime
+		  		           a basic configuration (e.g. language selection) has changed.</Description>
+		<Response>SetConfiguration</Response>
+		  		   <Parameters>
+			  		   <Parameter>
+		<Name>s_Configuration</Name>
+		                   <Description>configuration attribute of the TrafficInformation interface
+		                   
+		                           this attribute must be set by client/hmi at startup and everytime
+		                           a basic configuration (e.g. language selection) has changed.</Description>
+		                   <ID>18</ID>
+		<Type>org_harman_nav_ctrl_traffic_TrafficInformationTypes::SConfig</Type>
+		                    <IsDefault>false</IsDefault>
+			  		   </Parameter>
+		  		   </Parameters>
+		</Method>
+		<Method>
+		<Name>SetConfiguration</Name>
+		         <ID>2100</ID>
+		         <Type>Response</Type>
+		  		   <Description>configuration attribute of the TrafficInformation interface
+		  		   
+		  		           this attribute must be set by client/hmi at startup and everytime
+		  		           a basic configuration (e.g. language selection) has changed.</Description>
+		  		   <Parameters>
+			  		   <Parameter>
+		<Name>s_Configuration</Name>
+		                   <Description>configuration attribute of the TrafficInformation interface
+		                   
+		                           this attribute must be set by client/hmi at startup and everytime
+		                           a basic configuration (e.g. language selection) has changed.</Description>
+		                   <ID>20</ID>
+		<Type>org_harman_nav_ctrl_traffic_TrafficInformationTypes::SConfig</Type>
+		                    <IsDefault>false</IsDefault>
+			  		   </Parameter>
+		  		   </Parameters>
+		</Method>
+			<Method>
+			
+			   <Name>getSupportedSources</Name>
+			   <ID>1200</ID>
+			         <Type>Request</Type>
+			  		   <Description>get a list of all supported sources for traffic data</Description>
+			<Response>getSupportedSources</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getSupportedSources</Name>
+			<ID>2200</ID>
+			         <Type>Response</Type>
+			  		   <Description>get a list of all supported sources for traffic data</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getSupportedSources_sources</Name>
+			            <Description>list of all supported sources for traffic data</Description>
+			          <ID>23</ID>
+			<Type>THBVector_SourceSelection_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getSupportedOnlineFallbackSources</Name>
+			   <ID>1201</ID>
+			         <Type>Request</Type>
+			  		   <Description>get a list of all supported fallback sources for traffic data
+			  		                          if online data cannot be retreived (e.g., no connection, no roaming allowed)</Description>
+			<Response>getSupportedOnlineFallbackSources</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getSupportedOnlineFallbackSources</Name>
+			<ID>2201</ID>
+			         <Type>Response</Type>
+			  		   <Description>get a list of all supported fallback sources for traffic data
+			  		                          if online data cannot be retreived (e.g., no connection, no roaming allowed)</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getSupportedOnlineFallbackSources_fallbackSources</Name>
+			            <Description>list of all supported fallback sources for traffic data</Description>
+			          <ID>26</ID>
+			<Type>THBVector_SourceSelection_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getAvailableTmcStations</Name>
+			   <ID>1202</ID>
+			         <Type>Request</Type>
+			  		   <Description>get a list of all TMC stations, which are currently available in the tuner</Description>
+			<Response>getAvailableTmcStations</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getAvailableTmcStations</Name>
+			<ID>2202</ID>
+			         <Type>Response</Type>
+			  		   <Description>get a list of all TMC stations, which are currently available in the tuner</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getAvailableTmcStations_availableTmcStations</Name>
+			            <Description>list of all TMC stations, which are currently available in the tuner</Description>
+			          <ID>29</ID>
+			<Type>THBVector_CHBString_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>refreshOnlineTrafficData</Name>
+			   <ID>1212</ID>
+			         <Type>Request</Type>
+			  		   <Description>Triggers a new query for traffic data from the online traffic data provider.
+			  		   		               This call will only have an effect if the currently selected source is Online
+			  		   					   (see attribute source) and if Manual refresh mode was configured
+			  		   					   (see attribute configuration.refreshSetting.mode).</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getListSize</Name>
+			   <ID>1203</ID>
+			         <Type>Request</Type>
+			  		   <Description>get the current number of contained elements in the given list.</Description>
+			<Response>getListSize</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getListSize_R_list</Name>
+			    		            <Description></Description>
+			    		          <ID>32</ID>
+			    		<Type>org_harman_nav_ctrl_common_list_ListTypes::ListId</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getListSize</Name>
+			<ID>2203</ID>
+			         <Type>Response</Type>
+			  		   <Description>get the current number of contained elements in the given list.</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getListSize_size</Name>
+			            <Description></Description>
+			          <ID>34</ID>
+			<Type>org_harman_nav_ctrl_common_list_ListTypes::ListSize</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>createView</Name>
+			   <ID>1204</ID>
+			         <Type>Request</Type>
+			  		   <Description>create a new view to the mother array.
+			  		           This view will be maintained until the client uses destroyView,
+			  		           unsubscribes or service/proxy exit.
+			  		           After creating a view the client must receive an update.
+			  		           Only one created view is allowed to modify the list entries.
+			  		           Please note: a valid usecase is to specify a viewSize which is
+			  		           bigger than the inital list size</Description>
+			<Response>createView</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>createView_R_list</Name>
+			    		            <Description>list to create the view upon.</Description>
+			    		          <ID>36</ID>
+			    		<Type>org_harman_nav_ctrl_common_list_ListTypes::ListId</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>createView_R_viewsize</Name>
+			    		            <Description>individual size of the requested view.</Description>
+			    		          <ID>37</ID>
+			    		<Type>org_harman_nav_ctrl_common_list_ListTypes::ViewSize</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>createView</Name>
+			<ID>2204</ID>
+			         <Type>Response</Type>
+			  		   <Description>create a new view to the mother array.
+			  		           This view will be maintained until the client uses destroyView,
+			  		           unsubscribes or service/proxy exit.
+			  		           After creating a view the client must receive an update.
+			  		           Only one created view is allowed to modify the list entries.
+			  		           Please note: a valid usecase is to specify a viewSize which is
+			  		           bigger than the inital list size</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>createView_view</Name>
+			            <Description>view identification used to distinguish several instances of a view for one client.
+			                            It is never changed by the service nor the client. This id is unique!</Description>
+			          <ID>39</ID>
+			<Type>org_harman_nav_ctrl_common_list_ListTypes::ViewId</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>deleteView</Name>
+			   <ID>1205</ID>
+			         <Type>Request</Type>
+			  		   <Description>delete the given view instance</Description>
+			<Response>deleteView</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>deleteView_R_view</Name>
+			    		            <Description>identifies the view to apply this operation upon.</Description>
+			    		          <ID>41</ID>
+			    		<Type>org_harman_nav_ctrl_common_list_ListTypes::ViewId</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>deleteView</Name>
+			<ID>2205</ID>
+			         <Type>Response</Type>
+			  		   <Description>delete the given view instance</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setViewSize</Name>
+			   <ID>1206</ID>
+			         <Type>Request</Type>
+			  		   <Description>adjust the view size. It is allowed to set view size to a larger value
+			  		           than the actual size of the list, but less or equal than the maximum size of the list.
+			  		           The implementation may limit the maximum view size for resource reasons.
+			  		           After adjusting the window size the client must receive an update.</Description>
+			<Response>setViewSize</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setViewSize_R_view</Name>
+			    		            <Description>identifies the view to apply this operation upon.</Description>
+			    		          <ID>44</ID>
+			    		<Type>org_harman_nav_ctrl_common_list_ListTypes::ViewId</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setViewSize_R_new_size</Name>
+			    		            <Description>new view size</Description>
+			    		          <ID>45</ID>
+			    		<Type>org_harman_nav_ctrl_common_list_ListTypes::ViewSize</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setViewSize</Name>
+			<ID>2206</ID>
+			         <Type>Response</Type>
+			  		   <Description>adjust the view size. It is allowed to set view size to a larger value
+			  		           than the actual size of the list, but less or equal than the maximum size of the list.
+			  		           The implementation may limit the maximum view size for resource reasons.
+			  		           After adjusting the window size the client must receive an update.</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setViewPosition</Name>
+			   <ID>1207</ID>
+			         <Type>Request</Type>
+			  		   <Description>set the absolute view position to element key.
+			  		           The client should use an available snapshot of a view to maintain focused elements
+			  		           within the view if possible, and change the view position only if an
+			  		           element to be focused is outside of the given view. A snapshot is generated whenever
+			  		           querying the data contained in a view. Together with that data, the ViewSnapshotPosition is provided.
+			  		           The initial snapshot of the view is always [0, min(viewSize-1, listSize-1)].
+			  		           When creating a new view snapshot, the last call of setViewPosition or setViewAnchor (whichever was the last one)
+			  		           will be the relevant information to reposition the new view snapshot. If setViewPosition was the last call,
+			  		           the view is moved such that the provided key refers to the absolute position on the current snapshot of the view.
+			  		           (This becomes important if the current view snapshot is outdated because the list has been updated.)
+			  		   
+			  		           The following rules are applied to set the position of the new view snapshot [newFrom, newTo], given a snapshot [from, to]:
+			  		           Let elem(k) denote the element at key k in the old snapshot and new(e) denote the key the element e will have
+			  		           (would have if deleted) in the new snapshot (see also examples (1)-(3) below).
+			  		           (1) If key is less than from, then newFrom will be set to new(elem(from)) - (from-key).
+			  		           (2) If key is contained in [from, to], then newKey will be set to new(elem(key)).
+			  		           (3) If key is greater than to, then newFrom will be set to new(elem(to)) + (key-to).
+			  		           If any of these calculated values are out of the range of the list [0, listSize-1], they will be truncated to fit into the list.
+			  		           (Note that the resulting newFrom is always equal to key if the data wasn't updated,
+			  		           but it doesn't have to be equal to key if the data was updated.)
+			  		           After setting the view position the anchor offset will automatically be set to 0.
+			  		           There are two special key values to allow scrolling to the top/bottom of the list, independently from the above rules:
+			  		           The key value 0xFFFE always positions the view to the top of the list.
+			  		           The key value 0xFFFF always positions the view to the bottom of the list.
+			  		   
+			  		           As an example for the case in which the data was updated:
+			  		           old list {"a", "b", "c", "d", "e", "f"} with view snapshot ["c", "d"] with viewSize 2 and viewKey 2
+			  		           new list {"b", "d", "f", "h", "j", "l"}
+			  		           (1) setViewPosition(0) => [from, to] is [2, 3], elem(from) is "c", new(elem(from)) is 1
+			  		                                  => ["b", "d"] with ViewSnapshotPosition {listSize=6, listKey=0, anchorOffset=0}.
+			  		           (2) setViewPosition(3) => [from, to] is [2, 3], elem(key) is "d", new(elem(key)) is 1
+			  		                                  => ["d", "f"] with ViewSnapshotPosition {listSize=6, listKey=1, anchorOffset=0}.
+			  		           (3) setViewPosition(4) => [from, to] is [2, 3], elem(to) is "d", new(elem(d)) is 1
+			  		                                  => ["f", "h"] with ViewSnapshotPosition {listSize=6, listKey=2, anchorOffset=0}.</Description>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setViewPosition_R_view</Name>
+			    		            <Description>identifies the view to apply this operation upon.</Description>
+			    		          <ID>48</ID>
+			    		<Type>org_harman_nav_ctrl_common_list_ListTypes::ViewId</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setViewPosition_R_key</Name>
+			    		            <Description>element to position the view upon, according to view policy.</Description>
+			    		          <ID>49</ID>
+			    		<Type>org_harman_nav_ctrl_common_list_ListTypes::ListKey</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setViewAnchor</Name>
+			   <ID>1208</ID>
+			         <Type>Request</Type>
+			  		   <Description>set a stable element inside the current view snapshot.
+			  		           The client should use an available snapshot of a view to maintain focused elements
+			  		           within the view if possible, and change the view position only if an
+			  		           element to be focused is outside of the given view. A snapshot is generated whenever
+			  		           querying the data contained in a view. Together with that data, the ViewSnapshotPosition is provided.
+			  		           The initial snapshot of the view is always [0, min(viewSize-1, listSize-1)] with anchor offset 0.
+			  		           When creating a new view snapshot, the last call of setViewPosition or setViewAnchor (whichever was the last one)
+			  		           will be the relevant information to reposition the new view snapshot. If setViewAnchor was the last call,
+			  		           the anchor element of the old view snapshot is used for repositioning.
+			  		           (This method only needs to be used if the current view snapshot is outdated because the list has been updated.)
+			  		   
+			  		           The following rules are applied to set the position of the new view snapshot [newFrom, newTo], given a snapshot [from, to]
+			  		           and anchor offset aOff:
+			  		           Let elem(k) denote the element at key k in the old snapshot and new(e) denote the key the element e will have
+			  		           (would have if deleted) in the new snapshot (see also examples below).
+			  		           newFrom is set to new(elem(from+aOff)) - aOff.
+			  		           If any of these calculated values are out of the range of the list [0, listSize-1], they will be truncated to fit into the list.
+			  		           As a consequence, whenever possible, the anchor element of the old snapshot will be at the same offset within the new snapshot.
+			  		   
+			  		           As an example for the case in which the data was updated:
+			  		           old list {"a", "b", "c", "d", "e", "f"} with view snapshot ["c", "d"] with viewSize 2 and viewKey 2
+			  		           new list {"b", "d", "f", "h", "j", "l"}
+			  		           setViewAnchor(0) => elem(from+aOff) is "c", new(elem(from+aOff)) is 1 ("c" would be inserted at index 1)
+			  		                            => ["d", "f"] with ViewSnapshotPosition {listSize=6, listKey=1, anchorOffset=0}.
+			  		           setViewAnchor(1) => elem(from+aOff) is "d", new(elem(from+aOff)) is 1
+			  		                            => ["b", "d"] with ViewSnapshotPosition {listSize=6, listKey=0, anchorOffset=1}.</Description>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setViewAnchor_R_view</Name>
+			    		            <Description>identifies the view to apply this operation upon.</Description>
+			    		          <ID>51</ID>
+			    		<Type>org_harman_nav_ctrl_common_list_ListTypes::ViewId</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setViewAnchor_R_anchor</Name>
+			    		            <Description>relative anchor position in the view, referenced from ListKey
+			    		                            Please note: only positive values and 0 are allowed</Description>
+			    		          <ID>52</ID>
+			    		<Type>org_harman_nav_ctrl_common_list_ListTypes::AnchorOffset</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getViewData</Name>
+			   <ID>1209</ID>
+			         <Type>Request</Type>
+			  		   <Description>creates a snapshot of the current view of the traffic message list and returns
+			  		                          the contained messages' data.
+			  		                          Using the set view position or set view anchor (whichever was set last),
+			  		                          the view snapshot is positioned within the list. The information about the
+			  		                          snapshot position and the traffic messages contained in the view snapshot
+			  		                          are returned to the client.</Description>
+			<Response>getViewData</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getViewData_R_view</Name>
+			    		            <Description>identifies the view to apply this operation upon.</Description>
+			    		          <ID>54</ID>
+			    		<Type>org_harman_nav_ctrl_common_list_ListTypes::ViewId</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getViewData</Name>
+			<ID>2209</ID>
+			         <Type>Response</Type>
+			  		   <Description>creates a snapshot of the current view of the traffic message list and returns
+			  		                          the contained messages' data.
+			  		                          Using the set view position or set view anchor (whichever was set last),
+			  		                          the view snapshot is positioned within the list. The information about the
+			  		                          snapshot position and the traffic messages contained in the view snapshot
+			  		                          are returned to the client.</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getViewData_messages</Name>
+			            <Description>the messages contained in the current view snapshot</Description>
+			          <ID>56</ID>
+			<Type>org_harman_nav_ctrl_traffic_TrafficInformationTypes::TMessages</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			        <Parameter>
+			            <Name>getViewData_snapshotPos</Name>
+			            <Description>information how the message view snapshot is positioned within the list</Description>
+			          <ID>57</ID>
+			<Type>org_harman_nav_ctrl_common_list_ListTypes::ViewSnapshotPosition</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getMessageData</Name>
+			   <ID>1210</ID>
+			         <Type>Request</Type>
+			  		   <Description>gets the message information associated with one message identifier</Description>
+			<Response>getMessageData</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getMessageData_R_messageId</Name>
+			    		            <Description>identifier of the message for which data shall be retrieved</Description>
+			    		          <ID>59</ID>
+			    		<Type>org_harman_nav_ctrl_traffic_TrafficInformationTypes::TMessageId</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getMessageData</Name>
+			<ID>2210</ID>
+			         <Type>Response</Type>
+			  		   <Description>gets the message information associated with one message identifier</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getMessageData_message</Name>
+			            <Description>information about the traffic event or flow</Description>
+			          <ID>61</ID>
+			<Type>org_harman_nav_ctrl_traffic_TrafficInformationTypes::SMessage</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>toggleDetourStatus</Name>
+			   <ID>1211</ID>
+			         <Type>Request</Type>
+			  		   <Description>toggle the detour status of a certain ti message
+			  		   
+			  		       according to the toyota specification a user can select a
+			  		       certain message for detour. With this request the client/hmi
+			  		       can switch the detour flag of a certain TI message.</Description>
+			<Response>toggleDetourStatus</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>toggleDetourStatus_R_id</Name>
+			    		            <Description>unique identifier of the message, for which the detour status shall be toggled</Description>
+			    		          <ID>63</ID>
+			    		<Type>org_harman_nav_ctrl_traffic_TrafficInformationTypes::TMessageId</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>toggleDetourStatus</Name>
+			<ID>2211</ID>
+			         <Type>Response</Type>
+			  		   <Description>toggle the detour status of a certain ti message
+			  		   
+			  		       according to the toyota specification a user can select a
+			  		       certain message for detour. With this request the client/hmi
+			  		       can switch the detour flag of a certain TI message.</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>toggleDetourStatus_message</Name>
+			            <Description>resulting message (with toggled detour flag and possibly updated content, e.g., updated icons)</Description>
+			          <ID>65</ID>
+			<Type>org_harman_nav_ctrl_traffic_TrafficInformationTypes::SMessage</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+               <Method>
+                  <Name>viewUpdate</Name>
+                  <Description>indicate to the client that the underlying list of a certain view has changed.
+                          Whenever elements get inserted/removed or the content of element gets changed, the size
+                          or the sorting order of a list might change. This might influence the current view and
+                          especially the position of the anchor element in the list. To allow a client to react on such
+                          changes in an approapriate manner, the viewUpdate broadcast will provide all necessary information
+                          to its client.
+                          It is up to the client to reposition the view to its needs based on the provided information,
+                          using the methods setViewPosition or setViewAnchor.</Description>
+         <ID>2300</ID>
+                  <Type>Information</Type>
+                  <Description>indicate to the client that the underlying list of a certain view has changed.
+                          Whenever elements get inserted/removed or the content of element gets changed, the size
+                          or the sorting order of a list might change. This might influence the current view and
+                          especially the position of the anchor element in the list. To allow a client to react on such
+                          changes in an approapriate manner, the viewUpdate broadcast will provide all necessary information
+                          to its client.
+                          It is up to the client to reposition the view to its needs based on the provided information,
+                          using the methods setViewPosition or setViewAnchor.</Description>
+                  <Parameters>
+                          <Parameter>
+                              <Name>viewUpdate_view</Name>
+                              <Description>unique identifier of a view</Description>
+                            <ID>67</ID>
+                  <Type>org_harman_nav_ctrl_common_list_ListTypes::ViewId</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                          <Parameter>
+                              <Name>viewUpdate_size</Name>
+                              <Description>current size of the underlying list</Description>
+                            <ID>68</ID>
+                  <Type>org_harman_nav_ctrl_common_list_ListTypes::ListSize</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                          <Parameter>
+                              <Name>viewUpdate_viewChanged</Name>
+                              <Description>at least one element of the currently active view snapshot has changed</Description>
+                            <ID>69</ID>
+                  <Type>bool</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                          <Parameter>
+                              <Name>viewUpdate_listChanged</Name>
+                              <Description>at least one element of the list has changed (this might lead to a different new view snapshot)</Description>
+                            <ID>70</ID>
+                  <Type>bool</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                  </Parameters>
+               </Method>
+               <Method>
+                  <Name>listSize</Name>
+                  <Description>informs the client about changes of the list size.</Description>
+         <ID>2301</ID>
+                  <Type>Information</Type>
+                  <Description>informs the client about changes of the list size.</Description>
+                  <Parameters>
+                          <Parameter>
+                              <Name>listSize_id</Name>
+                              <Description>list id related to the list size update</Description>
+                            <ID>72</ID>
+                  <Type>org_harman_nav_ctrl_common_list_ListTypes::ListId</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                          <Parameter>
+                              <Name>listSize_size</Name>
+                              <Description>changed list size information</Description>
+                            <ID>73</ID>
+                  <Type>org_harman_nav_ctrl_common_list_ListTypes::ListSize</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                  </Parameters>
+               </Method>
+               <Method>
+                  <Name>popUpIndication</Name>
+                  <Description>indicate a popup caused by TI-messages to the customer
+                  
+                      This broadcast is used to indicate any kind of popup that is caused by one or more
+                      TI messages (according to spec, a single message is trigger condition). There are
+                      two kind of popups: dynamic reroute suggestion caused by TI-delay and emergency noticiation
+                      Furhtermore we've added an additional popup type MISC which can be used to indicate
+                      any other type of popup (not yet specified nor used)</Description>
+         <ID>2302</ID>
+                  <Type>Information</Type>
+                  <Description>indicate a popup caused by TI-messages to the customer
+                  
+                      This broadcast is used to indicate any kind of popup that is caused by one or more
+                      TI messages (according to spec, a single message is trigger condition). There are
+                      two kind of popups: dynamic reroute suggestion caused by TI-delay and emergency noticiation
+                      Furhtermore we've added an additional popup type MISC which can be used to indicate
+                      any other type of popup (not yet specified nor used)</Description>
+                  <Parameters>
+                          <Parameter>
+                              <Name>popUpIndication_type</Name>
+                              <Description>reason for the popup</Description>
+                            <ID>75</ID>
+                  <Type>org_harman_nav_ctrl_traffic_TrafficInformationTypes::PopupType</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                          <Parameter>
+                              <Name>popUpIndication_responsibleMessages</Name>
+                              <Description>messages, which have caused the popup</Description>
+                            <ID>76</ID>
+                  <Type>org_harman_nav_ctrl_traffic_TrafficInformationTypes::TMessages</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                  </Parameters>
+               </Method>
+</Methods>
+
+
+</DSI>
+

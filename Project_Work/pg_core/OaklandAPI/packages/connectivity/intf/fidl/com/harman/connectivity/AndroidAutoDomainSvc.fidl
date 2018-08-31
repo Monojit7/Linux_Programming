@@ -1,0 +1,470 @@
+ /*********************************************************************
+ * Project        Harman Car Multimedia System
+ * (c) copyright  2015
+ * Company        Harman International Industries
+ *                All rights reserved
+ * Secrecy Level  STRICTLY CONFIDENTIAL
+ *********************************************************************/
+
+ /**
+ * @file        AndroidAutoDomainSvc.fidl
+ * @ingroup     DomainSvc_AndroidAuto
+ * @author      HSingh
+ * @brief       Interface for Communication with HMI
+ */
+
+package com.harman.connectivity
+interface AndroidAutoDomainSvc{
+   version { major 4 minor 0}
+   
+   //--------------------------------------------------------------------
+   //                              Methods
+   //--------------------------------------------------------------------   
+   /**
+   * @brief   Message indicates that the Android Auto screen is requested
+   * @details This will be sent by HMI when the user initiates 
+   *           an action to go to Android Auto screen. 
+   *           Calling this method doesn't guarantee that android auto screen
+   *           would be projected.
+   *
+   */
+   method showRemoteScreen {
+   
+   }
+
+   /**
+   * @brief   Message indicates that the Android Auto needs to be exited for showing the Native HMI
+   * @details This will be sent by HMI when the Native HMI has to be
+   *			 shown or when the Android Auto screen needs to be hidden
+   *			 due to user switch to other native Applications,
+   *
+   */
+   method hideRemoteScreen {
+
+   }
+   
+   /**
+   * @brief   Message indicates that the Android Auto needs to be hide for short time, as Native HMI
+   *          is showing high priority screen for e.g Rear Camera.
+   * @details This will be sent by HMI when the Native HMI has to be
+   *			 shown for short-time for e.g showing Rear Camera while reverse gear is engaged.
+   *
+   */
+   method hideRemoteScreenTransient {
+
+   }
+   
+	/** \brief 
+	* This method is used to report a key press or release.The preferred interface for signaling key presses.  
+	* @param keycode The keycode of the key that was pressed or released. Check the enum enKeyCodes.
+	* @param isDown true if it is a press, false if it is a release. 
+	* @param metaState Can be used to represent shift, alt etc. Currently unused. 
+	*
+	*  @return 0 if success, otherwise -1 (key code not found)
+	*/
+   method reportKey {
+      in {
+          enKeyCodes keycode
+          Boolean isDown
+          Int32 metaState
+      }
+      out {
+         Int32 retval
+      }
+   }    
+   
+	/** \brief 
+	* This method is used to signal a long press of a button.  
+	* This method simulates a sequence of key down, hold, key up on the  
+	* phone. Use this interface only if you have to. The only case when you should do this is if your system prevents you from  
+	* being able to detect the initial key down. Do not report a key up after this.
+	* @param keycode The keycode of the key that was pressed or released. Check the enum enKeyCodes.
+	* @param metaState Can be used to represent shift, alt etc. Currently unused. 
+	*
+	* @return 0 if success, otherwise -1 (key code not found)
+	*/   
+   method reportKeyLongPress {
+      in {
+          enKeyCodes keycode
+          Int32 metastate
+      }
+      out {
+         Int32 retval
+      }
+   }
+ 
+	/** \brief 
+	* This method sends absolute value of key press event 
+	* @param keycode While these devices aren't keys per se, they use a keycode as a device identifier, 
+	* which should be registered during initialization. Check the enum enKeyCodes.
+	* @param value The absolute value associated with that device. For example, if a wheel goes from 
+	* 0-10, the value would be that.
+	*
+	* @return 0 if success, otherwise -1 (key code not found)
+	*/  
+   method reportKeyAbsolute {
+      in {
+          enKeyCodes keycode
+          Int32 value
+      }
+      out {
+         Int32 retval
+      }
+   }   
+ 
+	/** \brief 
+	* This method is used to report a value from a device that can output a relative value.  
+	* @param keycode While these devices aren't keys per se, they use a keycode as a device identifier, 
+	* which should be registered during initialization. Check the enum enKeyCodes.
+	* @param delta The value associated with this event. You can indicate a magnitude and direction 
+	* using the value and its sign. For instance, if a jog dial were turned two steps to 
+	* the left, delta would be -2. If it were turned 5 steps to the right, delta would be +5. 
+	*
+	* @return 0 if success, otherwise -1 (key code not found)
+	*/  
+   method reportKeyRelative {
+      in {
+          enKeyCodes keycode
+          Int32 delta
+      }
+      out {
+         Int32 retval
+      } 
+   }   
+
+   //--------------------------------------------------------------------
+   //                              BroadCasts
+   //--------------------------------------------------------------------
+   /**
+   * @brief   Message indicates that there is a change in  Android Auto session
+   * @details This will be sent by Android Auto DomainSvc when there is a change in
+   * 	     Android Auto session. (i.e transitioning between active to inactive and viceversa)
+   *	     HMI is expected to indicate to user that the Android Auto is available on receiving this message.
+   *	     HMI will also recieve the information about the connection with this message.	
+   * @param [in] status is enum type defined below
+   * @param [in] message. Message to indicate the session details. (ex messages : "Connection error", "device disconnected",
+   *		 "First Time connection of phone" etc.,)
+   */
+   broadcast sessionStatus
+   {
+        out
+        {
+            enSessionStatus status
+            String message
+        }
+   }
+
+   /**
+   * @brief   Message indicates that the Android Auto screen is active
+   * @details This will be sent by Android Auto DomainSvc when the screen is 
+   *          successfully taken by the Android Auto. Native HMI to hide on receiving this 
+   *			 message
+   */   	
+   broadcast remoteScreenActive {
+
+   }
+   
+   /**
+   * @brief   Message indicates that the Android Auto screen is inactive
+   * @details This will be sent by Android Auto DomainSvc when the screen is 
+   *          successfully released by the Android Auto. Native HMI to show on receiving this 
+   *			 message
+   */ 
+   broadcast remoteScreenInactive {
+ 
+   }
+
+   /**
+   * @brief   Message indicates that the screen is required by Android Auto
+   * @details This will be sent by Android Auto DomainSvc when the Android Auto 
+   * 		 requires the screen for showing phonecall, or when the user triggers
+   * 		 an action in the phone which requires the screen
+   *			 
+   */
+   broadcast requestScreen {
+   
+   }
+   
+   /**
+   * @brief   enum defined for different sessions supported by AA service
+   *			 
+   */   
+   enumeration enSessionStatus{
+   
+      MESSAGE_UNSOLICITED = 1           /* Unsolicited status message */
+	  MESSAGE_SUCCESS = 0               /* The message is handled successfully */
+      NO_COMPATIBLE_VERSION = -1        /* The sender and receiver cannot agree on a single version. */
+      CERTIFICATE_ERROR = -2            /* The certificate presented was invalid. */
+      AUTHENTICATION_FAILURE = -3       /* The remote end could not be authenticated */
+      INVALID_SENSOR = -9               /* The sensor id specified is not requested. */
+      BT_PAIRING_DELAYED = -10          /* Cannot do Bluetooth pairing right now. For example, when another device is connected  */
+      BT_UNAVAILABLE = -11              /* Bluetooth is not available */
+      BT_INVALID_ADDESS = -12           /* The bluetooth mac address specified is not valid. */
+      BT_INVALID_PAIRING_METHOD = -13   /* The pairing method specified is not valid */
+      BT_INVALID_AUTH_DATA = -14        /* The auth data specified is not valid.*/
+      BT_AUTHDATA_MISMATCH = -15        /* Mismatch in the Bluetooth auth data. */
+      BT_HFP_ANOTHER_CONNECTION = -16   /* Bluetooth hands free is connected with other device. */
+      BT_HFP_CONNECTION_FAILURE = -17   /* Bluetooth hands free connection failure. */
+      KEYCODE_NOT_FOUND=-18             /* The keycode reported is not handled by the phone. */
+      RADIO_INVALID_STATION = -19       /* No FM/AM station was found or the station specified is invalid. */
+      INVALID_INPUT = -20               /* Invalid input data passed */
+      RADIO_STATION_PRESETS_NOT_SUPPORTED = -21 /* Preset not supported	*/	
+	  RADIO_COMM_ERROR = -22             /* Radio communication error*/
+      SESSION_DISCONNECTED = -100       /*AA session is disconnected*/
+      SESSION_FIRST_TIME_CONNECTING = -101 /* Excute first-run in phone */
+      SESSION_CONNECTED = -102          /*This will be sent if the AAP session is established successfully*/
+      NO_RESPONSE_FROM_PHONE = -103     /* This will be sent if the AAP session is failed to establish or phone is not resposning for session */
+      ANDROID_ACCESSORY_IS_DISCONNECTED /*Android Accessory is disconnected, signal used to inform HMI*/
+      ANDROID_ACCESSORY_IS_CONNECTED /*Android Accessory is connected, signal used to inform HMI*/
+   }
+   
+   enumeration enKeyCodes {
+   
+      KEYCODE_UNKNOWN = 0   
+      KEYCODE_SOFT_LEFT = 1    
+      KEYCODE_SOFT_RIGHT = 2    
+      KEYCODE_HOME = 3 /*Causes projection UI to return to the projection home application (or launcher) from which all other projection applications are accessible.*/
+      KEYCODE_BACK = 4 /*Handled by the application. Sending KEYCODE_BACK should never cause Android Auto to lose video focus.  */
+      KEYCODE_CALL = 5 /* If a call is active on the legacy Bluetooth HFP channel , the ANSWER button should be handled by HU’s HFP application (generating call control AT commands as needed on the HFP channel). At other times, the ANSWER button should send this keycode via AAP.*/
+      KEYCODE_ENDCALL = 6 /* If a call is active on the legacy Bluetooth HFP channel , the END button should be handled by HU’s HFP application (generating call control AT commands as needed on the HFP channel). At other times, the END button should send this keycode via AAP. */
+      KEYCODE_0 = 7    
+      KEYCODE_1 = 8    
+      KEYCODE_2 = 9    
+      KEYCODE_3 = 10    
+      KEYCODE_4 = 11    
+      KEYCODE_5 = 12    
+      KEYCODE_6 = 13    
+      KEYCODE_7 = 14    
+      KEYCODE_8 = 15    
+      KEYCODE_9 = 16    
+      KEYCODE_STAR = 17    
+      KEYCODE_POUND = 18    
+      KEYCODE_DPAD_UP = 19    
+      KEYCODE_DPAD_DOWN = 20    
+      KEYCODE_DPAD_LEFT = 21    
+      KEYCODE_DPAD_RIGHT = 22    
+      KEYCODE_DPAD_CENTER = 23    
+      KEYCODE_VOLUME_UP = 24    
+      KEYCODE_VOLUME_DOWN = 25    
+      KEYCODE_POWER = 26    
+      KEYCODE_CAMERA = 27    
+      KEYCODE_CLEAR = 28    
+      KEYCODE_A = 29    
+      KEYCODE_B = 30    
+      KEYCODE_C = 31    
+      KEYCODE_D = 32    
+      KEYCODE_E = 33    
+      KEYCODE_F = 34    
+      KEYCODE_G = 35    
+      KEYCODE_H = 36    
+      KEYCODE_I = 37    
+      KEYCODE_J = 38    
+      KEYCODE_K = 39    
+      KEYCODE_L = 40    
+      KEYCODE_M = 41    
+      KEYCODE_N = 42    
+      KEYCODE_O = 43    
+      KEYCODE_P = 44    
+      KEYCODE_Q = 45    
+      KEYCODE_R = 46    
+      KEYCODE_S = 47    
+      KEYCODE_T = 48    
+      KEYCODE_U = 49    
+      KEYCODE_V = 50    
+      KEYCODE_W = 51    
+      KEYCODE_X = 52    
+      KEYCODE_Y = 53    
+      KEYCODE_Z = 54    
+      KEYCODE_COMMA = 55    
+      KEYCODE_PERIOD = 56    
+      KEYCODE_ALT_LEFT = 57    
+      KEYCODE_ALT_RIGHT = 58    
+      KEYCODE_SHIFT_LEFT = 59    
+      KEYCODE_SHIFT_RIGHT = 60    
+      KEYCODE_TAB = 61    
+      KEYCODE_SPACE = 62    
+      KEYCODE_SYM = 63    
+      KEYCODE_EXPLORER = 64    
+      KEYCODE_ENVELOPE = 65    
+      KEYCODE_ENTER = 66    
+      KEYCODE_DEL = 67 /*Backspace. See also AapKeycode_FORWARD_DEL.*/ 
+      KEYCODE_GRAVE = 68 /*Backtick.*/ 
+      KEYCODE_MINUS = 69    
+      KEYCODE_EQUALS = 70    
+      KEYCODE_LEFT_BRACKET = 71    
+      KEYCODE_RIGHT_BRACKET = 72    
+      KEYCODE_BACKSLASH = 73    
+      KEYCODE_SEMICOLON = 74    
+      KEYCODE_APOSTROPHE = 75    
+      KEYCODE_SLASH = 76    
+      KEYCODE_AT = 77    
+      KEYCODE_NUM = 78    
+      KEYCODE_HEADSETHOOK = 79    
+      KEYCODE_FOCUS = 80    
+      KEYCODE_PLUS = 81    
+      KEYCODE_MENU = 82    
+      KEYCODE_NOTIFICATION = 83    
+      KEYCODE_SEARCH = 84 /* Causes projection UI to open the microphone audio stream. Sending AapKeycode_Search while the microphone audio stream is already open closes the microphone audio stream effectively canceling an active VR session.*/       
+      KEYCODE_MEDIA_PLAY_PAUSE = 85 /* Indicates selected media should play or pause (toggle). Send only if MD has audio focus.*/
+      KEYCODE_MEDIA_STOP = 86    
+      KEYCODE_MEDIA_NEXT = 87 /* Indicates selected media should advance to next track or station. Sent only if MD has audio focus.*/
+      KEYCODE_MEDIA_PREVOUS = 88 /* Indicates selected media should return to previous track or station. Send only if MD has audio focus.*/
+      KEYCODE_MEDIA_REWIND = 89    
+      KEYCODE_MEDIA_FAST_FORWARD = 90    
+      KEYCODE_MUTE = 91    
+      KEYCODE_PAGE_UP = 92    
+      KEYCODE_PAGE_DOWN = 93    
+      KEYCODE_PICTSYMBOLS = 94    
+      KEYCODE_SWITCH_CHARSET = 95    
+      KEYCODE_BUTTON_A = 96    
+      KEYCODE_BUTTON_B = 97    
+      KEYCODE_BUTTON_C = 98    
+      KEYCODE_BUTTON_X = 99    
+      KEYCODE_BUTTON_Y = 100    
+      KEYCODE_BUTTON_Z = 101    
+      KEYCODE_BUTTON_L1 = 102    
+      KEYCODE_BUTTON_R1 = 103    
+      KEYCODE_BUTTON_L2 = 104    
+      KEYCODE_BUTTON_R2 = 105    
+      KEYCODE_BUTTON_THUMB_L = 106    
+      KEYCODE_BUTTON_THUMB_R = 107    
+      KEYCODE_BUTTON_START = 108    
+      KEYCODE_BUTTON_SELECT = 109    
+      KEYCODE_BUTTON_MODE = 110    
+      KEYCODE_ESCAPE = 111    
+      KEYCODE_FORWARD_DEL = 112    
+      KEYCODE_CTRL_LEFT = 113    
+      KEYCODE_CTRL_RIGHT = 114    
+      KEYCODE_CAPS_LOCK = 115    
+      KEYCODE_SCROLL_LOCK = 116    
+      KEYCODE_META_LEFT = 117    
+      KEYCODE_META_RIGHT = 118    
+      KEYCODE_FUNCTION = 119    
+      KEYCODE_SYSRQ = 120    
+      KEYCODE_BREAK = 121    
+      KEYCODE_MOVE_HOME = 122    
+      KEYCODE_MOVE_END = 123    
+      KEYCODE_INSERT = 124    
+      KEYCODE_FORWARD = 125    
+      KEYCODE_MEDIA_PLAY = 126/* Indicates selected media should play. Send only if MD has audio focus.*/
+      KEYCODE_MEDIA_PAUSE = 127    
+      KEYCODE_MEDIA_CLOSE = 128    
+      KEYCODE_MEDIA_EJECT = 129    
+      KEYCODE_MEDIA_RECORD = 130    
+      KEYCODE_F1 = 131    
+      KEYCODE_F2 = 132    
+      KEYCODE_F3 = 133    
+      KEYCODE_F4 = 134    
+      KEYCODE_F5 = 135    
+      KEYCODE_F6 = 136    
+      KEYCODE_F7 = 137    
+      KEYCODE_F8 = 138    
+      KEYCODE_F9 = 139    
+      KEYCODE_F10 = 140    
+      KEYCODE_F11 = 141    
+      KEYCODE_F12 = 142    
+      KEYCODE_NUM_LOCK = 143    
+      KEYCODE_NUMPAD_0 = 144    
+      KEYCODE_NUMPAD_1 = 145    
+      KEYCODE_NUMPAD_2 = 146    
+      KEYCODE_NUMPAD_3 = 147    
+      KEYCODE_NUMPAD_4 = 148    
+      KEYCODE_NUMPAD_5 = 149    
+      KEYCODE_NUMPAD_6 = 150    
+      KEYCODE_NUMPAD_7 = 151    
+      KEYCODE_NUMPAD_8 = 152    
+      KEYCODE_NUMPAD_9 = 153    
+      KEYCODE_NUMPAD_DIVIDE = 154    
+      KEYCODE_NUMPAD_MULTIPLY = 155    
+      KEYCODE_NUMPAD_SUBTRACK = 156    
+      KEYCODE_NUMPAD_ADD = 157    
+      KEYCODE_NUMPAD_DOT = 158    
+      KEYCODE_NUMPAD_COMMA = 159    
+      KEYCODE_NUMPAD_ENTER = 160    
+      KEYCODE_NUMPAD_EQUALS = 161    
+      KEYCODE_NUMPAD_LEFT_PAREN = 162    
+      KEYCODE_NUMPAD_RIGHT_PAREN = 163    
+      KEYCODE_VOLUME_MUTE = 164    
+      KEYCODE_INFO = 165    
+      KEYCODE_CHANNEL_UP = 166    
+      KEYCODE_CHANNEL_DOWN = 167    
+      KEYCODE_ZOOM_IN = 168    
+      KEYCODE_ZOMM_OUT = 169    
+      KEYCODE_TV = 170    
+      KEYCODE_WINDOW = 171    
+      KEYCODE_GUIDE = 172    
+      KEYCODE_DVR = 173    
+      KEYCODE_BOOKMARK = 174    
+      KEYCODE_CAPTIONS = 175    
+      KEYCODE_SETTINGS = 176    
+      KEYCODE_TV_POWER = 177    
+      KEYCODE_TV_INPUT = 178    
+      KEYCODE_STB_POWER = 179    
+      KEYCODE_STB_INPUT = 180    
+      KEYCODE_AVR_POWER = 181    
+      KEYCODE_AVR_INPUT = 182    
+      KEYCODE_PROG_RED = 183    
+      KEYCODE_PROG_GREEN = 184    
+      KEYCODE_PROG_YELLOW = 185    
+      KEYCODE_PROG_BLUE = 186    
+      KEYCODE_APP_SWITCH = 187    
+      KEYCODE_BUTTON_1 = 188    
+      KEYCODE_BUTTON_2 = 189    
+      KEYCODE_BUTTON_3 = 190    
+      KEYCODE_BUTTON_4 = 191    
+      KEYCODE_BUTTON_5 = 192    
+      KEYCODE_BUTTON_6 = 193    
+      KEYCODE_BUTTON_7 = 194    
+      KEYCODE_BUTTON_8 = 195    
+      KEYCODE_BUTTON_9 = 196    
+      KEYCODE_BUTTON_10 = 197    
+      KEYCODE_BUTTON_11 = 198    
+      KEYCODE_BUTTON_12 = 199    
+      KEYCODE_BUTTON_13 = 200    
+      KEYCODE_BUTTON_14 = 201    
+      KEYCODE_BUTTON_15 = 202    
+      KEYCODE_BUTTON_16 = 203    
+      KEYCODE_LANGUAGE_SWITCH = 204    
+      KEYCODE_MANNER_MODE = 205    
+      KEYCODE_3D_MODE = 206    
+      KEYCODE_CONTACTS = 207    
+      KEYCODE_CALENDER = 208    
+      KEYCODE_MUSIC = 209    
+      KEYCODE_CALCULATOR = 210    
+      KEYCODE_ZENKAKU_HANKAKU = 211    
+      KEYCODE_EISU = 212    
+      KEYCODE_MUHENKEN = 213    
+      KEYCODE_HENKAN = 214    
+      KEYCODE_KATAKANA_HIRAGANA = 215    
+      KEYCODE_YEN = 216    
+      KEYCODE_RO = 217    
+      KEYCODE_KANA = 218    
+      KEYCODE_ASSIST = 219    
+      KEYCODE_BRIGHTNESS_DOWN = 220    
+      KEYCODE_BRIGHTNESS_UP = 221    
+      KEYCODE_MEDIA_AUDIO_TRACK = 222    
+      KEYCODE_SLEEP = 223    
+      KEYCODE_WAKEUP = 224    
+      KEYCODE_PAIRING = 225
+      KEYCODE_MEDIA_TOP_MENU = 226
+      KEYCODE_HELP = 259
+      KEYCODE_NAVIGATE_PREVIOUS = 260	   
+      KEYCODE_NAVIGATE_NEXT = 261
+      KEYCODE_NAVIGATE_IN = 262	
+      KEYCODE_NAVIGATE_OUT = 263	   
+      KEYCODE_DPAD_UP_LEFT = 268
+      KEYCODE_DPAD_DOWN_LEFT = 269
+      KEYCODE_DPAD_UP_RIGHT = 270
+      KEYCODE_DPAD_DOWN_RIGHT = 271
+      KEYCODE_SENTINEL = 65535 /* Do not use.*/ 
+      KEYCODE_ROTARY_CONTROLLER = 65536  /* Special keycode used as a device identifier and reported during initialization (not sent as normal keycode). Rotary controller events are sent using reportKeyRelative api calls. The delta value should be positive for clockwise rotation and negative forcounterclockwise rotation. An absolute value of one corresponds to a single step in the UI and scales linearly for larger absolute values.*/
+      KEYCODE_MEDIA = 65537 /* Causes projected UI to switch to media screen and should also cause Android Auto to request video focus.*/ 
+      KEYCODE_NAVIATION = 65538 /* Causes projected UI to switch to navigation screen and should also cause Android Auto to request video focus.*/
+      KEYCODE_RADIO = 65539 /* Radio hard key on the head unit.*/ 
+      KEYCODE_TEL = 65540 /*Causes projected UI to switch to telephony screen and should also cause Android Auto to request video focus.*/
+      KEYCODE_PRIMARY_BUTTON = 65541 /*Special keycode used as a device identifier and reported during initialization. Button events are sent using absoluteEvent api calls. The event value should be 1 when the button is pressed and 0 when it is released.*/
+      KEYCODE_SECONDARY_BUTTON = 65542 /*Special keycode used as a device identifier and reported during initialization. Button events are sent using absoluteEvent api calls. The event value should be 1 when the button is pressed and 0 when it is released.*/
+      KEYCODE_TERTIARY_BUTTON = 65543 /*Special keycode used as a device identifier and reported during initialization. Button events are sent using absoluteEvent api calls. The event value should be 1 when the button is pressed and 0 when it is released.*/
+   }
+}
+

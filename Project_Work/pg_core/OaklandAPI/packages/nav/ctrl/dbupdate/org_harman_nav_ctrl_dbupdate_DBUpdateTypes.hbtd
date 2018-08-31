@@ -1,0 +1,241 @@
+
+
+<DSI>
+   <Name>org_harman_nav_ctrl_dbupdate_DBUpdateTypes</Name>
+   <ID>1</ID>   
+   <Extern>true</Extern>
+   <Version>
+     <Major>1</Major>
+     <Minor>0</Minor>
+   </Version>
+   <Includes>
+   </Includes>
+   <Enums>
+    <Enum>
+      <Name>E_UpdateType</Name>
+      <Description>enumeration identifies the differnt update types</Description>
+      <ID>2</ID>
+      <Description></Description>
+      <EnumIDs>
+         <EnumID>
+            <Name>E_UpdateType_E_UNKNOWN_DEFAULT</Name>
+            <ID>3</ID>
+            <Description>update type unknown/default: should be used if there is only one update type supported</Description>
+         </EnumID>
+         <EnumID>
+            <Name>E_UpdateType_E_INCREMENTAL_UPDATE</Name>
+            <ID>4</ID>
+            <Description>incremental update (OTA-update)</Description>
+         </EnumID>
+         <EnumID>
+            <Name>E_UpdateType_E_PARTIAL_UPDATE</Name>
+            <ID>5</ID>
+            <Description>partial update (several update regions only)</Description>
+         </EnumID>
+         <EnumID>
+            <Name>E_UpdateType_E_FULL_UPDATE</Name>
+            <ID>6</ID>
+            <Description>full update (all regions and libs)</Description>
+         </EnumID>
+         <EnumID>
+            <Name>E_UpdateType_E_NO_UPDATE</Name>
+            <ID>7</ID>
+            <Description>none update (media has no update or primary check failed)</Description>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+    <Enum>
+      <Name>E_RequestMode</Name>
+      <Description>enumration used to describe the different requests
+        for updates.</Description>
+      <ID>8</ID>
+      <Description></Description>
+      <EnumIDs>
+         <EnumID>
+            <Name>E_RequestMode_E_REQUEST_DEFAULT_IU</Name>
+            <ID>9</ID>
+            <Description>request all iu according to project/default behaviour</Description>
+         </EnumID>
+         <EnumID>
+            <Name>E_RequestMode_E_REQUEST_ALL_IU</Name>
+            <ID>10</ID>
+            <Description>request all iu which are available for current system</Description>
+         </EnumID>
+         <EnumID>
+            <Name>E_RequestMode_E_REQUEST_CPP_IU</Name>
+            <ID>11</ID>
+            <Description>request all iu around the current car position</Description>
+         </EnumID>
+         <EnumID>
+            <Name>E_RequestMode_E_REQUEST_DEST_IU</Name>
+            <ID>12</ID>
+            <Description>request all iu around the desctination</Description>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+   </Enums>
+   <DataTypes>
+       <DataType>
+          <Name>SVersion</Name>
+          <ID>13</ID>
+          <Description>DB version information
+              This struct is used to give information about the database that is currently
+              used in HU. The details about representation of version are project specific.</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>db_version</Name>
+   	        <Description>textual description of DB version, e.g. "ECE-101151"</Description>
+               <ID>14</ID>
+   <Type>CHBString</Type>
+               <Description>textual description of DB version, e.g. "ECE-101151"</Description>
+            </Field>
+            <Field>
+               <Name>title</Name>
+   	        <Description>optional textual description</Description>
+               <ID>15</ID>
+   <Type>CHBString</Type>
+               <Description>optional textual description</Description>
+            </Field>
+            <Field>
+               <Name>lib_version</Name>
+   	        <Description>textual description of ndsupdate lib version</Description>
+               <ID>16</ID>
+   <Type>CHBString</Type>
+               <Description>textual description of ndsupdate lib version</Description>
+            </Field>
+            <Field>
+               <Name>fud_db</Name>
+   	        <Description>UTC of when the current database was first used.</Description>
+               <ID>17</ID>
+   <Type>UInt32</Type>
+               <Description>UTC of when the current database was first used.</Description>
+            </Field>
+         </Fields>
+      </DataType>
+   <DataType>
+      <Name>TId</Name>
+      <ID>18</ID>
+      <Description>id of a patch</Description>	  	
+      <Kind>Typedef</Kind>
+      <Container></Container>
+      <BaseType>UInt32</BaseType>
+   </DataType>
+       <DataType>
+          <Name>SDBDealerUpdate</Name>
+          <ID>19</ID>
+          <Description>struct describing a full/partial update
+            this structure combines the different dealer update types
+            in a single container: partial and full update.
+            For the customer a mandatory title describes in short the
+            content of the update. An optional description field allows
+            to provide more detailed information. The type identifier
+            is more or less for information only - it points out if
+            this is a full update (all UR getting updated) or a partial
+            one (e.g. only germany is getting updated).</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>id</Name>
+   	        <Description>id for this update</Description>
+               <ID>20</ID>
+   <Type>TId</Type>
+               <Description>id for this update</Description>
+            </Field>
+            <Field>
+               <Name>type</Name>
+   	        <Description>information about update type</Description>
+               <ID>21</ID>
+   <Type>E_UpdateType</Type>
+               <Description>information about update type</Description>
+            </Field>
+            <Field>
+               <Name>_version</Name>
+   	        <Description>version of update which is used by version check functionality</Description>
+               <ID>22</ID>
+   <Type>SVersion</Type>
+               <Description>version of update which is used by version check functionality</Description>
+            </Field>
+            <Field>
+               <Name>title</Name>
+   	        <Description>mandatory short description of the update, e.g. "Central-Europe Q15.1"</Description>
+               <ID>23</ID>
+   <Type>CHBString</Type>
+               <Description>mandatory short description of the update, e.g. "Central-Europe Q15.1"</Description>
+            </Field>
+            <Field>
+               <Name>description</Name>
+   	        <Description>optional detailed description of the update, e.g. list of URs, date, version</Description>
+               <ID>24</ID>
+   <Type>CHBString</Type>
+               <Description>optional detailed description of the update, e.g. list of URs, date, version</Description>
+            </Field>
+            <Field>
+               <Name>path</Name>
+   	        <Description>full path to root folder of DB, does not contain ROOT.NDS because there can be another entry point</Description>
+               <ID>25</ID>
+   <Type>CHBString</Type>
+               <Description>full path to root folder of DB, does not contain ROOT.NDS because there can be another entry point</Description>
+            </Field>
+         </Fields>
+      </DataType>
+       <DataType>
+          <Name>SDBOTAUpdate</Name>
+          <ID>26</ID>
+          <Description>description of an OTA incremental update
+            This struct is used to describe a certain patch. It contains
+            a short title (e.g. Germany Q1.15) and an optional more detailed
+            description. The id is used to reference a certain patch
+            from the list of given patches. The struct furthermore
+            contains optional fields for patch size and estimated time
+            to download and apply.</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>id</Name>
+   	        <Description>id to identify a patch (mandatory)</Description>
+               <ID>27</ID>
+   <Type>TId</Type>
+               <Description>id to identify a patch (mandatory)</Description>
+            </Field>
+            <Field>
+               <Name>title</Name>
+   	        <Description>information about the patch, e.g. Germany Q1.15 (mandatory)</Description>
+               <ID>28</ID>
+   <Type>CHBString</Type>
+               <Description>information about the patch, e.g. Germany Q1.15 (mandatory)</Description>
+            </Field>
+            <Field>
+               <Name>description</Name>
+   	        <Description>additional optional information about the patch content (optional)</Description>
+               <ID>29</ID>
+   <Type>CHBString</Type>
+               <Description>additional optional information about the patch content (optional)</Description>
+            </Field>
+            <Field>
+               <Name>size_byte</Name>
+   	        <Description>size of the patch in bytes (optional)</Description>
+               <ID>30</ID>
+   <Type>UInt32</Type>
+               <Description>size of the patch in bytes (optional)</Description>
+            </Field>
+            <Field>
+               <Name>estimatedTime_sec</Name>
+   	        <Description>expected time to download and to apply the patch (optional)</Description>
+               <ID>31</ID>
+   <Type>UInt32</Type>
+               <Description>expected time to download and to apply the patch (optional)</Description>
+            </Field>
+         </Fields>
+      </DataType>
+   <DataType>
+      <Name>TOTAUpdateList</Name>
+      <ID>32</ID>
+      <Description>a list of available patches</Description>	  	
+      <Kind>Typedef</Kind>
+      <Container>THBVector</Container>
+     <BaseType>SDBOTAUpdate</BaseType>
+   </DataType>
+	    
+   </DataTypes>
+</DSI>

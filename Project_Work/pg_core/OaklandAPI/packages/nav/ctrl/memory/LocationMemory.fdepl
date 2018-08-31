@@ -1,0 +1,139 @@
+import "LocationMemory.fidl"
+import "LocationMemoryTypes.fdepl"
+import "../di/POIServiceTypes.fdepl"
+import "../some_ip.fdepl"
+import "../common/CommonTypes.fdepl"
+import "../common/list/ListTypes.fdepl"
+import "../di/LocationInputTypes.fdepl"
+
+define someip.franca.SOMEIP_Deployment for interface
+org.harman.nav.ctrl.memory.LocationMemory {
+	use org.harman.nav.ctrl.memory.LocationMemoryTypes use
+	org.harman.nav.ctrl.di.POIServiceTypes use org.harman.nav.ctrl.CommonTypes
+	use org.harman.nav.ctrl.common.list.ListTypes use
+	org.harman.nav.ctrl.di.LocationInputTypes
+	ServiceID = 5000
+
+	attribute availableConfiguration {
+		NMethodID = 100
+		NInEventGroups = {
+			0
+		}
+	}
+
+	attribute availableLists {
+		NMethodID = 101
+		NInEventGroups = {
+			0
+		}
+	}
+
+	method getListSize {
+		MMethodID = 200
+	}
+
+	method createView {
+		MMethodID = 201
+	}
+
+	method deleteView {
+		MMethodID = 202
+	}
+
+	method setViewSize {
+		MMethodID = 203
+	}
+
+	method setViewPosition {
+		MMethodID = 204
+	}
+
+	method setViewAnchor {
+		MMethodID = 205
+	}
+
+	method setSortOrder {
+		MMethodID = 206
+	}
+
+	method getSortOrder {
+		MMethodID = 207
+	}
+
+	method removeAll {
+		MMethodID = 208
+	}
+
+	method removeItem {
+		MMethodID = 209
+	}
+
+	method getResultList {
+		MMethodID = 210
+	}
+
+	method getActiveAutoNavItems {
+		MMethodID = 211
+	}
+
+	method addItem {
+		MMethodID = 212
+	}
+
+	method addItemLocation {
+		MMethodID = 213
+	}
+
+	method setItemName {
+		MMethodID = 214
+	}
+
+	method getItemDetails {
+		MMethodID = 215
+	}
+
+	method getItemDetailsExt {
+		MMethodID = 216
+	}
+
+	method getActiveItems {
+		MMethodID = 217
+	}
+
+	method setTimeslot {
+		MMethodID = 218
+	}
+
+	method filterView {
+		MMethodID = 219
+	}
+
+	method createSpeechFile {
+		MMethodID = 220
+	}
+
+	method setLocationItem {
+		MMethodID = 221
+	}
+
+	method importFullList {
+		MMethodID = 222
+	}
+
+	method exportFullList {
+		MMethodID = 223
+	}
+
+	method importLocationItemList {
+		MMethodID = 224
+	}
+
+	broadcast listSize {
+		BMethodID = 300
+	}
+
+	broadcast viewUpdate {
+		BMethodID = 301
+	}
+
+}

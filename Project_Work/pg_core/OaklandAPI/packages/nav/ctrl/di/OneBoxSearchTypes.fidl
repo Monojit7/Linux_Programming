@@ -1,0 +1,21 @@
+/* 
+*/
+package org.harman.nav.ctrl.di
+
+import org.harman.nav.ctrl.CommonTypes.* from "../common/CommonTypes.fidl"
+
+typeCollection OneBoxSearchTypes {
+    
+
+	enumeration FtsOptions extends BasicEnum {
+		ONEBOX_SEARCH_BITMASK_ADDRESSES	= "0x0001"
+		ONEBOX_SEARCH_BITMASK_POIS		= "0x0002"
+		ONEBOX_SEARCH_BITMASK_VICINITY	= "0x0003"
+		ONEBOX_SEARCH_BITMASK_FUZZINESS	= "0x0004"
+		ONEBOX_SEARCH_BITMASK_RECENT	= "0x0008"
+		ONEBOX_SEARCH_BITMASK_FAVORITES	= "0x0010"
+		ONEBOX_SEARCH_BITMASK_CONTACTS	= "0x0020"
+	}
+
+
+}

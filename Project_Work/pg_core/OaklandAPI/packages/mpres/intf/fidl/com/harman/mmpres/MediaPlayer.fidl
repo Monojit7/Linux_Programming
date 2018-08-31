@@ -1,0 +1,209 @@
+
+/** *
+ *  @author Sriram Srivatsan
+ * @description Browser Presentation Control Interface with Multi Client support. 
+ * 
+ */ 
+
+package com.harman.mmpres
+
+import com.harman.mmpres.MMPresTypes.* from "MMPresTypes.fidl"
+
+interface MediaPlayer{
+	
+	version {major 1 minor 0}
+	
+	// this will give the current play time in seconds
+	attribute UInt64 currentPlayTime readonly
+	
+	// this will give the total play duration in seconds
+	attribute UInt64 totalPlayDuration readonly
+	
+	attribute tTrackState trackState readonly
+	
+	attribute tNowPlayingInfo nowPlayingData readonly
+	
+	attribute ePlayState playState readonly
+	
+	attribute eTrackSeekSpeed speed readonly
+	
+	attribute eRepeatMode repeatMode readonly
+	
+	attribute eShuffleMode shuffleMode readonly
+	
+	// This attribute reflects the album art status for currently playing track. If true, then HMI can invoke getAlbumArt for more details. 
+	attribute eArtWorkAvailabilityStatus nowPlayingArtworkStatus readonly
+	
+	/* this indicates a brief view of next/previous items to be played. For ex: if an artist is currently being played,
+	 then this view gives the info of few next/previous tracks from the current artist. The number of items is configurable in pres ctrl. It is recommended
+	  to keep the number of items very less (say a single digit number) as this is just a preview on the screen and not the actual browse or nowplaying list page.
+	 
+	 The attributes (album name,genre name etc ) to be shown for the playback preview can be configured statically and maintained in press ctrl.
+	 */
+	attribute MetadataItemList playbackPreview readonly
+	
+	<** @description: Indicates playback video only,true: start video play; false: stop **>
+    attribute Boolean videoPlayStatus readonly
+	
+	method next{
+			
+			in {
+			  UInt64 step	
+			}
+			
+			out {
+				eCallResult result
+			}
+		}
+		
+		method previous {
+			
+			in {
+			UInt64 step	
+			}
+			
+			out {
+				eCallResult result
+			}
+		}
+		
+		method pause {
+			
+			out {
+			   eCallResult result
+			}
+		}
+
+		method resume {
+			
+			out {
+				eCallResult result
+			}
+		}
+			
+		method seekToTime {
+			
+			in {
+				UInt64 timePosition
+			}
+			
+			out {
+				eCallResult result
+			}
+		}
+		
+		method fastForward {
+			
+			out {
+				eCallResult result
+			}
+		}
+		
+		method fastReverse {
+			
+			out {
+				eCallResult result
+			}
+		}
+		
+		method setRepeat {
+			
+			in {
+				eRepeatMode mode	
+			}
+			
+			out {
+				eCallResult result
+			}		
+		}
+		
+		method setShuffle {
+			
+			in {
+				eShuffleMode mode	
+			}
+			
+			out {
+				eCallResult result
+			}		
+		}
+		
+		// This retrieves the album art information for the currently playing track. The info contains the number of artworks available and their individual property information.HMi can check the value of the attribute nowPlayingArtworkStatus and accordingly invoke this API.
+		method getNowPlayingAlbumArtInformation {
+			
+			out {
+				tAlbumArtInformation albumArtInfo
+			}
+		}
+		
+		// This retrieves the album art image path for the currently playing track. Here HMI has to pass the number of the album art.The total available artworks would have already supplied in the previous call to getNowPlayingAlbumArtInformation. 
+		method getNowPlayingAlbumArtPath {
+			
+			in {
+				UInt8 imageNumber
+			}
+	
+			out {
+				String path
+			}
+		}
+		
+		// this method provides the album art as raw binary data. This can be used by those HMI's which do not have access to the file system.
+		method getNowPlayingAlbumArtData {
+			
+			in {
+				UInt8 imageNumber
+			}
+	
+			out {
+				UInt8[] albumArtData
+			}
+		}
+		
+		// this method retrieves the album art information for the provided file identifier. This file identifier should be unique and can be obtained by HMI from the browse list or nowPlaying list.
+		// Since the fileId is unique, this feature is possible only if he underlying device (Ipod devices) supports provision of album art for a unique track identifier or in the case of USB or other passive devices, there should be a DB sync feature for syncing the file system and hence a unique ID can be assigned to every track.
+		
+		// For ex: for an IAP1 device, we can extract an album art for a track even though the track might not be playing currently. But this is not possible for an IAP2 device. 
+		
+		method getAlbumArtInformationForTrack {
+			
+			in {
+				UInt64 trackId
+			}
+			out {
+				tAlbumArtInformation albumArtInfo
+			}
+		}
+		
+		
+		// this method retrieves the album art path for the provided file identifier. This file identifier should be unique and can be obtained by HMI from the browse list or nowPlaying list.
+		// Since the fileId is unique, this feature is possible only if he underlying device (Ipod devices) supports provision of album art for a unique track identifier or in the case of USB or other passive devices, there should be a DB sync feature for syncing the file system and hence a unique ID can be assigned to every track.
+		
+		// For ex: for an IAP1 device, we can extract an album art for a track even though the track might not be playing currently. But this is not possible for an IAP2 device. 
+		method getAlbumArtPathForTrack {
+			
+			in {
+				UInt64 trackId
+				UInt8 imageNumber
+			}
+			out {
+				String path
+			}
+		}
+		
+		// this method provides the album art as raw binary data. This can be used by those HMI's which do not have access to the file system.
+		method getAlbumArtDataForTrack {
+			
+			in {
+				UInt64 trackId
+				UInt8 imageNumber
+			}
+	
+			out {
+				UInt8[] albumArtData
+			}
+		}
+	
+	
+	
+}

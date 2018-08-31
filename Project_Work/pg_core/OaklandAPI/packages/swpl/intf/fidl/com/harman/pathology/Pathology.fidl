@@ -1,0 +1,142 @@
+package com.harman.pathology
+import com.harman.pathology.PathologyTypes.* from "PathologyTypes.fidl"
+
+<** @description : 	SystemInformation
+   	This interface provides data about system that pathology is capturing
+   	@author: Bhushan J
+**>
+interface SystemInformation
+{
+		version {
+			major 0 
+			minor 2
+		}	
+		
+    	<** @description : 	getLifecycleCount
+    	lifecycleCount: Pathology maintains its own lC count as of now starting from 1 as 
+    	soon pathology is started for the first time. There after the count will be incremented.
+    	Later if the count can be collected from IOC or NSM the same data will 
+    	be provided as part of this interface.
+    	@author: Bhushan J
+    	**>
+    	attribute UInt32 lifecycleCount readonly
+    	
+    	<** @description : 	systemCPU
+    	systemCPUPers: current system CPU% being used    	
+    	@author: Bhushan J
+    	**>
+    	attribute UInt32 systemCPUPers readonly
+    	
+    	<** @description : 	systemRAM
+    	systemRAMPers: current system RAM% being used    	
+    	@author: Bhushan J
+    	**>
+    	attribute UInt32 systemRAMPers readonly    	
+				
+		 <** @description : systemRAM
+    	systemRAMPers: current system free RAM in bytes    	
+    	@author: Bhushan J
+    	**>
+    	attribute UInt64 systemRAMBytes readonly    	
+				
+		<** @description : 	ProcessResourceData
+    	processInformation: Information about process resource utilization- CPU and HEAP. This data will be
+    	broadcasted by pathology periodically.The periodicity of the timer used for this
+    	monitoring is configuratble in cfg file.
+    	@author: Bhushan J
+    	**>
+		broadcast  ProcessResourceData
+		{
+			out
+			{
+				processInformation procInfo				
+			}								
+		}	
+		
+		<** @description : 	DisckSpaceUsage
+    	diskSpaceInformation: Total current used space of a mountpoint in %. This does not 
+    	consider cache. This broadcast will be periodically triggerd by pathology. The periodicity
+    	of the timer used for this monitoring is configuratble in cfg file.
+    	@author: Bhushan J
+    	**>
+		broadcast DisckSpaceUsage
+		{
+			out
+			{
+				diskSpaceInformation diskInfo
+			}			
+		}
+		
+		<** @description : 	ProcessCoreDumped
+    	coreDumpedProcessInformation: Information about the process that has
+    	core-dumped.
+    	@author: Bhushan J
+    	**>
+		broadcast ProcessCoreDumped
+		{
+			out
+			{
+				coreDumpedProcessInformation  coreDumpInfo
+			}
+		}
+		
+		<** @description : 	SystemdWatchdog
+    	systemdWatchdogInformation: Information about the process that is set to
+    	inactive by systemd upon missing the watchdog ping from the process.
+    	@author: Bhushan J
+    	**>
+		broadcast SystemdWatchdog
+		{
+			out
+			{
+				systemdWatchdogInformation  systemdWatchdogInfo
+			}
+		}
+}
+
+<** @description : 	TriggersToPathology
+   	This interface provides methods to provide triggers to pathology
+   	@author: Bhushan J
+**>
+interface TriggersToPathology
+{	
+	
+	version {
+			major 0 
+			minor 1
+	}
+		
+	<** @description : 	getSystemSnapshot
+   		input: requester_pid - client application pid
+   		This method is used to trigger a system snapshot as in a trigger could be from 
+   		a special key combination or special button in HMI. A snapshot is again a configurable trigger
+   		in pathology cfg wherein one can configure the task with required actions. 
+   		@author: Bhushan J
+	**>	
+	method getSystemSnapshot
+	{
+		in
+		{
+			UInt32 requester_pid
+		}		
+	}
+	
+	<** @description : changePathologyState
+   		input: pathology_states - state enum id
+   		This method is used to set pathology in specific state. 
+   		@author: Bhushan J
+	**>
+	method changePathologyState
+	{
+		in
+		{
+			pathology_states pathoState
+		}
+		out
+		{
+			pathology_states currentState
+		}
+	}
+}
+
+

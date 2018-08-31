@@ -1,0 +1,399 @@
+package org.harman.nav.ctrl
+
+import org.harman.nav.ctrl.RoutingTypes.* from "RoutingTypes.fidl"
+import org.harman.nav.ctrl.CommonTypes.* from "../common/CommonTypes.fidl"
+
+
+<**
+	@description : This interface offers functions that implement the routing functionality of a navigation system
+**>
+
+interface Routing {
+	version {
+		major 1
+		minor 3
+	}
+
+	<**
+		@description : This method creates a route
+	**>
+	method createRoute {
+		out {
+
+			<**
+				@description : Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value
+			**>
+			Handle routeHandle
+		}
+	}
+
+	<**
+		@description : This method deletes a route and its associated resources
+	**>
+	method deleteRoute {
+		in {
+			<**
+				@description : Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value
+			**>
+			Handle routeHandle
+		}
+	}
+   
+	<**
+		@description : This method sets the cost model
+	**>
+	method setCostModel {
+		in {
+			<**
+				@description : Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value
+			**>
+			Handle routeHandle
+
+			<**
+				@description : enum(INVALID,FASTEST,SHORTEST,ECOLOGICAL,SCENIC,EASY,OFF_ROAD,BALANCED,CHEAPEST, ... )
+			**>
+			CostModel costModel
+		}
+	}
+
+	<**
+		@description : This method retrieves the selected cost model
+	**>
+	method getCostModel {
+		in {
+
+			<**
+				@description : Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value
+			**>
+			Handle routeHandle
+		}
+		out {
+
+			<**
+				@description : enum(INVALID,FASTEST,SHORTEST,ECOLOGICAL,SCENIC,EASY,OFF_ROAD,BALANCED,CHEAPEST, ... )
+			**>
+			CostModel costModel
+		}
+	}
+
+	<**
+		@description : This method retrieves a list of supported cost models
+	**>
+	method getSupportedCostModels {
+		out {
+			CostModel[] costModelsList
+		}
+	}
+
+	<**
+		@description : This method sets a list of route preferences
+	**>
+	method setRoutePreferences {
+		in {
+			<**
+				@description : Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value
+			**>
+			Handle routeHandle
+			
+			RoutePreference[] roadPreferenceList
+			
+			ConiditionPreference[] conditionPreferenceList
+		}
+	}
+
+	<**
+		@description : This method retrieves a list of selected route preferences
+	**>
+	method getRoutePreferences {
+		in {
+
+			<**
+				@description : Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value
+			**>
+			Handle routeHandle
+		}
+		out {
+			RoutePreference[] roadPreferenceList
+			ConiditionPreference[] conditionPreferenceList
+		}
+	}
+
+	<**
+		@description : This method retrieves a list of supported route preferences
+	**>
+	method getSupportedRoutePreferences {
+		out {
+			RoutePreference[] routePreferencesList
+			ConiditionPreference[] conditionPreferenceList
+		}
+	}
+
+	<**
+		@description :  This method sets the time schedule for the route to be calculated
+	**>
+	method setRouteSchedule {
+		in {
+			<**
+				@description : Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value
+			**>
+			Handle routeHandle
+			
+			RouteSchedule routeSchedule
+		}
+	}
+
+	<**
+		@description :  This method gets the time schedule for the route to be calculated
+	**>
+	method getRouteSchedule {
+		in {
+
+			<**
+				@description : Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value
+			**>
+			Handle routeHandle
+			
+			Schedule[] valuesToReturn
+		}
+		out {
+			
+			RouteSchedule routeSchedule
+		}
+	}
+
+	<**
+		@description : setWaypoints = This method sets a list of waypoints
+	**>
+	method setWaypoints {
+		in {
+			<**
+				@description : routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value
+			**>
+			Handle routeHandle
+
+			<**
+				@description : startFromCurrentPosition = flag indicating if the current position is used as starting point
+			**>
+			Boolean startFromCurrentPosition
+			
+			WayPoint[] waypointsList
+		}
+	}
+
+	<**
+		@description : getWaypoints = This method retrieves a list of waypoints
+	**>
+	method getWaypoints {
+		in {
+
+			<**
+				@description : routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value
+			**>
+			Handle routeHandle
+		}
+		out {
+
+			<**
+				@description : startFromCurrentPosition = flag indicating if the current position is used as starting point
+			**>
+			Boolean startFromCurrentPosition
+			
+			WayPoint[] waypointsList
+		}
+	}
+
+	<**
+		@description : calculateRoute = This method starts a route calculation
+	**>
+	method calculateRoute {
+		in {
+			<**
+				@description : routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value
+			**>
+			Handle routeHandle
+		}
+	}
+
+	<**
+		@description : cancelRouteCalculation = This method cancels a route calculation
+	**>
+	method cancelRouteCalculation {
+		in {
+			<**
+				@description : routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value
+			**>
+			Handle routeHandle
+		}
+	}
+
+   <**
+		@description : calculateAlternateRoute = This method calculates an alternate route based on an existing handle. Optionally a different CostModel and RoutePreferences can be used.
+	**>
+   method calculateAlternateRoute {
+      in {
+         Handle calculatedRoute
+      }
+      out {
+         Handle[] alternativeRouteList
+      }
+   }
+
+	<**
+		@description :  getRouteOverview = This method retrieves general information about a given route
+	**>
+	method getRouteOverview {
+		in {
+
+			<**
+				@description : routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value
+			**>
+			Handle routeHandle
+			
+			RouteOverviewType [] valuesToReturn
+		}
+		out {
+			RouteOverview routeOverview
+		}
+	}
+
+	<**
+		@description : getAllRoutes = This method retrieves the handles of all created routes
+	**>
+	method getAllRoutes {
+		out {
+			Handle [] routesList
+		}
+	}
+
+	<**
+      @description : setBlockedRouteStretches = This method sets blocked streches on a given route
+	**>
+	method setBlockedRouteStretch {
+		in {
+			<**
+				@description : routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value
+			**>
+			Handle routeHandle
+         
+			<**
+				@description : Length in meters, from the current car position, to be blocked.
+			**>
+			UInt32 length
+		}
+	}
+
+    <**
+        @description : setRouteSetting = This method sets global route preference settings
+    **>
+    method setRouteSettings {
+        in {
+            RouteSettings settings
+        }
+    }
+
+    <**
+        @description : setRouteSetting = This method gets the global route preference settings
+    **>
+    method getRouteSettings {
+        out {
+            RouteSettings settings
+        }
+    }
+
+    <**
+      @description : routeSettingsChanged = This signal is emitted to inform clients that the global route settings has been changed.
+    **>
+   broadcast routeSettingsChanged {
+      out {
+         RouteSettingType[] settings
+      }
+   }
+
+   <**
+		@description : routeDeleted = This signal is emitted to inform clients that the current route has been deleted
+	**>
+	broadcast routeDeleted {
+		out {
+
+			<**
+				@description : routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value
+			**>
+			Handle routeHandle
+		}
+	}
+
+	<**
+		@description : routeCalculationCancelled = This signal informs a client that a route calculation was cancelled
+	**>
+	broadcast routeCalculationCancelled {
+		out {
+
+			<**
+				@description : routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value
+			**>
+			Handle routeHandle
+		}
+	}
+
+	<**
+		@description : routeCalculationSuccessful = This signal informs a client that a route calculation was successful
+	**>
+	broadcast routeCalculationSuccessful {
+		out {
+
+			<**
+				@description : routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value
+			**>
+			Handle routeHandle
+			
+			RoutePreference unfullfilledPreferences
+		}
+	}
+
+	<**
+		@description : routeCalculationFailed = This signal informs a client that a route calculation failed
+	**>
+	broadcast routeCalculationFailed {
+		out {
+
+			<**
+				@description : routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value
+			**>
+			Handle Handle
+
+			<**
+				@description : errorCode = enum(INVALID,UNMATCHED_POSITION,UNREACHABLE_DESTINATION,UNFULFILLED_PREFERENCE_MODE, ... )
+			**>
+			CalculationError errorCode
+			
+			RoutePreference unfullfilledPreferences
+		}
+	}
+
+	<**
+		@description : routeCalculationProgressUpdate = This signal informs a client about a route calculation progress
+	**>
+	broadcast routeCalculationProgressUpdate {
+		out {
+
+			<**
+				@description : routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value
+			**>
+			Handle routeHandle
+
+			<**
+				@description : percentage = progress status. Range [0:100]
+			**>
+			Int8 percentage
+		}
+	}
+
+	<**
+		@description : alternativeRoutesAvailable = This signal is emitted when alternative routes have been computed in the background and are available for guidance.
+	**>
+	broadcast alternativeRoutesAvailable {
+		out {
+			Handle[] routeHandlesList
+		}
+	}
+}

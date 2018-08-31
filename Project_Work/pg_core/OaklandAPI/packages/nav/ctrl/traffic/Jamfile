@@ -1,0 +1,25 @@
+#----------------------------------------------------------------
+# Project       Harman Car Multimedia System
+# Copyright (C) 2009-2015
+# Company       Harman/Becker Automotive Systems GmbH
+#               All Rights Reserved
+# Secrecy Level STRICTLY CONFIDENTIAL
+#----------------------------------------------------------------
+
+SubDir API_NAV_CTRL_PF traffic ;
+
+if $(CFG_CTRL_API_FRANCA_GENERATE) = TRUE
+{
+   SomeIP2GenApp api_nav_ctrl_pf : TrafficInformation.fdepl : true : true : true ;
+   SomeIP2GenApp api_nav_ctrl_pf : TrafficInformationTypes.fdepl : true : true : true ;
+}
+else
+{
+   NavAPIDefine api_nav_ctrl_pf :
+      org_harman_nav_ctrl_traffic_TrafficInformation.hbsi      
+      ;
+   
+   NavAPIDefine api_nav_ctrl_pf :
+      org_harman_nav_ctrl_traffic_TrafficInformationTypes.hbtd      
+      ;
+}

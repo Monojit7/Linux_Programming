@@ -1,0 +1,62 @@
+ /**
+  * Copyright (C) 2014, Jaguar Land Rover
+  *
+  * Author: Jonatan Palsson <jonatan.palsson@pelagicore.com>
+  *         Sriram Gopalan <sriram.g@kpit.com>
+  *
+  * This file is part of the GENIVI Media Manager Proof-of-Concept
+  * For further information, see http://genivi.org/
+  *
+  * This Source Code Form is subject to the terms of the Mozilla Public
+  * License, v. 2.0. If a copy of the MPL was not distributed with this
+  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+  */
+
+package org.genivi.mediamanager
+
+
+typeCollection PlayerTypes {
+    version {
+        major 1
+        minor 0
+    }
+
+    // Data structures
+    enumeration MuteStatus {
+        MUTED
+        UNMUTED
+    }
+
+    enumeration PlayerError{
+        NO_ERROR
+
+        BAD_PLAYLIST
+        BACKEND_UNREACHABLE
+        ERROR_DRM
+        ERROR_COMMUNICATION
+        ERROR_FILEUNAVAILABLE
+        ERROR_FILENOTEXIST
+        ERROR_FILECRRUPT
+        ERROR_PERMISSION
+        ERROR_NOTSUPPORT
+    }
+
+    enumeration ShuffleStatus {
+        SHUFFLE
+        UNSHUFFLE
+    }
+
+    enumeration RepeatStatus {
+        REPEAT
+        REPEAT_SINGLE
+        NO_REPEAT
+		REPEAT_CHANGE
+    }
+
+    enumeration PlaybackStatus {
+        PLAYING
+        PAUSED
+        STOPPED
+    }
+
+}

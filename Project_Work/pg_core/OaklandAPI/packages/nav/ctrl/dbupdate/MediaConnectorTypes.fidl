@@ -1,0 +1,14 @@
+package com.harman.nav.media
+
+typeCollection MediaConnectorTypes {
+	  version { major 0 minor 1 }
+	  
+	  <**
+	  	@description:  enumeration describing the kind of media connector
+	  **>
+	  enumeration SourceSelection
+	  {
+	  	DBUpdateMedia
+	  	SoftwareUpdateMedia
+	  }
+}

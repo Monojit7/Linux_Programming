@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DSI>
+   <Name>org_harman_nav_ctrl_GuidanceViewer</Name>
+   <ID>2</ID>
+   <Extern>true</Extern>
+   <Version>
+      <Major>1</Major>
+      <Minor>0</Minor>
+   </Version>
+   <Includes>
+      <Include>
+         <Name>api/nav/ctrl/pf/common/org_harman_nav_ctrl_CommonTypes.hbtd</Name>
+         <Major>1</Major>
+         <Minor>0</Minor>
+      </Include>
+      <Include>
+         <Name>api/nav/ctrl/pf/gv/org_harman_nav_ctrl_GuidanceViewerTypes.hbtd</Name>
+         <Major>1</Major>
+         <Minor>0</Minor>
+      </Include>
+   </Includes>
+   <DataTypes/>
+   <Methods>
+      <Method>
+         <Name>displayableValid</Name>
+         <ID>2001</ID>
+         <Description>Updates info about validity of displayable</Description>
+         <Type>Information</Type>
+         <Parameters>
+            <Parameter>
+               <Name>displayableValid_displayableLayerManagerID</Name>
+               <ID>3</ID>
+               <Type>Int32</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>displayableValid_valid</Name>
+               <ID>4</ID>
+               <Type>bool</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>maneuverStatusChanged</Name>
+         <ID>2002</ID>
+         <Description>Updates info about maneuver status</Description>
+         <Type>Information</Type>
+         <Parameters>
+            <Parameter>
+               <Name>maneuverStatusChanged_maneuverStatus</Name>
+               <ID>6</ID>
+               <Type>org_harman_nav_ctrl_GuidanceViewerTypes::TManeuverStatus</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+   </Methods>
+   <Attributes/>
+</DSI>

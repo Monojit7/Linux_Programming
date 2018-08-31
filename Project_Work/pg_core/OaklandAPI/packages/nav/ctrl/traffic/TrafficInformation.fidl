@@ -1,0 +1,383 @@
+package org.harman.nav.ctrl.traffic
+
+import org.harman.nav.ctrl.traffic.* from "TrafficInformationTypes.fidl"
+import org.harman.nav.ctrl.common.list.* from "../common/list/ListTypes.fidl"
+
+<** @description : This interface is "derived" from the ListViewBase interface **>
+interface TrafficInformation {
+    version { major 2 minor 1 }
+
+    <**
+        @description:configuration attribute of the TrafficInformation interface
+
+        this attribute must be set by client/hmi at startup and everytime
+        a basic configuration (e.g. language selection) has changed.
+    **>
+    attribute TrafficInformationTypes.SConfig configuration
+
+    <**
+        @description: indicator of currently available TrafficInformation source
+    **>
+    attribute TrafficInformationTypes.SourceSelection source readonly
+
+    <**
+       @description: the tmc station to which the radio is currently tuned (or empty string if no reception)
+    **>
+    attribute String currentTmcStation readonly
+
+    <**
+        @description: The list ids which can be queried from this interface
+    **>
+    attribute ListTypes.ListId[] availableLists readonly
+
+    <**
+        @description : get a list of all supported sources for traffic data
+    **>
+    method getSupportedSources
+    {
+        out
+        {
+            <** @description : list of all supported sources for traffic data **>
+            TrafficInformationTypes.SourceSelection[] sources
+        }
+    }
+
+    <**
+        @description : get a list of all supported fallback sources for traffic data
+                       if online data cannot be retreived (e.g., no connection, no roaming allowed)
+    **>
+    method getSupportedOnlineFallbackSources
+    {
+        out
+        {
+            <** @description : list of all supported fallback sources for traffic data **>
+            TrafficInformationTypes.SourceSelection[] fallbackSources
+        }
+    }
+
+    <**
+        @description : get a list of all TMC stations, which are currently available in the tuner
+    **>
+    method getAvailableTmcStations
+    {
+        out
+        {
+            <**  @description : list of all TMC stations, which are currently available in the tuner **>
+            String [] availableTmcStations
+        }
+    }
+	
+	<**
+		@description : Triggers a new query for traffic data from the online traffic data provider.
+		               This call will only have an effect if the currently selected source is Online
+					   (see attribute source) and if Manual refresh mode was configured
+					   (see attribute configuration.refreshSetting.mode).
+	**>
+    method refreshOnlineTrafficData fireAndForget
+	{
+    }
+
+    //|_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_|
+    //|/_/_/_/_/_/_/_/_/_/_List representation_/_/_/_/_/_/_/_/_/_/_/_/_/_/|
+    //|_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_|
+
+    <**
+        @description : get the current number of contained elements in the given list.
+    **>
+    method getListSize {
+        in {
+            ListTypes.ListId list
+        }
+        out {
+            ListTypes.ListSize size
+        }
+        error ListTypes.ListError
+    }
+
+     <**
+        @description : create a new view to the mother array.
+        This view will be maintained until the client uses destroyView,
+        unsubscribes or service/proxy exit.
+        After creating a view the client must receive an update.
+        Only one created view is allowed to modify the list entries.
+        Please note: a valid usecase is to specify a viewSize which is
+        bigger than the inital list size
+    **>
+    method createView {
+        in {
+            <**
+                @description : list to create the view upon.
+            **>
+            ListTypes.ListId list
+
+            <**
+                @description : individual size of the requested view.
+            **>
+            ListTypes.ViewSize viewsize
+        }
+        out {
+            <**
+                @description : view identification used to distinguish several instances of a view for one client.
+                It is never changed by the service nor the client. This id is unique!
+            **>
+            ListTypes.ViewId view
+        }
+        error ListTypes.ListError
+    }
+
+    <**
+        @description : delete the given view instance
+    **>
+    method deleteView {
+        in {
+            <**
+                @description : identifies the view to apply this operation upon.
+            **>
+            ListTypes.ViewId view
+        }
+        error ListTypes.ListError
+    }
+
+    <**
+        @description : adjust the view size. It is allowed to set view size to a larger value
+        than the actual size of the list, but less or equal than the maximum size of the list.
+        The implementation may limit the maximum view size for resource reasons.
+        After adjusting the window size the client must receive an update.
+    **>
+    method setViewSize {
+        in {
+            <**
+                @description : identifies the view to apply this operation upon.
+            **>
+            ListTypes.ViewId view
+
+            <**
+                @description : new view size
+            **>
+            ListTypes.ViewSize new_size
+        }
+        error ListTypes.ListError
+    }
+
+     <**
+        @description : set the absolute view position to element key.
+        The client should use an available snapshot of a view to maintain focused elements
+        within the view if possible, and change the view position only if an
+        element to be focused is outside of the given view. A snapshot is generated whenever
+        querying the data contained in a view. Together with that data, the ViewSnapshotPosition is provided.
+        The initial snapshot of the view is always [0, min(viewSize-1, listSize-1)].
+        When creating a new view snapshot, the last call of setViewPosition or setViewAnchor (whichever was the last one)
+        will be the relevant information to reposition the new view snapshot. If setViewPosition was the last call,
+        the view is moved such that the provided key refers to the absolute position on the current snapshot of the view.
+        (This becomes important if the current view snapshot is outdated because the list has been updated.)
+
+        The following rules are applied to set the position of the new view snapshot [newFrom, newTo], given a snapshot [from, to]:
+        Let elem(k) denote the element at key k in the old snapshot and new(e) denote the key the element e will have
+        (would have if deleted) in the new snapshot (see also examples (1)-(3) below).
+        (1) If key is less than from, then newFrom will be set to new(elem(from)) - (from-key).
+        (2) If key is contained in [from, to], then newKey will be set to new(elem(key)).
+        (3) If key is greater than to, then newFrom will be set to new(elem(to)) + (key-to).
+        If any of these calculated values are out of the range of the list [0, listSize-1], they will be truncated to fit into the list.
+        (Note that the resulting newFrom is always equal to key if the data wasn't updated,
+        but it doesn't have to be equal to key if the data was updated.)
+        After setting the view position the anchor offset will automatically be set to 0.
+        There are two special key values to allow scrolling to the top/bottom of the list, independently from the above rules:
+        The key value 0xFFFE always positions the view to the top of the list.
+        The key value 0xFFFF always positions the view to the bottom of the list.
+
+        As an example for the case in which the data was updated:
+        old list {"a", "b", "c", "d", "e", "f"} with view snapshot ["c", "d"] with viewSize 2 and viewKey 2
+        new list {"b", "d", "f", "h", "j", "l"}
+        (1) setViewPosition(0) => [from, to] is [2, 3], elem(from) is "c", new(elem(from)) is 1
+                               => ["b", "d"] with ViewSnapshotPosition {listSize=6, listKey=0, anchorOffset=0}.
+        (2) setViewPosition(3) => [from, to] is [2, 3], elem(key) is "d", new(elem(key)) is 1
+                               => ["d", "f"] with ViewSnapshotPosition {listSize=6, listKey=1, anchorOffset=0}.
+        (3) setViewPosition(4) => [from, to] is [2, 3], elem(to) is "d", new(elem(d)) is 1
+                               => ["f", "h"] with ViewSnapshotPosition {listSize=6, listKey=2, anchorOffset=0}.
+    **>
+    method setViewPosition fireAndForget {
+        in {
+            <**
+                @description : identifies the view to apply this operation upon.
+            **>
+            ListTypes.ViewId view
+
+            <**
+                @description : element to position the view upon, according to view policy.
+            **>
+            ListTypes.ListKey key
+        }
+    }
+
+    <**
+        @description : set a stable element inside the current view snapshot.
+        The client should use an available snapshot of a view to maintain focused elements
+        within the view if possible, and change the view position only if an
+        element to be focused is outside of the given view. A snapshot is generated whenever
+        querying the data contained in a view. Together with that data, the ViewSnapshotPosition is provided.
+        The initial snapshot of the view is always [0, min(viewSize-1, listSize-1)] with anchor offset 0.
+        When creating a new view snapshot, the last call of setViewPosition or setViewAnchor (whichever was the last one)
+        will be the relevant information to reposition the new view snapshot. If setViewAnchor was the last call,
+        the anchor element of the old view snapshot is used for repositioning.
+        (This method only needs to be used if the current view snapshot is outdated because the list has been updated.)
+
+        The following rules are applied to set the position of the new view snapshot [newFrom, newTo], given a snapshot [from, to]
+        and anchor offset aOff:
+        Let elem(k) denote the element at key k in the old snapshot and new(e) denote the key the element e will have
+        (would have if deleted) in the new snapshot (see also examples below).
+        newFrom is set to new(elem(from+aOff)) - aOff.
+        If any of these calculated values are out of the range of the list [0, listSize-1], they will be truncated to fit into the list.
+        As a consequence, whenever possible, the anchor element of the old snapshot will be at the same offset within the new snapshot.
+
+        As an example for the case in which the data was updated:
+        old list {"a", "b", "c", "d", "e", "f"} with view snapshot ["c", "d"] with viewSize 2 and viewKey 2
+        new list {"b", "d", "f", "h", "j", "l"}
+        setViewAnchor(0) => elem(from+aOff) is "c", new(elem(from+aOff)) is 1 ("c" would be inserted at index 1)
+                         => ["d", "f"] with ViewSnapshotPosition {listSize=6, listKey=1, anchorOffset=0}.
+        setViewAnchor(1) => elem(from+aOff) is "d", new(elem(from+aOff)) is 1
+                         => ["b", "d"] with ViewSnapshotPosition {listSize=6, listKey=0, anchorOffset=1}.
+    **>
+    method setViewAnchor fireAndForget {
+        in {
+            <**
+                @description : identifies the view to apply this operation upon.
+            **>
+            ListTypes.ViewId view
+
+            <**
+                @description: relative anchor position in the view, referenced from ListKey
+                Please note: only positive values and 0 are allowed
+            **>
+            ListTypes.AnchorOffset anchor
+        }
+    }
+
+    <**
+        @description : creates a snapshot of the current view of the traffic message list and returns
+                       the contained messages' data.
+                       Using the set view position or set view anchor (whichever was set last),
+                       the view snapshot is positioned within the list. The information about the
+                       snapshot position and the traffic messages contained in the view snapshot
+                       are returned to the client.
+    **>
+    method getViewData {
+        in {
+            <**
+                @description : identifies the view to apply this operation upon.
+            **>
+            ListTypes.ViewId view
+        }
+        out {
+            <**
+                @description : the messages contained in the current view snapshot
+            **>
+            TrafficInformationTypes.TMessages messages
+            <**
+                @description : information how the message view snapshot is positioned within the list
+            **>
+            ListTypes.ViewSnapshotPosition snapshotPos
+        }
+        error ListTypes.ListError
+    }
+
+    <**
+       @description : gets the message information associated with one message identifier
+    **>
+    method getMessageData
+    {
+        in
+        {
+            <** @description: identifier of the message for which data shall be retrieved **>
+            TrafficInformationTypes.TMessageId messageId
+        }
+        out
+        {
+            <** @description: information about the traffic event or flow **>
+            TrafficInformationTypes.SMessage message
+        }
+        error TrafficInformationTypes.TrafficInformationError
+    }
+
+    <**
+    @description: toggle the detour status of a certain ti message
+
+    according to the toyota specification a user can select a
+    certain message for detour. With this request the client/hmi
+    can switch the detour flag of a certain TI message.
+    **>
+    method toggleDetourStatus
+    {
+        in
+        {
+            <** @description: unique identifier of the message, for which the detour status shall be toggled **>
+            TrafficInformationTypes.TMessageId id
+        }
+        out
+        {
+            <** @description: resulting message (with toggled detour flag and possibly updated content, e.g., updated icons) **>
+            TrafficInformationTypes.SMessage message
+        }
+        error TrafficInformationTypes.TrafficInformationError
+    }
+
+    <** @description: indicate to the client that the underlying list of a certain view has changed.
+        Whenever elements get inserted/removed or the content of element gets changed, the size
+        or the sorting order of a list might change. This might influence the current view and
+        especially the position of the anchor element in the list. To allow a client to react on such
+        changes in an approapriate manner, the viewUpdate broadcast will provide all necessary information
+        to its client.
+        It is up to the client to reposition the view to its needs based on the provided information,
+        using the methods setViewPosition or setViewAnchor.
+    **>
+    broadcast viewUpdate {
+        out {
+            <** @description: unique identifier of a view **>
+            ListTypes.ViewId  view
+            <** @description: current size of the underlying list **>
+            ListTypes.ListSize size
+            <** @description: at least one element of the currently active view snapshot has changed **>
+            Boolean viewChanged
+            <** @description: at least one element of the list has changed (this might lead to a different new view snapshot) **>
+            Boolean listChanged
+        }
+    }
+
+
+    <**
+        @description: informs the client about changes of the list size.
+    **>
+    broadcast listSize {
+        out {
+            <**
+                @description: list id related to the list size update
+            **>
+            ListTypes.ListId id
+
+            <**
+                @description: changed list size information
+            **>
+            ListTypes.ListSize size
+        }
+    }
+
+    <**
+    @description: indicate a popup caused by TI-messages to the customer
+
+    This broadcast is used to indicate any kind of popup that is caused by one or more
+    TI messages (according to spec, a single message is trigger condition). There are
+    two kind of popups: dynamic reroute suggestion caused by TI-delay and emergency noticiation
+    Furhtermore we've added an additional popup type MISC which can be used to indicate
+    any other type of popup (not yet specified nor used)
+    **>
+    broadcast popUpIndication
+    {
+        out {
+            <** @description: reason for the popup **>
+            TrafficInformationTypes.PopupType type
+            <** @description: messages, which have caused the popup **>
+            TrafficInformationTypes.TMessages responsibleMessages
+
+        }
+    }
+
+}

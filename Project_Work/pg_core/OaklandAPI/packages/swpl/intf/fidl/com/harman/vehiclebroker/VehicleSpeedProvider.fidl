@@ -1,0 +1,16 @@
+package com.harman.vehicle
+
+import model "VehicleDataTypes.fidl"
+
+interface VehicleSpeedProvider
+{
+	version { major 0 minor 1}
+	
+	/*It is the average vehicle speed calculated. */
+	attribute VehicleSpeed speed readonly
+	
+	struct VehicleSpeed extends com.harman.vehicle.VehicleDataTypes.VehiclePropertyBase
+	{
+		Float value
+	}
+}

@@ -1,0 +1,383 @@
+
+/** *
+ *  @author Ankur Tibrewal , Sriram Srivatsan
+ * @description Browser Presentation Control Interface with Multi Client support. 
+ * 
+ */ 
+
+package com.harman.mmpres
+
+typeCollection MMPresTypes
+{
+	version {major 1 minor 0}
+	
+	// this indicates the type of slot where a media device is inserted
+	enumeration eSlotType
+	{
+		SLOTTYPE_USB
+		SLOTTYPE_BLUETOOTH
+		SLOTTYPE_OPTICAL_DRIVE
+		SLOTTYPE_WIFI
+		SLOTTYPE_HDD
+		SLOTTYPE_CARD
+	}
+	
+	// this indicates the type of item present in file system. Mainly applicable for file system based devices like USB.
+	enumeration eFileSystemContentType
+  	{
+  		FS_CONTENT_TYPE_FILE=1
+  		FS_CONTENT_TYPE_FOLDER=2
+  		FS_CONTENT_TYPE_PLAYLIST=4
+  		FS_CONTENT_TYPE_UNKNOWN=8
+  	}
+	
+	// this indicates the type of device.
+	enumeration eDeviceType 
+   {
+		DEVICETYPE_HDD
+		DEVICETYPE_DISCSINGLE
+		DEVICETYPE_DISCCHANGER
+		DEVICETYPE_USB
+		DEVICETYPE_MEMORYCARD
+		DEVICETYPE_IPOD
+		DEVICETYPE_MTP
+		DEVICETYPE_BLUETOOTH
+		DEVICETYPE_NETWORK
+		DEVICETYPE_UPNP
+		DEVICETYPE_DMB
+		DEVICETYPE_SND
+		DEVICETYPE_MASTER
+		DEVICETYPE_AMP
+		DEVICETYPE_STREAM
+		DEVICETYPE_OAP
+		DEVICETYPE_UKNOWN
+		DEVICETYPE_NODEV
+   }
+   
+   // this indicates the different device capabilities.
+   enumeration eDeviceCapabilities
+   {
+   		DEVICECAP_METADATABROWSE=1
+   		DEVICECAP_METADATASEARCH=2
+   		DEVICECAP_FSBROWSE=4
+   		DEVICECAP_NOWPLAYINGLIST=8
+   		DEVICECAP_COVERART=16
+   		DEVICECAP_COVERFLOW=32
+   		DEVICECAP_SEEKTOTIME=64
+   		DEVICECAP_VIDEOPLAYBACK=128
+   		DEVICECAP_CARPLAY=256
+   		DEVICECAP_ANDROIDAUTO=512
+   		DEVICECAP_THIRDPARTYPLAYBACK=1024
+   		DEVICECAP_PLAYPOS_UPDATE=2048
+   		DEVICECAP_TIMEPOS_UPDATE=4096
+   		DEVICECAP_FSSEARCH=8192
+   }
+   
+   	// different repeat modes
+   	enumeration eRepeatMode {	
+		REPEAT_ALL=1
+		REPEAT_OFF=2
+		REPEAT_SONG=4
+		REPEAT_FOLDER=8
+		REPEAT_SUBFOLDER=16
+		REPEAT_ALBUM=32
+		REPEAT_ERROR=64
+		REPEAT_UNKNOWN=128
+		REPEAT_TOGGLE=256
+		REPEAT_NOTSUP=512
+	}
+	
+	 // different shuffle modes
+	enumeration eShuffleMode {
+		SHUFFLE_ALL=1
+		SHUFFLE_OFF=2
+		SHUFFLE_FOLDER=4
+		SHUFFLE_SUBFOLDER=8
+		SHUFFLE_ALBUM=16
+		SHUFFLE_ERROR=32
+		SHUFFLE_UNKNOWN=64
+		SHUFFLE_TOGGLE=128
+		SHUFFLE_NOTSUP=256
+	}
+   
+   		
+	 // different device errors
+	enumeration eDeviceError 
+	{		
+		DEVICEERROR_NO_ERROR
+		DEVICEERROR_READ_ERROR
+		DEVICEERROR_MOUNT_ERROR
+	    DEVICEERROR_UMOUNT_ERROR
+		DEVICEERROR_MECHANICAL_ERROR
+		DEVICEERROR_PARTITION_ERROR
+		DEVICEERROR_FILESYSTEM_FORMAT_ERROR
+		DEVICEERROR_FILESYSTEM_FORMAT_UNSUPPORTED
+		DEVICEERROR_CORRUPTED
+		DEVICEERROR_UNSUPPORTED
+		DEVICEERROR_UNKNOWN
+	}
+	
+  	// different slot states
+  	enumeration eSlotState
+	{	
+		SLOTSTATE_LOADING
+		SLOTSTATE_READY
+		SLOTSTATE_READY_AUTOINSERT
+		SLOTSTATE_EJECTING
+		SLOTSTATE_EJECTED
+	}
+	
+	// this is valid if an item is a song/image.
+	enumeration eTitleContentType
+  	{
+  		TITLETYPE_AUDIO=1
+  		TITLETYPE_VIDEO=2
+  		TITLETYPE_IMAGE=4
+  		TITLETYPE_UNKNOWN=8
+  	}
+	
+	struct tDevice
+	{
+		UInt64			deviceId//Media Identifier for the device. 
+		eDeviceType 	deviceType//Type of device
+		eDeviceError	deviceError//Errors seen will be set here. 
+		UInt32			deviceCaps//Bitmask combination of device capabilities. 
+		UInt32			deviceRepeatModes//Bitmask combination of supported repeat modes. 
+		UInt32          devicesShuffleModes//Bitmask combination of supported shuffle modes.
+		String 			hardwareIdentifier// Depends on the device type. For iPod's this will be the serial number, for bt devices, the MAC ID. 
+		String			deviceName
+		UInt32          browseCaps // BitMask combination for browse capability
+		MetadataCountMap categoryCounts
+	}
+	
+	struct tSlot
+	{
+		UInt8 			slotId
+		eSlotType		slotType
+		eSlotState		slotState
+		tDevice			device
+	}
+	
+	array tSlotList of tSlot
+  	
+	// different metadata types
+	enumeration eMetadataType
+	{
+		METADATATYPE_UNKNOWN=0
+		METADATATYPE_NAME=1
+		METADATATYPE_TITLE=2
+		METADATATYPE_ARTIST=4
+		METADATATYPE_NORMALIZEDARTIST=8
+		METADATATYPE_ALBUMARTIST=16
+		METADATATYPE_ALBUM=32
+		METADATATYPE_GENRE=64
+		METADATATYPE_COVERART=128
+		METADTATATYPE_PLAYLIST=256
+		METADTATATYPE_AUDIOBOOK=1024
+		METADTATATYPE_CHAPTER=2048
+		METADTATATYPE_PODCAST=4096
+		METADTATATYPE_EPISODE=8192
+		METADATATYPE_CATEGORY=16384
+		METADATATYPE_FILE=32768
+		METADATATYPE_COMPOSER=65536
+		METADATATYPE_FOLDER=131072
+		METADATATYPE_RELEASEDATE=262144
+		METADATATYPE_YEAR=524288
+		METADATATYPE_DECADE=1048576
+		METADATATYPE_DURATION=2097152
+		METADATATYPE_VIDEO=4194304
+		METADATATYPE_KEYWORDS=8388608
+		METADATATYPE_BPM=16777216
+		METADATATYPE_TRACKNUM=33554432
+		METADATATYPE_IMAGE=67108864
+		METADATATYPE_MEDIUMID=134217728
+		METADATATYPE_COMPILATION=268435456
+		METADATATYPE_RATING=536870912
+		METADATATYPE_CONDUCTOR=1073741824
+  	}
+  	
+   // this enum indicates criteria for using a string filter.
+   enumeration eFilterType {
+      BEGINS_WITH=0
+      NOT_BEGIN_WITH
+      ENDS_WITH
+      NOT_END_WITH
+      CONTAINS
+      NOT_CONTAINS
+      EXACT_MATCH
+   }
+  
+  	// map between a particular metadata ID and corresponding value for that metadata ID.
+  	map FilterIDMap
+  	{
+  	 eMetadataType to UInt64
+  	}
+  			
+  	// mapping between a metadata Id and filter object to be used against the metadata id item.
+  	map FilterMap 
+  	{		
+  	eFilterType to String
+  	}
+  	
+  // this is a map of metadata Type vs its corresponding string value.
+  	map MetadataStringMap
+  	{
+  		eMetadataType to String
+  	}
+  	
+  	/* This enum identifies the different types of sessionquery that can be used for metadata based browse/play - whether 
+  	  via browse, or from nowPlaying list or from highest/Lowest rated categories etc.
+  	 */
+  	enumeration eSessionQueryTypes
+	{
+		SESSION_QUERY_FS_BROWSE
+		SESSION_QUERY_METADATA_BROWSE
+		SESSION_QUERY_NOWPLAYINGLIST_BROWSE
+		SESSION_QUERY_HIGHESTRATED
+		SESSION_QUERY_LOWESTRATED
+		SESSION_QUERY_RECENTLYPLAYED
+		SESSION_QUERY_FAVOURITE
+	}
+	
+	
+	// this map specifies the count of different types. This is returned as a response to setSesionQueryWindow.
+	
+	map MetadataCountMap {
+	eMetadataType to UInt64
+	}
+	
+   // this structure specifies the metadata list data returned as a response to setSessionQqueryWindow.
+   struct tMetadataItem {
+	//TBD - Structure for item returned in SessionQuery. Add fields for additional metadata. 
+	UInt64 ID // ID for the corresponding entry. 
+	String value // Value for the entry. Will contain (Filename / Folder Name / Artist Name etc.. depending on the sessionquery )
+	Boolean playable // this indicates if the item is playable.
+	Boolean browsable // this indicates if the item can be browsed furthur.
+	eFileSystemContentType folderType // This is applicable only when browsing filesystem. The entry will tell whether the current item is a file / folder / playlist. 
+	eTitleContentType contentType    // this is valid only when item is a song/image.This indicates whether the entry is AUDIO/VIDEO/IMAGE.
+	MetadataCountMap metadataCountMap // The count of the categories below this item. for example : For an artist, this might contain the track count from the artist. If the current entry is a 
+	                                  // Folder, then it will contain the subfolder count or the file count. 
+	MetadataStringMap metadataMap // Additional metadata requested for the Title. This is only applicable for the Title resulttype. For example, for a song, additionally the artist name can be requested. 
+    eMetadataType itemType // this indicates the type of the metadata item.
+  } 
+  
+  array MetadataItemList of tMetadataItem
+  	
+  	enumeration eCallResult
+  	{
+  		CALLRESULT_OK
+  		CALLRESULT_CANCELLED_USER_REQUEST
+  		CALLRESULT_BAD_PARAMETER
+  		CALLRESULT_FAILED_MEDIUM_REMOVED
+  		CALLRESULT_FAILED_INTERNALERROR
+  		CALLRESULT_FAILED_NORES
+  	}
+  	
+  	enumeration ePlayState {
+		
+	PLAYSTATE_PLAYING
+	PLAYSTATE_PAUSED
+	PLAYSTATE_STOPPED
+	PLAYSTATE_FASTFORWARD
+	PLAYSTATE_FASTREVERSE
+	PLAYSTATE_ERROR
+	PLAYSTATE_UNKNOWN
+	}
+
+    enumeration eScanStatus {
+   	
+   	SCAN_ON
+   	SCAN_OFF
+   	SCAN_ERROR
+   	SCAN_UNKNOWN
+   }
+   
+  // enum for track playback speed. Speed is jump in milliseconds of track timer per second.
+   enumeration eTrackSeekSpeed {
+		
+            SPEED_ZERO = 1
+            SPEED_1X = 2
+            SPEED_2X  = 4
+            SPEED_4X  = 8
+            SPEED_8X  = 16
+            SPEED_16X = 32
+            SPEED_32X = 64
+            SPEED_64X = 128
+            SPEED_128X = 256
+            SPEED_DEVICE_DEPENDENT = 512
+   }
+    
+   struct tTrackState
+	{
+	 UInt64 currentTrack
+	 UInt64 totalTracks
+	}
+	
+	struct tNowPlayingInfo
+	{
+	  String title // title taken from the ID3 tag of the track.
+      String artist
+      String album
+      String genre
+      String composer
+      String filename // filename of the track from the file system.
+      String audiobook // if current track is an audiobook, then this field will be same as title
+      String podcast // if current track is played from a podcast,then this field will be the podcast name.
+      String episode // Applicable if current track is played from a podcast,then this field will be the same as title.
+      String playlist // if current track is being played from a playlist, this indicates the name of the corresponding playlist.
+      UInt64 year
+      Boolean chaptersAvailable // this is applicable only for audiobooks and this indicates if an audiobook has chapters.
+      UInt64 chapterNumber // this is applicable only for audiobooks and indicates the chapter number.
+      UInt64 mediumId
+      UInt64 fid // unique file id of the track.This will be 0 if there is no file system for the track/device and hence no unique file id.
+	  Boolean isFav // this indicates if the currently playing track is a favourite track.
+	  eMetadataType nowPlayingItemType // this indicates the type of the nowPlaying item
+	}
+	
+	enumeration eArtWorkAvailabilityStatus {
+		
+		ARTWORK_STATUS_AVAILABLE
+		ARTWORK_STATUS_UNAVAILABLE
+		ARTWORK_STATUS_UNKNOWN
+		ARTWORK_NOT_SUPPORTED
+	} 
+	
+	struct tArtWorkImageProperty
+	{
+	 UInt64 width
+	 UInt64 height
+	 UInt64 size
+	 String description	
+	}
+	
+	enumeration tArtWorkImagePositionType {
+		
+		ALBUMART_POSITION_TIME
+		ALBUMART_POSITION_CHAPTERNUMBER
+		ALBUMART_POSITION_NONE
+	}
+	
+	struct tArtWorkArtImage
+	{
+	 UInt8 imageNumber
+	 tArtWorkImagePositionType positionType
+	 UInt64 artWorkPosition
+	 tArtWorkImageProperty property
+	}
+	
+	array artWorkImageInfo of tArtWorkArtImage
+	
+	struct tAlbumArtInformation
+	{
+		UInt8 totalImages
+		artWorkImageInfo info
+	}
+	
+	enumeration eQueryStatus
+  	{
+  		QUERY_STATE_PROCESSING
+  		QUERY_STATE_FINISHED
+  		QUERY_STATE_ABORTED
+  	}
+		
+}

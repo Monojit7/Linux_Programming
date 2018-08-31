@@ -1,0 +1,1173 @@
+ /*********************************************************************
+ * Project        Harman Car Multimedia System
+ * (c) copyright  2015
+ * Company        Harman International Industries
+ *                All rights reserved
+ * Secrecy Level  STRICTLY CONFIDENTIAL
+ *********************************************************************/
+
+ /**
+ * @file        MirrorLinkDomainSvc.fidl
+ * @ingroup     DomainSvc_MirrorLink
+ * @author      HNagaraja
+ * @brief       Interface for Communication with HMI
+ */
+
+package com.harman.connectivity
+interface MirrorLinkDomainSvc
+{
+   version
+   {
+      major 4
+      minor 0
+   }
+
+    <** @description : Attach a device.**>
+   method ConnectMirrorLink
+   {
+      in
+      {
+         <** @description : Identifier of the device.**>
+         String deviceId
+      }
+
+      out
+      {
+         <** @description : Function result.**>
+         Result result
+      }
+   }
+
+
+   <** @description : Detach a device.**>
+   method DisconnectMirrorLink
+   {
+      in
+      {
+         <** @description : Identifier of the device.**>
+         String deviceId
+      }
+
+      out
+      {
+         <** @description : Function result.**>
+         Result result
+      }
+   }
+
+   <** @description : Retrieve a list of applications available on the device.**>
+   method GetApplicationList
+   {
+      in
+      {
+         <** @description : Identifier of the device.**>
+         String deviceId
+      }
+
+      out
+      {
+         <** @description : Function result.**>
+         Result result
+      }
+   }
+
+
+   <** @description : Retrieve icon associated with given application.**>
+   method GetApplicationIcon
+   {
+      in
+      {
+         <** @description : Identifier of the device.**>
+         String deviceId
+
+         <** @description : Identifier of the application.**>
+         UInt32 applicationId
+      }
+
+      out
+      {
+         <** @description : Function result.**>
+         Result result
+      }
+   }
+
+
+   <** @description : Launch an application.**>
+   method LaunchApplication
+   {
+      in
+      {
+         <** @description : Identifier of the device.**>
+         String deviceId
+
+         <** @description : Identifier of the application.**>
+         UInt32 applicationId
+      }
+
+      out
+      {
+         <** @description : Function result.**>
+         Result result
+      }
+   }
+
+   <** @description : Terminate an application.**>
+   method TerminateApplication
+   {
+      in
+      {
+         <** @description : Identifier of the device.**>
+         String deviceId
+
+         <** @description : Identifier of the application.**>
+         UInt32 applicationId
+      }
+
+      out
+      {
+         <** @description : Function result.**>
+         Result result
+      }
+   }
+
+   <** @description : Send a key event.**>
+   method SendKeyEvent
+   {
+      in
+      {
+         <** @description : Identifier of the device.**>
+         String deviceId
+
+         <** @description : Key identifier string indicating the key.**>
+         String keyId
+
+         <** @description : Indicates if the key is pressed (true) or if
+                            it is released (false).**>
+         Boolean downFlag
+      }
+   }
+
+   <** @description : Send a pointer event.**>
+   method SendPointerEvent
+   {
+      in
+      {
+         <** @description : Identifier of the device.**>
+         String deviceId
+
+         <** @description : Mask indicating current state of buttons.
+             @details : Buttons 1-8 are represented by bits 0-7 whereby 0 meaning
+                        released and 1 meaning pressed. On a conventional mouse,
+                        buttons 1, 2 and 3 correspond to the left, middle and right
+                        buttons on the mouse. On a wheel mouse, each step of the
+                        wheel upwards is represented by a press and release of button 4,
+                        and each step downwards is represented by a press and release
+                        of button 5. **>
+         UInt8  buttonMask
+
+         <** @description : X position of pointer. **>
+         UInt16 xPosition
+
+         <** @description : Y position of pointer. **>
+         UInt16 yPosition
+      }
+   }
+
+   <** @description : Sends a touch event.**>
+   method SendTouchEvent
+   {
+      in
+      {
+         <** @description : Identifier of the device.**>
+         String deviceId
+
+         <** @description : List of individual events describing multiple
+                            pointer events at different locations **>
+         IndividualTouchEvents individualEvents
+      }
+   }
+   
+   <** @description : Sends the entered text by virtual
+                      keyboard or speller.**>
+   method SendVirtualKeyboardInput
+   {
+      in
+      {
+         <** @description : Identifier of the device.**>
+         String deviceId
+
+         <** @description : The text string to transfer **>
+         String text
+      }
+
+      out
+      {
+         <** @description : Function result.**>
+         Result result
+      }
+   }
+   
+   <** @description : Enable or disable the virtual keyboard trigger service on server side.**>
+   method SetVirtualKeyboardTrigger
+   {
+      in
+      {
+         <** @description : Identifier of the device.**>
+         String deviceId
+
+         <** @description : Enable or disable the virtual keyboard
+                            trigger service on server side.**>
+         Boolean enable
+      }
+
+      out
+      {
+         <** @description : Function result.**>
+         Result result
+      }
+   }
+   
+   <** @description : Get list of Notification server service supported applications **>
+   method GetNotificationSupportedAppList
+   {
+      in
+      {
+         <** @description : Identifier of the device. **>
+         String deviceId
+      }
+      
+      out
+      {
+         <** @description: Function result. **>
+         Result result
+      }
+   }
+   
+   <** @description : Sets the MirrorLink Server applications from which MirrorLink Client 
+                      wants to receive notifications. **>
+   method SetNotificationAllowedApplications
+   {
+      in
+      {
+         <** @description : Identifier of the device. **>
+         String deviceId
+         
+         <** @description : List of notifications allowed applications. **>
+         AppIDs allowedAppIds
+      }
+      
+      out
+      {
+         <** @description : Function result. **>
+         Result result
+      }
+   }
+   
+   <** @description : Gets the detailed information of the notification **>
+   method GetNotificationInfo
+   {
+      in
+      {
+         <** @description : Identifier of the device. **>
+         String deviceId
+         
+         <** @description : Identifier of the Notification. **>
+         String notiId
+      }
+      
+      out
+      {
+         <** @description : Function result. **>
+         Result result
+      }
+   }
+   
+   <** @description : Sends the action ID to the MirrorLink UPnP Server. **>
+   method InvokeNotiAction
+   {
+      in
+      {
+         <** @description : Identifier of the device. **>
+         String deviceId
+         
+         <** @description : Identifier of the Notification. **>
+         String notiId
+         
+         <** @description : Identifier of the Action. **>
+         String actionId
+      }
+      
+      out
+      {
+         <** @description : Function result. **>
+         Result result
+      }
+   }
+
+   <** @description : Set video focus. **>
+   method SetVideoFocus
+   {
+      in
+      {
+         <** @description : Identifier of the device. **>
+         String deviceId
+         
+         <** @description : Enable or Disable video focus **>
+         Boolean videoFocus
+      }     
+   }
+
+   <** @description : Send X11 Key Event. **>
+   method SendX11KeyEvent
+   {
+      in
+      {
+         <** @description : Identifier of the device. **>
+         String deviceId
+         
+         <** @description : Key identifier. **>
+         UInt32 keyId
+
+         <** @description : Indicates if the key is pressed (true) or if
+                            it is released (false).**>
+         Boolean downFlag 
+      }
+   }
+
+   <** @description : Device list changed information.**>
+   broadcast DeviceListChanged
+   {
+      out
+      {
+         <** @description : Device information.**>
+         Device      device
+
+         <** @description : Change state of device.**>
+         ChangeState changeState
+      }
+   }
+
+
+   <** @description : ConnectMirrorLink Response Information.**>
+   broadcast DeviceAttached
+   {
+      out
+      {
+         <** @description : API Result**>
+         Result result
+
+         <** @description : Device information.**>
+         String deviceId
+
+         <** @description : Change state of device.**>
+         Boolean DAPSupport
+      }
+   }
+
+
+   <** @description : ApplicationList Response **>
+   broadcast ApplicationList
+   {
+      out
+      {
+         <** @description : API Result**>
+         Result result
+
+         <** @description : Device information.**>
+         String deviceId
+
+         <** @description : Change state of device.**>
+         Applications appList
+      }
+   }
+
+   <** @description : ApplicationIcon Response **>
+   broadcast ApplicationIcon
+   {
+      out
+      {
+         <** @description : API Result**>
+         Result result
+
+         <** @description : Device information.**>
+         String deviceId
+
+         <** @description : Application identifier.**>
+         UInt32 id
+
+         <** @description : file location of icon **>
+         String filePath
+      }
+   }
+
+   <** @description : App Launch Response **>
+   broadcast AppLaunched
+   {
+      out
+      {
+         <** @description : API Result**>
+         Result result
+
+         <** @description : Device information.**>
+         String deviceId
+
+         <** @description : Application identifier.**>
+         UInt32 id
+      }
+   }
+
+   <** @description : SetDriveMode Response  **>
+   broadcast DriveModeStatus
+   {
+      out
+      {
+         <** @description : Drive mode**>
+         Boolean driveMode
+      }
+   }
+
+   <** @description : App Terminate Response **>
+   broadcast AppTerminated
+   {
+      out
+      {
+         <** @description : API Result**>
+         Result result
+
+         <** @description : Device information.**>
+         String      deviceId
+
+         <** @description : Application identifier.**>
+         UInt32 id
+      }
+   }
+
+   <** @description : DisconnectMirrorLink Response Information.**>
+   broadcast DeviceDetached
+   {
+      out
+      {
+         <** @description : API Result**>
+         Result result
+
+         <** @description : Device information.**>
+         String deviceId
+      }
+   }
+
+   <** @description : Application status changed information.**>
+   broadcast ApplicationStatusChanged
+   {
+      out
+      {
+         <** @description : Identifier of the device.**>
+         String deviceId
+
+         <** @description : Identifier of the application.**>
+         UInt32 applicationId
+
+         <** @description : Application status.**>
+         ApplicationStatus applicationStatus
+      }
+   }
+
+   <** @description : Server device Supported Event configuration details **>
+   broadcast ServerSupportedConfiguration
+   {
+      out
+      {
+         <** @description : Identifier of the device.**>
+         String deviceId
+
+         <** @description : Server event configuration.**>
+         ServerSupportedConfig supportedConfig
+      }
+   }
+
+   <** @description : The audio data is received.**>
+   broadcast AudioDataReceived
+   {
+      out
+      {
+         <** @description : Identifier of the device.**>
+         String deviceId
+         
+         <** @description : Audio Marker bit status.**>
+         Boolean markerBitStatus
+      }
+   }
+
+   <** @description : The client should be switched to native UI window.
+   In this mode the Framebuffer updated process is stopped.
+   To exit from native UI mode client should make launch any application.**>
+   broadcast SwitchToNativeUI
+   {
+      out
+      {
+         <** @description : Identifier of the device.**>
+         String deviceId
+      }
+   }
+   
+   <** @description : SetVirtualKeyboardTrigger Response **>
+   broadcast VirtualKeyboardTrigger
+   {
+      out
+      {
+         <** @description : API Result**>
+         Result result
+
+         <** @description : Device information.**>
+         String deviceId
+      }
+   }
+   
+   <** @description : GetNotificationSupportedAppList response. **>
+   broadcast NotificationSupportedAppList
+   {
+      out
+      {
+         <** @description : Identifier of the device. **>
+         String deviceId
+
+         <** @description : List of AppIDs supporting notification. **>
+         AppIDs supportedAppIds
+      }
+   }
+   
+   <** @description : GetNotificationInfo Response. **>
+   broadcast NotificationInfo
+   {
+      out
+      {
+         <** @description : Identifier of the device. **>
+         String deviceId
+         
+         <** @description : Notification Details. **>
+         Notification notiInfo
+      }
+   }
+   
+   <** @description : InvokeNotiAction Response. **>
+   broadcast InvokeNotiActionResult
+   {
+      out
+      {
+         <** @description : API Result**>
+         Result result
+
+         <** @description : Device information.**>
+         String deviceId
+      }
+   }
+   
+   <** @description : Event contains the list of AppIDs which are updated.
+                      The client should re-fetch ApplicationList on this event. **>
+   broadcast AppListUpdate
+   {
+      out
+      {
+         <** @description : Identifier of the device.**>
+         String deviceId
+
+         <** @description : List of AppIDs which are updated. **>
+         AppIDs appIds
+      }
+   }
+   
+   <** @description : Event contains the most urgent notification that needs to be handled.
+                      On receiving this event, Client should call GetNotificationInfo **>
+   broadcast ActiveNotiEvent
+   {
+      out
+      {
+         <** @description : Identifier of the device. **>
+         String deviceId
+         
+         <** @description : Identifier of the most urgent event. **>
+         String notiId
+      }
+   }
+   
+   <** @description : Event contains list of applications identifiers of applications,
+                      supporting notifications. On receiving this event, Client should invoke 
+                      GetSupportedApplications action. **>
+   broadcast NotiAppListUpdate
+   {
+      out
+      {
+         <** @description : Identifier of the device. **>
+         String deviceId
+         
+         <** @description : list of applications identifiers of applications,
+                            supporting notifications. **>
+         AppIDs updatedAppIds
+      }
+   }
+   
+   <** @description : Device requested HMI to show virtual keyboard.**>
+   broadcast ShowVirtualKeyboard
+   {
+      out
+      {
+         <** @description : Identifier of the device.**>
+         String deviceId
+         
+         <** @description : The type of virtual keyboard.**>
+         KeyboardType keyboardType
+
+         <** @description : The initial text string for HMI virtual keyboard.**>
+         String initialText
+         
+         <** @description : Cursor - X Position.**>
+         UInt16 xCursorPosition
+
+         <** @description : Cursor - Y Position.**>
+         UInt16 yCursorPosition
+         
+         <** @description : The area to text input.**>
+         TextInputArea textInputArea
+      }
+   }
+
+   <** @description : Device requested HMI to hide virtual keyboard.**>
+   broadcast HideVirtualKeyboard
+   {
+      out
+      {
+         <** @description : Identifier of the device.**>
+         String deviceId
+      }
+   }
+
+   array AppIDs of UInt32
+   
+   <** @description : Icon information.**>
+   struct Icon
+   {
+      <** @description : MIME type.**>
+      String mimeType
+
+      <** @description : Icon width.**>
+      UInt32 width
+
+      <** @description : Icon height.**>
+      UInt32 height
+
+      <** @description : Icon color depth.**>
+      UInt32 depth
+   }
+
+   array Icons of Icon
+
+
+   <** @description : Device information.**>
+   struct Device
+   {
+      <** @description : Unique identifier.**>
+      String id
+
+      <** @description : Name.**>
+      String name
+
+      <** @description : Device manufacturer.**>
+      String manufacturer
+
+      <** @description : Model name.**>
+      String modelName
+
+      <** @description : Serial number.**>
+      String serialNumber
+
+      <** @description : Bluetooth address of device. May be empty if device
+                         is not supporting bluetooth **>
+      String bdAddr
+
+      <** @description : List of icons.**>
+      Icons icons
+   }
+
+   array Devices of Device
+
+
+   <** @description : Application category **>
+   struct ApplicationCategory
+   {
+      <** @description : Main-category.**>
+      String mainCategory
+
+      <** @description : Sub-category.**>
+      String subCategory
+   }
+
+   array ApplicationCategories of ApplicationCategory
+
+
+   <** @description : Application information.**>
+   struct Application
+   {
+      <** @description : Unique identifier.**>
+      UInt32 id
+
+      <** @description : Name.**>
+      String name
+
+      <** @description : List of icons.**>
+      Icons icons
+
+      <** @description : Category.**>
+      ApplicationCategory category
+
+      <** @description :  Type of the application certificate.**>
+      ApplicationCertificate certificateType
+
+      <** @description :  Is region of certificate supported or not.**>
+      Boolean regionSupported
+   }
+
+   array Applications of Application
+
+   <** @description : Window attributes.**>
+   struct WindowAttributes
+   {
+      <** @description : Width of window.**>
+      UInt16 width
+
+      <** @description : Height of window.**>
+      UInt16 height
+
+      <** @description : Scaling mode.**>
+      ScalingMode scalingMode
+
+      <** @description : Maximum refresh rate (frames per second). The actual refresh rate may
+                         be lower depending on the displayed content. If the value is '0', the
+                         highest possbile refresh rate is choosen.**>
+      UInt32 maxRefreshRate
+   }
+
+
+   <** @description : Individual touch event.**>
+   struct IndividualTouchEvent
+   {
+      <** @description : X-position of the individual event.**>
+      UInt16 xPosition
+
+      <** @description : Y-position of the individual event.**>
+      UInt16 yPosition
+
+      <** @description : Event identifier.**>
+      UInt8  eventIdentifier
+
+      <** @description : Pressure value. A zero value (0) indicates a
+                         touch release event, a non-zero value indicates
+                         a touch press event with the given pressure level.
+                         TBC: max according to registry config**>
+      UInt8  pressureValue
+   }
+
+   array IndividualTouchEvents of IndividualTouchEvent
+
+
+   <** @description : Rule for visual content.**>
+   struct VisualContentRule
+   {
+      <** @description : Unique rule identifier.**>
+      VisualContentRuleId id
+
+      <** @description : Rule-specific value.
+          @details : MinFontSizeRequired - minimum font size REQUIRED in pixel
+                     divided by the target vertical screen resolution in pixel
+                     (fixed-point format [Q0.31]). The representation must be
+                     in hexadecimal format including the hex delimiter "0x".
+                     Negative number MUST not be used.
+                     NoVideo - ignored
+                     NoAutoScrollText - ignored
+                     MaxFeedbackTime - 32 bit unsigned integer, represented in
+                     hexadecimal format.**>
+      String value
+   }
+
+   array VisualContentRules of VisualContentRule
+
+   <** @description : Audio protocol information.**>
+   struct AudioProtocolInfo
+   {
+      <** @description : Audio protocol.**>
+      AudioProtocol protocol
+
+      <** @description : Controller (only used for BT protocols).**>
+      String controller
+
+      <** @description : Instance (only used for BT protocols).**>
+      String instance
+   }
+
+   <** @description : Virtual Keyboard text input area.**>
+   struct TextInputArea
+   {
+      <** @description : Text input area - X-Position.**>
+      UInt16 xPosition
+
+      <** @description : Text input area - Y-Position.**>
+      UInt16 yPosition
+
+      <** @description : Text input area - Width.**>
+      UInt16 width
+
+      <** @description : Text input area - Height.**>
+      UInt16 height
+   }
+
+   array AudioProtocolInfos of AudioProtocolInfo
+
+   array Strings of String
+
+   <** @description : Notiofication Action **>
+   struct Action
+   {
+      <** @description : Identifier of the Action **>
+      String actionId
+
+      <** @description : Name of the Action **>
+      String actionName
+
+      <** @description : Application launch status **>
+      Boolean launchApp
+
+      <** @description : List of Icons **>
+      Icons iconList
+   }
+
+   array Actions of Action
+
+   <** @description : Notification Information **>
+   struct Notification
+   {
+      <** @description : Identifier of the Notification **>
+      String notiId
+
+      <** @description : Notification title **>
+      String notiTitle
+
+      <** @description : Notification Body **>
+      String notiBody
+
+      <** @description : List of Icons **>
+      Icons iconList
+
+      <** @description : Identifier of the Application corresponds to the Notification **>
+      UInt32 appId
+
+      <** @description : List of Actions **>
+      Actions actionList
+   }
+   
+   <** @description : MirrorLink Server device Event configuration details **>
+   struct ServerSupportedConfig
+   {
+      <** @description : Keyboard layout - Language code (according ISO 639-1) **>
+      UInt16 keyboardLayoutLanguageCode
+
+      <** @description : Keyboard layout - Country code (according ISO 3166-1 alpha-2) **>
+      UInt16 keyboardLayoutCountryCode
+
+      <** @description : UI Language - Language code (according ISO 639-1) **>
+      UInt16 uiLanguageCode
+
+      <** @description : UI Language - Country code (according ISO 3166-1 alpha-2) **>
+      UInt16 uiCountryCode
+
+      <** @description : List of Knob Key events supported **>
+      Strings knobKeyEventsList
+
+      <** @description : List of Device key events supported **>
+      Strings deviceKeysList
+
+      <** @description : List of Multimedia Key events supported **>
+      Strings multimediaKeysList
+
+      <** @description : ITU Keypad(T9) events  support status **>
+      Boolean ituKeypadSupport
+
+      <** @description : Virtual keyboard trigger support status **>
+      Boolean virtualKeyboardSupport
+   }
+
+   <** @description : Function results.**>
+   enumeration Result
+   {
+      <** @description : Success.**>
+      OK
+
+      <** @description : An internal error occurred.**>
+      InternalError
+
+      <** @description : Invalid device identifier.**>
+      InvalidDeviceId
+
+      <** @description : One or more parameter(s) were invalid.**>
+      ParameterError
+
+      <** @description : Device not attached.**>
+      DeviceNotAttached
+
+      <** @description : Device not attached.**>
+      DeviceAlreadyAttached
+
+      <** @description : No application has been launched.**>
+      NoApplicationLaunched
+
+      <** @description : Application does not allowed to launch.**>
+      ApplicationNotAllowed
+
+      <** @description : An internal UPnP related error occured.**>
+      UpnpInternalError
+
+      <** @description : An unspecified device UPnP error occured.**>
+      UpnpDeviceErrorDefault
+
+      <** @description : Device is locked (needs to be unlocked by the user).**>
+      UpnpDeviceErrorDeviceLocked
+
+      <** @description : DAP verification falied.**>
+      DapVerificationFailed
+
+      <** @description : Cannot trust application URI to launch.**>
+      DapCannotTrustAppUri
+
+      <** @description : Out of memory.**>
+      OutOfMemory
+
+      <** @description : The requested feature is not supported.**>
+      NotSupported
+
+      <** @description : Function currently not implemented.**>
+      NotImplemented
+   }
+
+   <** @description : Change state.**>
+   enumeration ChangeState
+   {
+      <** @description : New device.**>
+      New
+
+      <** @description : Device deleted.**>
+      Deleted
+   }
+
+    <** @description : Category of visual content.**>
+   enumeration VisualContentCategory
+   {
+      <** @description : Text.**>
+      Text
+
+      <** @description : Video.**>
+      Video
+
+      <** @description : Image.**>
+      Image
+
+      <** @description : Vector graphics.**>
+      GraphicsVector
+
+      <** @description : 3D graphics.**>
+      Graphics3D
+
+      <** @description : User Interface (e.g. Application menu).**>
+      UserInterface
+
+      <** @description : Car Mode (Application user interface is complying
+                         with all rules for a restricted driving mode).**>
+      CarMode
+
+      <** @description : Miscellaneous content.**>
+      Miscellaneous
+   }
+
+   array VisualContentCategories of VisualContentCategory
+
+   <** @description : Visual content rule identifier.**>
+   enumeration VisualContentRuleId
+   {
+      <** @description : A minimum font size is required.**>
+      MinFontSizeRequired
+
+      <** @description : No video is shown.**>
+      NoVideo
+
+      <** @description : No automatic scrolling text.**>
+      NoAutoScrollText
+
+      <** @description : Maximum feedback time allowed after user input in ms.**>
+      MaxFeedbackTime
+   }
+
+
+   <** @description : Device feature setting.**>
+   enumeration DeviceFeatureSetting
+   {
+      <** @description : Setting is unknown (get) or shall not be modified (set).**>
+      Invalid
+
+      <** @description : Setting disabled.**>
+      Disabled
+
+      <** @description : Setting enabled.**>
+      Enabled
+   }
+
+   <** @description : Absolute framebuffer rotation (clock-wise).**>
+   enumeration AbsoluteFramebufferRotation
+   {
+      <** @description : Rotation is unknown (get) or shall not be modified (set).**>
+      Invalid
+
+      <** @description : 0 degree rotation.**>
+      Degree0
+
+      <** @description : 90 degree rotation.**>
+      Degree90
+
+      <** @description : 180 degree rotation.**>
+      Degree180
+
+      <** @description : 270 degree rotation.**>
+      Degree270
+   }
+
+   <** @description : Framebuffer orientation.**>
+   enumeration FramebufferOrientation
+   {
+      <** @description : Orientation is unknown (get) or shall not be modified (set).**>
+      Invalid
+
+      <** @description : Landscape orientation.**>
+      Landscape
+
+      <** @description : Portrait orientation.**>
+      Portrait
+   }
+
+   <** @description : Audio protocol.**>
+   enumeration AudioProtocol
+   {
+      <** @description : RTP.**>
+      RTP
+
+      <** @description : Bluetooth A2DP.**>
+      BTA2DP
+
+      <** @description : Bluetooth HFP.**>
+      BTHFP
+   }
+
+   <** @description : Application status.**>
+   enumeration ApplicationStatus
+   {
+      <** @description : Unknown status.**>
+      Unknown
+
+      <** @description : Application is in foreground.**>
+      Foreground
+
+      <** @description : Application is in background.**>
+      Background
+
+      <** @description : Application is not running.**>
+      NotRunning
+   }
+
+   <** @description : Scaling mode.**>
+   enumeration ScalingMode
+   {
+      <** @description : Invalid scaling mode. Shall only be used if this value is ignored.**>
+      Invalid
+
+      <** @description : Original size is retained (except it exceeds the window, in this case the behaviour is identical to FullWithAspectRatio).**>
+      Original
+
+      <** @description : Scale to fit completely to window without preserving aspect ratio.**>
+      Full
+
+      <** @description : Scale to fit completely to window with preserving aspect ratio.**>
+      FullWithAspectRatio
+   }
+
+
+   <** @description : Window attribute identifiers.**>
+   enumeration WindowAttributeId
+   {
+      <** @description : Width of window.**>
+      Width
+
+      <** @description : Height of window.**>
+      Height
+
+      <** @description : Scaling mode.**>
+      ScalingMode
+
+      <** @description : Maximum refresh rate.**>
+      MaxRefreshRate
+   }
+
+   array WindowAttributeIds of WindowAttributeId
+
+
+   <** @description : Trust level. The significance of the level is increasing in ascending order.**>
+   enumeration TrustLevel
+   {
+      <** @description : No Trust.**>
+      Unknown
+
+      <** @description : Trust the user. The provided data is under control of the user.
+                         The user is either directly setting the values or using provided
+                         default settings.**>
+      UserConfiguration
+
+    <** @description : Trust the application. The provided data is under control of the
+                         application. The values are defined from the application developer
+                         and provided to the VNC and UPnP MirrorLink server via a specific API.**>
+      SelfRegisteredApplication
+
+      <** @description : Trust the VNC and UPnP MirrorLink server. The provided data is under
+                         sole control of the VNC and UPnP MirrorLink server. The application is
+                         known to them and MUST be uniquely identified. The user and the application
+                         MUST NOT be able to change the values.**>
+      RegisteredApplication
+
+      <** @description : Trust a 3rd party certification entity. The provided data is under sole
+                         control of the VNC and UPnP MirrorLink server. The data is derived from a
+                         valid application certificate. The VNC and UPnP MirrorLink server MUST NOT
+                         change the provided data. The user and the application MUST NOT be able to
+                         change the values.**>
+      ApplicationCertificate
+   }
+
+
+   <** @description : Keyboard type.**>
+   enumeration KeyboardType
+   {
+      <** @description : Keyboard type unknown.**>
+      Unknown
+
+      <** @description : Keyboard type QWERTY.**>
+      Qwerty
+
+      <** @description : Keyboard type numeric.**>
+      Numeric
+   }
+
+   <** @description : Application certificate type.**>
+
+   enumeration ApplicationCertificate
+   {
+      <** @description : no certificate.**>
+      None
+
+      <** @description : The Base certificate type.**>
+      Base
+
+      <** @description : The Drive certificate type.**>
+      Drive
+   }
+}

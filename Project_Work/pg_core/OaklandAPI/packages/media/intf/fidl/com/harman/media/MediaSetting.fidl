@@ -1,0 +1,54 @@
+package com.harman.media
+
+import com.harman.media.BaseType.* from "BaseType.fidl"
+
+interface MediaSetting {
+	version { major 1 minor 0 }
+	
+	<** @description: locale name. A locale name is typically of the form language[_territory],
+					  where language is an ISO 639 language code, 
+					  territory is an ISO 3166 country code 
+	**>
+	attribute String	localeName
+
+	
+	<** @description: reset all the setting to the default. 
+			e: error code.
+	**>
+	method resetToFactory {
+		out {
+			tBaseError 	e
+		}
+	}
+	
+	<** @description:  set the default playback speed for one audio type.
+			type: the audio object type.
+			speed: playback speed.
+			e: error code.
+	 **>
+	method setPlaybackSpeed {
+		in {
+			tAudioObjectType	type
+			Double		 		speed
+		}
+		out {
+			tBaseError 			e
+		}
+	}
+	
+	<** @description:  get the default playback speed for one audio type.
+			type: the audio object type.
+			speed: playback speed.
+			e: error code.
+	 **>	
+	 method getPlaybackSpeed {
+		in {
+			tAudioObjectType	type
+		}
+		out {
+			Double		 		speed
+			tBaseError 			e
+		}
+	}
+	
+}

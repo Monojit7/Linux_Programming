@@ -1,0 +1,54 @@
+import cdl "../swpl/orinoco_base.cdl"
+import cdl "../media/cc_media.cdl"
+import cdl "../genivi/Genivi.cdl"
+import cdl "../audio/audioManager.cdl"
+import fidl "intf/fidl/com/harman/mmpres/MediaBrowser.fidl"
+import fidl "intf/fidl/com/harman/mmpres/MediaManager.fidl"
+import fidl "intf/fidl/com/harman/mmpres/MediaPlayer.fidl"
+
+
+package mpres
+{
+	generator true
+	/*
+	 * Bluetooth Service
+	 */
+
+	 component mmpres extends orinoco_component {
+	 	buildType CMake
+		language cpp
+		rpc dbus
+
+		provides interface com.harman.mmpres.MediaManager as inst0
+		provides interface com.harman.mmpres.MediaBrowser as inst0
+		provides interface com.harman.mmpres.MediaPlayer as inst0
+		provides interface org.genivi.am.routinginterface.RoutingControl as inst0
+		
+
+
+		/*
+		 * MediaOne
+		 */
+		consumes interface org.genivi.mediamanager.Browser instance dynamic as mediaBrowser
+		consumes interface org.genivi.mediamanager.Indexer instance dynamic as mediaIndexer
+		consumes interface org.genivi.mediamanager.Player instance dynamic as mediaPlayer
+		consumes interface com.harman.media.DeviceManager instance dynamic as deviceManager
+		consumes interface com.harman.media.PlayerExt instance dynamic as playerExt
+		consumes interface com.harman.media.ImageProcess instance dynamic as imageProc
+		consumes interface com.harman.media.MediaSetting instance dynamic as mediaSetting
+		consumes interface org.genivi.am.routinginterface.RoutingControlObserver instance audioManager::routingInst as routingControlObserverProxy
+	}
+	
+	component mmprestest
+	{
+		buildType CMake
+		language cpp
+		rpc dbus
+		
+		consumes interface com.harman.mmpres.MediaManager instance dynamic as inst0
+		consumes interface com.harman.mmpres.MediaBrowser instance dynamic as inst0
+		consumes interface com.harman.mmpres.MediaPlayer instance dynamic as inst0
+		consumes interface org.genivi.am.routinginterface.RoutingControl instance dynamic as inst0
+		
+	}
+}

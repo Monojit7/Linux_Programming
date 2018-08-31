@@ -1,0 +1,22 @@
+import "MediaConnector.fidl"
+
+import "../some_ip.fdepl"
+import "MediaConnectorTypes.fdepl"
+
+
+
+define someip.franca.SOMEIP_Deployment for interface com.harman.nav.media.MediaConnector
+{
+	use com.harman.nav.media.MediaConnectorTypes    
+   
+   ServiceID = 5000
+   
+	broadcast mediaPlugged {
+		BMethodID = 1	
+	}
+	
+	broadcast mediaUnplugged {
+		BMethodID = 2		
+	}
+	
+}

@@ -1,0 +1,70 @@
+import "HighwayMode.fidl"
+import "../some_ip.fdepl"
+import "HighwayModeTypes.fdepl"
+import "../common/CommonTypes.fdepl"
+import "../di/POIServiceTypes.fdepl"
+import "../common/list/ListTypes.fdepl"
+import "../traffic/TrafficInformationTypes.fdepl"
+import "../di/LocationInputTypes.fdepl"
+
+define someip.franca.SOMEIP_Deployment for interface
+org.harman.nav.ctrl.highwaymode.HighwayMode {
+	use org.harman.nav.ctrl.highwaymode.HighwayModeTypes use
+	org.harman.nav.ctrl.CommonTypes use org.harman.nav.ctrl.di.POIServiceTypes
+	use org.harman.nav.ctrl.common.list.ListTypes use
+	org.harman.nav.ctrl.traffic.TrafficInformationTypes use
+	org.harman.nav.ctrl.di.LocationInputTypes
+	ServiceID = 5000
+
+	attribute status {
+		NMethodID = 100
+		NInEventGroups = {
+			0
+		}
+	}
+
+	method getListSize {
+		MMethodID = 200
+	}
+
+	method createView {
+		MMethodID = 201
+	}
+
+	method deleteView {
+		MMethodID = 202
+	}
+
+	method setViewSize {
+		MMethodID = 203
+	}
+
+	method setViewPosition {
+		MMethodID = 204
+	}
+
+	method setViewAnchor {
+		MMethodID = 205
+	}
+
+	method setEnable {
+		MMethodID = 206
+	}
+
+	method getResultList {
+		MMethodID = 207
+	}
+
+	method getMessageDetails {
+		MMethodID = 208
+	}
+
+	broadcast viewUpdate {
+		BMethodID = 300
+	}
+
+	broadcast listSize {
+		BMethodID = 301
+	}
+
+}

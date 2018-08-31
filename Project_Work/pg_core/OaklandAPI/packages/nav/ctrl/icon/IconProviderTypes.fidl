@@ -1,0 +1,75 @@
+//Copyright (C) 2015
+//Company       Harman/Becker Automotive Systems GmbH
+//              All Rights Reserved
+//              Secrecy Level STRICTLY CONFIDENTIAL
+//
+//@author       christof.martini-bieschke@harman.com
+//
+
+package org.harman.nav.ctrl.icon
+
+import org.harman.nav.ctrl.CommonTypes.* from "../common/CommonTypes.fidl"
+
+
+typeCollection IconProviderTypes {
+
+	
+	typedef IconResourceSetId is UInt32
+    
+    enumeration ImageEncoding {
+        RAW_RGBA8888
+        PNG
+    }
+    
+    enumeration IconDisplayRepresentation {
+        DEFAULT         ///< no special icon display representation specified - use default icon
+        MAP				///< represents an icon suitable for map-display
+        HMI             ///< icon is suitable for the location input search mask where the list of results is displayed
+        GUIDANCE        ///< this icon should be used by the Guidance viewer
+        ICD             ///< this icon can be used for displaying in the Instrument Cluster Device
+        HEAD_UP_DISPLAY ///< this icon can be used for displaying in the Head Up Device        
+    }
+    
+    enumeration IconDayNightRepresentation {
+        DAY
+        NIGHT
+    }
+
+	enumeration ErrorCode {
+		NO_ERROR				///< no error 
+		ERROR_UNSPECIFIED 		///< unspecific error reason unknown
+		ERROR_ICONRESOURCE_NOT_AVAILABLE ///< no icon for given resourceSetId available
+		ERROR_ICON_FILE_PATH_INVALID ///< given file path is invalid  
+	}
+	
+	enumeration IconType {
+		POI
+		TRAFFIC_EVENT
+		TRAFFIC_ROAD_NUMBER
+		ROAD_SIGN
+		SIGN_POST
+		COUNTRY_FLAG		
+	}
+    
+    <** 
+    	@description: describes the desired icon design
+    **>
+    struct DesignParameters {
+        ImageEncoding                    imageEncoding          ///< The encoding, which shall be used for the icons.
+        IconDisplayRepresentation        displayRepresentation  ///< The display type of the icon.
+        IconDayNightRepresentation       dayNightRepresentation ///< Specifies if the icon is a day icon or a night icon.
+        Boolean                          isHighlighted          ///< If set then the icon is suitable for usage in case the user has selected the respective object (e.g. POI, road number) and the application wants to highlight it for better visualization
+    }
+    
+    <**
+		@description : contains icon response information
+	**>
+    struct IconResponseData {
+    	String 	url						///< URL specifies the rendered icon result
+    	IconType iconType				///< rendered icon type
+    	UInt32	iconWidthInPixel		///< The width of the icon
+    	UInt32	iconHeightInPixel		///< The height of the icon    	
+    	ErrorCode errorCode				///< error code for the response
+    }
+
+}

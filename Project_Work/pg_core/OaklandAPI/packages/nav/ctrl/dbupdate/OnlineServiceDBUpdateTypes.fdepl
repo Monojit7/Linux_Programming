@@ -1,0 +1,10 @@
+import "OnlineServiceDBUpdateTypes.fidl"
+
+import "../some_ip.fdepl"
+
+
+define someip.franca.SOMEIP_Deployment for typeCollection
+com.harman.redbend.OnlineServiceDBUpdateTypes
+as com.harman.redbend.OnlineServiceDBUpdateTypes
+{
+}

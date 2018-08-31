@@ -1,0 +1,289 @@
+//Copyright (C) 2015
+//Company       Harman/Becker Automotive Systems GmbH
+//              All Rights Reserved
+//              Secrecy Level STRICTLY CONFIDENTIAL
+//
+//@author       thomas.feldbauer@harman.com
+//
+package org.harman.nav.ctrl.mapv
+
+import org.harman.nav.ctrl.CommonTypes.* from "../common/CommonTypes.fidl"
+
+typeCollection MapViewControlTypes {
+	version { major 1 minor 1 }
+	
+	typedef Handle is UInt32
+	
+	enumeration MapViewType extends BasicEnum {
+		MAIN_MAP       = "0x0010"
+		SPLIT_SCREEN   = "0x0011"
+	}
+	
+	enumeration MapScaleMode extends BasicEnum {
+		AUTOMATIC   = "0x0110"
+		MANUAL      = "0x0111"
+		HYBRID      = "0x0112"
+	}
+
+	enumeration MapPerspective extends BasicEnum {
+		PERSPECTIVE_2D = "0x0020"
+		PERSPECTIVE_3D = "0x0021"
+	}
+
+	enumeration MapObject extends BasicEnum {
+		BUILDINGS   = "0x0080"
+		TERRAIN     = "0x0081"
+	}
+
+	enumeration PanAction extends BasicEnum {
+		PAN_START   = "0x0100"
+		PAN_TO      = "0x0101"
+		PAN_END     = "0x0102"
+	}
+	
+	enumeration Visibility extends BasicEnum {
+		VISIBLE       = "0x0043"
+		INVISIBLE     = "0x0044"
+		FROZEN        = "0x0045"
+	}
+
+	enumeration Level extends BasicEnum {
+		LEVEL_1        = "0x0050"
+		LEVEL_2        = "0x0051"
+		LEVEL_3        = "0x0052"
+		LEVEL_4        = "0x0053"
+		LEVEL_5        = "0x0054"
+	}
+
+	enumeration MapTheme extends BasicEnum {
+		DAY           = "0x0060"
+		NIGHT         = "0x0061"
+	}
+
+	enumeration AutozoomSetting  {
+		NEAR           = "0x0001"
+		NORMAL         = "0x0002"
+		FAR            = "0x0003"
+	}
+    
+	enumeration PoiCategoriesVisibleMode {
+		SELECTED       = "0x0001"
+		ALL            = "0x0002"
+		NONE           = "0x0003"
+	}
+
+	<**
+		@description : struct generated for DBus argument CreateMapViewInstance_mapViewSize
+	**>
+	struct Dimension {
+		UInt16 horizontalSize
+		UInt16 verticalSize
+	}
+
+	map MapObjectVisibility {
+		MapObject to Boolean
+	}
+
+	enumeration MapScaleUnit extends BasicEnum {
+		METER = "0x0032"
+		MILE  = "0x0033"
+		KM    = "0x0034"
+		YARD  = "0x0035"
+		FOOT  = "0x0036"
+	}
+
+	enumeration MapScaleType extends BasicEnum {
+		MIN = "0x0040"
+		MAX = "0x0041"
+		MID = "0x0042"
+	}
+
+	enumeration SelectableMapType extends BasicEnum {
+		CUSTOM_ELEMENT     = "0x0120"
+		CURRENT_POSITION   = "0x0121"
+		WAYPOINT           = "0x0122"
+		POI                = "0x0123"
+		TRAFFIC_INCIDENT   = "0x0124"
+		ROUTE              = "0x0125"
+		GEOCOORDINATES     = "0x0126"
+		OBJECT_LIST_ITEM   = "0x0127"
+	}
+
+	<**
+		@description : struct generated for DBus argument GetScaleList_scaleList
+	**>
+	struct MapScale {
+		UInt16 scaleId
+		UInt16 scaleValue
+		MapScaleUnit unit
+		UInt32 millimetersPerPixel
+	}
+
+	<**
+		@description : struct generated for DBus argument SetMapViewPan_pixelCoordinates
+	**>
+	struct Pixel {
+		UInt16 x
+		UInt16 y
+	}
+
+	<**
+		@description : struct pixel-coordinate
+	**>
+	struct ScreenCoordinate {
+		Int32 x
+		Int32 y
+	}
+
+	<**
+		@description : struct pixel-coordinate
+	**>
+	struct ScreenRectangle {
+		Int32 left
+		Int32 top
+		UInt32 width
+		UInt32 height
+	}
+
+
+	<**
+		@description : struct generated for DBus argument GetDisplayedRoutes_displayedRoutes
+	**>
+	struct DisplayedRoute {
+		Handle	routeHandle
+		Boolean highlighted
+	}
+
+    array DisplayedRoutes of DisplayedRoute
+
+	<**
+		@description : struct generated for DBus argument DisplayCustomElements_customElementsElem4
+	**>
+	struct AnchorPoint {
+		Int16 x
+		Int16 y
+	}
+
+	<**
+		@description : struct generated for DBus argument DisplayCustomElements_customElements
+	**>
+	struct CustomElement {
+		String name
+		String iconUri
+		Coordinate2D coordinate
+		AnchorPoint elem4
+	}
+
+
+	map tCustomElementDict {
+		Handle to CustomElement
+	}
+
+	<**
+		@description : struct generated for DBus argument SelectElementsOnMap_selectedElements
+	**>
+	struct SelectedMapElement {
+		SelectableMapType type
+		Coordinate2D position
+		ElementValue value
+	}
+
+	union ElementValue {
+		Int32 trafficIncident
+		Handle handle
+		CustomElement element
+		ObjectListItem objectListItem
+	}
+
+	<**
+		@description : MapViewOrientation
+	**>
+	enumeration MapViewOrientation {
+		NORTH_UP 
+		HEADING_UP 
+		MANEUVER_UP
+		DESTINATION_UP
+      FIXED_ANGLE
+	}
+
+	<**
+		@description : MapViewStyleSet enum
+	**>
+	enumeration MapViewStyleSet {
+		DAY 
+		NIGHT 
+	}
+
+	<**
+		@description : compound POI-id
+	**>
+	struct PoiId {
+		UInt32 databaseId
+		UInt64 poiId
+	}
+
+	<**
+		@description : EObjectListDomain, enum for ObjectList
+	**>
+	enumeration EObjectListDomain {
+		POI_SERVICE
+	}
+
+	<**
+		@description : KmlType, defines if it is a kml-string, or a kml-file (.kml or .kmz)
+	**>
+	enumeration KmlType {
+		<**
+			@description : KML_URL: the string paramater is a URL (filename)
+		**>
+		KML_URL
+		<**
+			@description : KML_CONTENT: the paramater contains the kml-content directly (file inside big-string)
+		**>
+		KML_CONTENT
+	}
+
+	<**
+		@description : ObjectList, used in displayObjectList/hideObjectList
+	**>
+	struct ObjectList {
+		EObjectListDomain domain
+		Handle domainHandle
+	}
+   
+	<**
+		@description : ObjectListItem, used in highlightObjectListItem
+	**>
+	struct ObjectListItem {
+		ObjectList objectList
+		UInt32 domainIndex
+	}
+   
+    <** @description : Settings per map view instance. **>
+    struct ScreenStatus {
+        Handle mapViewInstanceHandle
+        String mapMode
+        Visibility visibility
+        MapViewType viewType
+        MapViewStyleSet style
+        MapTheme theme
+        MapViewOrientation orientation
+        MapPerspective perspective
+        DisplayedRoutes displayedRoutes
+        MapScaleMode scaleMode
+        MapScale scale
+        Boolean autozoomEnabled
+        AutozoomSetting autozoomSetting
+        Boolean followCarMode
+        Int32 cameraHeadingAngle
+        Coordinate3D cameraPosition
+        Dimension screenDimensions
+    }
+
+    array ScreenStatusList of ScreenStatus
+
+    <** @description : Settings for map viewer. **>
+    struct Status {
+        ScreenStatusList statusList
+    }
+}

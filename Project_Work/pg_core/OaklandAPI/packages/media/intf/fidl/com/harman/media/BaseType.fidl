@@ -1,0 +1,183 @@
+package com.harman.media
+
+
+typeCollection BaseType{
+   version {
+      major 1
+      minor 0
+   }    
+    
+    <** @description : Medium type. **>
+    enumeration tMediumType {
+        MT_UNKNOWN
+        MT_HDD
+        MT_DISCSINGLE
+        MT_DISCCHANGER
+        MT_UMASS
+        MT_IPOD
+        MT_MTP
+        MT_BLUETOOTH
+        MT_CARPLAY
+        MT_GAL
+        MT_SHADOW
+        MT_CD
+        MT_MIRROLINK
+    }
+
+    <** @description : Content type. **>
+    enumeration tContentType {
+        CT_UNKNOWN
+        CT_FS
+        CT_CDDA
+        CT_DVD
+        CT_BD
+        CT_STREAM
+    }
+
+    <** @description : Medium state. **>
+    enumeration tMediumState {
+    	<** @description : Medium unknown state. **>
+        MS_UNKNOWN
+        <** @description : Medium removed. **>
+        MS_UNAVAILABLE
+        <** @description : Medium inserted. **>
+        MS_AVAILABLE
+        <** @description : Medium indexing completed. **>
+        MS_ACTIVE
+        <** @description : Medium ready to play. **>
+        MS_READY_TO_PLAY
+        <** @description : Medium indexing first pass completed. **>
+        MS_FIRST_PASS_FIN
+        <** @description : Medium indexing second pass completed. **>
+        MS_SECOND_PASS_FIN
+    }
+    
+    <** @description : Medium information. **>
+    struct tMediumInfo {
+    	<** @description : unique medium id across ignition cycle. **>
+        UInt32       mMediumId
+        <** @description : shadow device handle id. **>
+        UInt32       mHandleId
+        <** @description : user friend medium name. **>
+        String       mMediumName
+        <** @description : medium type. **>
+        tMediumType  mMediumType
+        <** @description : content type. **>
+        tContentType mContentType
+        <** @description : medium state. **>
+        tMediumState mMediumState
+        <** @description : medium mount path. **>
+        String       mMountPath
+        <** @description : medium uri, can be used by openUri to start auto playback. **>
+        String       mDeviceUri
+        <** @description : medium browse path, can be used by listChildren. **>
+        String       mDeviceBrowsePath
+        <** @description : whether the medium support browsing operation, true: support, false: not support. **>
+        Boolean		 mBrowseAble
+		<** @description : device node in system. **>
+        String       mDeviceNode
+        <** @description : native device url which can be used by the backend. eg: cinemo's ddpUrl **>
+        String       mNativeUrl
+    }
+    
+    array tMediumInfoList of tMediumInfo
+    
+    <** @description : device items information. **>
+	struct tItemsInfo {
+		UInt32 		totalAudioItems
+		UInt32		totalVideoItems
+		UInt32 		totalImageItems
+	}
+
+    <** @description : remote player capability. **>
+    struct tRemotePlayerCapability {
+    	<** @description : whether the remote player support seek operation. **>
+    	Boolean 	supportPlay
+    	<** @description : whether the remote player support seek operation. **>
+    	Boolean 	supportPause
+    	<** @description : whether the remote player support seek operation. **>
+    	Boolean 	supportNext
+    	<** @description : whether the remote player support seek operation. **>
+    	Boolean 	sSupportPrevious
+    	<** @description : whether the remote player support fast forward operation. **>
+    	Boolean		supportFastForward
+    	<** @description : whether the remote player support fast rewind operation. **>
+    	Boolean		supportFastRewind
+    	<** @description : whether the remote player support repeat off operation. **>
+    	Boolean		supportRepeatOff
+    	<** @description : whether the remote player support repeat single operation. **>
+    	Boolean		supportRepeatSingle
+    	<** @description : whether the remote player support repeat all operation. **>
+    	Boolean		supportRepeatAll
+    	<** @description : whether the remote player support shuffle on operation. **>
+    	Boolean		supportShuffle
+    	<** @description : whether the remote player support shuffle off operation. **>
+    	Boolean		supportUnShuffle
+    	<** @description : whether the remote player support browsing operation. **>
+    	Boolean		supportBrowsing
+    }
+
+
+    <** @description : device firmware information. **>
+    struct tFirmwareInfo{
+    	<** @description : device firmware version. **>
+    	String 		firmware
+    	<** @description : device protocol version. **>
+    	String 		protocol 
+    	<** @description : device model number. **>
+    	String		modelNumber
+    }
+    
+    
+    <** @description : device hardware information. **>
+    struct tHardwareInfo {
+    	<** @description : user friend product name. **>
+    	String		productName
+    	<** @description : device serial number. **>
+    	String		serialNumber
+    	<** @description : device version number. **>
+    	String		versionNumber
+    	<** @description : device vendor id. **>
+    	String		vendorId 
+    	<** @description : device productId id. **>
+    	String		productId 
+    	<** @description : device manufacturer. **>
+    	String		manufacturer     	
+    	<** @description : device MAC address if exist. **>
+    	String		MAC
+    }
+    
+    
+    <** @description : error types, the caller should check this value to find out 
+                       whether this call success or not.
+        @author : John.Leng
+     **>    
+    enumeration tBaseError {
+		<** @description : no error. **>
+    	S_OK
+		<** @description : unknown error. **>
+    	E_UNKNOWN
+		<** @description : device unsupported. **>
+    	E_UNSUPPORTED
+		<** @description : resource busy. **>
+    	E_BUSY
+		<** @description : not enough memory. **>
+    	E_NOMEM
+		<** @description : bad parameters. **>
+    	E_INVALIDPARAMATERS
+		<** @description : wrong state. **>
+    	E_WRONGSTATE
+    	<** @description : file system unsupported. **>
+    	E_FSUNSUPPORTED
+    	<** @description : extra files have been skipped during sync. **>
+    	E_FILES_SKIPPED
+    }
+    
+    <** @description : different audio object types. **>
+    enumeration tAudioObjectType {
+    	PODCAST
+    	AUDIOBOOK
+    }
+}
+
+

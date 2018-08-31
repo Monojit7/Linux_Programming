@@ -1,0 +1,15 @@
+import fidl "intf/fidl/org/genivi/am/CommandInterface.fidl" 
+import fidl "intf/fidl/org/genivi/IVIRadio/Station.fidl"
+import fidl "intf/fidl/org/genivi/IVIRadio/Configuration.fidl"
+import fidl "intf/fidl/org/genivi/IVIRadio/AdditionalService.fidl"
+
+import fidl "intf/fidl/org/genivi/MediaManager/Browser.fidl"
+import fidl "intf/fidl/org/genivi/MediaManager/Indexer.fidl"
+import fidl "intf/fidl/org/genivi/MediaManager/Player.fidl"
+
+/* Just a placeholder to collect at Genivi interfaces */
+package genivi_interfaces 
+{
+	generator false
+	
+}

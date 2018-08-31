@@ -1,0 +1,165 @@
+/* 
+   Harman/Becker
+*/
+
+package org.harman.nav.ctrl.di
+
+import org.harman.nav.ctrl.CommonTypes.* from "../common/CommonTypes.fidl"
+
+typeCollection POIServiceTypesExt {   
+   
+   <** 
+      @description: Predefined IDs for common POI or category attributes.
+   **>
+
+   enumeration PredefinedPoiAttributeIDs {
+        POIATTR_INVALID                = "0x0000"
+        POIATTR_DISTANCE_2_DESTINATION = "0x0001" // <<* @description: UInt32, on-route distance in [m] from POI to destination **>
+        POIATTR_DISTANCE_2_POI         = "0x0002" // <<* @description: UInt32, on-route distance to POI in [m] **>
+        POIATTR_OFF_ROUTE_DISTANCE     = "0x0003" // <<* @description: UInt32, off route distance in [m] from route exit to POI **>
+        POIATTR_TRAVEL_TIME            = "0x0004" // <<* @description: UInt32, time to reach the POI in [s] **>
+        POIATTR_ROUTE_STATUS           = "0x0005" // <<* @description: UInt32, status of route (TBD) **>
+        POIATTR_NAME                   = "0x0006" // <<* @description: String, name of the POI **>
+        POIATTR_DESCRIPTION            = "0x0007" // <<* @description: String, description of the POI **>
+        POIATTR_ADDRESS                = "0x0008" // <<* @description: ADDRESS, address of POI **>
+        POIATTR_PHONE_NUMBER           = "0x0009" // <<* @description: String, Phone number of POI **>
+        POIATTR_URL                    = "0x000a" // <<* @description: String, web address of POI **>
+        POIATTR_OPEN247                = "0x000b" // <<* @description: Boolean, true if POI is open 24h every day  **>
+        POIATTR_ICON                   = "0x000c" // <<* @description: UInt32, icon of POI i.e. brand icon **>
+        POIATTR_POI_ID                 = "0x000d" // <<* @description: String, identifier for poi **>
+        POIATTR_CLICK_ID               = "0x000e" // <<* @description: String, identifier for online search **>
+        POIATTR_CATEGORY               = "0x000f" // <<* @description: UInt32, category ID **>
+		
+		POIATTR_STD_CATID              = "0x0070"
+		POIATTR_GEOPOSITION            = "0x0071"
+        POIATTR_COUNTRY                = "0x0072"
+        POIATTR_STATE                  = "0x0073"
+        POIATTR_CITY                   = "0x0074"
+        POIATTR_POSTALCODE             = "0x0075"
+        POIATTR_STREET                 = "0x0076"
+        POIATTR_HOUSE_NUMBER           = "0x0077"
+        POIATTR_JUNCTION               = "0x0078"
+
+        POIATTR_BRAND                  = "0x00a0" // <<* @description: String, brand name **>
+        POIATTR_AVAILABILITY           = "0x00a1" // <<* @description: UInt32, e.g. availability of parking or charging spot in [%] **>
+        POIATTR_PLUGTYPE               = "0x00a2" // <<* @description: String, type of plug for charging **>
+        POIATTR_FUELTYPE               = "0x00a3" // <<* @description: String, type of fuel **>
+        POIATTR_FUELPRICE              = "0x00a4" // <<* @description: UInt32, price of fuel in cent of local currency **>
+        POIATTR_CURRENCY               = "0x00a5" // <<* @description: String, type of fuel **>
+        POIATTR_STARRANKING            = "0x00a6" // <<* @description: String, hotel or restaurant star ranking **>
+        POIATTR_PRICERANGE             = "0x00a7" // <<* @description: String, price range **>
+        POIATTR_PREFERRED_PARTNER      = "0x00a8" // <<* @description: Boolean, special partnership **>
+        POIATTR_SPONSORED_LINK         = "0x00a9" // <<* @description: Boolean, advertisement **>
+        POIATTR_PARKING_TYPE           = "0x00b0" // <<* @description: UInt32, type of parking **>
+        POIATTR_PARKING_COST_DAY       = "0x00b1" // <<* @description: UInt32, daily parking cost **>
+        POIATTR_PARKING_COST_HOUR      = "0x00b2" // <<* @description: UInt32, parking cost for first hour **>
+        POIATTR_PARKING_COST_HOUR2     = "0x00b3" // <<* @description: UInt32, parking cost for following hour **>
+        POIATTR_PARKING_SLOTS          = "0x00b4" // <<* @description: UInt32, total number of parking slots **>
+        POIATTR_PARKING_SLOTS_FREE     = "0x00b5" // <<* @description: UInt32, number of available parking slots **>
+        POIATTR_PROVIDER_ID            = "0x00b6" // <<* @description: String, identifier of provider **>
+        POIATTR_PROVIDER_NAME          = "0x00b7" // <<* @description: String, name of data provider **>
+		
+		<** @description: attributes used to specify the search **>
+        POIATTR_SEARCH_MAX_RESULTS  = "0x0100"
+        POIATTR_SEARCH_MAX_CORRIDOR = "0x0101"
+        POIATTR_SEARCH_MAX_REALROAD = "0x0102"
+		POIATTR_SEARCH_AT_LEAST_ONE = "0x0103"
+    }
+	
+	<** @description: NDS predefined standard categories  **>
+	enumeration POIStandardCat {
+      POICAT_ACCESS_POINT 	   = "1"
+      POICAT_ACTIVATION_POINT 	= "2"
+      POICAT_LOGICAL_ACCESS_POINT 	= "3"
+      POICAT_GUIDANCE_POINT 	= "4"
+      POICAT_NDSGENERAL 	= "5"
+      POICAT_VEHICLE_REPAIR 	= "6"
+      POICAT_PETROL_STATION 	= "7"
+      POICAT_RENT_A_CAR 	= "8"
+      POICAT_CAR_WASH 	= "9"
+      POICAT_CAR_DEALERSHIP 	= "10"
+      POICAT_MOTORCYCLE_DEALERSHIP 	= "11"
+      POICAT_TRUCK_DEALERSHIP 	= "12"
+      POICAT_PARKING_GARAGE 	= "13"
+      POICAT_OPEN_PARKING 	= "14"
+      POICAT_REST_AREA 	= "15"
+      POICAT_ROAD_ASSISTANCE 	= "16"
+      POICAT_CAMPING 	= "17"
+      POICAT_CARAVAN_SITE 	= "18"
+      POICAT_COACH_AND_LORRY_PARKING 	= "19"
+      POICAT_MOTORING_ORG_OFFICE 	= "20"
+      POICAT_CAR_SHIPPING_TERMINAL 	= "21"
+      POICAT_HOTEL_MOTEL 	= "22"
+      POICAT_RESTAURANT 	= "23"
+      POICAT_FAST_FOOD 	= "24"
+      POICAT_COFFEE_SHOP 	= "25"
+      POICAT_BAR_OR_PUB 	= "26"
+      POICAT_CINEMA 	= "27"
+      POICAT_MUSEUM 	= "28"
+      POICAT_THEATRE 	= "29"
+      POICAT_LIBRARY 	= "30"
+      POICAT_HOSPITAL 	= "31"
+      POICAT_PHYSICIAN 	= "32"
+      POICAT_DENTIST 	= "33"
+      POICAT_PHARMACY 	= "34"
+      POICAT_VETERINARIAN_SERVICE 	= "35"
+      POICAT_POLICE_STATION 	= "36"
+      POICAT_POST_OFFICE 	= "37"
+      POICAT_CITY_HALL 	= "38"
+      POICAT_EMBASSY 	= "39"
+      POICAT_COURT_HOUSE 	= "40"
+      POICAT_GOVERNMENT_OFFICE 	= "41"
+      POICAT_COMMUNITY_CENTRE 	= "42"
+      POICAT_SHOPPING_CENTRE 	= "43"
+      POICAT_STORE 	= "44"
+      POICAT_BANK 	= "45"
+      POICAT_ATM 	= "46"
+      POICAT_CURRENCY_EXCHANGE 	= "47"
+      POICAT_TOURIST_OFFICE 	= "48"
+      POICAT_TRAVEL_AGENCY 	= "49"
+      POICAT_TOURIST_ATTRACTION 	= "50"
+      POICAT_HISTORICAL_MONUMENT 	= "51"
+      POICAT_NATIONAL_PARK 	= "52"
+      POICAT_CITY_CENTRE 	= "53"
+      POICAT_HAMLET 	= "54"
+      POICAT_ZOO 	= "55"
+      POICAT_AMUSEMENT_PARK 	= "56"
+      POICAT_GOINGOUT 	= "57"
+      POICAT_STADIUM 	= "58"
+      POICAT_SPORTS_CENTRE 	= "59"
+      POICAT_RECREATION 	= "60"
+      POICAT_SKI_RESORT 	= "61"
+      POICAT_SWIMMING_POOL 	= "62"
+      POICAT_GOLF_COURSE 	= "63"
+      POICAT_FERRY_TERMINAL 	= "64"
+      POICAT_MARINA 	= "65"
+      POICAT_HARBOUR 	= "66"
+      POICAT_BUSINESS_FACILITY 	= "67"
+      POICAT_EXIBITION_CONFERENCE_CENTRE 	= "68"
+      POICAT_RAILWAY_STATION 	= "69"
+      POICAT_PUBLIC_TRANSIT_STOP 	= "70"
+      POICAT_PARK_AND_RIDE 	= "71"
+      POICAT_AIRPORT 	= "72"
+      POICAT_AIRLINE_ACCESS 	= "73"
+      POICAT_TAXI_STAND 	= "74"
+      POICAT_EMERGENCY_CALL_STATION 	= "75"
+      POICAT_EMERGENCY_MEDICAL_SERVICE 	= "76"
+      POICAT_FIRST_AID_POST 	= "77"
+      POICAT_FIREBRIGADE 	= "78"
+      POICAT_PLACE_OF_WORSHIP 	= "79"
+      POICAT_EDUCATION 	= "80"
+      POICAT_CUSTOMS 	= "81"
+      POICAT_FRONTIER_CROSSING 	= "82"
+      POICAT_TOLL_LOCATION 	= "83"
+      POICAT_PUBLIC_RESTROOM 	= "84"
+      POICAT_PUBLIC_PHONE 	= "85"
+      POICAT_KINDERGARTEN 	= "86"
+      POICAT_MOUNTAIN_PASS_SUMMIT 	= "87"
+      POICAT_SPEED_CAMERA 	= "88"
+      POICAT_EVS_CHARGING_STATION 	= "89"
+      POICAT_CONTROLLED_ACCESS_INTERSECTION 	= "90"
+      POICAT_CONTROLLED_ACCESS_ENTRY_EXIT 	= "91"
+      POICAT_CONTROLLED_ACCESS_SMART_IC 	= "92"
+    }
+	
+}

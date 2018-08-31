@@ -1,0 +1,175 @@
+package com.harman.redbend
+<**
+@description: Collection of types used in context of Onlineservice for DBUpdate
+Enclosed you'll find some types used in context of OnlineServiceDBUpdate.fidl 
+interface definition. 
+As a main design principle, the OnlineServiceDBUpdate/ OnlineServiceDBUpdateTypes
+follow the idea that versioning and content of a OTA patch is transparent 
+for the client. This means a client fetches a textual information about available
+patches from online service. Based on the order of the information the 
+client can download a certain patch which then can be used to be applied 
+as a database update on the target system.
+ 
+
+Version 1.0 was published at July'15 after review-session with S.Bran (Toyota)
+  
+**>
+
+
+typeCollection OnlineServiceDBUpdateTypes {
+		version { major 1 minor 0 }
+	
+	
+	<** @description: typedef for session handle
+	**>
+	typedef Handle is UInt32
+	
+	<** @description: version description
+	**>			
+	struct Version {
+		<** @description : when the major changes, then backward compatibility with previous releases is not granted.**>
+		UInt16 versionMajor
+		<** @description : when the minor changes, then backward compatibility with previous releases is granted, but something changed in the implementation of the API (e.g. new methods may have been added).**>
+		UInt16 versionMinor
+		<** @description : when the micro changes, then backward compatibility with previous releases is granted (bug fixes or documentation modifications).**>
+		UInt16 versionMicro
+		<** @description : release date (e.g. 21-06-2011).**>
+		String date
+	}
+	
+	<** @description: an identifier created by online service in order
+	to reference a certain patch for a certain client. A TPatchId of 0 indicates
+	an invalid patchId. Unfortunately the france-language does not yet
+	support constants.
+	See SUpdatePatchInfo for further details 
+	
+	Please note:
+	TPatchId Constant_Invalid_PatchId = 0
+	**>
+	typedef TPatchId is UInt32
+	
+	<** @description: the status enumeration is send to the online service during
+	createDBUpdateOnlineSession. It is used to inform the online service about 
+	preceeding update scenarios. In general the ClientStatus Status_okay indicates
+	that in the previous lifecycle (acc-cycle) there was no update-procedure finished.
+	In contrast, Status_patch_successful indicates a patch was successfully applied while
+	Status_patch_failure informs the service about failure during patching and successful
+	rollback.
+	The status paramtere is always coupled with a patch-information. This patch-information
+	identifies the applied patch - exception in Status_okay, no patch information is given.
+	**> 
+	
+	enumeration ClientStatus
+	{
+		Status_okay
+		Status_patch_successful
+		Status_patch_failure
+	} 
+	
+	<**
+	  @description: textual description of a certain update  
+	  
+	  A client can use getUpdatePatchList to get all available 
+	  patches for his target-system. The online service provides
+	  a list of the struct SUpdatePatchInfo which is more or less
+	  a textual description of the patch. The struct contains three
+	  elements:
+	  id: the id is created by online service and is used by the service
+	  to identify a SUpdatePatchInfo.
+	  description: is a textual representation which is used to inform
+	  a user about the patch content/details (e.g. "Germany v13-1-2015 Q1")
+	  metainfo: generic buffer which might contain metainfo. The content 
+	  of this buffer based on agreement between concrete service-client 
+	   
+	 **>
+	struct SUpdatePatchInfo
+	{
+		<** @description: id created by backend to identify this
+		SUpdateRegionInfo (e.g. out of a list of SUpdateRegionPatchInfo) **>
+		TPatchId	id				 
+		<** @description: a textual description of the patch e.g. used to display in HMI **>										
+		String  	description		
+		<** @description: generic meta information **>
+		ByteBuffer 	metaInfo		
+	}
+	
+	
+	<** @description: a list of SUpdatePatchInfo structures **>
+	array TUpdatePatchInfoList of SUpdatePatchInfo
+	
+	<**
+	 @description: description of a DB as a product
+	  
+	  this structure is used to describe the database and its version
+	  and is provided by a client to an online service. The online 
+	  service uses the information to identify appropriate updates
+	  for the product. For the client, this information is transparent.
+	  The structure contains the following elements:
+	  metainfo: generic buffer which might contain metainfo. The content 
+	  of this buffer based on agreement between concrete service-client
+	  productinfo: is a generic, mandatory buffer of bytes which describes
+	  the database, its content and its version(s). The concrete content
+	  of the buffer depends on the agreements between online service
+	  and project.
+	 **>
+	struct SProductInfo
+	{
+		<** @description: generic meta information **>
+		ByteBuffer 	metaInfo		
+		<** @description: information about database, version and content of db **> 
+		ByteBuffer 	productInfo		
+		
+	}
+	
+	<** 
+	@description: information about the client which starts an online session
+	
+	The OnlineServiceDBUpdate interface is a session based interface. At the beginning
+	a client must request a session. This struct should allow an online service
+	to identify his associated client and to select appropriate updates. The
+	struct contains the following members:
+	updatelib: describes the version of the update lib that is used on client side
+	dbInfo
+	**> 
+	struct SClientInfo
+	{
+		<** @description: version of the updatelib used **>
+		Version updateLib
+		<** @description: product information of the DB **> 
+		SProductInfo dbInfo	
+	}
+	
+	<** @description: the client status is send to online service during the
+	createSession call. It give information about the current previous patching-operations
+	e.g. applying a certain patch. This information can be used by online service to
+	identify erroneous patch-files.
+	The ClientStatus parameter identifies the operation that was done in session
+	e.g. lifecycle (acc-cycle). If there was no patch applied, the status is Status_okay and
+	the TPatchId is pointing to an invalid patchId. If a patch was applied in previous session,
+	the status tells about the result of the patching process:
+	Status_patch_successful indicates a successful patch procedure
+	Status_patch_failure indicates a unsuccessful patch procedure and a rollback to previous DB
+	In both cases the TPatchId points to the patch that was applied in previous session (the
+	patchId was fetched by getUpdatePatchList as part of the SUpdatePatchInfo list).
+	
+	Please note: the status-parameter is always Status_okay only after the appliance of
+	a patch in previous session, the status-parameter migth be not Status_okay. In other words:
+	the success or failure of a patching process is notified only once!
+	) 
+	**>
+	struct SClientStatus
+	{
+		<** @description: status of the client describing previous patching operations
+		Status_okay: no patch was applied in previous session, patchId is Constant_Invalid_PatchId = 0
+		Status_patch_successful: patch was successfully applied, patchId points to corresponding id
+		Status_patch_failure: patching failed, rollback was done, patchId points to corresponding id
+		**>
+		ClientStatus status
+		<** @description: identification of patch which was fetched by using getUpdatePatchList request.
+		In case of Status_okay, the patchId is equal to Constant_Invalid_PatchId which indicates no
+		valid patch
+		**>
+		TPatchId	 patchId
+	}
+	
+}

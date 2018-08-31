@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DSI>
+<Name>org_harman_nav_ctrl_Simulation</Name>
+   <ID>2</ID>
+   <Extern>true</Extern>
+	<Version>
+      <Major>0</Major>
+      <Minor>1</Minor>
+   </Version>
+   <Includes>
+   
+   <Include>
+         <Name>api/nav/ctrl/pf/common/org_harman_nav_ctrl_CommonTypes.hbtd</Name>
+         
+         <Major>1</Major>
+         <Minor>0</Minor>
+   </Include>
+   <Include>
+         <Name>api/nav/ctrl/pf/pos/org_harman_nav_ctrl_PositioningTypes.hbtd</Name>
+         
+         <Major>1</Major>
+         <Minor>0</Minor>
+   </Include>
+   <Include>
+         <Name>api/nav/ctrl/pf/sim/org_harman_nav_ctrl_SimulationTypes.hbtd</Name>
+         
+         <Major>1</Major>
+         <Minor>0</Minor>
+   </Include>
+   </Includes>
+   
+
+
+   <DataTypes>
+   </DataTypes>
+	<Methods>
+			<Method>
+			
+			   <Name>setSimulationMode</Name>
+			   <ID>1001</ID>
+			         <Type>Request</Type>
+			  		   <Description>Activates or deactivates simulation mode</Description>
+			<Response>setSimulationMode</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setSimulationMode_R_activate</Name>
+			    		            <Description>activate = flag. TRUE means that the simulation mode is activated.</Description>
+			    		          <ID>3</ID>
+			    		<Type>bool</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setSimulationMode</Name>
+			<ID>2001</ID>
+			         <Type>Response</Type>
+			  		   <Description>Activates or deactivates simulation mode</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getSimulationStatus</Name>
+			   <ID>1002</ID>
+			         <Type>Request</Type>
+			  		   <Description>Retrieves the simulation status</Description>
+			<Response>getSimulationStatus</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getSimulationStatus</Name>
+			<ID>2002</ID>
+			         <Type>Response</Type>
+			  		   <Description>Retrieves the simulation status</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getSimulationStatus_simulationStatus</Name>
+			            <Description>simulationStatus = enum(SIMULATION_STATUS_NO_SIMULATION, SIMULATION_STATUS_RUNNING, SIMULATION_STATUS_PAUSED, SIMULATION_STATUS_FIXED_POSITION)</Description>
+			          <ID>7</ID>
+			<Type>org_harman_nav_ctrl_SimulationTypes::SimulationStatus</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setSimulationSpeed</Name>
+			   <ID>1003</ID>
+			         <Type>Request</Type>
+			  		   <Description>Sets the speed factor for the simulation mode</Description>
+			<Response>setSimulationSpeed</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setSimulationSpeed_R_speedFactor</Name>
+			    		            <Description>speedFactor = speed factor</Description>
+			    		          <ID>9</ID>
+			    		<Type>Int8</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setSimulationSpeed</Name>
+			<ID>2003</ID>
+			         <Type>Response</Type>
+			  		   <Description>Sets the speed factor for the simulation mode</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getSimulationSpeed</Name>
+			   <ID>1004</ID>
+			         <Type>Request</Type>
+			  		   <Description>Returns the speed factor for the simulation mode</Description>
+			<Response>getSimulationSpeed</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getSimulationSpeed</Name>
+			<ID>2004</ID>
+			         <Type>Response</Type>
+			  		   <Description>Returns the speed factor for the simulation mode</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getSimulationSpeed_speedFactor</Name>
+			            <Description>speedFactor = speed factor</Description>
+			          <ID>13</ID>
+			<Type>Int8</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>resumeSimulation</Name>
+			   <ID>1005</ID>
+			         <Type>Request</Type>
+			  		   <Description>Resumes a follow active route simulation</Description>
+			<Response>resumeSimulation</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>resumeSimulation</Name>
+			<ID>2005</ID>
+			         <Type>Response</Type>
+			  		   <Description>Resumes a follow active route simulation</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>pauseSimulation</Name>
+			   <ID>1006</ID>
+			         <Type>Request</Type>
+			  		   <Description>Freezes the current location</Description>
+			<Response>pauseSimulation</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>pauseSimulation</Name>
+			<ID>2006</ID>
+			         <Type>Response</Type>
+			  		   <Description>Freezes the current location</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setPosition</Name>
+			   <ID>1007</ID>
+			         <Type>Request</Type>
+			  		   <Description>Sets the position to a specific location</Description>
+			<Response>setPosition</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setPosition_R_position</Name>
+			    		            <Description></Description>
+			    		          <ID>19</ID>
+			    		<Type>org_harman_nav_ctrl_PositioningTypes::PositionItemDict</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setPosition</Name>
+			<ID>2007</ID>
+			         <Type>Response</Type>
+			  		   <Description>Sets the position to a specific location</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+               <Method>
+                  <Name>simulationStatusChanged</Name>
+                  <Description>Notification when the Simulation Status has changed</Description>
+         <ID>2008</ID>
+                  <Type>Information</Type>
+                  <Description>Notification when the Simulation Status has changed</Description>
+                  <Parameters>
+                          <Parameter>
+                              <Name>simulationStatusChanged_simulationStatus</Name>
+                              <Description>simulationStatus = enum(SIMULATION_STATUS_NO_SIMULATION, SIMULATION_STATUS_RUNNING, SIMULATION_STATUS_PAUSED, SIMULATION_STATUS_FIXED_POSITION)</Description>
+                            <ID>22</ID>
+                  <Type>org_harman_nav_ctrl_SimulationTypes::SimulationStatus</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                  </Parameters>
+               </Method>
+               <Method>
+                  <Name>simulationSpeedChanged</Name>
+                  <Description>Notification when the simulation speed factor has changed</Description>
+         <ID>2009</ID>
+                  <Type>Information</Type>
+                  <Description>Notification when the simulation speed factor has changed</Description>
+                  <Parameters>
+                          <Parameter>
+                              <Name>simulationSpeedChanged_speedFactor</Name>
+                              <Description>speedFactor = speed factor</Description>
+                            <ID>24</ID>
+                  <Type>Int8</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                  </Parameters>
+               </Method>
+</Methods>
+
+
+</DSI>
+

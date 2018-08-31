@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DSI>
+<Name>org_harman_nav_ctrl_di_POIContentAccessModule</Name>
+   <ID>2</ID>
+   <Extern>true</Extern>
+	<Version>
+      <Major>2</Major>
+      <Minor>0</Minor>
+   </Version>
+   <Includes>
+   
+   <Include>
+         <Name>api/nav/ctrl/pf/common/org_harman_nav_ctrl_CommonTypes.hbtd</Name>
+         <Major>1</Major>
+         <Minor>0</Minor>
+   </Include>
+   <Include>
+         <Name>api/nav/ctrl/pf/di/org_harman_nav_ctrl_di_POIServiceTypes.hbtd</Name>
+         <Major>1</Major>
+         <Minor>0</Minor>
+   </Include>
+   </Includes>
+   
+   
+
+
+
+   <DataTypes>
+          
+          
+
+<DataType>
+   <Name>THBVector_Coordinate3D_</Name>
+   <ID>2</ID>
+   <Description> array[struct(lat,lon,alt)].</Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_CommonTypes::Coordinate3D</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_CategoryAndRadius_</Name>
+   <ID>2</ID>
+   <Description> array[struct(id,radius)].</Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_di_POIServiceTypes::CategoryAndRadius</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_AttributeDetails_</Name>
+   <ID>2</ID>
+   <Description> array[struct(name, poiCategory, type, value, operator, mandatory)].</Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_di_POIServiceTypes::AttributeDetails</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_AttributeID_</Name>
+   <ID>2</ID>
+   <Description> List of attributes id to retrieve. This is optional and the list could be empty.</Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_di_POIServiceTypes::AttributeID</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_PoiCAMDetails_</Name>
+   <ID>2</ID>
+   <Description> array[struct(source_id, name, category, location, distance, attributes)].</Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_di_POIServiceTypes::PoiCAMDetails</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_POI_ID_</Name>
+   <ID>2</ID>
+   <Description> array[unique_poi_id].</Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_di_POIServiceTypes::POI_ID</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_SearchResultDetails_</Name>
+   <ID>2</ID>
+   <Description> array[(details, categories, attributes)] .</Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_di_POIServiceTypes::SearchResultDetails</BaseType>		   
+</DataType>
+   </DataTypes>
+	<Methods>
+			<Method>
+			
+			   <Name>getVersion</Name>
+			   <ID>1200</ID>
+			         <Type>Request</Type>
+			  		   <Description>This method returns the API version implemented by the content access module.</Description>
+			<Response>getVersion</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getVersion</Name>
+			<ID>2200</ID>
+			         <Type>Response</Type>
+			  		   <Description>This method returns the API version implemented by the content access module.</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getVersion_version</Name>
+			            <Description>.</Description>
+			          <ID>4</ID>
+			<Type>org_harman_nav_ctrl_CommonTypes::Version</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setLanguage</Name>
+			   <ID>1201</ID>
+			         <Type>Request</Type>
+			  		   <Description>Set the current language set for the search by poi provider module.
+			  		           The language defines the poi and categories name and details language. If the language is not supported, the default details will be returned in the native language.</Description>
+			<Response>setLanguage</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setLanguage_R_languageCode</Name>
+			    		            <Description>the language to be used.</Description>
+			    		          <ID>6</ID>
+			    		<Type>CHBString</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setLanguage_R_countryCode</Name>
+			    		            <Description>the country specific variant for the language to be used.</Description>
+			    		          <ID>7</ID>
+			    		<Type>CHBString</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setLanguage</Name>
+			<ID>2201</ID>
+			         <Type>Response</Type>
+			  		   <Description>Set the current language set for the search by poi provider module.
+			  		           The language defines the poi and categories name and details language. If the language is not supported, the default details will be returned in the native language.</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>poiSearchStarted</Name>
+			   <ID>1202</ID>
+			         <Type>Request</Type>
+			  		   <Description>This method is sent by the POI service component to inform all the CAM that a new POI search was started.
+			  		           It provides all the relevant search parameters. Of course the CAM will only be aware of the search if it registers one of the search categories.</Description>
+			<Response>poiSearchStarted</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>poiSearchStarted_R_poiSearchHandle</Name>
+			    		            <Description>poi search unique handle. It must be used by the CAM to send the list of results to the component.</Description>
+			    		          <ID>10</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>poiSearchStarted_R_maxSize</Name>
+			    		            <Description>max size of the results list.</Description>
+			    		          <ID>11</ID>
+			    		<Type>UInt16</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>poiSearchStarted_R_locations</Name>
+			    		            <Description>array[struct(lat,lon,alt)].</Description>
+			    		          <ID>12</ID>
+			    		<Type>THBVector_Coordinate3D_</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>poiSearchStarted_R_poiCategories</Name>
+			    		            <Description>array[struct(id,radius)].</Description>
+			    		          <ID>13</ID>
+			    		<Type>THBVector_CategoryAndRadius_</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>poiSearchStarted_R_poiAttributes</Name>
+			    		            <Description>array[struct(name, poiCategory, type, value, operator, mandatory)].</Description>
+			    		          <ID>14</ID>
+			    		<Type>THBVector_AttributeDetails_</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>poiSearchStarted_R_inputString</Name>
+			    		            <Description>contains the name of the poi that is searched. It could be a partial name or an empty string.</Description>
+			    		          <ID>15</ID>
+			    		<Type>CHBString</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>poiSearchStarted_R_sortOption</Name>
+			    		            <Description>enum(SORT_DEFAULT,SORT_BY_DISTANCE,SORT_BY_TIME,ATTRIBUTE_CUSTOM, ... )
+			    		                        If more than one category was defined for this search, the sort criteria should be compliant with all categories.</Description>
+			    		          <ID>16</ID>
+			    		<Type>UInt16</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>poiSearchStarted</Name>
+			<ID>2202</ID>
+			         <Type>Response</Type>
+			  		   <Description>This method is sent by the POI service component to inform all the CAM that a new POI search was started.
+			  		           It provides all the relevant search parameters. Of course the CAM will only be aware of the search if it registers one of the search categories.</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>poiSearchCanceled</Name>
+			   <ID>1203</ID>
+			         <Type>Request</Type>
+			  		   <Description>This method cancels the search for the current id.</Description>
+			<Response>poiSearchCanceled</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>poiSearchCanceled_R_poiSearchHandle</Name>
+			    		            <Description>poi search unique handle.</Description>
+			    		          <ID>19</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>poiSearchCanceled</Name>
+			<ID>2203</ID>
+			         <Type>Response</Type>
+			  		   <Description>This method cancels the search for the current id.</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>resultListRequested</Name>
+			   <ID>1204</ID>
+			         <Type>Request</Type>
+			  		   <Description>This method provides the poi results list found by the CAM.
+			  		           As the POI unique id is managed by the POI component, the CAM only provides the POI name, the category and coordinates as well as all the relevant detailed information.</Description>
+			<Response>resultListRequested</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>resultListRequested_R_camId</Name>
+			    		            <Description>Content access module unique id as known by the POI service component.</Description>
+			    		          <ID>22</ID>
+			    		<Type>UInt8</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>resultListRequested_R_poiSearchHandle</Name>
+			    		            <Description>poi search unique handle.</Description>
+			    		          <ID>23</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>resultListRequested_R_attributes</Name>
+			    		            <Description>List of attributes id to retrieve. This is optional and the list could be empty.</Description>
+			    		          <ID>24</ID>
+			    		<Type>THBVector_AttributeID_</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>resultListRequested</Name>
+			<ID>2204</ID>
+			         <Type>Response</Type>
+			  		   <Description>This method provides the poi results list found by the CAM.
+			  		           As the POI unique id is managed by the POI component, the CAM only provides the POI name, the category and coordinates as well as all the relevant detailed information.</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>resultListRequested_statusValue</Name>
+			            <Description>enum(INVALID,NOT_STARTED,SEARCHING,FINISHED, ... ).</Description>
+			          <ID>26</ID>
+			<Type>UInt16</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			        <Parameter>
+			            <Name>resultListRequested_resultListSize</Name>
+			            <Description>Number of items of the results list.</Description>
+			          <ID>27</ID>
+			<Type>UInt16</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			        <Parameter>
+			            <Name>resultListRequested_resultList</Name>
+			            <Description>array[struct(source_id, name, category, location, distance, attributes)].</Description>
+			          <ID>28</ID>
+			<Type>THBVector_PoiCAMDetails_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>poiDetailsRequested</Name>
+			   <ID>1205</ID>
+			         <Type>Request</Type>
+			  		   <Description>This method retrieves the details associated to one or more POI.
+			  		           It contains the name, the parent categories, the list of attributes, the icons, ... .</Description>
+			<Response>poiDetailsRequested</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>poiDetailsRequested_R_source_id</Name>
+			    		            <Description>array[unique_poi_id].</Description>
+			    		          <ID>30</ID>
+			    		<Type>THBVector_POI_ID_</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>poiDetailsRequested</Name>
+			<ID>2205</ID>
+			         <Type>Response</Type>
+			  		   <Description>This method retrieves the details associated to one or more POI.
+			  		           It contains the name, the parent categories, the list of attributes, the icons, ... .</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>poiDetailsRequested_results</Name>
+			            <Description>array[(details, categories, attributes)] .</Description>
+			          <ID>32</ID>
+			<Type>THBVector_SearchResultDetails_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+               <Method>
+                  <Name>searchStatus</Name>
+                  <Description>This signal updates the search or proximity alert status of the specified handle.</Description>
+         <ID>2300</ID>
+                  <Type>Information</Type>
+                  <Description>This signal updates the search or proximity alert status of the specified handle.</Description>
+                  <Parameters>
+                          <Parameter>
+                              <Name>searchStatus_poiSearchHandle</Name>
+                              <Description>poi search unique handle.</Description>
+                            <ID>34</ID>
+                  <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                          <Parameter>
+                              <Name>searchStatus_statusValue</Name>
+                              <Description>enum(INVALID,NOT_STARTED,SEARCHING,FINISHED, ... ).</Description>
+                            <ID>35</ID>
+                  <Type>org_harman_nav_ctrl_di_POIServiceTypes::SearchStatusState</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                          <Parameter>
+                              <Name>searchStatus_resultListSize</Name>
+                              <Description>Number of items of the results list.</Description>
+                            <ID>36</ID>
+                  <Type>UInt16</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                  </Parameters>
+               </Method>
+</Methods>
+
+
+</DSI>
+

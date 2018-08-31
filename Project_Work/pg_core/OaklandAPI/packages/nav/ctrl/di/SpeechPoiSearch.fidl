@@ -1,0 +1,103 @@
+/* 
+SPDX-License-Identifier: MPL-2.0
+Copyright (C) 2015, Harman-Becker Automotive Systems GmbH
+This Source Code Form is subject to the terms of the
+Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with
+this file, you can obtain one at http://mozilla.org/MPL/2.0/.
+*/
+
+package org.harman.nav.ctrl.di
+
+import org.harman.nav.ctrl.CommonTypes.* from "../common/CommonTypes.fidl"
+import org.harman.nav.ctrl.di.POIServiceTypes.* from "POIServiceTypes.fidl"
+import org.harman.nav.ctrl.di.POISearch.* from "POISearch.fidl"
+import org.harman.nav.ctrl.di.SpeechLocationInputTypes.* from "SpeechLocationInputTypes.fidl"
+
+<**
+	@description : SpeechPoiSearch = This interface offers functions that implement the speech POI search functionality of a navigation system
+**>
+interface SpeechPoiSearch extends org.harman.nav.ctrl.di.POISearch {
+
+	version {
+		major 0
+		minor 1
+	}
+	
+	<**
+        @description : Get the available modes for speech input, i.e. language and mode (oneshot,fullword,spelling).
+    **>
+	method getSpeechInputModes {
+    	in {
+			<**
+                @description : ALL_CATEGORIES is the root categoryId.
+            **>
+			CategoryID 		categoryId
+			
+			<**
+                @description : Language for which the speech input should be performed.
+            **>
+    		Locales			languageCode
+    	}
+    	out {
+    		<**
+                @description : List of available modes for speech input.
+            **>
+    		SpeechMode [] availableInputModes
+    	}
+		error {
+			SpeechInputError
+		}
+	}
+	
+	<**
+		@description : Returns the associated speech information file according to the selected search result identifier. 
+					The provided file needs to be removed by the user (if generated on-the-fly).
+	**>
+	method getCategoriesSpeechInfoList {
+		in {
+			<**
+                @description : ALL_CATEGORIES is the root categoryId.
+            **>
+			CategoryID 		categoryId
+		
+    		<**
+                @description : Mode for speech input.
+            **>
+    		SpeechMode 	inputMode
+		}
+		out {
+    		<**
+                @description : Path to the file containing the list of entries.
+            **>
+    		String pathToListFile
+    	}
+		error {
+			SpeechInputError
+		}
+	}
+	
+	<**
+        @description : 	Retrieves the orthographies and phonemes to the index entries. The result is returned as an SDS file to give the system the possibility to display the name and prompt the phonemes. To safe space compressed SDS files do not include the orthographical name of an entry.
+    **>
+	method getCategoriesSpeechOrthographies {
+    	in {
+    		<**
+                @description : Every entry in the compressed SDS file has a unique id (entryId). With this entryId the engine can find the orthographical name and phoneme for an entry.
+            **>
+    		EntryId []		entryIdSet
+    		<**
+                @description : SDS language code.
+            **>
+    		Locales		voiceLocale
+    	}
+    	out {
+    		<**
+                @description : Path to the file containing the list of entries.
+            **>
+    		String pathToListFile
+    	}
+		error {
+			SpeechInputError
+		}
+	}
+}

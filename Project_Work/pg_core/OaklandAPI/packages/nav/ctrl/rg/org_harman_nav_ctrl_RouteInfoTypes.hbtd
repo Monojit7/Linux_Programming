@@ -1,0 +1,172 @@
+
+
+<DSI>
+   <Name>org_harman_nav_ctrl_RouteInfoTypes</Name>
+   <ID>1</ID>   
+   <Extern>true</Extern>
+   <Version>
+     <Major>1</Major>
+     <Minor>0</Minor>
+   </Version>
+   <Includes>
+   <Include>
+         <Name>api/nav/ctrl/pf/common/org_harman_nav_ctrl_CommonTypes.hbtd</Name>
+<Major>1</Major>
+<Minor>0</Minor>
+         
+   </Include>
+   <Include>
+         <Name>api/nav/ctrl/pf/common/list/org_harman_nav_ctrl_common_list_ListTypes.hbtd</Name>
+<Major>1</Major>
+<Minor>0</Minor>
+         
+   </Include>
+   <Include>
+         <Name>api/nav/ctrl/pf/rg/org_harman_nav_ctrl_GuidanceTypes.hbtd</Name>
+<Major>1</Major>
+<Minor>2</Minor>
+         
+   </Include>
+   <Include>
+         <Name>api/nav/ctrl/pf/pos/org_harman_nav_ctrl_PositioningTypes.hbtd</Name>
+<Major>1</Major>
+<Minor>2</Minor>
+         
+   </Include>
+   <Include>
+         <Name>api/nav/ctrl/pf/configuration/org_harman_nav_ctrl_configuration_ConfigurationTypes.hbtd</Name>
+<Major>1</Major>
+<Minor>0</Minor>
+         
+   </Include>
+   <Include>
+         <Name>api/nav/ctrl/pf/memory/org_harman_nav_ctrl_memory_LocationMemoryTypes.hbtd</Name>
+<Major>3</Major>
+<Minor>4</Minor>
+         
+   </Include>
+   <Include>
+         <Name>api/nav/ctrl/pf/di/org_harman_nav_ctrl_di_LocationInputTypes.hbtd</Name>
+<Major>2</Major>
+<Minor>2</Minor>
+         
+   </Include>
+   <Include>
+         <Name>api/nav/ctrl/pf/di/org_harman_nav_ctrl_di_POIServiceTypes.hbtd</Name>
+<Major>1</Major>
+<Minor>0</Minor>
+         
+   </Include>
+   <Include>
+         <Name>api/nav/ctrl/pf/rg/org_harman_nav_ctrl_RoutingTypes.hbtd</Name>
+<Major>1</Major>
+<Minor>0</Minor>
+         
+   </Include>
+   </Includes>
+   <Enums>
+    <Enum>
+      <Name>RouteInfoError</Name>
+      <Description></Description>
+      <ID>2</ID>
+      <Description></Description>
+      <EnumIDs>
+      <EnumID>
+         <Name>RouteInfoError_ListError_INVALID_LIST_ID</Name>
+         <ID>3</ID>
+         <Description>occurs if the list id was invalid.</Description>
+      </EnumID>
+      <EnumID>
+         <Name>RouteInfoError_ListError_INVALID_VIEW</Name>
+         <ID>4</ID>
+         <Description>view identification used to distinguish several instances of a view for one client. It is never changed by the service nor the client.</Description>
+      </EnumID>
+      <EnumID>
+         <Name>RouteInfoError_ListError_INVALID_PARAMETER</Name>
+         <ID>5</ID>
+         <Description>occurs if one of the provided parameters was not acceptable.</Description>
+      </EnumID>
+      <EnumID>
+         <Name>RouteInfoError_ListError_SIZE_LIMIT_EXCEEDED</Name>
+         <ID>6</ID>
+         <Description>occurs if the implementation can not provide such large views.</Description>
+      </EnumID>
+      <EnumID>
+         <Name>RouteInfoError_ListError_OUT_OF_RESSOURCES</Name>
+         <ID>7</ID>
+         <Description>occurs if there are not enough resources available to create another view (e.g. memory).</Description>
+      </EnumID>
+      <EnumID>
+         <Name>RouteInfoError_ListError_OUT_OF_RANGE_POSITION</Name>
+         <ID>8</ID>
+         <Description>occurs if there is request a position which is not available</Description>
+      </EnumID>
+      <EnumID>
+         <Name>RouteInfoError_ListError_POLICY_DENIED</Name>
+         <ID>9</ID>
+         <Description>Some policy could not be executed.</Description>
+      </EnumID>
+         <EnumID>
+            <Name>RouteInfoError_ITEM_NOT_FOUND</Name>
+            <ID>10</ID>
+            <Description></Description>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+   </Enums>
+   <DataTypes>
+       <DataType>
+          <Name>SegmentItem</Name>
+          <ID>11</ID>
+          <Description></Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>length</Name>
+   	        <Description>Length in meters.</Description>
+               <ID>12</ID>
+   <Type>org_harman_nav_ctrl_CommonTypes::Distance</Type>
+               <Description>Length in meters.</Description>
+            </Field>
+            <Field>
+               <Name>description</Name>
+   	        <Description>Name of segment.</Description>
+               <ID>13</ID>
+   <Type>CHBString</Type>
+               <Description>Name of segment.</Description>
+            </Field>
+         </Fields>
+      </DataType>
+   <DataType>
+      <Name>SegmentItems</Name>
+      <ID>14</ID>
+      <Description></Description>	  	
+      <Kind>Typedef</Kind>
+      <Container>THBVector</Container>
+     <BaseType>SegmentItem</BaseType>
+   </DataType>
+       <DataType>
+          <Name>SegmentDetails</Name>
+          <ID>15</ID>
+          <Description></Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>posStart</Name>
+   	        <Description></Description>
+               <ID>16</ID>
+   <Type>org_harman_nav_ctrl_CommonTypes::Coordinate3D</Type>
+               <Description></Description>
+            </Field>
+            <Field>
+               <Name>posEnd</Name>
+   	        <Description></Description>
+               <ID>17</ID>
+   <Type>org_harman_nav_ctrl_CommonTypes::Coordinate3D</Type>
+               <Description></Description>
+            </Field>
+         </Fields>
+      </DataType>
+	    
+   </DataTypes>
+</DSI>

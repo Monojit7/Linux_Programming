@@ -1,0 +1,164 @@
+import "Guidance.fidl"
+import "../di/POIServiceTypes.fdepl"
+import "../di/LocationInputTypes.fdepl"
+import "../some_ip.fdepl"
+import "GuidanceTypes.fdepl"
+import "../common/list/ListTypes.fdepl"
+import "../configuration/ConfigurationTypes.fdepl"
+import "../memory/LocationMemoryTypes.fdepl"
+import "../traffic/TrafficInformationTypes.fdepl"
+import "../pos/PositioningTypes.fdepl"
+import "../common/CommonTypes.fdepl"
+
+define someip.franca.SOMEIP_Deployment for interface
+org.harman.nav.ctrl.Guidance {
+	use org.harman.nav.ctrl.di.POIServiceTypes use
+	org.harman.nav.ctrl.di.LocationInputTypes use
+	org.harman.nav.ctrl.GuidanceTypes use
+	org.harman.nav.ctrl.common.list.ListTypes use
+	org.harman.nav.ctrl.configuration.ConfigurationTypes use
+	org.harman.nav.ctrl.memory.LocationMemoryTypes use
+	org.harman.nav.ctrl.traffic.TrafficInformationTypes use
+	org.harman.nav.ctrl.PositioningTypes use org.harman.nav.ctrl.CommonTypes
+	ServiceID = 5000
+
+	attribute waypoints {
+		NMethodID = 100
+		NInEventGroups = {
+			0
+		}
+	}
+   
+	method startGuidance {
+		MMethodID = 200
+	}
+
+	method stopGuidance {
+		MMethodID = 201
+	}
+
+	method setVoiceGuidance {
+		MMethodID = 202
+	}
+
+	method getGuidanceDetails {
+		MMethodID = 203
+	}
+
+	method playVoiceManeuver {
+		MMethodID = 204
+	}
+
+	method getWaypointInformation {
+		MMethodID = 205
+	}
+
+	method getDestinationInformation {
+		MMethodID = 206
+	}
+
+	method getManeuversList {
+		MMethodID = 207
+	}
+
+	method setRouteCalculationMode {
+		MMethodID = 208
+	}
+
+	method skipNextManeuver {
+		MMethodID = 209
+	}
+
+	method getGuidanceStatus {
+		MMethodID = 210
+	}
+
+	method setVoiceGuidanceSettings {
+		MMethodID = 211
+	}
+
+	method getVoiceGuidanceSettings {
+		MMethodID = 212
+	}
+
+	method pauseGuidance {
+		MMethodID = 213
+	}
+
+	method resumeGuidance {
+		MMethodID = 214
+	}
+
+	method selectAlternativeTIRoute {
+		MMethodID = 215
+	}
+
+	broadcast vehicleLeftTheRoadNetwork {
+		BMethodID = 300
+	}
+
+	broadcast guidanceStatusChanged {
+		BMethodID = 301
+	}
+
+	broadcast waypointReached {
+		BMethodID = 302
+	}
+
+	broadcast maneuverChanged {
+		BMethodID = 303
+	}
+
+	broadcast positionOnRouteChanged {
+		BMethodID = 304
+	}
+
+	broadcast vehicleLeftTheRoute {
+		BMethodID = 305
+	}
+
+	broadcast positionToRouteChanged {
+		BMethodID = 306
+	}
+
+	broadcast activeRouteChanged {
+		BMethodID = 307
+	}
+
+	broadcast guidancePaused {
+		BMethodID = 308
+	}
+
+	broadcast guidanceResumed {
+		BMethodID = 309
+	}
+
+	broadcast alternativeTIRouteAvailable {
+		BMethodID = 310
+	}
+
+	broadcast alternativeTIRouteInvalidated {
+		BMethodID = 311
+	}
+
+	broadcast maneuverAvailable {
+		BMethodID = 312
+	}
+
+	broadcast maneuverPhaseChanged {
+		BMethodID = 313
+	}
+
+	broadcast maneuverTravelCostsChanged {
+		BMethodID = 314
+	}
+
+	broadcast waypointTravelCostsChanged {
+		BMethodID = 315
+	}
+
+	broadcast laneGuidanceChanged {
+		BMethodID = 316
+	}
+   
+}

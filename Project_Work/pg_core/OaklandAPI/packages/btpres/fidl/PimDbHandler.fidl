@@ -1,0 +1,384 @@
+package com.harman.btpres
+import com.harman.btpres.BTPresTypes.* from "BluetoothTypes.fidl"
+ 
+ interface PimDbHandler
+ {
+ 	
+     version { major 1 minor 0}
+     
+    <** @description: formattedNameOrder is sorted name order, which can be set from HMI   
+    **>
+     attribute eContactNameOredr contactNameOrder readonly
+    
+    <** @description: DeviceList will contain list of paired device and their syncstatus 
+    **>
+     attribute pimPropertiesList DeviceList readonly
+ 
+ 
+/********************************************************************************* Browsing Features **************************************************************************************/
+   <** @description: Opens a session for the client communication. This session will be used internally to uniquely identify a client, and to maintain client specific caches.
+                     The client need not create a new session for every request, this is rather used to identify different instances of clients.   
+                     
+       returns: sessionID: Session identifier allocated to the client.  
+   **>
+   method openSession 
+   {
+     in {
+          String inAddress 	
+     }
+
+     out {
+           UInt8 sessionID
+           eErrorType ErrorCode
+     }
+   }
+	
+   <** @description: Close a client session and release all associated resources. 
+					     
+       @param: sessionID: The Session ID to close.   
+   **>	
+   method closeSession 
+   {
+     in {
+          UInt8 sessionID
+     }
+		
+     out {
+           eErrorType ErrorCode
+     }
+   }
+	
+   <** @description: Sets a session query. This api handles all requests to fetch Phonebook results, database searches, etc. 
+                     As an example. If the HMI wanted to fetch a list of all contacts. The filterID's' and filter's' will be empty, and the result type would be set to Required field list. 
+	 
+       @param: filterIDs: The previously communicated numeric identifiers of the different filter categories. 
+       @param: filters: The string filters which should be applied to the result. 
+       @param: resultType: The data which is expected from the query. 					     
+       @param: sessionID: Session ID obtained from OpenSession. 
+       @param: databaseType: Related database for this sessionquery.
+       @param: RequiredField: List of required field , if default is set browsing item will be sent with default avlues based on config
+       @param: resetPrevious: Whether to use old history or not.If true treat this as a new session query, do not use any old selection history.
+       @param: AutoUpdateEnabled: This is applicable for result sets which might update dynamically,Call stack or Fav list
+          							 
+       returns: numResults: The number of records matching the search criteria.
+       returns: SessionQueryID:The sessionQueryID allotted.This uniquely identifies a particular session query/filter for retrieving data in a session and it has to be passed 
+                                for furthur setting the sessionQuery window and retrieving the contents of that window.
+   **>		
+   method setSessionQuery 
+   {
+     in {
+          UInt8 sessionID		 
+          eDatabaseType databaseType	
+          phonebookResultMap filterIDs 
+          FilterMap filters	
+          requiredFieldMap RequiredField
+          Boolean resetPrevious
+          Boolean AutoUpdateEnabled
+          Boolean AlphaJumpTable
+     }
+	
+     out {
+           eErrorType errorCode
+           UInt32 numResults
+           UInt8 sessionQueryID
+           UInt8 unreadCount
+           alphaJumpList alphaList
+     }	
+   }
+	
+   <** @description: Will only be posted to the respective listeners if the session query parameters have changed. 
+                     For example, for  Calllist and SMS can be changed dynamically based on new SMS or new Call Stack.  Will be published 
+                     only if auto update was enabled when setting the query. 
+	      
+       @param: sessionID: The Session ID alloted.
+       @param: sessionQueryID: Allocated session queruy ID
+       @param: numResults: Total number of result
+       @param: unreadCount: This will be sent updated for unread SMS count and unread missed call count
+   **>	
+   broadcast sessionQueryUpdate selective
+   {
+     out {
+           UInt8 sessionID
+           UInt8 sessionQueryID
+           UInt16 numResults
+           UInt8 unreadCount
+           alphaJumpList alphaList
+     }
+   }
+	
+   <** @description: Essentially re-initializes a session and stops all background tasks. 
+	      
+       @param: sessionID: The Session ID alloted.
+   **>	
+   method cancelSessionQuery 
+   {
+     in {
+          UInt8 sessionID
+        }
+
+     out {
+           eErrorType errorCode
+     }	
+   }
+		
+   <** @description: Ask presentation control to fetch the desired set of entries for a particular session query. This call does not block for the result to complete, and will override
+                     the last request given to Pres Ctrl. 
+	 		     
+       @param: sessionID: The Session ID alloted.
+       @param: sessionQueryID: The sessionQueryID allotted.This uniquely identifies a particular session query/filter for retrieving data in a session and it has to be passed 
+                               for furthur setting the sessionQuery window and retrieving the contents of that window.
+       @param: startIndex: The index to start fetching.  
+       @param: numItems: The number of items to fetch.     
+         
+       returns: windowID: A unique identifier for the client to track data responses to the queries. 
+   **>	
+   method setSessionQueryWindow
+   {
+     in {
+          UInt8 sessionID
+          UInt8 sessionQueryID
+          UInt16 startIndex
+          UInt8 numItems
+     }
+     out {
+           eErrorType errorCode
+     }
+   }
+	
+   <** @description: Publishes the query status to all clients. The client can get the data once the query is "finished"
+   **>	
+   broadcast sessionQueryWindowUpdate selective 
+   {
+     out {
+           UInt8 sessionID
+           UInt8 sessionQueryID
+           UInt16 startIndex
+           UInt8 numItems
+           phonebook phonebookList
+     }
+   }
+	
+   <** @description: Publishes only when session is closed due to device disconnect or client request
+   **>	
+   broadcast sessionClosed selective 
+   {
+     out {
+           UInt8 sessionID
+           UInt8 sessionQueryID
+           eErrorType errorCode
+     }
+   }
+	
+
+ /********************************************************************************* Browsing Features Ends*********************************************************************************** */
+
+ /*********************************************************************************** General features *************************************************************************************/           
+
+   <** @description: This method is used for inserting contacts to Favourite list 
+                     Hence the only acceptable value for "database" parameter is "ab".
+
+       @param: inAddress: BD Address of Device
+       @param: databaseType: Different database of Pim, Only Fav is allowed
+       @param: requestID: Different type of user initiated DB operation
+       @param: itemDetails: This list is a union of contactID list, NewPhonebook entry, SMSTemplateID list, SMStemplate
+	 		     
+       returns: This method returns errorcode
+   **>    
+   method dbOperation 
+   {
+     in {
+          String inAddress
+          eDatabaseType databaseType
+          eDbOperationId requestID
+          InsertItems itemDetails 
+        }
+        
+     out {
+           eErrorType errorCode    
+         }
+   }
+               
+   <** @description: This API can be used to get Contact Name by contactID
+       
+       @param: inAddress: BD Address of Device
+       @param: databaseType: Different database of Pim.Currently only available for "pb" or "ab"
+       @param: contactID: contactID for which contact details should be extracted
+       @param: fieldList: Required filedlist using bit masking ()
+	 		     
+       returns:	    phonebookEntry which will contain all the field 
+   **>       
+   method getContactsByID 
+   {
+     in {
+          String inAddress
+          eDatabaseType databaseType
+          UInt16 contactID
+          phonebookResultMap FieldList
+     }
+          
+     out {
+           eErrorType errorCode
+           phonebookEntry detailedContact
+     }
+   }
+  
+   <** @description: This API is used to get the full details of the SMS; this takes a unique id as input, which is received from the signal
+       
+       @param: inAddress: BD Address of Device
+       @param: smsId: Unique id for SMS that is returned as part of the signal (multiple uid’s can be sent, separated)
+	 		     
+       returns: This method returns SMS entry
+   **>           
+   method getSMSById 
+   {
+     in {
+          String inAddress
+          Int64  smsId   
+     }
+        
+     out {
+           eErrorType errorCode
+           smsentry sms
+     }
+   }
+        
+   <** @description: This API can be used to get the following details on either phonebook 
+                     1.	The next valid characters mask that match the input string.
+                     2.	The count of the names that matched the input string.
+                     3.	The index of the first match of the input string sorted by givenName column. (This index can be used in getItems API to query for the details but the same sort criteria need to be applied).
+       
+	   @param:       inAddress: BD Address of Device
+       @param:       databaseType: Different database of Pim. Currently only available for Pb or ab
+       @param:       inputName: String to be searched
+       @param:       sortOrder: ascending or descending
+       @param:       condition: either or all based on notnullcolumnList 
+       	 		     
+       returns:      contactsCount:The count of the names that matched the input string.
+       returns:      index:The index of the first match of the input string sorted by formattedName column.
+       returns:      charactersMask:The next valid characters mask that match the input string.
+       returns:      firstMatch:The “formattedName” of the first matched contact
+   **>         
+   method getNextValidCharacters 
+   {
+     in {
+          String inAddress
+          eDatabaseType databaseType
+          String inputName
+          String sortOrder
+          String condition   
+     }
+             
+     out {
+            eErrorType errorCode
+            UInt16 contactsCount
+            UInt16 index                 
+            String charactersMask         
+            String firstMatch             
+     }
+   }
+
+   <** @description: This API is used to send the SMS to the destined number.
+      
+       @param: inAddress: BD Address of Device
+       @param: destinationNumber: This indicates destination number of the SMS
+       @param: smsBody: Describes the body of SMS to be sent
+	 		     
+       returns:	This methods return success or failure
+       returns: contactName: Contact Name to which SMS is sent 
+   **>    
+   method sendSMSByTemplateID 
+   {
+     in {
+          String inAddress
+          String destinationNumber
+          UInt8  TemplateID
+          String smsBody
+     }
+        
+     out {
+           eErrorType errorCode
+           String contactName
+     }
+   }
+   
+   <** @description: This API is used to set the status of a sms (as READ/UNREAD).
+
+       @param: inAddress: BD Address of Device
+       @param: smsId: Unique sms identifier
+       @param: read_status: The status value that needs to be set. The valid values are “READ” or “UNREAD”
+	 		     
+       returns: This method returns errorcode
+   **>    
+   method setSMSReadStatus 
+   {
+     in {
+          String inAddress
+          Int64  smsId
+          Boolean sms_read_status
+     }
+        
+     out {
+           eErrorType errorCode
+     }
+   }
+   
+   <**	@description : This method is used to set the sorted name order.
+		@param: inAddress: BD Address of Device (Considered only if project support device specific sorting order)
+		@param: contact Name order 
+	**>
+	method setFormattedNameOrder 
+	{
+		in {
+		   String inAddress
+		   eContactNameOredr contactNameOrder	
+		}
+		out{
+		   eErrorType errorCode
+		   }
+	}
+            
+   <** @description: This signal will be sent when a new missed call notification is received (after the phone is connected to Head Unit).
+   	
+   	 @param: inAddress: BD Address of Device
+   	 @param: number: Missed call number of latest missed call
+       @param: name: formatted Name of the contact
+       @param: unreadCount: This is the current count of unread-missed call. 	 		     
+   **>	
+   broadcast unreadMissedCall
+   {
+     out {
+           String inAddress 
+           String number 
+           String name 
+           UInt8  unreadCount           
+     }
+   }
+   
+   <** @description: This signal will be sent when a newCallList is available, after a call.
+   	
+       @param: inAddress: BD Address of Device
+       @param: newCallStackEntry : New call stack entry		 		     
+   **>		
+   broadcast newCallList 
+   {
+     out {
+           String inAddress 
+           callstackEntry newCallStackEntry          
+     }   
+   }
+    
+   <** @description: This signal will be emitted , when send sms is invoked : sent & delivered (success or failure)
+   		
+       @param: inAddress: BD Address of Device
+       @param:	smsId: smsID of the sent SMS
+       @param: notification: Status of the sent SMS 	 		     
+   **>	
+   broadcast SMSNotification
+   {
+     out {
+	        String inAddress             
+           Int64  smsId                
+           eMsgNotification notification
+     }
+   }
+ }

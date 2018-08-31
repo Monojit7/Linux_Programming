@@ -1,0 +1,21 @@
+import "GuidanceViewer.fidl"
+
+import "../common/CommonTypes.fdepl"
+import "../some_ip.fdepl"
+import "GuidanceViewerTypes.fdepl"
+
+define someip.franca.SOMEIP_Deployment for interface org.harman.nav.ctrl.GuidanceViewer
+{
+    use org.harman.nav.ctrl.CommonTypes
+    use org.harman.nav.ctrl.GuidanceViewerTypes
+ 
+    ServiceID = 1
+
+    broadcast displayableValid {
+         BMethodID = 1
+    }
+
+    broadcast maneuverStatusChanged {
+         BMethodID = 2
+    }
+}

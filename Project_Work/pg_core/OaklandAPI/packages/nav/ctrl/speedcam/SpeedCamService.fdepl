@@ -1,0 +1,44 @@
+import "SpeedCamService.fidl"
+import "../some_ip.fdepl"
+import "../common/CommonTypes.fdepl"
+import "SpeedCamServiceTypes.fdepl"
+
+define someip.franca.SOMEIP_Deployment for interface
+org.harman.nav.ctrl.speedcam.SpeedCamService {
+	use org.harman.nav.ctrl.CommonTypes use
+	org.harman.nav.ctrl.speedcam.SpeedCamServiceTypes
+	ServiceID = 5000
+
+	method createSession {
+		MMethodID = 200
+	}
+
+	method deleteSession {
+		MMethodID = 201
+	}
+
+	method reportSpeedcam {
+		MMethodID = 202
+	}
+
+	method declineSpeedCam {
+		MMethodID = 203
+	}
+
+	method confirmSpeedCam {
+		MMethodID = 204
+	}
+
+	method declineExistingSpeedCam {
+		MMethodID = 205
+	}
+
+	method confirmExistingSpeedCam {
+		MMethodID = 206
+	}
+
+	broadcast forthcomingEvent {
+		BMethodID = 300
+	}
+
+}

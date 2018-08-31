@@ -1,0 +1,124 @@
+package org.harman.nav.ctrl.highwaymode
+
+import  org.harman.nav.ctrl.* from "../common/CommonTypes.fidl"
+import  org.harman.nav.ctrl.di.* from "../di/POIServiceTypes.fidl"
+import  org.harman.nav.ctrl.di.* from "../di/LocationInputTypes.fidl"
+import  org.harman.nav.ctrl.traffic.* from "../traffic/TrafficInformationTypes.fidl"
+import  org.harman.nav.ctrl.common.list.* from "../common/list/ListTypes.fidl"
+
+
+typeCollection HighwayModeTypes {
+    version { major 2  minor 2}
+
+    typedef HighwayItemId is UInt32
+    typedef ResourceId is UInt64
+    typedef Distance_m is UInt32   // Distance or TDistance
+    typedef Time_ms is UInt32
+
+    array Addresses of di.LocationInputTypes.Address
+ 
+    struct JunctionDetails
+    {
+    	// TBD
+    	Addresses address
+    }
+    
+    struct InterchangeDetails
+    {
+    	// TBD
+    	Addresses address
+    }
+
+    enumeration ItemType extends CommonTypes.BasicEnum  {
+        TYPE_ServiceArea
+        TYPE_Fuel
+        TYPE_Parking
+        TYPE_Junction
+        TYPE_Interchange
+        TYPE_POI
+        TYPE_TrafficIncident
+	}
+
+    enumeration ItemDetailsType extends CommonTypes.BasicEnum  {
+        DTYPE_Poi
+        DTYPE_TrafficIncident
+        DTYPE_Junction
+        DTYPE_Interchange	
+    }
+    
+    
+    enumeration UpdateReason extends CommonTypes.BasicEnum  {
+        REASON_TimerTimedout
+        REASON_DistanceChanged
+        REASON_ElementAdded
+        REASON_ElementRemoved
+    }
+
+    enumeration HighWayStatus extends CommonTypes.BasicEnum  {
+    	DISABLED
+    	ACTIVE
+    	INACTIVE
+    }
+
+    <**
+        @description: representation of a POI in the service area
+    
+    **>
+	struct POIInformation{
+        String description
+        POIServiceTypes.POI_ID poiId
+        POIServiceTypes.ResourceID icondId
+        ///POIServiceTypes.CategoryID categoryId // ?
+        HighwayItemId parent // ?
+    }
+	
+    <**
+        @description: generalized representation of a junction, interchange, POI, and traffic incident
+    
+       
+    **>
+    struct HighwayItem{
+    	HighwayItemId id
+        ItemType messageType
+        CommonTypes.SIcon icondId
+        String descriptions // String or String[] (TrafficInfo message, exit to) ? 
+        Distance_m  distance
+    }
+
+
+    <**
+        @description: a list of highway items
+    **>
+    array HighwayItemArray of HighwayItem
+
+    
+    array POIDetailsArray of POIServiceTypes.SearchResultDetails
+    <**
+        @description: union of highway features and event
+    **>
+    union HighwayItemDetails {
+    	POIServiceTypes.SearchResultDetails   poiDetails
+    	POIDetailsArray        serviceAreaDetailes
+    	TrafficInformationTypes.SMessage trafficIncidentDetails
+    	JunctionDetails        junctionDetails
+    	InterchangeDetails     interchangeDetails
+    }
+    
+
+    <**
+        @description: highway feature or event details and its type.
+        
+        type DTYPE_Poi is paired with POIDetails
+        type DTYPE_TrafficIncident is paired with TrafficIncidentDetails
+        
+        TBD:
+        How to represent junctionDetails and InterchangeDetails
+        
+    **>
+    struct MessageDetails {
+    	ItemDetailsType    type
+    	HighwayItemDetails details
+        Distance_m         distance
+    }
+ 
+}

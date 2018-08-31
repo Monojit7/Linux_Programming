@@ -1,0 +1,7 @@
+import "TpegOverIPTypes.fidl"
+import "../some_ip.fdepl"
+
+define someip.franca.SOMEIP_Deployment for typeCollection
+org.harman.nav.ctrl.tpegoverip.TpegOverIPTypes
+as org.harman.nav.ctrl.tpegoverip.TpegOverIPTypes {
+}

@@ -1,0 +1,1005 @@
+package com.harman.tuner
+
+
+
+<** @description: Orinoco specific tuner data type collection.
+	@author: Dirk Engel
+**>
+typeCollection OrinocoTunerTypes {
+	version { 
+		major 1
+		minor 0 
+	} 
+	
+	
+	
+	<** @description: Different tuners and wavebands (bit values)
+	**> 
+	enumeration Source {
+
+		<** @description: No tuner active.
+		**> 
+    	SRC_NONE = 0 // 0x00
+
+		<** @description: FM waveband
+		**> 
+    	SRC_FM = 1 // 0x01
+    	
+    	<** @description: SW band
+		**> 
+    	SRC_SW = 2 // 0x02
+    	
+    	<** @description: MW band
+		**> 
+    	SRC_MW = 4 // 0x04
+    	
+    	<** @description: LW band
+		**> 
+    	SRC_LW = 8 // 0x08
+    	
+    	<** @description: DAB tuner
+		**> 
+    	SRC_DAB = 16 // 0x10
+	}
+
+	
+			
+	<** @description: Different seek mode
+	**> 
+	enumeration StationSeekMode {
+		
+		<** @description: No seek active / stop current seek command
+		**> 
+    	SEEK_OFF
+    	
+    	<** @description: Go up one frequency step (depends on region code)
+		**> 
+    	SEEK_MAN_UP
+    	
+    	<** @description: Go down one frequency step (depends on region code)
+		**> 
+    	SEEK_MAN_DOWN
+    	
+    	<** @description: Seek updwards for the next receivable station. In case of HD the next service of the same frequency is played before tuning to next frequency.
+		**> 
+    	SEEK_AUTO_UP
+    	
+    	<** @description: Seek downwards for the next receivable station.  In case of HD the next service of the same frequency is played before tuning to next frequency.
+		**> 
+    	SEEK_AUTO_DOWN 
+    	
+    	<** @description: Autostore to update station list if there is no background scan.
+		**> 
+    	SEEK_AUTOSTORE
+    	
+    	<** @description: Seek upwards as long as "SEEK_OFF" is called, then tune back to last found station.
+		**> 
+    	SEEK_ENDLESS_UP
+
+ 		<** @description: Seek downwards as long as "SEEK_OFF" is called, then tune back to last found station.
+		**> 
+    	SEEK_ENDLESS_DOWN
+
+    	<** @description: Scan (seek and play for n seconds) upwards as long as "SEEK_OFF" is called
+		**> 
+		SEEK_SCAN_UP
+		
+		<** @description: Skip scan to next station
+		**> 
+		SEEK_SCAN_SKIP_UP
+		
+		<** @description: Scan (seek and play for n seconds) downwards as long as "SEEK_OFF" is called
+		**> 		
+		SEEK_SCAN_DOWN
+		
+		<** @description: Skip scan to previous station
+		**> 
+		SEEK_SCAN_SKIP_DOWN
+	}
+
+	
+			
+	<** @description: The different announcement states
+	**> 
+	enumeration AnnouncementState {
+		
+		<** @description: Announcement monitoring is disabled
+		**> 
+    	ANN_OFF
+
+		<** @description: Announcement monitoring is enabled but no TP (traffic program) found
+		**> 
+    	ANN_ON_NONE
+    	
+    	<** @description: Announcement monitoring is enabled and TP found but currently there is no active announcement
+		**> 
+    	ANN_ON_INACTIVE
+    	
+		<** @description: Announcement active
+		**> 
+    	ANN_ON_ACTIVE
+    	
+	}
+
+		
+			
+	<** @description: The AM/FM possible region codes 
+	**> 
+	enumeration AmFmRegionCode {
+		
+		<** @description: Not coded
+		**> 
+    	ARC_NONE = 65535 // 0xFFFF		
+		
+		<** @description: Region code for Europe
+		**> 
+    	ARC_EUROPE = 0
+		
+		<** @description: Region code for North America
+		**> 
+    	ARC_NORTH_AMERICA = 1
+		
+		<** @description: Region code for South America
+		**> 
+    	ARC_SOUTH_AMERICA = 2
+		
+		<** @description: Region code for Canada
+		**> 
+    	ARC_CANADA = 3	
+    	
+		<** @description: Region code for Asia
+		**> 
+    	ARC_ASIA = 4	    	    	    	
+
+		<** @description: Region code for Japan
+		**> 
+    	ARC_JAPAN = 5
+    	
+    	<** @description: Region code for South Korea
+		**> 
+    	ARC_SOUTH_KOREA = 6
+    	
+    	<** @description: Region code for China
+		**> 
+    	ARC_CHINA = 7
+
+    	<** @description: Region code for Australia
+		**> 
+    	ARC_AUSTRALIA = 8
+    	
+    	<** @description: Region code for South Africa
+		**> 
+    	ARC_SOUTH_AFRICA = 9
+
+	}
+	
+	
+	
+			
+	<** @description: The possible region codes
+	**> 
+	enumeration DabRegionCode {
+		
+		<** @description: Not coded
+		**> 
+    	DRC_NONE = 65535 // 0xFFFF	
+    			
+		<** @description: Region code for Europe
+		**> 
+    	DRC_EUROPE = 0	
+    	
+    	<** @description: Region code for Canada
+		**> 
+    	DRC_CANADA = 1	
+    	
+		<** @description: Region code for Korea
+		**> 
+    	DRC_KOREA = 2   	
+  
+    	<** @description: Region code for China
+		**> 
+    	DRC_CHINA = 3	
+    	
+		<** @description: Region code for New Zealand
+		**> 
+		DRC_NEW_ZEALAND = 7	
+		
+	}
+
+	
+			
+	<** @description: Additional AM/FM coding flags (bitmask)
+	**> 
+	enumeration AmFmCodingFlag {
+
+		<** @description: No special coding
+		**> 
+    	COD_AMFM_NONE = 0 // 0x0001
+    	
+	}
+
+	
+			
+	<** @description: Additional DAB coding flags (bitmask)
+	**> 
+	enumeration DabCodingFlag {
+		
+		<** @description: No special coding
+		**> 
+    	COD_DAB_NONE = 0 // 0x0000
+    	
+  		<** @description: Activate TPEG if this flag is set
+		**> 
+    	COD_DAB_TPEG = 1 // 0x0001
+
+	}
+
+	
+	
+	
+			
+	<** @description: The HD mode
+	**> 
+	enumeration AmFmHdMode {
+		
+		<** @description: Alway analog, no blending
+		**> 
+    	HD_ANALOG		
+		
+		<** @description: Automatic blending between analog and digital
+		**> 
+    	HD_AUTOMATIC	
+		
+		<** @description: Automatic blending between analog and digital for AM but no blending for FM
+		**> 
+    	HD_AUTOMATIC_AM	
+    	
+		<** @description: Automatic blending between analog and digital for FM but no blending for AM
+		**> 
+    	HD_AUTOMATIC_FM	
+    	
+	}
+	
+	
+			
+	<** @description: Type of list update
+	**> 
+	enumeration StationListType {
+		
+		<** @description: Background list update
+		**> 
+    	LIST_BACKGROUND		
+    	
+		<** @description: List update as a result of an autostore request
+		**> 
+    	LIST_AUTOSTORE		
+    	
+    	<** @description: Preset list update
+		**> 
+    	LIST_PRESET
+
+	}
+
+	
+	
+	<** @description: Vector of UInt32
+	**> 
+	array UInt32s of UInt32 
+	
+
+	
+	<** @description: Current tuner source 
+	**> 
+	struct CurrentSource {
+
+		<** @description: The tuner source
+		**> 
+		Source source 
+		
+		<** @description: Handle to identify the correspoding request
+		**> 
+		UInt32 handle
+      
+	}
+	
+	
+	
+	<** @description: All necessary information for station selection or identification:
+		Send from tuner device (attributes): All parameters are set to reflect current state.
+		Send to tuner device:
+		Only one of the four parameters is needed, the parameters are evaluated like the following:
+		a) tag != 0: tag is used for station selection (i.e. station selection from list)
+		b) tag == 0, frequency != 0: frequency is used (i.e. direct frequency input)
+		c) tag == 0, frequency == 0, preset != 0: preset number is used (i.e. preset recall)
+		d) tag == 0, frequency == 0, preset == 0: Evaluate seek mode
+	**> 
+	struct StationSelector {
+
+		<** @description: Unique station idenfier
+		**> 
+		UInt64 tag
+
+		<** @description: Frequency [KHz]
+		**> 
+		UInt32 frequency
+
+		<** @description: Preset number (0: invalid)
+		**> 		
+		UInt32 preset
+		
+		<** @description: Seek mode
+		**> 		
+		StationSeekMode seekMode
+
+	}
+
+	
+	
+	<** @description: Station metadata
+	**> 
+	struct StationMetadata {
+
+		<** @description: FM RDS Radiotext / DAB Dynamic Label
+		**> 
+		String radiotext
+		
+		<** @description: File system path to slideshow or HD album cover image
+		**> 
+		String imagePath
+		
+		<** @description: File system path to HD station logo image
+		**> 
+		String stationLogo
+
+		<** @description: Artist name (RT+/HD/DLS+)
+		**> 
+		String artist
+		
+		<** @description: Album name (RT+/HD/DLS+)
+		**> 
+		String album
+		
+		<** @description: Song name (RT+/HD/DLS+)
+		**> 
+		String song
+	}
+
+
+
+	<** @description: Group information
+	**> 
+	struct GroupInfo {
+
+		<** @description: Super group identifier
+		**> 
+		UInt32 superId
+	
+		<** @description: Super group name (e.g. DAB ensemble name)
+		**> 	
+		String superName
+		
+		<** @description: Subelement identifier E.g. HD service index: 0/1: No HD/MPS, 2..8: SPS
+		**> 
+		UInt32 subId
+
+		<** @description: Subelement name (e.g. DAB subcomponent label)
+		**> 	
+		String subName
+	}
+	
+	
+
+	<** @description: Station names 
+	**> 
+	struct StationName {
+
+		<** @description: RDS PS code / service name
+		**> 	
+		String station
+		
+		<** @description: Grouping information
+		**> 			
+		GroupInfo group
+
+	}
+
+
+
+	<** @description: Station genre
+	**> 
+	struct StationGenre {
+		
+		<** @description: PTY code
+		**> 	
+		UInt8 pty
+
+	}
+
+
+
+	<** @description: Addional station flags
+	**> 
+	struct StationFlags {
+	
+		<** @description: Service is muted
+		**>
+		Boolean isMuted 
+		
+		<** @description: Tuner is occupied and cannot be used
+		**>
+		Boolean isOccupied 
+
+        <** @description: DAB service is linked to FM
+		**>
+		Boolean isLinkedToFM 
+        
+		<** @description: Station is a HD service
+		**>
+		Boolean isHD 
+
+	}
+
+
+
+	<** @description: Station quality data
+	**> 
+	struct StationQuality {
+
+		<** @description: Field strenght
+		**>
+		Int32 fieldStrength
+		
+		<** @description: Standard specific quality indicator
+		**>
+		Int32 quality
+
+	}
+	
+	
+	
+	<** @description: Current station data
+	**> 
+	struct CurrentStation {
+
+		<** @description: The source this current station data belongs to:
+			In case project distinguishs different AM bands source will be =LW or =MW or =SW for AM otherwise =LW|MW|SW. 
+			If project supports a unified DAB/FM view the source will be =DAB|FM for combind DAB/FM otherwise separate source for =DAB and =FM will exist.
+		**>
+		Source source 
+		
+		<** @description: Station identification, seek state
+		**>
+		StationSelector sel 
+		
+		<** @description: Station names
+		**>
+		StationName name 
+		
+		<** @description: Station metadata
+		**>
+		StationMetadata meta 						
+
+		<** @description: Station genre
+		**>
+		StationGenre genre 
+		
+		<** @description: Additional station flags
+		**>
+		StationFlags flags 
+		
+		<** @description: Station quality information
+		**>
+		StationQuality quality
+		
+		<** @description: A handle to identify the correspoding request
+		**>
+		UInt32 handle 	
+
+	}
+	
+	
+	
+	<** @description: List station (reduced data compared to "CurrentStation")
+	**> 
+	struct ListStation {
+
+		<** @description: The source this station list data belongs to:
+			In case project distinguishs different AM bands source will be =LW or =MW or =SW for AM otherwise =LW|MW|SW. 
+			If project supports a unified DAB/FM view the source will be =DAB|FM for combind DAB/FM otherwise separate source for =DAB and =FM will exist.
+		**>
+		Source source 
+		
+		<** @description: Station identification
+		**>
+		StationSelector sel 
+		
+		<** @description: Station names
+		**>
+		StationName name
+		
+		<** @description: Station genre
+		**>
+		StationGenre genre 	
+
+	}
+
+
+	
+	<** @description: List of ListStation
+	**> 
+	array ListStations of ListStation 
+
+
+	
+	<** @description: Station list
+	**> 
+	struct StationList {
+
+		<** @description: List of stations
+		**>
+		ListStations stations
+		
+		<** @description: Station list type
+		**>
+		StationListType listType
+		
+		<** @description: A handle to identify the correspoding request
+		**>
+		UInt32 handle
+
+	}
+	
+	
+	
+	<** @description: Announcement information
+	**> 
+	struct AnnouncementStation {
+
+		<** @description: TP (traffic program) providing source: FM or DAB
+		**>
+		Source source
+		
+		<** @description: Station identification
+		**>
+		StationSelector sel
+		
+		<** @description: Station names
+		**>
+		StationName name
+		
+		<** @description: Current state of announcement monitoring and announcement itself
+		**>
+		AnnouncementState currentState	
+
+		<** @description: A handle to identify the correspoding request
+		**>
+		UInt32 handle
+
+	}
+	
+	
+		
+	<** @description: AM/FM waveband grid information
+	**> 
+	struct AmFmWavebandGrid {
+
+		<** @description: Lower limit of band [KHz]
+		**>
+		UInt32 lowerLimit
+		
+		<** @description: Upper limit of band [KHz]
+		**>
+		UInt32 upperLimit  
+		
+		<** @description: Step size used for background lists [KHz]
+		**>
+		UInt32 stepWidth
+		
+		<** @description: Smaller step size than "stepWidth" that can be used for manual tuning [KHz]
+		**>
+		UInt32 smallStep
+
+	}
+	
+	
+		
+	<** @description: Wavband information for all bands 
+	**> 
+	struct AmFmWavebandGrids {
+
+		<** @description: FM grid
+		**>
+		AmFmWavebandGrid fm
+		
+		<** @description: SW grid
+		**>
+		AmFmWavebandGrid sw
+		
+		<** @description: MW grid
+		**>
+		AmFmWavebandGrid mw
+		
+		<** @description: LW grid
+		**>
+		AmFmWavebandGrid lw
+
+	}
+
+
+
+	<** @description: AM/FM region dependent configuration
+	**> 
+	struct AmFmRegionInfo {
+
+		<** @description: The region code
+		**>
+		AmFmRegionCode code
+		
+		<** @description: The waveband grid information for all bands
+		**>
+		AmFmWavebandGrids grid
+
+	}
+
+
+		
+	<** @description: DAB region dependent configuration
+	**> 
+	struct DabRegionInfo {
+
+		<** @description: The region code
+		**>
+		DabRegionCode code
+
+	}
+
+}
+
+
+
+
+
+<** @description: Orinoco specific tuner interface. This interface is a facade to a bunch of plattform interfaces in order to provide a simplified access to tuner data and functionality.
+	@author: Dirk Engel
+**>
+interface OrinocoTuner {
+	version { 
+		major 1
+		minor 0 
+	} 
+	
+	
+	
+	<** @description: False: Tuner not ready, requestControlSetRegion has to be called all other requests will be returned with error. True: Tuner ready to use. 
+	**>
+	attribute Boolean controlReady readonly
+	
+	
+	
+	<** @description: List of power sync frequencies [KHz]. Each entry controls one amplifier or power supply. The order of the entries is HW specific.
+	**> 
+	attribute OrinocoTunerTypes.UInt32s controlPowerSync readonly
+	
+	
+	
+	<** @description: The current active tuner source. Controlled by the requests "audioSetCurrentSource".
+	**>
+	attribute OrinocoTunerTypes.CurrentSource audioCurrentSource readonly
+
+
+	
+	<** @description: All available information about the current TP station. Announcement monitoring can be activated/deactivated by "announcementSwitchTp". An active announcement can be aborted by "announcementActivate".
+	**>
+	attribute OrinocoTunerTypes.AnnouncementStation announcementCurrentStation readonly
+	
+	
+	
+	<** @description: The AM/FM region code and waveband information according to request "controlSetRegion".
+	**>
+	attribute OrinocoTunerTypes.AmFmRegionInfo amfmControlRegionInfo readonly
+	
+	
+	
+	<** @description: The current state of the alternative frequency (AF) switch. The switch can be controlled by the request "amfmControlSetAfSwitch".
+	**>
+	attribute Boolean amfmControlAfSwitch readonly
+	
+	
+	
+	<** @description: The current state of the regionalization (REG) switch. The switch can be controlled by the request "amfmControlSetRegSwitch".
+	**>
+	attribute Boolean amfmControlRegSwitch readonly
+	
+	
+	
+	<** @description: The current HD mode. The switch can be controlled by the request "amfmControlSetHdMode".
+	**>
+	attribute OrinocoTunerTypes.AmFmHdMode amfmControlHdMode readonly
+	
+	
+	
+	<** @description: The DAB region code according to request "controlSetRegion".
+	**>
+	attribute OrinocoTunerTypes.DabRegionInfo dabControlRegionInfo readonly
+	
+	
+	
+	<** @description: The current state of the service following switch. The switch can be controlled by the request "dabControlSetFollowingSwitch".
+	**>
+	attribute Boolean dabControlFollowingSwitch readonly
+	
+   
+   
+   	<** 
+		@description: Current station update. Updates of different source might happen in parallel (not only for the current audio source). If FM is the active audio source according to attribute "audioCurrentSource" this is also the currently active tuner station which is audible
+	**> 
+	broadcast stationCurrentStation { 
+		out { 
+
+			<** @description: Current station data. Consider source to determine the corresponding source of this update.
+			**>
+			OrinocoTunerTypes.CurrentStation station
+		} 
+	} 
+
+
+
+   	<** 
+		@description: List update. Check listType and source to distinguish between different lists.
+	**> 
+	broadcast stationStationList { 
+		out { 
+			
+			<** @description: The list data.
+			**>
+			OrinocoTunerTypes.StationList stationList
+		} 
+	} 
+
+
+
+	<** @description: Set the coding of the AM/FM tuner and DAB tuner. 
+	 	IMPORTANT: This request must be called first before everything else otherwise the tuner will not start correctly.
+	**>
+    method controlSetRegion {
+		in {
+			
+			<** @description: The AM/FM region code
+			**>
+			OrinocoTunerTypes.AmFmRegionCode amfmRegionCode
+	   		
+			<** @description: Additional AM/FM coding flags: Bitmask as ORed combination of enum "AmFmCodingFlag"
+			**>
+			UInt32 amfmCodingFlags
+			
+			<** @description: The DAB region code
+			**>
+			OrinocoTunerTypes.DabRegionInfo dabRegionCode
+			
+			<** @description: Additional DAB coding flags: Bitmask as ORed combination of enum "DabCodingFlag"
+			**>
+			UInt32 dabCodingFlags
+			
+			<** @description: [dbuV]
+			**>
+			UInt8 fmAntennaGain
+					
+	   	}
+	   	out {
+	   		
+	   	}	   	
+   }
+   
+   
+   
+   	<** @description: Use this method to set the currently active tuner source as soon as the tuner application is entered or changed. Furthmore, use this method if the tuner application is exited in combination with "ASRC_NONE".&#13;
+		As result the attribute "audioCurrentSource" is updated with the given handle. 
+	**>
+    method audioSetCurrentSource {
+		in {
+			
+			<** @description: The currently active AM/FM waveband (source).
+			**>
+			OrinocoTunerTypes.Source source
+	   		
+			<** @description: The handle to identify the result of this request in the corresponding attribute.
+			**>
+			UInt32 handle	   		
+	   	}
+	   	out {
+	   		
+	   	}	   	
+   }
+
+
+
+    <** @description: Any manipulation of the current station: Selection by list / direct frequency tuning / preset selection / starting a search run.  &#13;
+		As result the information "stationCurrentStation" is updated with the given handle.
+	**>
+    method stationSelectStation {
+		in {
+			
+			<** @description: Defines the desired operation (refer to definition of type "StationSelector").
+			**>
+			OrinocoTunerTypes.StationSelector stationSelector
+	   		
+			<** @description: The handle to identify the result of this request in the corresponding attribute.
+			**>
+			UInt32 handle	   		
+	   	}
+	   	out {
+	   		
+	   	}	   	
+   }
+   
+      
+      
+   	<** @description: Store the given station in corresponding preset list and assign the given preset number for later recalls (via "stationStartTune").&#13;
+		As result the corresponding information "stationStationList" is updated with the given handle.
+	**>
+    method stationStorePreset {
+		in {
+			
+			<** @description: Defined the station to be saved.
+			**>
+			OrinocoTunerTypes.StationSelector stationSelector
+
+			<** @description: The desired preset number (0: invalid preset).
+			**>
+			UInt32 preset
+			
+			<** @description: The handle to identify the result of this request in the corresponding attribute.
+			**>
+			UInt32 handle
+	   	}
+	   	out {
+	   		
+	   	}	   	
+   }
+   
+
+      
+   	<** @description: Remove given preset number from corresponding preset list.
+		As result the corresponding information "stationStationList" is updated with the given handle
+	**>
+    method stationDeletePreset {
+		in {
+			
+			<** @description: The desired preset number (0: invalid preset, used to delete all presets).
+			**>
+			UInt32 preset
+	   		
+			<** @description: The handle to identify the result of this request in the corresponding attribute.
+			**>
+			UInt32 handle	   		
+	   	}
+	   	out {
+	   		
+	   	}	   	
+   }
+   
+         
+      
+   	<** @description: Enable/disable the announcement monitoring for FM and DAB.
+		As result the attribute "announcementCurrentStation" is updated with the given handle
+	**>
+    method announcementSwitchTp {
+		in {
+			
+			<** @description: True: Enable monitoring / False: Disable monitoring 
+			**>
+			Boolean enable
+	   		
+			<** @description: The handle to identify the result of this request in the corresponding attribute.
+			**>
+			UInt32 handle	   		
+	   	}
+	   	out {
+	   		
+	   	}	   	
+   }
+
+      
+
+   	<** @description: Abort an active announcement. As a result the attribute "announcementCurrentStation" is updated with the given handle.
+	**>
+    method announcementAbort {
+		in {
+
+			<** @description: The handle to identify the result of this request in the corresponding attribute.
+			**>
+			UInt32 handle	   		
+	   	}
+	   	out {
+	   		
+	   	}	   	
+   }
+
+
+      
+   	<** @description: Set the desired RDS alternative frequency (AF) state.
+		As result the attribute "amfmControlAfSwitch" is updated with the given handle.
+	**>
+    method amfmControlSetAfSwitch {
+		in {
+			
+			<** @description: True: AF active / False: No AF switching
+			**>
+			Boolean enable
+	   		
+	   	}
+	   	out {
+	   		
+	   	}	   	
+   }
+   
+
+      
+   	<** @description: Set the desired RDS regionalisation (REG) state.
+		As result the attribute "amfmControlRegSwitch" is updated with the given handle.
+	**>
+    method amfmControlSetRegSwitch {
+		in {
+			
+			<** @description: True: REG is on, regionalized station are considerd as differnet stations / False: REG is off, regionalized station are considerd as same station.
+			**>
+			Boolean enable
+	   		
+	   	}
+	   	out {
+	   		
+	   	}	   	
+   }
+         
+
+      
+   	<** @description: Set the desired HD mode.
+		As result the attribute "amfmControlHdMode" is updated with the given handle.
+	**>
+    method amfmControlSetHdMode {
+		in {
+			
+			<** @description: The desired HD mode.
+			**>
+			OrinocoTunerTypes.AmFmHdMode hdMode
+	   		
+	   	}
+	   	out {
+	   		
+	   	}	   	
+   }
+   
+         
+
+   	<** @description: Set the desired service following at the FollowingMaster.
+		As result the attribute "dabControlFollowingSwitch" is updated with the given handle.
+		Note: This switch only affects DAB/FM linking, DAB/DAB is always on
+	**>
+    method dabControlSetFollowingSwitch {
+		in {
+			
+			<** @description: True: Service following from DAB to DAB as well as from DAB to FM is allowed / False: No service following in case of bad signal
+			**>
+			Boolean enable
+	   		
+	   	}
+	   	out {
+	   		
+	   	}	   	
+   }
+   
+   
+   
+  	<** @description: Request initial information update at startup (stationCurrentStation, stationStationList) in order to force an "on change" update.
+	**>
+    method forceInformationUpdate {
+		in {
+
+	   	}
+	   	out {
+	   		
+	   	}	   	
+   }
+   
+}
+

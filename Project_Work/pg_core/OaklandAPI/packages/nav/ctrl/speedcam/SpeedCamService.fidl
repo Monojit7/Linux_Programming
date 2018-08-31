@@ -1,0 +1,116 @@
+package org.harman.nav.ctrl.speedcam
+
+import org.harman.nav.ctrl.speedcam.* from "SpeedCamServiceTypes.fidl"
+import org.harman.nav.ctrl.* from "../common/CommonTypes.fidl"
+
+<** @description: Speed cam service interface for client, e.g. HMI **>
+interface SpeedCamService
+{
+    version { major 3 minor 0}
+
+    <**@description: Opens a new session on the speedcam controller **>
+    method createSession
+    {
+        out {
+            <**@description: Handle to the new session **>
+            CommonTypes.Handle session
+        }
+    }
+
+    <**@description: Closes an existing session on the speedcam controller **>
+    method deleteSession fireAndForget
+    {
+        in {
+            <**@description: Handle to the session to close **>
+            CommonTypes.Handle session
+        }
+    }
+
+    <**@description: Reports the location of a potential speedcam
+    This method allows the driver to report an either new or existing
+    speedcam spot. As a result the caller will get a report identifier
+    which may be used to decline or to confirm the report with additional
+    information later **>
+    method reportSpeedcam
+    {
+        in {
+            <**@description: Handle to the open client session **>
+            CommonTypes.Handle session
+        }
+        out {
+            <**@description: Report identifier **>
+            SpeedCamServiceTypes.SReportId reportId
+        }
+    }
+
+    <** @description: Declines a previously reported speedcam location
+    This method should be called by the client, if the driver cancels the
+    dialog for reporting a cam. **>
+    method declineSpeedCam fireAndForget
+    {
+        in {
+            <**@description: Handle to the open client session **>
+            CommonTypes.Handle session
+
+            <**@description: Identifier of the report to decline **>
+            SpeedCamServiceTypes.SReportId reportId
+        }
+    }
+
+    <** @description: Confirms a previously reported speedcam location.
+    This method should be called by the client, if the driver reports
+    an entirely new speed cam. The attributes of the new speed cam have
+    to be added to the report. **>
+    method confirmSpeedCam fireAndForget
+    {
+        in {
+            <**@description: Handle to the open client session **>
+            CommonTypes.Handle session
+
+            <** @description: Identifier of the report to confirm **>
+            SpeedCamServiceTypes.SReportId reportId
+
+            <**@description: Confirmation data for new cam **>
+            SpeedCamServiceTypes.SSpeedCamConfirmationData data
+        }
+    }
+
+    <** @description: Declines an existing speedcam instance. **>
+    method declineExistingSpeedCam fireAndForget
+    {
+        in {
+            <**@description: Handle to the open client session **>
+            CommonTypes.Handle session
+
+            <**@description: Identifier of the existing cam **>
+            SpeedCamServiceTypes.TId speedCamId
+        }
+    }
+
+    <** @description: Confirms an existing speedcam instance. **>
+    method confirmExistingSpeedCam fireAndForget
+    {
+        in {
+            <**@description: Handle to the open client session **>
+            CommonTypes.Handle session
+
+            <**@description: Identifier of the existing cam **>
+            SpeedCamServiceTypes.TId speedCamId
+        }
+    }
+
+    <** @description: Informs the client about the closest forthcoming
+    speedcam within the configured range. If guidance is running,
+    the look-ahead is based on the guided route, otherwise it is based
+    on the predicted driving path. **>
+    broadcast forthcomingEvent
+    {
+        out {
+            <**@description: Handle to the open client session **>
+            CommonTypes.Handle session
+
+            <**@description: Event information associated to closest cam **>
+            SpeedCamServiceTypes.SSpeedCamEvent event
+        }
+    }
+}

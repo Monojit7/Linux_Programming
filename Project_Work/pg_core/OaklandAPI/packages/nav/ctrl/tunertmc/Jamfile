@@ -1,0 +1,20 @@
+#----------------------------------------------------------------
+# Project       Harman Car Multimedia System
+# Copyright (C) 2009-2015
+# Company       Harman/Becker Automotive Systems GmbH
+#               All Rights Reserved
+# Secrecy Level STRICTLY CONFIDENTIAL
+#----------------------------------------------------------------
+
+SubDir API_NAV_CTRL_PF tunertmc ;
+
+if $(CFG_CTRL_API_FRANCA_GENERATE) = TRUE
+{
+   SomeIP2GenApp api_nav_ctrl_pf : TunerTMCSelection.fdepl : true : true : true ;
+}
+else
+{
+   NavAPIDefine api_nav_ctrl_pf :
+      org_harman_nav_ctrl_tunertmc_TunerTMCSelection.hbsi      
+      ;
+}

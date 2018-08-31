@@ -1,0 +1,105 @@
+package org.harman.nav.ctrl
+
+import org.harman.nav.ctrl.CommonTypes.* from "../common/CommonTypes.fidl"
+import org.harman.nav.ctrl.PositioningTypes.* from "../pos/PositioningTypes.fidl"
+import org.harman.nav.ctrl.SimulationTypes.* from "SimulationTypes.fidl"
+
+interface Simulation {
+	version {
+		major 0
+		minor 1
+	}
+
+	<**
+		@description : Activates or deactivates simulation mode
+	**>
+	method setSimulationMode {
+		in {
+			<**
+				@description : activate = flag. TRUE means that the simulation mode is activated.
+			**>
+			Boolean activate
+		}
+	}
+
+	<**
+		@description : Retrieves the simulation status
+	**>
+	method getSimulationStatus {
+		out {
+			<**
+				@description : simulationStatus = enum(SIMULATION_STATUS_NO_SIMULATION, SIMULATION_STATUS_RUNNING, SIMULATION_STATUS_PAUSED, SIMULATION_STATUS_FIXED_POSITION)
+			**>
+			SimulationStatus simulationStatus
+		}
+	}
+
+	<**
+		@description : Sets the speed factor for the simulation mode
+	**>
+	method setSimulationSpeed {
+		in {
+			<**
+				@description : speedFactor = speed factor
+			**>
+			Int8 speedFactor
+		}
+	}
+
+	<**
+		@description : Returns the speed factor for the simulation mode
+	**>
+	method getSimulationSpeed {
+		out {
+			<**
+				@description : speedFactor = speed factor
+			**>
+			Int8 speedFactor
+		}
+	}
+
+	<**
+		@description : Resumes a follow active route simulation
+	**>
+	method resumeSimulation {
+	}
+
+	<**
+		@description : Freezes the current location
+	**>
+	method pauseSimulation {
+	}
+
+	<**
+		@description : Sets the position to a specific location
+	**>
+	method setPosition {
+		in {			
+			PositionItemDict position
+		}
+	}
+
+	<**
+		@description : Notification when the Simulation Status has changed
+	**>
+	broadcast simulationStatusChanged {
+		out {
+			<**
+				@description : simulationStatus = enum(SIMULATION_STATUS_NO_SIMULATION, SIMULATION_STATUS_RUNNING, SIMULATION_STATUS_PAUSED, SIMULATION_STATUS_FIXED_POSITION)
+			**>
+			SimulationStatus simulationStatus
+		}
+	}
+
+	<**
+		@description : Notification when the simulation speed factor has changed
+	**>
+	broadcast simulationSpeedChanged {
+		out {
+			<**
+				@description : speedFactor = speed factor
+			**>
+			Int8 speedFactor
+		}
+	}
+}

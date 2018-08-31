@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DSI>
+   <Name>org_harman_nav_ctrl_di_LocationInput</Name>
+   <ID>2</ID>
+   <Extern>true</Extern>
+   <Version>
+      <Major>2</Major>
+      <Minor>2</Minor>
+   </Version>
+   <Includes>
+      <Include>
+         <Name>api/nav/ctrl/pf/common/org_harman_nav_ctrl_CommonTypes.hbtd</Name>
+         <Major>1</Major>
+         <Minor>0</Minor>
+      </Include>
+      <Include>
+         <Name>api/nav/ctrl/pf/di/org_harman_nav_ctrl_di_LocationInputTypes.hbtd</Name>
+         <Major>2</Major>
+         <Minor>2</Minor>
+      </Include>
+   </Includes>
+   <DataTypes>
+      <DataType>
+         <Name>THBVector_Address_</Name>
+         <ID>12</ID>
+         <Description> </Description>
+         <Kind>Typedef</Kind>
+         <Container>THBVector</Container>
+         <BaseType>org_harman_nav_ctrl_di_LocationInputTypes::Address</BaseType>
+      </DataType>
+      <DataType>
+         <Name>THBVector_AddressAttribute_</Name>
+         <ID>12</ID>
+         <Description> </Description>
+         <Kind>Typedef</Kind>
+         <Container>THBVector</Container>
+         <BaseType>org_harman_nav_ctrl_di_LocationInputTypes::AddressAttribute</BaseType>
+      </DataType>
+      <DataType>
+         <Name>THBVector_ValidationStatus_</Name>
+         <ID>12</ID>
+         <Description> </Description>
+         <Kind>Typedef</Kind>
+         <Container>THBVector</Container>
+         <BaseType>org_harman_nav_ctrl_di_LocationInputTypes::ValidationStatus</BaseType>
+      </DataType>
+   </DataTypes>
+   <Enums>
+      <Enum>
+         <Name>Error</Name>
+         <ID>2</ID>
+         <Description>This is the type for error responses.</Description>
+         <EnumIDs>
+            <EnumID>
+               <Name>ERROR_createLocationInput_NoMorelocationInputHandles</Name>
+               <ID>3</ID>
+            </EnumID>
+            <EnumID>
+               <Name>ERROR_setAddress_InvalidAddressError</Name>
+               <ID>4</ID>
+            </EnumID>
+            <EnumID>
+               <Name>ERROR_setSelectionCriterion_InvalidSelectionCriterion</Name>
+               <ID>5</ID>
+            </EnumID>
+            <EnumID>
+               <Name>ERROR_spell_InvalidCharacterError</Name>
+               <ID>6</ID>
+            </EnumID>
+            <EnumID>
+               <Name>ERROR_search_InvalidStringError</Name>
+               <ID>7</ID>
+            </EnumID>
+            <EnumID>
+               <Name>ERROR_requestListUpdate_OffsetBeyondListSizeError</Name>
+               <ID>8</ID>
+            </EnumID>
+            <EnumID>
+               <Name>ERROR_requestListUpdate_WindowSizeTooLargeError</Name>
+               <ID>9</ID>
+            </EnumID>
+            <EnumID>
+               <Name>ERROR_selectEntry_InvalidIndex</Name>
+               <ID>10</ID>
+            </EnumID>
+            <EnumID>
+               <Name>ERROR_selectEntry_InvalidHandle</Name>
+               <ID>11</ID>
+            </EnumID>
+         </EnumIDs>
+      </Enum>
+   </Enums>
+   <Methods>
+      <Method>
+         <Name>getVersion</Name>
+         <ID>1100</ID>
+         <Description>getVersion = This method returns the API version implemented by the server application</Description>
+         <Type>Request</Type>
+         <Response>getVersion</Response>
+      </Method>
+      <Method>
+         <Name>getVersion</Name>
+         <ID>2100</ID>
+         <Description>getVersion = This method returns the API version implemented by the server application</Description>
+         <Type>Response</Type>
+         <Parameters>
+            <Parameter>
+               <Name>getVersion_version</Name>
+               <ID>14</ID>
+               <Type>org_harman_nav_ctrl_CommonTypes::Version</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>createLocationInput</Name>
+         <ID>1101</ID>
+         <Description>createLocationInput = This method creates a new location input and retrieves a handle</Description>
+         <Type>Request</Type>
+         <Response>createLocationInput</Response>
+      </Method>
+      <Method>
+         <Name>createLocationInput</Name>
+         <ID>2101</ID>
+         <Description>createLocationInput = This method creates a new location input and retrieves a handle</Description>
+         <Type>Response</Type>
+         <Parameters>
+            <Parameter>
+               <Name>createLocationInput_locationInputHandle</Name>
+               <ID>17</ID>
+               <Description>Location input handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>deleteLocationInput</Name>
+         <ID>1102</ID>
+         <Description>deleteLocationInput = This method deletes a location input and its associated resources</Description>
+         <Type>Request</Type>
+         <Response>deleteLocationInput</Response>
+         <Parameters>
+            <Parameter>
+               <Name>deleteLocationInput_R_locationInputHandle</Name>
+               <ID>19</ID>
+               <Description>locationInputHandle = Location input handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>deleteLocationInput</Name>
+         <ID>2102</ID>
+         <Description>deleteLocationInput = This method deletes a location input and its associated resources</Description>
+         <Type>Response</Type>
+      </Method>
+      <Method>
+         <Name>getSupportedAddressAttributes</Name>
+         <ID>1103</ID>
+         <Description>getSupportedAddressAttributes = This method retrieves the supported address attributes</Description>
+         <Type>Request</Type>
+         <Response>getSupportedAddressAttributes</Response>
+      </Method>
+      <Method>
+         <Name>getSupportedAddressAttributes</Name>
+         <ID>2103</ID>
+         <Description>getSupportedAddressAttributes = This method retrieves the supported address attributes</Description>
+         <Type>Response</Type>
+         <Parameters>
+            <Parameter>
+               <Name>getSupportedAddressAttributes_addressAttributesList</Name>
+               <ID>23</ID>
+               <Type>org_harman_nav_ctrl_di_LocationInputTypes::AddressAttributeList</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>setAddress</Name>
+         <ID>1104</ID>
+         <Description>setAddress = This method sets the address to start with for the LocationInput identified by the given handle</Description>
+         <Type>Request</Type>
+         <Response>setAddress</Response>
+         <Parameters>
+            <Parameter>
+               <Name>setAddress_R_locationInputHandle</Name>
+               <ID>25</ID>
+               <Description>locationInputHandle = Location input handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>setAddress_R_address</Name>
+               <ID>26</ID>
+               <Type>org_harman_nav_ctrl_di_LocationInputTypes::Address</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>setAddress</Name>
+         <ID>2104</ID>
+         <Description>setAddress = This method sets the address to start with for the LocationInput identified by the given handle</Description>
+         <Type>Response</Type>
+      </Method>
+      <Method>
+         <Name>setSelectionCriterion</Name>
+         <ID>1105</ID>
+         <Description>setSelectionCriterion = This method sets the selection criterion for the current speller, search input and the corresponding result-lists for the current session</Description>
+         <Type>Request</Type>
+         <Response>setSelectionCriterion</Response>
+         <Parameters>
+            <Parameter>
+               <Name>setSelectionCriterion_R_locationInputHandle</Name>
+               <ID>29</ID>
+               <Description>locationInputHandle = Location input handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>setSelectionCriterion_R_selectionCriterion</Name>
+               <ID>30</ID>
+               <Description>selectionCriterion = enum(INVALID,LATITUDE,LONGITUDE,ALTITUDE,FULL_ADDRESS,COUNTRY,COUNTRYCODE,STATE,CITY,ZIPCODE,STREET,ROAD_NUMBER,HOUSENUMBER,HOUSENAME,CROSSING,DISTRICT,PHONENUMBER,POINAME,TOWNCENTER, ... )</Description>
+               <Type>org_harman_nav_ctrl_di_LocationInputTypes::AddressAttribute</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>setSelectionCriterion</Name>
+         <ID>2105</ID>
+         <Description>setSelectionCriterion = This method sets the selection criterion for the current speller, search input and the corresponding result-lists for the current session</Description>
+         <Type>Response</Type>
+      </Method>
+      <Method>
+         <Name>spell</Name>
+         <ID>1106</ID>
+         <Description>spell = This method sends the next spell input for the current session
+			  		         TBD: expected broadcasts</Description>
+         <Type>Request</Type>
+         <Response>spell</Response>
+         <Parameters>
+            <Parameter>
+               <Name>spell_R_locationInputHandle</Name>
+               <ID>33</ID>
+               <Description>locationInputHandle = Location input handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>spell_R_inputCharacter</Name>
+               <ID>34</ID>
+               <Description>inputCharacter = last input character (UTF-8) (0x08(Backspace) for delete last character, 0x0D(Carriage Return) for delete entire input)</Description>
+               <Type>CHBString</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>spell</Name>
+         <ID>2106</ID>
+         <Description>spell = This method sends the next spell input for the current session
+			  		         TBD: expected broadcasts</Description>
+         <Type>Response</Type>
+      </Method>
+      <Method>
+         <Name>search</Name>
+         <ID>1107</ID>
+         <Description>search = This method sets the inputString for the current selection criterion
+			  		         TBD: expected broadcasts</Description>
+         <Type>Request</Type>
+         <Response>search</Response>
+         <Parameters>
+            <Parameter>
+               <Name>search_R_locationInputHandle</Name>
+               <ID>37</ID>
+               <Description>locationInputHandle = Location input handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>search_R_inputString</Name>
+               <ID>38</ID>
+               <Description>inputString = contains the String, that is searched</Description>
+               <Type>CHBString</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>search</Name>
+         <ID>2107</ID>
+         <Description>search = This method sets the inputString for the current selection criterion
+			  		         TBD: expected broadcasts</Description>
+         <Type>Response</Type>
+      </Method>
+      <Method>
+         <Name>requestListUpdate</Name>
+         <ID>1108</ID>
+         <Description>requestListUpdate = This method sends a request for more list elements for the current session
+			  		         If a session changes, e.g. new character is entered, a new list is generated. Offset is starting at 0 again.</Description>
+         <Type>Request</Type>
+         <Response>requestListUpdate</Response>
+         <Parameters>
+            <Parameter>
+               <Name>requestListUpdate_R_locationInputHandle</Name>
+               <ID>41</ID>
+               <Description>locationInputHandle = Location input handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>requestListUpdate_R_offset</Name>
+               <ID>42</ID>
+               <Description>offset = starting offset of the newly requested list elements</Description>
+               <Type>UInt16</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>requestListUpdate_R_maxWindowSize</Name>
+               <ID>43</ID>
+               <Description>maxWindowSize = maximum number of elements that should be returned as result</Description>
+               <Type>UInt16</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>requestListUpdate</Name>
+         <ID>2108</ID>
+         <Description>requestListUpdate = This method sends a request for more list elements for the current session
+			  		         If a session changes, e.g. new character is entered, a new list is generated. Offset is starting at 0 again.</Description>
+         <Type>Response</Type>
+      </Method>
+      <Method>
+         <Name>selectEntry</Name>
+         <ID>1109</ID>
+         <Description>selectEntry = This method triggers selection of a result list entry by index</Description>
+         <Type>Request</Type>
+         <Response>selectEntry</Response>
+         <Parameters>
+            <Parameter>
+               <Name>selectEntry_R_locationInputHandle</Name>
+               <ID>46</ID>
+               <Description>locationInputHandle = Location input handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>selectEntry_R_index</Name>
+               <ID>47</ID>
+               <Description>index = absolute list index of the entry to be selected</Description>
+               <Type>UInt16</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>selectEntry</Name>
+         <ID>2109</ID>
+         <Description>selectEntry = This method triggers selection of a result list entry by index</Description>
+         <Type>Response</Type>
+      </Method>
+      <Method>
+         <Name>getEntry</Name>
+         <ID>1110</ID>
+         <Description>getEntry = This method synchronously gets the address for the given result list entry</Description>
+         <Type>Request</Type>
+         <Response>getEntry</Response>
+         <Parameters>
+            <Parameter>
+               <Name>getEntry_R_locationInputHandle</Name>
+               <ID>50</ID>
+               <Description>locationInputHandle = Location input handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>getEntry_R_index</Name>
+               <ID>51</ID>
+               <Description>index = list index of the entry to be returned</Description>
+               <Type>UInt16</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>getEntry</Name>
+         <ID>2110</ID>
+         <Description>getEntry = This method synchronously gets the address for the given result list entry</Description>
+         <Type>Response</Type>
+         <Parameters>
+            <Parameter>
+               <Name>getEntry_address</Name>
+               <ID>53</ID>
+               <Type>org_harman_nav_ctrl_di_LocationInputTypes::Address</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>validateAddress</Name>
+         <ID>1111</ID>
+         <Description>validateAddress = This method validates an address from different sources than Navigation
+			  		         TBD: functionality to be clarified</Description>
+         <Type>Request</Type>
+         <Response>validateAddress</Response>
+         <Parameters>
+            <Parameter>
+               <Name>validateAddress_R_locationInputHandle</Name>
+               <ID>55</ID>
+               <Description>locationInputHandle = Location input handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>validateAddress_R_inputAddress</Name>
+               <ID>56</ID>
+               <Type>org_harman_nav_ctrl_di_LocationInputTypes::Address</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>validateAddress</Name>
+         <ID>2111</ID>
+         <Description>validateAddress = This method validates an address from different sources than Navigation
+			  		         TBD: functionality to be clarified</Description>
+         <Type>Response</Type>
+      </Method>
+      <Method>
+         <Name>reverseGeocode</Name>
+         <ID>1112</ID>
+         <Description>reverseGeocode = This method transforms a geocoordinate into an address</Description>
+         <Type>Request</Type>
+         <Response>reverseGeocode</Response>
+         <Parameters>
+            <Parameter>
+               <Name>reverseGeocode_R_locationInputHandle</Name>
+               <ID>59</ID>
+               <Description>locationInputHandle = Location input handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>reverseGeocode_R_coordinate</Name>
+               <ID>60</ID>
+               <Type>org_harman_nav_ctrl_CommonTypes::Coordinate2D</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>reverseGeocode</Name>
+         <ID>2112</ID>
+         <Description>reverseGeocode = This method transforms a geocoordinate into an address</Description>
+         <Type>Response</Type>
+      </Method>
+      <Method>
+         <Name>currentSelectionCriterion</Name>
+         <ID>2200</ID>
+         <Description>currentSelectionCriterion = This signal notifies the SelectionCriterion for the current speller input or search.</Description>
+         <Type>Information</Type>
+         <Parameters>
+            <Parameter>
+               <Name>currentSelectionCriterion_locationInputHandle</Name>
+               <ID>63</ID>
+               <Description>locationInputHandle = Location input handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>currentSelectionCriterion_selectionCriterion</Name>
+               <ID>64</ID>
+               <Description>selectionCriterion = enum(INVALID,LATITUDE,LONGITUDE,ALTITUDE,FULL_ADDRESS,COUNTRY,COUNTRYCODE,STATE,CITY,ZIPCODE,STREET,ROAD_NUMBER,HOUSENUMBER,HOUSENAME,CROSSING,DISTRICT,PHONENUMBER,POINAME,TOWNCENTER, ... )</Description>
+               <Type>org_harman_nav_ctrl_di_LocationInputTypes::AddressAttribute</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>spellResult</Name>
+         <ID>2201</ID>
+         <Description>spellResult = This signal notifies the result of the previous Spell method</Description>
+         <Type>Information</Type>
+         <Parameters>
+            <Parameter>
+               <Name>spellResult_locationInputHandle</Name>
+               <ID>66</ID>
+               <Description>locationInputHandle = Location input handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>spellResult_uniqueString</Name>
+               <ID>67</ID>
+               <Description>uniqueString = unique string derived from spell input (i.e. including auto-completion if applicable)</Description>
+               <Type>CHBString</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>spellResult_validCharacters</Name>
+               <ID>68</ID>
+               <Description>validCharacters = set of (UTF-8 encoded) characters valid for next input (unified in a single string). A Backspace(0x08) is returned if the input character passed to the Spell method was invalid</Description>
+               <Type>CHBString</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>spellResult_fullMatch</Name>
+               <ID>69</ID>
+               <Description>fullMatch = flag indicating whether the value in UniqueCharacters is already a full match for an existing list entry</Description>
+               <Type>bool</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>searchResultList</Name>
+         <ID>2202</ID>
+         <Description>searchResultList = This signal updates the address result list (e.g. after a Search/Spell/Scroll call)</Description>
+         <Type>Information</Type>
+         <Parameters>
+            <Parameter>
+               <Name>searchResultList_locationInputHandle</Name>
+               <ID>71</ID>
+               <Description>locationInputHandle = Location input handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>searchResultList_totalSize</Name>
+               <ID>72</ID>
+               <Description>totalSize = total size of the result list</Description>
+               <Type>UInt16</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>searchResultList_windowOffset</Name>
+               <ID>73</ID>
+               <Description>windowOffset = window offset within the complete list</Description>
+               <Type>UInt16</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>searchResultList_windowSize</Name>
+               <ID>74</ID>
+               <Description>windowSize = size of the provided window</Description>
+               <Type>UInt16</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>searchResultList_resultListWindow</Name>
+               <ID>75</ID>
+               <Type>THBVector_Address_</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>searchResultListSizeChanged</Name>
+         <ID>2203</ID>
+         <Description>searchResultListSizeChanged = This signal updates the size of the address result list</Description>
+         <Type>Information</Type>
+         <Parameters>
+            <Parameter>
+               <Name>searchResultListSizeChanged_locationInputHandle</Name>
+               <ID>77</ID>
+               <Description>locationInputHandle = Location input handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>searchResultListSizeChanged_totalSize</Name>
+               <ID>78</ID>
+               <Description>totalSize = total size of the result list</Description>
+               <Type>UInt16</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>contentUpdated</Name>
+         <ID>2204</ID>
+         <Description>contentUpdated = This signal updates the input content data for the specified session</Description>
+         <Type>Information</Type>
+         <Parameters>
+            <Parameter>
+               <Name>contentUpdated_locationInputHandle</Name>
+               <ID>80</ID>
+               <Description>locationInputHandle = Location input handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>contentUpdated_guidable</Name>
+               <ID>81</ID>
+               <Description>guidable = flag indicating whether the current address is guidable</Description>
+               <Type>bool</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>contentUpdated_availableSelectionCriteria</Name>
+               <ID>82</ID>
+               <Type>THBVector_AddressAttribute_</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>contentUpdated_address</Name>
+               <ID>83</ID>
+               <Type>org_harman_nav_ctrl_di_LocationInputTypes::Address</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>addressValidationResult</Name>
+         <ID>2205</ID>
+         <Description>addressValidationResult = This signal notifies the validation result of a former ValidateAddress call
+                        TBD: functionality to be clarified</Description>
+         <Type>Information</Type>
+         <Parameters>
+            <Parameter>
+               <Name>addressValidationResult_locationInputHandle</Name>
+               <ID>85</ID>
+               <Description>locationInputHandle = Location input handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>addressValidationResult_validatedAddressList</Name>
+               <ID>86</ID>
+               <Type>THBVector_Address_</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>addressValidationResult_validationStatusList</Name>
+               <ID>87</ID>
+               <Type>THBVector_ValidationStatus_</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+   </Methods>
+   <Attributes/>
+</DSI>

@@ -1,0 +1,10 @@
+package api.nav.ctrl.pf.memory.xsd
+
+using api.nav.ctrl.pf.memory.xsd.gpx version 1.0 namespace GPX
+
+customizing GPX.gpx as gpx {
+}
+
+customize generation {
+   beanstore false;
+}

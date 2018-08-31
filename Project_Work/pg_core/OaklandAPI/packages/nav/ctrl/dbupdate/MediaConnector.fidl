@@ -1,0 +1,35 @@
+package com.harman.nav.media
+import com.harman.nav.media.* from "MediaConnectorTypes.fidl"
+
+<**
+@description: generic interface to the MediaConnector service which is used to notify registered clients
+about certain media devices. A typical example is the connection of a DB-update media which is in general a
+USB stick with a certain root-signature. 
+This approach is aligned to the approach in NTG5 project. The clients are not aware of the update-media structure.
+This internal information is covered completely inside the MediaConnector service module. 
+**>
+interface MediaConnector {
+ 	 version { major 0 minor 1 }
+ 	 
+ 	 <**
+ 	 @description: a broadcast notification from MediaConnectorService which informs registered clients
+ 	 about a certain update media that is currently connected to the system. The source parameter
+ 	 specifies the kind of connection media. The fullQualifiedPath points to the folder in which 
+ 	 the update specific media data is located.
+ 	 **>
+ 	 broadcast mediaPlugged selective {
+ 	 	out {
+ 	 		MediaConnectorTypes.SourceSelection source
+ 	 		String fullQualifiedPath
+ 	 	}
+ 	 }
+  	 <**
+ 	 @description: a broadcast notification from MediaConnectorService which informs registered clients
+ 	 about a disconnect event of a certain update media. 
+ 	 **>
+ 	 broadcast mediaUnplugged selective {
+ 	 	out {
+ 	 		MediaConnectorTypes.SourceSelection source
+ 	 	}
+ 	 }
+}

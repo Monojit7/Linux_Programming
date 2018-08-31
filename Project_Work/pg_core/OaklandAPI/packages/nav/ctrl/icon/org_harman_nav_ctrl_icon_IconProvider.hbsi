@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DSI>
+<Name>org_harman_nav_ctrl_icon_IconProvider</Name>
+   <ID>2</ID>
+   <Extern>true</Extern>
+	<Version>
+      <Major>0</Major>
+      <Minor>2</Minor>
+   </Version>
+   <Includes>
+   
+   <Include>
+         <Name>api/nav/ctrl/pf/icon/org_harman_nav_ctrl_icon_IconProviderTypes.hbtd</Name>
+         <Major>1</Major>
+         <Minor>0</Minor>
+   </Include>
+   <Include>
+         <Name>api/nav/ctrl/pf/common/org_harman_nav_ctrl_CommonTypes.hbtd</Name>
+         <Major>1</Major>
+         <Minor>0</Minor>
+   </Include>
+   </Includes>
+   
+   
+
+
+
+   <DataTypes>
+   </DataTypes>
+	<Methods>
+			<Method>
+			
+			   <Name>createSession</Name>
+			   <ID>1200</ID>
+			         <Type>Request</Type>
+			  		   <Description>initialize an icon session. Prerequiste and mandatory to any other IconProvider call.
+			  		   	The client need to specify an iconFilePath, where all requested resources can be copied to.</Description>
+			<Response>createSession</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>createSession_R_iconFilePath</Name>
+			    		            <Description>writeable and accessable file path</Description>
+			    		          <ID>3</ID>
+			    		<Type>CHBString</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>createSession</Name>
+			<ID>2200</ID>
+			         <Type>Response</Type>
+			  		   <Description>initialize an icon session. Prerequiste and mandatory to any other IconProvider call.
+			  		   	The client need to specify an iconFilePath, where all requested resources can be copied to.</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>createSession_iconSessionHandle</Name>
+			            <Description>icon session handle</Description>
+			          <ID>5</ID>
+			<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>deleteSession</Name>
+			   <ID>1201</ID>
+			         <Type>Request</Type>
+			  		   <Description>deletes an icon session and all assiociated resources which were requested</Description>
+			<Response>deleteSession</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>deleteSession_R_iconSessionHandle</Name>
+			    		            <Description></Description>
+			    		          <ID>7</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>deleteSession</Name>
+			<ID>2201</ID>
+			         <Type>Response</Type>
+			  		   <Description>deletes an icon session and all assiociated resources which were requested</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getIconResource</Name>
+			   <ID>1202</ID>
+			         <Type>Request</Type>
+			  		   <Description>generic icon request call to get a navigation based icon</Description>
+			<Response>getIconResource</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getIconResource_R_iconSessionHandle</Name>
+			    		            <Description>mandatory icon session handle</Description>
+			    		          <ID>10</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>getIconResource_R_iconResourceId</Name>
+			    		            <Description>
+			    		                    	icon resource id which is provided by other navigation domains and is used
+			    		                    	to address one dedicated icon resource set</Description>
+			    		          <ID>11</ID>
+			    		<Type>org_harman_nav_ctrl_icon_IconProviderTypes::IconResourceSetId</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>getIconResource_R_iconDesign</Name>
+			    		            <Description>description of the requested icon design</Description>
+			    		          <ID>12</ID>
+			    		<Type>org_harman_nav_ctrl_icon_IconProviderTypes::DesignParameters</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getIconResource</Name>
+			<ID>2202</ID>
+			         <Type>Response</Type>
+			  		   <Description>generic icon request call to get a navigation based icon</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getIconResource_icon</Name>
+			            <Description></Description>
+			          <ID>14</ID>
+			<Type>org_harman_nav_ctrl_icon_IconProviderTypes::IconResponseData</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+</Methods>
+
+
+</DSI>
+

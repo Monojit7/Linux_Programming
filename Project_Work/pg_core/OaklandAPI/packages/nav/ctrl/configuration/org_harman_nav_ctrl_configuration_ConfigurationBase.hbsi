@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DSI>
+<Name>org_harman_nav_ctrl_configuration_ConfigurationBase</Name>
+   <ID>2</ID>
+   <Extern>true</Extern>
+	<Version>
+      <Major>1</Major>
+      <Minor>0</Minor>
+   </Version>
+   <Includes>
+   
+   <Include>
+         <Name>api/nav/ctrl/pf/configuration/org_harman_nav_ctrl_configuration_ConfigurationTypes.hbtd</Name>
+         
+         <Major>1</Major>
+         <Minor>0</Minor>
+   </Include>
+   <Include>
+         <Name>api/nav/ctrl/pf/common/org_harman_nav_ctrl_CommonTypes.hbtd</Name>
+         
+         <Major>1</Major>
+         <Minor>0</Minor>
+   </Include>
+   </Includes>
+   
+	  <Enums>
+        <Enum>
+         <Name>Error</Name>
+          <ID>2</ID>
+         <Description>This is the type for error responses.</Description>
+         <EnumIDs>
+             <EnumID>
+                <Name>ERROR_GetVersionError_INVALID</Name>
+                <ID>3</ID>
+                <Value>0x0000</Value>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_GetVersionError_GET_VERSION_FAILED</Name>
+                <ID>4</ID>
+                <Value>1</Value>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_GetSupportedUnitsOfMeasurementError_INVALID</Name>
+                <ID>5</ID>
+                <Value>0x0000</Value>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_GetSupportedUnitsOfMeasurementError_GET_SUPPORTED_UNITS_OF_MEASUREMENTS_FAILED</Name>
+                <ID>6</ID>
+                <Value>1</Value>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_GetUnitsOfMeasurementError_INVALID</Name>
+                <ID>7</ID>
+                <Value>0x0000</Value>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_GetUnitsOfMeasurementError_GET_UNITS_OF_MEASUREMENTS_FAILED</Name>
+                <ID>8</ID>
+                <Value>1</Value>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_GetTimeFormatError_INVALID</Name>
+                <ID>9</ID>
+                <Value>0x0000</Value>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_GetTimeFormatError_GET_TIME_FORMAT_FAILED</Name>
+                <ID>10</ID>
+                <Value>1</Value>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_GetCoordinatesFormatError_INVALID</Name>
+                <ID>11</ID>
+                <Value>0x0000</Value>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_GetCoordinatesFormatError_GET_COORDINATES_FORMAT_FAILED</Name>
+                <ID>12</ID>
+                <Value>1</Value>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_GetSupportedCoordinatesFormatsError_INVALID</Name>
+                <ID>13</ID>
+                <Value>0x0000</Value>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_GetSupportedCoordinatesFormatsError_GET_SUPPORTED_COORDINATES_FORMAT_FAILED</Name>
+                <ID>14</ID>
+                <Value>1</Value>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_GetLocaleError_INVALID</Name>
+                <ID>15</ID>
+                <Value>0x0000</Value>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_GetLocaleError_GET_LOCALE_FAILED</Name>
+                <ID>16</ID>
+                <Value>1</Value>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_GetLocalesError_INVALID</Name>
+                <ID>17</ID>
+                <Value>0x0000</Value>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_GetLocalesError_GET_LOCALES_FAILED</Name>
+                <ID>18</ID>
+                <Value>1</Value>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_GetStyleThemeError_INVALID</Name>
+                <ID>19</ID>
+                <Value>0x0000</Value>
+             </EnumID>
+             <EnumID>
+                <Name>ERROR_GetStyleThemeError_GET_STYLE_THEME_FAILED</Name>
+                <ID>20</ID>
+                <Value>1</Value>
+             </EnumID>
+	    </EnumIDs>
+
+    </Enum>
+</Enums>
+
+   <DataTypes>
+   </DataTypes>
+	<Methods>
+			<Method>
+			
+			   <Name>getNavigationVersion</Name>
+			   <ID>1200</ID>
+			         <Type>Request</Type>
+			  		   <Description>Methode for getting version.</Description>
+			<Response>getNavigationVersion</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getNavigationVersion</Name>
+			<ID>2200</ID>
+			         <Type>Response</Type>
+			  		   <Description>Methode for getting version.</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getNavigationVersion_navigationVersion</Name>
+			            <Description></Description>
+			          <ID>23</ID>
+			<Type>org_harman_nav_ctrl_configuration_ConfigurationTypes::NavigationVersion</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getSupportedUnitsOfMeasurement</Name>
+			   <ID>1201</ID>
+			         <Type>Request</Type>
+			  		   <Description>Methode for getting supported units of measurements.</Description>
+			<Response>getSupportedUnitsOfMeasurement</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getSupportedUnitsOfMeasurement</Name>
+			<ID>2201</ID>
+			         <Type>Response</Type>
+			  		   <Description>Methode for getting supported units of measurements.</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getSupportedUnitsOfMeasurement_unitsOfMeasurement</Name>
+			            <Description></Description>
+			          <ID>26</ID>
+			<Type>org_harman_nav_ctrl_configuration_ConfigurationTypes::UnitsOfMeasurement</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getUnitsOfMeasurement</Name>
+			   <ID>1202</ID>
+			         <Type>Request</Type>
+			  		   <Description>Methode for getting units of measurements.</Description>
+			<Response>getUnitsOfMeasurement</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getUnitsOfMeasurement</Name>
+			<ID>2202</ID>
+			         <Type>Response</Type>
+			  		   <Description>Methode for getting units of measurements.</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getUnitsOfMeasurement_unitsOfMeasurement</Name>
+			            <Description></Description>
+			          <ID>29</ID>
+			<Type>org_harman_nav_ctrl_configuration_ConfigurationTypes::UnitsOfMeasurement</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getTimeFormat</Name>
+			   <ID>1203</ID>
+			         <Type>Request</Type>
+			  		   <Description>Methode for getting time format.</Description>
+			<Response>getTimeFormat</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getTimeFormat</Name>
+			<ID>2203</ID>
+			         <Type>Response</Type>
+			  		   <Description>Methode for getting time format.</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getTimeFormat_timeFormat</Name>
+			            <Description></Description>
+			          <ID>32</ID>
+			<Type>org_harman_nav_ctrl_configuration_ConfigurationTypes::TimeFormat</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getCoordinatesFormat</Name>
+			   <ID>1204</ID>
+			         <Type>Request</Type>
+			  		   <Description>Methode for getting coordinates format.</Description>
+			<Response>getCoordinatesFormat</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getCoordinatesFormat</Name>
+			<ID>2204</ID>
+			         <Type>Response</Type>
+			  		   <Description>Methode for getting coordinates format.</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getCoordinatesFormat_coordinatesFormat</Name>
+			            <Description></Description>
+			          <ID>35</ID>
+			<Type>org_harman_nav_ctrl_configuration_ConfigurationTypes::CoordinatesFormat</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getSupportedCoordinatesFormats</Name>
+			   <ID>1205</ID>
+			         <Type>Request</Type>
+			  		   <Description>Methode for getting supported coordinates format.</Description>
+			<Response>getSupportedCoordinatesFormats</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getSupportedCoordinatesFormats</Name>
+			<ID>2205</ID>
+			         <Type>Response</Type>
+			  		   <Description>Methode for getting supported coordinates format.</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getSupportedCoordinatesFormats_coordinatesFormats</Name>
+			            <Description></Description>
+			          <ID>38</ID>
+			<Type>org_harman_nav_ctrl_configuration_ConfigurationTypes::CoordinatesFormats</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getLocale</Name>
+			   <ID>1206</ID>
+			         <Type>Request</Type>
+			  		   <Description>Methode for getting locale.</Description>
+			<Response>getLocale</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getLocale</Name>
+			<ID>2206</ID>
+			         <Type>Response</Type>
+			  		   <Description>Methode for getting locale.</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getLocale_locale</Name>
+			            <Description></Description>
+			          <ID>41</ID>
+			<Type>org_harman_nav_ctrl_configuration_ConfigurationTypes::Locale</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getSupportedLocales</Name>
+			   <ID>1207</ID>
+			         <Type>Request</Type>
+			  		   <Description>Methode for getting supported locales.</Description>
+			<Response>getSupportedLocales</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getSupportedLocales</Name>
+			<ID>2207</ID>
+			         <Type>Response</Type>
+			  		   <Description>Methode for getting supported locales.</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getSupportedLocales_locales</Name>
+			            <Description></Description>
+			          <ID>44</ID>
+			<Type>org_harman_nav_ctrl_configuration_ConfigurationTypes::Locales</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getStyleTheme</Name>
+			   <ID>1208</ID>
+			         <Type>Request</Type>
+			  		   <Description>Methode for getting style theme.</Description>
+			<Response>getStyleTheme</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getStyleTheme</Name>
+			<ID>2208</ID>
+			         <Type>Response</Type>
+			  		   <Description>Methode for getting style theme.</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getStyleTheme_style</Name>
+			            <Description></Description>
+			          <ID>47</ID>
+			<Type>org_harman_nav_ctrl_configuration_ConfigurationTypes::StyleTheme</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+               <Method>
+                  <Name>configurationChanges</Name>
+                  <Description>This signals there was a change is configuration.</Description>
+         <ID>2300</ID>
+                  <Type>Information</Type>
+                  <Description>This signals there was a change is configuration.</Description>
+                  <Parameters>
+                          <Parameter>
+                              <Name>configurationChanges_changedSettings</Name>
+                              <Description></Description>
+                            <ID>49</ID>
+                  <Type>org_harman_nav_ctrl_configuration_ConfigurationTypes::Settings</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                  </Parameters>
+               </Method>
+</Methods>
+
+
+</DSI>
+

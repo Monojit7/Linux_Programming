@@ -1,0 +1,259 @@
+package com.harman.audio.audioPresCtrl
+
+import com.harman.audio.audioPresCtrl.audioPresCtrlTypes.* from "audioPresctrlTypes.fidl"
+ 
+<** @description 	: This is a Common API DBUS settings interface of audio presentation controller for Orinoco 2.0
+    @author			: AYatheesh 
+**>
+interface audioPresCtrlSettings {
+	
+	version {major 1 minor 0}
+	
+	<** 
+		@description : Attribute holding current fade level 
+	**>	
+	attribute Int16   	 			Fade 
+	
+	<** 
+		@description : Attribute holding current Balance level 
+	**>	
+	attribute Int16   	 			Balance
+	
+	<** 
+		@description : Attribute holding current Bass level 
+	**>	
+	attribute Int16					Bass
+	
+	<** 
+		@description : Attribute holding current Mid level 
+	**>	
+	attribute Int16					Mid
+	
+	<** 
+		@description : Attribute holding current Treble level 
+	**>	
+	attribute Int16					Treble
+	
+	<** 
+		@description : Attribute holding Equalizer status (enabled/disabled)  
+	**>	
+	attribute UInt16				Equalizer
+	
+	<** 
+		@description : Attribute holding Clarifi status (enabled/disabled)  
+	**>
+	attribute Boolean    		    Clarifi
+	
+	<** 
+		@description : Attribute holding Loudness status (enabled/disabled)  
+	**>
+	attribute Boolean				Loudness
+	
+	<** 
+		@description : Attribute holding current AVCMode level 
+	**>
+	attribute UInt16				AVCMode
+	
+	<** 
+		@description : Attribute holding Aux offset gain value 
+	**>
+	attribute Int16					AuxOffsetGain
+	
+	<** 
+		@description : Attribute holding Mid low value 
+	**>
+	attribute Int16					MidLow
+	
+	<** 
+		@description : Attribute holding MidHigh value 
+	**>
+	attribute Int16					MidHigh
+	
+	<** 
+		@description : Attribute holding A2dp source offset gain value 
+	**>
+	attribute Int16					A2dpOffsetGain
+	
+	<** 
+		@description : Attribute holding Mic gain value 
+	**>
+	attribute Int16					MicGain
+	
+	<** 
+		@description : Attribute holding mute state of active source 
+	**>
+	attribute Boolean				ActiveSrcMute
+	
+	<** 
+		@description : Attribute holding system mute state
+	**>
+	attribute Boolean				MasterMute
+	
+					
+	<** @description : This method is used to set absolute volume of presently playing source. If interrupt source is active, it changes the volume of active interrupt source
+		If no interrupts are active, it changes volume of Entertainment source.
+	(at)return eAudioPresErrors
+	**>
+	method SetVolume {
+		in 
+		{
+			<**
+				@description : the absolute volume level to be changed for the currently playing source. 
+			**>
+			UInt16         absoluteVolume
+		}
+		error eAudioPresErrors		
+	}
+		
+	<** @description : This method is used to set Volume of presently playing source where volume change is given in steps example -2 or +2
+	(at)return eAudioPresErrors
+	**>
+	method SetVolumeStep {
+		in 
+		{
+			<**
+				@description : the volume level in step to be changed for the currently playing source. 
+			**>
+			Int16          volumeStep
+		}
+		error eAudioPresErrors		
+	}
+	
+	<** @description : This method is used to set Volume of any source group
+	(at)return eAudioPresErrors
+	**>
+	method SetSourceVolume {
+		in 
+		{
+			<** 
+				@description : source ID and volume level to be changed 
+			**>
+			sSourceVolume 	volume
+		}
+		error eAudioPresErrors		
+	}
+	
+	<** @description : This method is used to get Volume of any source
+	(at)return eAudioPresErrors
+	**>
+	method GetSourceGroupVolume {
+		in 
+		{
+			<**
+				@description : source group identifier whose volume level will be emitted
+			**>
+			eSourceGroup      sourceID			
+		}
+		out 
+		{
+			<**
+				@description : returns volume level and its source ID. 
+			**>
+			sSourceGroupVolume volumeOfSource          	
+        }
+		error eAudioPresErrors		
+	}
+		
+	<** @description : This method is used to toggle mute status of currently playing source
+	(at)return eAudioPresErrors
+	**>
+	method ToggleActiveSrcMute {
+		error eAudioPresErrors		
+	}
+		
+	<** @description : This method is used to set mute status of any particular source
+	(at)return eAudioPresErrors
+	**>
+	method SetSourceMute {
+		in 
+		{
+			<**
+				@description : source id to be muted or unmuted
+			**>
+			SourceId	sourceID
+			
+			<**
+				@description : mute state whether to mute or unmute
+			**>
+			Boolean mute
+		}
+		error eAudioPresErrors		
+	}
+	
+	<** @description : This method is used to toggle mute status of any particular source
+	(at)return eAudioPresErrors
+	**>
+	method ToggleSourceMute {
+		in 
+		{
+			<**
+				@description : Mute states will be toggled for specified source id. 
+			**>
+			SourceId      sourceID			
+		}
+		error eAudioPresErrors		
+	}
+	
+	<** @description : This method is used to get mute status of any particular source
+	(at)return eAudioPresErrors
+	**>
+	method GetSourceMute {
+		in 
+		{
+			<**
+				@description : source id of which mute state will be emitted. 
+			**>
+			SourceId      sourceID			
+		}	
+		out 
+		{
+			<**
+				@description : sourceID of which mute status will be emitted
+			**>
+			SourceId      sourceId
+			<**
+				@description : returns mute state of the specified source id
+			**>
+			Boolean mute          	
+        }	
+		error eAudioPresErrors		
+	}
+		
+	<** @description : This method is used to toggle mute status of complete system
+	(at)return eAudioPresErrors
+	**>
+	method ToggleMasterMute {		
+		error eAudioPresErrors		
+	}
+		                   
+    <** @description : To broadcast volume change signal to HMI to display updated volume level 
+    (at)return eAudioPresErrors
+    **>
+    broadcast VolumeChange{
+    	out
+    	{
+    		<**
+				@description : returns source id and its volume
+			**>
+    		sSourceVolume volume 
+    	}
+    }
+        
+    <** @description : To broadcast system mute state to HMI
+    (at)return eAudioPresErrors
+    **>
+    broadcast SourceMuteState{
+    	out
+    	{
+    		<**
+				@description : emits mute state of specified source set via SetSourceMute API
+			**>
+    		SourceId sourcename
+    		<**
+    			@description : Mutestate of a source
+    		**>
+    		Boolean muteState
+    	}
+    }
+       
+}

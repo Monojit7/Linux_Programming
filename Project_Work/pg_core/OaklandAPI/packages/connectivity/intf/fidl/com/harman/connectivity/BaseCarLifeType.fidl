@@ -1,0 +1,109 @@
+package com.harman.carlife
+
+typeCollection BaseCarLifeType{
+   version { major 0 minor 1 }    
+   
+    enumeration tMediumControlType {
+        CLF_MEDIA_PAUSE
+		CLF_MEDIA_RESUME
+		CLF_MEDIA_ENABLE
+		CLF_MEDIA_DISABLE        
+    }
+       
+    enumeration tHKEventType {
+        Clf_KEYCODE_NULLL
+		Clf_KEYCODE_HOME
+		Clf_KeyCodePhoneCall
+		Clf_KeyCodePhoneEnd
+		Clf_KeyCodePhoneEndMute
+		Clf_KeyCodeHFP
+		Clf_KeyCodeSelectorNext
+		Clf_KeyCodeSelectorPrevious
+		Clf_KeyCodeSetting
+		Clf_KeyCodeMedia
+		Clf_KeyCodeRadio
+		Clf_KeyCodeNavi
+		Clf_KeyCodeSRC
+		Clf_KeyCodeMode
+		Clf_KeyCodeBack
+		Clf_KeyCodeSeekSub
+		Clf_KeyCodeSeekAdd
+		Clf_KeyCodeVolumeSub
+		Clf_KeyCodeVolumeAdd
+		Clf_KeyCodeMute
+		Clf_KeyCodeOK
+		Clf_KeyCodeMoveLeft
+		Clf_KeyCodeMoveRight
+		Clf_KeyCodeMoveUp
+		Clf_KeyCodeMoveDown
+		Clf_KeyCodeMoveUpLeft
+		Clf_KeyCodeMoveUpRight
+		Clf_KeyCodeMoveDownLeft
+		Clf_KeyCodeMoveDownRight
+		Clf_KeyCodeNum
+    }
+
+   enumeration tHUState {
+        Clf_HUSTATE_POWEROFF
+		Clf_HUSTATE_AVOFF
+		Clf_HUSTATE_SCREENOFF
+		Clf_HUSTATE_BTCALL
+		Clf_HUSTATE_TBOX
+		Clf_HUSTATE_RVC
+		Clf_HUSTATE_SOS
+    }
+    
+    enumeration tCarLifeMode  {
+        Clf_ModeHome
+		Clf_ModePhone
+		Clf_ModeMap
+		Clf_ModeMusic
+    }
+    
+     enumeration  TTSAudioState{     	
+     	TTS_START
+     	TTS_STOP
+     }
+     
+     enumeration  tNaviStatus{
+     	NAVI_Routing_Start
+		NAVI_Routing_Stop
+     }
+     
+     enumeration tCarlifeState {
+     	CLF_NOT_AVAILABLE
+		CLF_AVAILABLE
+		CLF_CONNECTED
+		CLF_DISCONNECTED
+		CLF_RUN_BACKGROUND
+		CLF_RUN_FOREGROUND
+     	
+     }
+     
+     enumeration tErrorStatus {
+     	CLF_INSRALL_ACTION_FAILED
+		CLF_APP_RUN_FAILED
+		CLF_CONNECTION_FAILED
+		CLF_CHANNEL_CREATION_FAILED
+		CLF_CONNECTION_DOWN
+		CLF_CHANNEL_DISTROY_FAILED
+		CLF_DISCONNECTION_FAILED
+     	CLF_ADB_CHANNEL_FAILED			// adb channel disconnect or have error.
+		CLF_ADB_RUN_FAILED
+     }
+     
+      enumeration tMediaStatus {
+     	CLF_MEDIA_PLAYING
+		CLF_MEDIA_PAUSE
+     }
+     
+     enumeration tTeleStatus {
+     	CLF_TELE_STATUS_IDLE
+		CLF_TELE_STATUS_INCOME
+		CLF_TELE_STATUS_OUTCOME
+     	
+     }
+     
+}
+
+

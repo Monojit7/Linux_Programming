@@ -1,0 +1,16 @@
+import fidl "intf/fidl/com/harman/swdl/SoftwareInstall.fidl"
+
+import cdl "cc_swpl.cdl"
+
+package orinoco_platform_swdl{
+	generator true
+		
+		component SoftwareInstall 	{
+		buildType CMake
+		language cpp
+		rpc dbus
+		provides interface com.harman.SoftwareInstall as swdl	 
+		consumes interface org.genivi.NodeStateManager.Consumer instance NodeStateManager::inst0 as nsm_consumer 		
+		consumes interface org.genivi.NodeStateManager.LifecycleControl instance NodeStateManager::inst1 as proxyInst			
+		}
+}

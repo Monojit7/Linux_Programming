@@ -1,0 +1,52 @@
+import cdl "../../../packages/connectivity/cc_connectivity.cdl"
+import cdl "../../../packages/media/cc_media.cdl"
+import cdl "../../../packages/audio/audioManager.cdl" 
+import cdl "../../../packages/swpl/orinoco_base.cdl"
+
+import fidl "./intf/fidl/com/harman/onboardcomputer/onboardcomputer.fidl"
+
+package UnitTyLab {
+	generator true
+	
+	component CUnitTyLab extends orinoco_component {
+		buildType CMake
+		language cpp
+		rpc tesseract
+		// supported interfaces (rpc = tesseract)
+		// AndroidAuto
+		provides interface com.harman.service.AndroidAutoDomainSvc as inst0
+		// Media
+	    provides interface com.harman.media.DeviceManager as inst0
+		provides interface com.harman.media.PlayerExt as inst0
+		provides interface org.genivi.mediamanager.Browser as inst0
+		provides interface org.genivi.mediamanager.Indexer as inst0
+		provides interface org.genivi.mediamanager.Player as inst0
+		// Audio
+	    provides interface org.genivi.am.commandinterface.CommandControl as inst0
+		provides interface org.genivi.am.routinginterface.RoutingControlObserver as inst0	
+		// Bluetooth
+		provides interface com.harman.bluetooth.BtService as inst0
+		// Phonebook
+		provides interface com.harman.oakland.service.conn.pb.PhoneBook as inst0
+		// OnBoard Computer
+		provides interface com.harman.onboardcomputer.OnBoardComputer as inst0
+		
+		// required interfaces (rpc = dbus)
+		// AndroidAuto
+		consumes interface com.harman.service.AndroidAutoDomainSvc instance AndroidAutoDomainSvc::inst0 as inst0
+		// Media
+		consumes interface com.harman.media.DeviceManager instance MediaOneService::inst0 as inst0
+		consumes interface com.harman.media.PlayerExt instance MediaOneService::inst0 as inst0
+		consumes interface org.genivi.mediamanager.Browser instance MediaOneService::inst0 as inst0
+		consumes interface org.genivi.mediamanager.Indexer instance MediaOneService::inst0 as inst0
+		consumes interface org.genivi.mediamanager.Player instance MediaOneService::inst0 as inst0
+		// Audio
+		consumes interface org.genivi.am.commandinterface.CommandControl instance audioManager::commandInst as inst0
+		consumes interface org.genivi.am.routinginterface.RoutingControlObserver instance audioManager::routingInst as inst0
+		// Bluetooth
+		consumes interface com.harman.bluetooth.BtService instance BTService::inst0 as inst0
+		// Phonebook
+		consumes interface com.harman.oakland.service.conn.pb.PhoneBook instance PimDbService::inst0 as inst0
+	} 
+	
+}

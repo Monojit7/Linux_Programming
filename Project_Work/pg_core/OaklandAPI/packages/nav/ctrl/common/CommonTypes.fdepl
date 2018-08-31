@@ -1,0 +1,6 @@
+import "CommonTypes.fidl"
+import "../some_ip.fdepl"
+
+define someip.franca.SOMEIP_Deployment for typeCollection
+org.harman.nav.ctrl.CommonTypes as org.harman.nav.ctrl.CommonTypes {
+}

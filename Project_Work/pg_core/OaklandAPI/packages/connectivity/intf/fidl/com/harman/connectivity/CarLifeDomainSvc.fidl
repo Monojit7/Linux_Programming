@@ -1,0 +1,129 @@
+ /*********************************************************************
+ * Project        Harman Car Multimedia System
+ * (c) copyright  2015
+ * Company        Harman International Industries
+ *                All rights reserved
+ * Secrecy Level  STRICTLY CONFIDENTIAL
+ *********************************************************************/
+
+ /**
+ * @file        CarLifeDomainSvc.fidl
+ * @ingroup     DomainSvc_CarLife
+ * @author      BChen
+ * @brief       Interface for Communication with HMI
+ */
+
+package com.harman.service
+
+interface CarLifeDomainSvc{
+   version { major 1 minor 0}
+   
+   //--------------------------------------------------------------------
+   //                              Methods
+   //--------------------------------------------------------------------   
+   /**
+   * @brief   Message indicates that the CarLife screen is requested
+   * @details This will be sent by HMI when the user initiates 
+   *           an action to go to CarLife screen
+   *
+   */
+   method showRemoteScreen {
+   
+   }
+
+   /**
+   * @brief   Message indicates that the CarLife needs to be exited for showing the Native HMI
+   * @details This will be sent by HMI when the Native HMI has to be
+   *			 shown or when the CarLife screen needs to be hidden
+   *			 due to Camera or other higher priority Applications ..,
+   *
+   */
+   method hideRemoteScreen {
+
+   }
+
+   /**
+    * @brief      Method to send button input event to the CarLife Phone
+    * @details    The client object shall call this method whenever there is a hardkey button
+    *             pressed.
+    * @param[in]  isBtnPressed   Boolean flag indicating if the button is pressed or it is released
+    * @param[in]  btnType        Type of the button as an enum value
+    */
+    method setButtonEvent
+    {
+        in
+        {
+            Boolean isBtnPressed
+            enCarLifeHardButtonType btnType
+        }
+    }
+
+   //--------------------------------------------------------------------
+   //                              BroadCasts
+   //--------------------------------------------------------------------
+   /**
+   * @brief   Message indicates that there is a change in  CarLife session
+   * @details This will be sent by CarLife DomainSvc when there is a change in
+   * 	     CarLife session. (i.e transitioning between active to inactive and viceversa)
+   *			 HMI is expected to indicate to user that the CarLife is available on receiving this message
+   * @param [out] session status to indicate the status of CarLife session.
+   */
+   broadcast sessionStatus
+   {
+        out
+        {
+            enSessionStatus status 
+            String message
+        }
+   }
+
+   /**
+   * @brief   Message indicates that the CarLife screen is active
+   * @details This will be sent by CarLife DomainSvc when the screen is 
+   *          successfully taken by the CarLife. Native HMI to hide on receiving this 
+   *			 message
+   */   	
+   broadcast remoteScreenActive {
+
+   }
+   
+   /**
+   * @brief   Message indicates that the CarLife screen is inactive
+   * @details This will be sent by CarLife DomainSvc when the screen is 
+   *          successfully released by the CarLife. Native HMI to show on receiving this 
+   *			 message
+   */ 
+   broadcast remoteScreenInactive {
+ 
+   }
+
+   /**
+   * @brief   Message indicates that the screen is required by CarLife
+   * @details This will be sent by CarLife DomainSvc when the CarLife 
+   * 		 requires the screen for showing phonecall, or when the user triggers
+   * 		 an action in the phone which requires the screen
+   *			 
+   */
+   broadcast requestScreen {
+   
+   }
+
+   enumeration enSessionStatus {
+      SESSION_DEVICE_CONNECTED
+      SESSION_DEVICE_DISCONNECTED
+      SESSION_APP_ACTIVE
+      SESSION_APP_INACTIVE
+      SESSION_APP_BACKGROUND
+      SESSION_APP_FOREGROUND
+      SESSION_ERROR
+   }
+
+   /**
+    * @brief   Enum values for Hard Button type for CarLife
+    */
+    enumeration enCarLifeHardButtonType
+    {
+       CarLifeHardButton_VR                                 /**< VR button */
+    }
+}
+

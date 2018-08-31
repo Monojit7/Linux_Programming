@@ -1,0 +1,60 @@
+package com.harman.connectivity
+
+
+typeCollection BaseType{
+   version {
+      major 2
+      minor 0
+   }
+
+   enumeration foldertype {
+      INBOX
+      OUTBOX
+      SENT
+      DELETED
+      DRAFT
+   }
+
+   enumeration smsnotification {
+      DELIVERY_SUCCESS
+      DELIVERY_FAILURE
+      SENDING_SUCCESS
+      SENDING_FAILURE
+      MEMORY_FULL
+      MEMORY_AVAILABLE
+      DELETED
+      SHIFTED
+      LOST_NOTIFICATIONS
+   }
+
+   struct phonebookentry {
+		String formattedName
+		String MobileNumber
+	}
+   struct callstackentry {
+		String formattedName
+		String Number
+		String TimeStamp
+	}
+    struct smsentry {
+        String smsBody
+        String smsFrom
+        String smsTo
+        String timeStamp
+        String smsName
+        String url
+        Int32 msg_id
+        Boolean sms_read_status
+    }
+
+    struct alphaentry {
+	String alpha
+	Int32 startId
+    }
+
+    array phonebook of phonebookentry
+    array callstack of callstackentry
+    array arString of String
+    array arSMS of smsentry
+    array arAlphaTable of alphaentry
+}

@@ -1,0 +1,841 @@
+/*********************************************************************
+ * Project        Harman Car Multimedia System
+ * (c) copyright  2016
+ * Company        HARMAN International
+ *                All rights reserved
+ * Secrecy Level  STRICTLY CONFIDENTIAL
+ *********************************************************************/
+
+/**
+ * @file        iAP1DevCtrl.fidl
+ * @ingroup     platform_devctrl_iap1
+ * @author      SAbdulkareem
+ * @brief       Interface to communicate with iAP1 driver
+ */
+
+package com.harman.connectivity
+interface iAP1DevCtrl{
+    version { major 1 minor 0}
+    
+    //--------------------------------------------------------------------
+    //                              Methods
+    //--------------------------------------------------------------------
+
+
+   /*
+    * @brief: To retrieve the name of ipod. This command comes under General Lingo operation.
+    * @param[in]: name The name of ipod; blank if the name is empty
+    * @return: errorIAP1 Returns error_OK on success
+   */
+   method requestName
+   {
+		out
+		{
+			String name
+		}
+   }
+
+   /*
+      @brief: To retrieve the serial number of ipod. This command comes under General Lingo operation.
+      @param1: serialNumber The serial number of ipod; blank if the serial number is empty
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method requestSerialNum
+   {
+		out
+		{
+			String serialNumber
+		}
+   }
+
+   /*
+      @brief: To retrieve the software version of ipod. This command comes under General Lingo operation.
+      @param1:sw version of ipod: blank if the name is empty
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method requestSoftwareVersion
+   {
+		out
+		{
+			String swVersion
+		}
+   }
+
+   /*
+      @brief: To retrieve the lingo Protocol version of ipod. This command comes under General Lingo operation.
+      @param1: lingo the type of lingo for which the version is requested.
+	  @param lingoVersion version of lingo
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method requestLingoProtocolVersion
+	{
+		in
+		{
+			enLingoTypes lingo
+		}
+		out
+		{
+			String lingoVersion
+		}
+	}
+	
+   /*
+      @brief: To retrieve the language,region. This command comes under General Lingo operation. 
+      @param1: the localization parameter for which the information is requested.
+      @parfam2: localization info
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method requestLocalizationInfo
+   {
+		in
+		{
+			enLocalizationType type
+		}
+		out 
+		{
+			String localization
+		}
+   }
+
+   /*
+      @brief: To retireve the current app bundle name. This command comes under General Lingo operation. 
+      @param1: bundleName: app bundle name
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method requestCurrentAppBundleName
+	{
+		out
+		{
+			String bundleName
+		}
+	}
+   
+   /*
+      @brief: play command. The same command can be used with Extended Interafce Lingo and Simple Remote Lingo. Extended Interface Lingo to be used when current playing App is com.apple.mobileipod and Simple Remote Lingo in other cases.
+      @param1: lingo: lingo types
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method requestPlay
+   {
+		in
+		{
+			enLingoTypes lingo
+		}
+   }
+   
+   /*
+      @brief: pause command. The same command can be used with Extended Interafce Lingo and Simple Remote Lingo. Extended Interface Lingo to be used when current playing App is com.apple.mobileipod and Simple Remote Lingo in other cases. 
+      @param1: lingo: lingo types
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method requestPause
+   {
+		in
+		{
+			enLingoTypes lingo
+		}
+   } 
+   
+   /*
+      @brief: next command. The same command can be used with Extended Interafce Lingo and Simple Remote Lingo. Extended Interface Lingo to be used when current playing App is com.apple.mobileipod and Simple Remote Lingo in other cases. 
+      @param1: lingo: lingo types
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method requestNext
+   {
+		in
+		{
+			enLingoTypes lingo
+		}
+   }
+   
+   /*
+      @brief: previous command. The same command can be used with Extended Interafce Lingo and Simple Remote Lingo. Extended Interface Lingo to be used when current playing App is com.apple.mobileipod and Simple Remote Lingo in other cases. 
+      @param1: lingo: lingo types
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method requestPrevious
+   {
+		in
+		{
+			enLingoTypes lingo
+		}
+   }
+   
+   /*
+      @brief: ff command. The same command can be used with Extended Interafce Lingo and Simple Remote Lingo. Extended Interface Lingo to be used when current playing App is com.apple.mobileipod and Simple Remote Lingo in other cases.
+      @param1: lingo: lingo types
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method requestFastForward
+   {
+		in
+		{
+			enLingoTypes lingo
+		}
+   }
+   
+   /*
+      @brief: fr command. The same command can be used with Extended Interafce Lingo and Simple Remote Lingo. Extended Interface Lingo to be used when current playing App is com.apple.mobileipod and Simple Remote Lingo in other cases. 
+      @param1: lingo: lingo types
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method requestFastRewind
+   {
+		in
+		{
+			enLingoTypes lingo
+		}
+   }
+
+   /*
+      @brief: end ff command. The same command can be used with Extended Interafce Lingo and Simple Remote Lingo. Extended Interface Lingo to be used when current playing App is com.apple.mobileipod and Simple Remote Lingo in other cases.
+      @param1: lingo: lingo types
+      @return: error types
+   */
+   method requestEndFastForward
+   {
+		in
+		{
+			enLingoTypes lingo
+		}	
+   }
+
+	/*
+      @brief: end fr command. The same command can be used with Extended Interafce Lingo and Simple Remote Lingo. Extended Interface Lingo to be used when current playing App is com.apple.mobileipod and Simple Remote Lingo in other cases. 
+      @param1: lingo: lingo types
+      @return: error types
+   */
+   method requestEndFastRewind
+   {
+		in
+		{
+			enLingoTypes lingo
+		}	
+   }
+
+   /*
+      @brief: to set the shuffle state. The same command can be used with Extended Interafce Lingo and Display Remote Lingo. Extended Interface Lingo preferred over Display Remote Lingo usage.
+      @param1: lingo: lingo types
+      @param2: shuffle states
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method requestSetShuffle
+   {
+		in
+		{
+			enLingoTypes lingo
+			enShuffleMode shuffle
+		}
+   }
+   
+   /*
+      @brief: to get the shuffle state. This command corresponds to Extended Interafce Lingo operation.
+      @param1: shuffle states
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method getShuffleState
+	{
+		out
+		{
+			enShuffleMode shuffle
+		}
+	}
+	
+	/*
+      @brief: to set the repeat state. The same command can be used with Extended Interafce Lingo and Display Remote Lingo. Extended Interface Lingo preferred over Display Remote Lingo usage.
+      @param1: lingo: lingo types
+      @param 2: repeat states
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method requestSetRepeat
+   {
+		in
+		{
+			enLingoTypes lingo
+			enRepeatMode repeat
+		}
+   }
+   
+   /*
+      @brief: to get the repeat state. This command corresponds to Extended Interafce Lingo operation.
+      @param1: repeat states
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method getRepeatState
+   {
+		out
+		{
+			enRepeatMode repeat
+		}
+   }
+
+   /*
+      @brief: to set the audiobook speed. The same command can be used with Extended Interafce Lingo and Display Remote Lingo. Extended Interface Lingo preferred over Display Remote Lingo usage.
+      @param 1: lingo: lingo types
+      @param 2: audiobook speed
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method requestSetAudioBookSpeed
+   {
+		in
+		{
+			enLingoTypes lingo
+			enAudioBookSpeed speed
+		}
+   }
+   
+   /*
+      @brief: to get the audio book speed. This command corresponds to Extended Interafce Lingo operation.
+      @param1: audiobook speed
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method getAudioBookSpeed
+   {
+		out 
+		{
+			enAudioBookSpeed speed
+		}
+   }
+
+   /*
+      @brief: to get the play status and current time position. This command corresponds to Extended Interafce Lingo operation.
+      @param1: lingo: lingo types
+	  @param2: status : playstatus
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method getPlayStatus
+   {
+		in
+		{
+			enLingoTypes lingo
+		}
+		out
+		{
+			tPlayStatus playstatus
+		}
+   }
+
+   /*
+      @brief: to retireve the chapter info of current track. This command corresponds to Extended Interafce Lingo operation.
+      @param2:chapterInfo:  
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method getCurrentTrackChapterInfo
+   {
+		out
+		{
+			tCurrentTrackChapterInfo chapterInfo
+		}
+   }
+
+   /*
+      @brief: To retrieve the metadata of track rquested. The track should be part of nowplaying list: Track metadata details can be configured in the iap1.cfg. This command corresponds to Extended Interafce Lingo operation.
+	  @param1: index: index of the track from now playing list
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method getCurrentPlayListTrackInfo
+   {
+		in
+		{
+			UInt16 index
+		}
+		out
+		{
+			tMetadataInfo metadata
+		}
+   }
+
+   /*
+      @brief: to retireve the artwork data. Once the artwork is completely downloaded this will be sent over notification. notification of artwork will be always provided along with 
+                track identifier. This command corresponds to Extended Interafce Lingo operation.
+      @param1: type:   different types of identifier
+      @param2: track identiifer
+      @param3: sequence of artwork. The same will be provided in the notification of artwork
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method requestArtworkData
+   {
+		in
+		{
+			enTrackIdentifierTypes type
+			UInt64 trackidentiifer
+			UInt32 artworkSequnece
+		}
+   }
+
+   /*
+      @brief: To retireve the number of tracks in current playlist. This command corresponds to Extended Interafce Lingo operation.
+      @param1: trackCount: Number of track in the playlist
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method getNumPlayingTrack
+   {
+		out
+		{
+			UInt16 trackCount
+		}
+   }
+
+   /*
+      @brief: To play the index. The same command can be used with Extended Interafce Lingo and Display Remote Lingo. Extended Interface Lingo preferred over Display Remote Lingo usage.
+      @param1: trackCount:index of the nowplaying list
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method setCurrentPlayingTrack
+   {
+		in
+		{
+			enLingoTypes lingo
+			UInt16 trackIndex
+		}
+   }
+
+   /*
+      @brief: To retireve the current index of the song. This command corresponds to Extended Interafce Lingo operation. Extended Interface Lingo preferred over Display Remote Lingo usage.
+      @param1: trackIndex:index of the the nowplaying track to be played
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method getCurrentPlayingTrackIndex
+   {
+		out
+		{
+			UInt16 trackIndex
+		}
+   }
+
+
+/********************************************************browsing section *********************************************************/
+
+   /*
+      @brief: To retireve the number of records in a particular database category. This command corresponds to Extended Interafce Lingo operation. 
+      @param1 : database category
+      @param2: trackCount: total count of track
+      @return: error types: if error is thrown it means this category is not supported
+   */
+   method getNumberCategorizedDBRecords
+   {
+		in
+		{
+			enDatabaseCategory dataBase
+		}
+		out
+		{
+			UInt32 trackCount
+		}
+   }
+
+   /*
+      @brief: Retrieve one or more databse records from apple,typically based on the results of getNumberCategorizedDBRecords. This command corresponds to Extended Interafce Lingo operation.
+      @param1: database category
+      @param2: startIndex :start index
+      @param3: trackcount: number of tracks which needs to be retrieved
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method retrieveCategroizedDBRecords
+   {
+		in
+		{
+			enDatabaseCategory 		dataBase
+			UInt32 					startIndex
+			UInt32 					trackCount
+		}
+		out
+		{
+			arCategorizedDB 		dbRecord
+		}
+   }
+   
+   /*
+      @brief: selects one or more records in the database engine,based on a cateory relative index. This command corresponds to Extended Interafce Lingo operation.
+      @param1: database category
+      @param2: startIndex :start index. Index value of -1 cancels the previous selection of category mentioned in the command. Index value of -1 is invalid with Track category and audiobook category. This is because selection with those category ends up changing contents of playback engine which can't be reverted. 
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method selectDBRecord
+   {
+		in
+		{
+			enDatabaseCategory 		dataBase
+			UInt32 					startIndex
+		}
+   }
+   
+   /*
+      @brief: This can be used to retrieve the track details present in the apple device datbase . The track index applies to the current browse heirarchy selcted. This command corresponds to Extended Interafce Lingo operation.
+      @param2: startIndex :start index
+      @param3: trackcount: total count
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method getCurrentDBTrackInfo
+   {
+		in
+		{
+			UInt32 					startIndex
+			UInt32 					trackCount
+		}
+		out
+		{
+			arTrackInfo 			trackDetails
+		}
+   }
+
+/*
+   @brief: Resets the curent databse  to the audio heirarchy(top most level). This command corresponds to Extended Interafce Lingo operation. 
+   *@return: errorIAP1 Returns error_OK on success
+*/
+   method resetDBSelection
+   {
+   
+   }
+
+
+/*************************************************end of browsing section*******************************************************/
+
+   /*
+      @brief: to launch an app in iphone. This command corresponds to General Lingo operation. 
+      @param2:applicationID of the application
+      @param3: launch alert
+      *@return: errorIAP1 Returns error_OK on success
+   */
+   method requestAppLaunch
+   {
+		in
+		{
+			String 					applicationID
+			enAppLaunchAlert 		launchAlert
+		}
+   }
+
+      
+   //--------------------------------------------------------------------
+   //                              Broadcasts
+   //--------------------------------------------------------------------
+   
+      /**
+    * @brief      Callback function to indicate the authentication completion status. This is an internal notification.
+    *
+    * @param[in] authenticationStatus: States whether authentication succeded or not.
+    */
+   broadcast authenticationStatus
+   {
+		out
+		{
+			Boolean 				authenticationStatus
+		}
+   }
+
+   /**
+    * @brief      Callback function to indicate appBundleName: This needs to be registered in the iap1.cfg file. This is a General Lingo notification.
+    *
+    * @param[in] bundleName: Bundle name of current playing App.
+    */
+   broadcast appBundleName
+   {
+		out
+		{
+			String 					bundleName
+		}
+   }
+
+   /**
+    * @brief      Callback function to indicate app displayname: This needs to be registered in the iap1.cfg file. This is a General Lingo notification.
+    *
+    * @param[in]  displayName: Bundle name of current playing App.
+    */
+   broadcast appDisplayName
+   {
+		out
+		{
+			String 					displayName
+		}
+   }
+
+   /**
+    * @brief      Callback function to indicate artwork info: This is in repsonse with requestArtworkData. This is an Extended Interface Lingo notification.
+    * @param[in] artworkSequence : The sequence number of the cover art download request.
+	* @param[in] trackidentifier : The identifier for the track passed in the request.
+	* @param[in] artworkpath     : The path from which artwork can be retrieved.
+    */
+   broadcast artworkAvailable
+   {
+		out
+		{
+			UInt32 					artworkSequence
+			UInt64 					trackidentifier
+			String 					artworkpath
+		}
+   }
+
+   /**
+    * @brief      Callback function to update tracktimeposition: This is an Extended Interface Lingo notification.
+    * @param[in] timepositionUpdate: updated playback position
+    */
+   broadcast trackTimePositionUpdates
+   {
+		out
+		{
+			tTimePositionUpdates 	timepositionUpdate
+		}
+   }
+   
+   /**
+    * @brief      Callback function to update playstatus: This is an Extended Interface Lingo notification.
+    * @param[in] playStatusParams : The changed plastatus parameter/set of parameters.
+    */
+   broadcast playStatusChangeNotification
+   {
+		out
+		{
+			tPlayStatusParams 		playStatusParams
+		}
+   }
+   
+   /**
+    * @brief      Callback function to indicate that the databse is changed in iphone. If the project is storing the content in datbase they have to resync. This needs to be registered in the iap1.cfg file. This is a General Lingo notification.
+    * @param[in] 
+    */
+   broadcast notifyDataBaseChanged
+   {
+
+   }
+    /**
+    * @brief      Callback function to notify remote display settings update like shuffle and repeat setting change: This is a Display Remote Lingo notification.
+    * @param[in] displayParams: Repeat/shuffle values for display
+    */
+	broadcast remoteDisplayNotification
+   {
+		out
+		{
+			tRemoteDisplayParams		displayParams
+		}
+   }
+
+
+   //--------------------------------------------------------------------
+   //                              Structures
+   //--------------------------------------------------------------------
+   
+   
+    struct tPlayStatus
+    {
+	   Boolean                      hasTrackIndex
+       UInt32   					trackIndex
+	   UInt32 						trackLength
+	   UInt32 						trackPosition
+	   enPlayState 					playstate
+	}
+	
+    struct tCurrentTrackChapterInfo
+    {
+		UInt16 						currentChapter
+        UInt16 						totalChapter
+	}
+   
+    struct tMetadataInfo
+    {
+	   tMetadataCapabilities 		capabilities
+       String   					trackName
+       String   					artistName
+       String   					albumName
+       String   					genreName
+       String   					composerName
+       UInt32   					trackDuration
+       UInt64   					iTunesTrackUid
+       UInt16   					chapterCount
+       UInt16   					chapterIndex
+       String   					chapterName
+       UInt16   					albumTrackIndex
+       UInt16   					discSetAlbumIndex
+       UInt16   					year
+	}
+   
+	struct tTimePositionUpdates
+    {
+	   Boolean                		hasPlayPositionMs
+	   UInt32            			playPositionMs
+
+	   Boolean                		hasPlayPositionS
+	   UInt32            			playPositionS
+	}
+	
+	struct tPlayStatusParams
+    {
+		Boolean                		isPlaybackStoppedReached
+	        
+	    Boolean                		hasTrackIndex
+	    UInt32            			trackIndex
+	    
+	    Boolean                		FFWStopSeen
+	    Boolean                		REWStopSeen
+	    
+	    Boolean                		hasChapterIndex
+	    UInt32            			chapterIndex
+	   
+	    Boolean                		hasExtendedPlayState
+	    enPlayState            		extendedPlayState
+	    
+	    Boolean               		hasChapterPlayPositionS
+	    UInt32           			chapterPlayPositionS
+	    
+	    Boolean               		hasChapterPlayPositionMs
+	    UInt32           			chapterPlayPositionMs
+	    
+	    Boolean               		hasTrackUID
+	    UInt64           			trackUID
+	    
+	    Boolean               		hasPlayBackMode
+	    enPlayMode         			playbackMode
+	    
+	    Boolean               		hasLyrics
+	    
+	    Boolean               		trackCapabilityUpdated
+	    tMetadataCapabilities       changedCapability
+	    
+	    Boolean               		PBEngineUpdated
+
+	    Boolean               		hasTrackCount
+	    UInt32           			trackCount
+	}
+   
+   struct tMetadataCapabilities
+   {
+	   Boolean 						isAudioBook
+       Boolean 						hasChapters
+       Boolean 						hasArtwork
+       Boolean 						hasLyrics
+       Boolean 						isPodcastEpisode
+       Boolean 						hasReleaseDate
+       Boolean 						hasDescription
+       Boolean 						isVideo
+       Boolean 						isQuedAsVideo
+       Boolean 						isCapableofGeneratingGeniusPlaylist
+       Boolean 						isItunesUepisode
+   }
+   
+  	struct tRemoteDisplayParams
+	{
+	   Boolean 			   hasShuffleMode
+	   enShuffleMode	   shuffleValue		
+	   Boolean 			   hasRepeatMode
+	   enRepeatMode		   repeatValue
+	}
+
+   struct tCategorizedDB
+    {
+       UInt32 index
+       String name
+    }
+   
+   struct tTrackInfo
+   {
+		tMetadataCapabilities 		capabilities
+		String 						trackName
+		String 						artistName
+		String 						albumName
+		String 						genreName
+		String						composerName
+		UInt32    					trackDuration
+		UInt64    					iTunesTrackUid
+		UInt16     					chapterCount
+		UInt16     					chapterIndex
+		String  					chapterName
+		UInt16     					albumTrackIndex
+		UInt16     					discSetAlbumIndex
+		UInt16      				year
+   }
+   
+
+    //--------------------------------------------------------------------
+    //                              Enumerations
+    //--------------------------------------------------------------------
+  
+	enumeration enLingoTypes
+    {
+	  simple_Remote   = 0x02
+      display_Remote  = 0x03
+      extended_Remote = 0x04
+	}
+	
+	enumeration enLocalizationType
+    {
+	  language     = 0x00
+      region       = 0x01
+	}
+	
+	enumeration enShuffleMode
+    {
+       shuffle_Off    = 0x00
+       shuffle_Tracks = 0x01
+       shuffle_Albums = 0x02	
+	}
+	
+	enumeration enRepeatMode
+    {
+       repeat_Off   = 0x00
+       repeat_One   = 0x01
+       repeat_All   = 0x02	
+	}
+	
+	enumeration enAudioBookSpeed
+    {
+       audioBook_Slower = 0xFF
+       audioBook_Normal = 0x00
+       audioBook_Faster = 0x01	
+	}
+	
+	enumeration enTrackIdentifierTypes
+    {
+       Uid_Types            		= 0x00
+       playback_List_Index_Types 	= 0x01
+       database_Index_Types      	= 0x02	
+	}
+	
+	enumeration enDatabaseCategory
+    {
+       DB_Top_level = 0x00   //to rerive top level details
+       DB_Playlist  = 0x01
+       DB_Artist    = 0x02
+       DB_Album     = 0x03
+       DB_Genre     = 0x04
+       DB_Track     = 0x05
+       DB_Composer  = 0x06
+       DB_AudioBook = 0x07
+       DB_Podcast   = 0x08
+       DB_NestedPlaylist = 0x09
+       DB_GeniusMixes    = 0x0A  //similar to playlist ,but with genius feature
+       DB_iTunesU        =0x0B
+	}
+	
+	enumeration enAppLaunchAlert
+    {
+	   launch_user_Alert = 0x02
+	   launch_without_Alert = 0x01	
+	}
+	
+    enumeration enPlayState
+	{
+	   stopped     = 0x00
+	   playing     = 0x01 
+	   paused      = 0x02
+	   FFW         = 0x03
+       RWD         = 0x04
+       FFW_RWD_End = 0x05
+	   playstateErr   = 0xFF	
+	}
+	
+	enumeration enPlayMode
+	{
+		audio   = 0x00
+		video   = 0x01
+	}
+   
+   
+    //--------------------------------------------------------------------
+    //                              Arrays
+    //--------------------------------------------------------------------   
+   
+
+    array arCategorizedDB of tCategorizedDB
+	array arTrackInfo of tTrackInfo
+}

@@ -1,0 +1,73 @@
+import "Configuration.fidl"
+import "ConfigurationTypes.fdepl"
+import "../some_ip.fdepl"
+import "../common/CommonTypes.fdepl"
+
+define someip.franca.SOMEIP_Deployment for interface
+org.harman.nav.ctrl.configuration.Configuration {
+	use org.harman.nav.ctrl.configuration.ConfigurationTypes use
+	org.harman.nav.ctrl.CommonTypes
+
+   ServiceID = 5000
+   
+	method getNavigationVersion {
+		MMethodID = 200
+	}
+
+	method setUnitsOfMeasurement {
+		MMethodID = 201
+	}
+
+	method setTimeFormat {
+		MMethodID = 202
+	}
+
+	method getSupportedTimeFormats {
+		MMethodID = 203
+	}
+
+	method setCoordinatesFormat {
+		MMethodID = 204
+	}
+
+	method setLocale {
+		MMethodID = 205
+	}
+
+	method getSupportedUnitsOfMeasurement {
+		MMethodID = 206
+	}
+
+	method getUnitsOfMeasurement {
+		MMethodID = 207
+	}
+
+	method getTimeFormat {
+		MMethodID = 208
+	}
+
+	method getCoordinatesFormat {
+		MMethodID = 209
+	}
+
+	method getSupportedCoordinatesFormats {
+		MMethodID = 210
+	}
+
+	method getLocale {
+		MMethodID = 211
+	}
+
+	method getSupportedLocales {
+		MMethodID = 212
+	}
+	
+	method setStyleTheme {
+		MMethodID = 213
+	}
+
+	broadcast configurationChanges {
+		BMethodID = 300
+	}
+
+}

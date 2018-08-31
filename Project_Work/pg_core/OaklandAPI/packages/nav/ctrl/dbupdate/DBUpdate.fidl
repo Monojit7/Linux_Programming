@@ -1,0 +1,211 @@
+package org.harman.nav.ctrl.dbupdate
+
+import org.harman.nav.ctrl.dbupdate.* from "DBUpdateTypes.fidl"
+
+<**
+  @description : high-level interface definition for db update process
+  
+  This interface combines all possible DB update scenarios for the HU.
+  History:
+  added  on 19-Feb-2016: FUD DB date to types   version 1-0
+  
+**>
+
+interface DBUpdate {
+
+  version { major 1 minor 0 }
+
+  <**
+   @description: enable/disable the automode for the iu
+    
+   The auto-mode is by default enabled. In auto mode the
+   dbupdate happens in background and is more or less completely
+   opaque for the customer/driver. In general, the dbupdate ctrl
+   checks for updates in a cycle manner (every updateTime_sec seconds)
+   or based on online notifications (which must supported by project).
+   If an update is available, a download progress is initiated automatically.
+   As soon as the update is applied, the client gets notified about
+   the option to restart the system in order to work on the latest DB.
+   This is done by attribute outstandingUpdates. Anyway the client
+   can ignore this notification and with the next lifecycle the latest
+   dbversion is used.
+   If the automodus is disabled, the client must manually initiate
+   any update process. For further details see requestUpdateList
+   and requestApplyUpdate. 
+   **>
+  attribute Boolean   autoModus
+
+  <** 
+  @description: an indication on how many updates are ready to be applied
+  This attribute allow the client to get feedback about the
+  current update status. All updates that were downloaded and
+  applied will increase this counter. Due to the fact that the
+  DB itself must be switch after the update was applied 
+  successfully, the client can decide to trigger an system restart
+  to get the latest update available for his current navigation.
+  The interpretation of this attribute is very simple:
+  outstandingUpdates!=0 - restart in order to switch to new database
+  outstandingUpdates==0 - nothing to do 
+  The client can use see requestFinalizeUpdate to initialize a HU restart.
+  With the next lifecylce of the system, the updates will be finalized
+  automatically. In this case the outstandingUpdates will be reset
+  to zero.
+  **>
+  attribute Int8    outstandingUpdates readonly
+  
+  <** 
+  @description: progress indication for dealer-update process
+  This indication allows to give feedback about the progress
+  when running a dealer update (don't mix up with incremental
+  update). The valid range is between 0 and 100. As soon
+  as the complete update is applied, the outstandingUpdates
+  attribute will be increased to 1 and the fullUpdateProgress
+  will indicate 100 (percent). 
+  In normal mode (meaning no update device is plugged to HU)
+  the fullUpdateProgress will always be equal to 0 which indicates
+  no full update progress in process.
+  **>
+  attribute UInt8     dealerUpdateProgress readonly
+  
+  <**
+  @description: human readable version information of the database conglomerate
+  This attribute is used to give the customer/driver information about
+  the database that is currently available on his system. 
+  **>
+  attribute DBUpdateTypes.SVersion versionId readonly  
+
+
+  <**
+  @description: manual request for search for available updates  
+  This method is used in case of auto-mode off. A
+  client can use this method to a list of available
+  updates for his HU. By specifying the E_RequestMode,
+  the client can decide to fetch all interesting 
+  iu, the iu around current position or the iu at
+  destionation.
+  As a result, the user will get a list of available
+  updates roughly ordered by distance to CCP/destination and 
+  depending on project settings. The list is valid for the
+  current lifecycle and update-process only. That meas if
+  an update was applied the client must request the list again.
+  
+  In case that no online connection is available, the
+  request returns with error code. Furthermore an error
+  will responded in case that the auto mode is enabled. 
+  Please note: an empty list is not an error - it simply
+  tells the client that there are no updates available
+  **>
+  method updateList {
+    in {
+      DBUpdateTypes.E_RequestMode mode
+    }
+    out {
+      DBUpdateTypes.TOTAUpdateList list
+    }
+    error {
+      E_AUTOMODE_ACTIVE
+      E_NO_ONLINE_SERVICE
+    }
+  }
+  
+  <**
+  @description: manual request to download and apply an incremental update patch
+  This method is used in case of auto-mode = off and the client is responsible
+  to control the complete incremental update process himself.
+  Preceding to this call, the client must have already called updateList 
+  to get a list of available updates. By passing the TId of one of the patches
+  in the list, the download and appliance of a patch is started.
+  There are different error scenarios (see error codes) 
+  **>
+  
+  method applyUpdate {
+    in {
+      <**@description: identifier of a certain patch**>
+      DBUpdateTypes.TId patchId               
+    }
+    error {
+      <**@description: no valid operation in auto-modus**>
+      E_AUTOMODE_ACTIVE       
+      <**@description: online service unavailable**>
+      E_NO_ONLINE_SERVICE     
+      <**@description: invalid TId passed **>
+      E_PATCH_NOT_AVAILABLE
+      <**@description: problems with specified TId **>      
+      E_PATCH_NOT_APPLICABLE     
+      <**@description: authentification problem **>
+      E_VERIFICATION_FAILURE 
+      <**@description: e.g. no parallel download/ patching supported **> 
+      E_RESSOURCE_BUSY        
+    }
+  }
+  
+  <**
+  @description: Request to stop current applying process
+  This method allows the client to stop an update progress. In essence
+  this might lead to a stop-download or stop db-patch. 
+  A cancelled update will be cleaned up if the pausedProcess is set to false.
+  Otherwise the client can resume the update later on.
+  Please note: this call is only available in manual mode
+  The controller stores the status of the current update and allows 
+  to resume the update process. The client can recall see requestApplyUpdate
+  which internaly will resume the update (if TId is the same).
+  Multiple calls of requestCancelUpdate can be used to first pause an update
+  and later on clean up.
+  The controller will autocleanup update content automatically if the
+  data is deprecated.
+  **>
+  method cancelUpdate
+  {
+    in {
+      Boolean pauseProcess    
+    }
+    error {
+      E_AUTOMODE_ACTIVE       
+      E_UPDATE_NOT_ACTIVE     
+    }
+  }  
+ 
+  
+  
+  <**
+  @description: initialize a HU restart which finalizes the DB-update process
+  
+  This method allows the client to control the time in which the system
+  gets restarted in order to finalize the DB-update process. Please note:
+  for each updates (incremental/partial/full) a system restart is necessary
+  to switch to the new DB-files. Intention of this method is to give the control
+  about the restart-time to the client to avoid a restart during 
+  a critical guidance situation.
+  Please note: in some cases a restart is not possible, in this case
+  the E_INVALID_SYSTEM_STATE will be returned
+  **>
+  method finalizeUpdate
+  {
+    error
+    {
+      <**@description: no update process currently in process - no restart will take place**>
+      E_UPDATE_NOT_ACTIVE     
+      <**@description: system forbids to restart the system**>
+      E_INVALID_SYSTEM_STATE  
+    }
+  }
+  
+  
+  <**
+  @description: notify the client about a dealer update media than can be applied
+  This broadcast is emitted by IUcontroller if an update 
+  media is connected to the HU which contains a valid 
+  update for the system. The client then can decide to
+  apply the update by see applyUpdate. Please note:
+  in contrast to incremental updates, this requestApplyUpdate will
+  then switch the system to Full-Update-Mode in which no iu
+  request is possible.
+  **>
+  broadcast dealerUpdateAvailable
+  {
+    out {
+      DBUpdateTypes.SDBDealerUpdate dealerUpdate
+    }
+  }
+}
+

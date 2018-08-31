@@ -1,0 +1,36 @@
+
+
+<DSI>
+   <Name>com_harman_nav_media_MediaConnectorTypes</Name>
+   <ID>1</ID>   
+   <Extern>true</Extern>
+   <Version>
+      <Major>1</Major>
+      <Minor>0</Minor>
+   </Version>
+   <Includes>
+   </Includes>
+   <Enums>
+    <Enum>
+      <Name>SourceSelection</Name>
+      <Description>enumeration describing the kind of media connector</Description>
+      <ID>2</ID>
+      <Description></Description>
+      <EnumIDs>
+         <EnumID>
+            <Name>SourceSelection_DBUpdateMedia</Name>
+            <ID>3</ID>
+            <Description></Description>
+         </EnumID>
+         <EnumID>
+            <Name>SourceSelection_SoftwareUpdateMedia</Name>
+            <ID>4</ID>
+            <Description></Description>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+   </Enums>
+   <DataTypes>
+	    
+   </DataTypes>
+</DSI>

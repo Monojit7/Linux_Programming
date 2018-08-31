@@ -1,0 +1,546 @@
+package org.harman.nav.ctrl
+
+import org.harman.nav.ctrl.CommonTypes.* from "../common/CommonTypes.fidl"
+import org.harman.nav.ctrl.PositioningTypes.* from "../pos/PositioningTypes.fidl"
+import org.harman.nav.ctrl.memory.* from "../memory/LocationMemoryTypes.fidl"
+
+typeCollection GuidanceTypes {
+    version { major 1 minor 2 }
+	
+	enumeration ManueverPhase extends BasicEnum {
+		CRUISE = "0x0050"
+		MANEUVER_APPEARED = "0x0051"
+		PRE_ADVICE = "0x0052"
+		ADVICE = "0x0053"
+		PASSED = "0x0054"
+	}
+
+	enumeration Side extends BasicEnum {
+		LEFT = "0x0080"
+		RIGHT = "0x0083"
+		NOT_AVAILABLE = "0x0002"
+	}
+
+	/*enumeration RoadProperty extends BasicEnum {
+		
+	}*/
+	
+	enumeration ManeuverType extends BasicEnum {
+		STRAIGHT_ON					= "0x0070"
+		TURN						= "0x0078"
+		CROSSROAD					= "0x0071"
+		ROUNDABOUT					= "0x0072"
+		HIGHWAY_ENTER				= "0x0073"
+		HIGHWAY_EXIT				= "0x0074"
+		BIFURCATION					= "0x0079"
+		HIGHWAY_CHANGE_LANE			= "0x0075"
+		DESTINATION					= "0x0076"
+		WAYPOINT					= "0x0077"
+	}
+
+	enumeration ManeuverDirectionType extends BasicEnum {
+		LENGTH						= "0x0031"
+		DIRECTION					= "0x0240"
+		EXIT_NUMBER					= "0x0241"
+		ROAD_FORM					= "0x0242"
+		LANE_INFO					= "0x0243"
+	}
+
+	enumeration LaneType extends BasicEnum {
+		LANE_INFO_BITMASK_STRAIGHT		= "0x0001"
+		LANE_INFO_BITMASK_SLIGHTRIGHT	= "0x0002"
+		LANE_INFO_BITMASK_RIGHT			= "0x0004"
+		LANE_INFO_BITMASK_SHARPRIGHT	= "0x0008"
+		LANE_INFO_BITMASK_RIGHTUTURN	= "0x0010"
+		LANE_INFO_BITMASK_SLIGHTLEFT	= "0x0020"
+		LANE_INFO_BITMASK_LEFT			= "0x0040"
+		LANE_INFO_BITMASK_SHARPLEFT		= "0x0080"
+		LANE_INFO_BITMASK_LEFTUTURN		= "0x1000"
+	}
+	
+	enumeration LaneDivider extends BasicEnum {
+		DIVIDER_UNDEFINED				= "0x0250"
+		DIVIDER_INTERRUPTEDLONG			= "0x0251"
+		DIVIDER_INTERRUPTEDSHORT		= "0x0252"
+		DIVIDER_SOLIDSINGLE				= "0x0253"
+		DIVIDER_SOLIDDOUBLE				= "0x0254"
+		DIVIDER_SOLIDINTERRUPTED		= "0x0255"
+		DIVIDER_INTERRUPTEDSOLID		= "0x0256"
+	}
+
+	enumeration CalculationMode extends BasicEnum {
+		ALL_MANUAL						= "0x0090"
+		ALL_AUTOMATIC					= "0x0091"
+		TRAFFIC_MANUAL					= "0x0092"
+		OFF_ROUTE_MANUAL				= "0x0093"
+	}
+
+	enumeration GuidanceStatus extends BasicEnum {
+		ACTIVE							= "0x0060"
+		INACTIVE						= "0x0061"
+	}
+	
+	enumeration PromptMode extends BasicEnum {
+		DISABLED_PROMPT					= "0x0041"
+		AUTOMATIC_PROMPT				= "0x0042"
+		MANUAL_PROMPT					= "0x0043"
+	}
+	
+	enumeration RouteChangedCause extends BasicEnum {
+		TRAFFIC							= "0x0210"
+		OFF_ROUTE						= "0x0211"
+		MANUAL							= "0x0212"
+	}
+	
+	enumeration ManeuverDirection extends BasicEnum {
+		STRAIGHT_ON						= "0x0070"
+		LEFT							= "0x0080"
+		SLIGHT_LEFT						= "0x0081"
+		HARD_LEFT						= "0x0082"
+		RIGHT							= "0x0083"
+		SLIGHT_RIGHT					= "0x0084"
+		HARD_RIGHT						= "0x0085"
+		UTURN_RIGHT						= "0x0086"
+		UTURN_LEFT						= "0x0087"
+	}
+	
+	struct tWaypointStruct {
+		UInt32 waypointOffset
+		UInt32 travelTime
+		Int32 direction
+		Side side
+		Int16 timeZone
+		Int16 daylightSavingTime
+		Boolean isDestination
+		UInt16 number
+	}
+
+	<**	@description : Maneuver segment **>
+	struct ManeuverSegment {
+		ManeuverType maneuver
+		UInt16 maneuverLength
+	}
+
+	<**	@description : Maneuver turn **>
+	struct ManeuverTurn {
+		ManeuverDirection maneuverDirection
+		String exitNumber
+	}
+
+	<**	@description : Maneuver Item **>
+	struct tManeuverItem {
+		UInt32 offsetOfManeuver
+		UInt32 travelTime
+		Int32 direction
+		ManeuverSegment segment
+		ManeuverTurn turnTo
+	}
+
+	<** @description : Maneuver	**>
+	struct Maneuver {
+		String roadNumberAfterManeuver
+		String roadNameAfterManeuver
+		UInt16 roadPropertyAfterManeuver
+		Side drivingSide
+		UInt32 offsetOfNextManeuver
+		tManeuverItem[] items
+	}
+
+   struct RouteCostData {
+   				
+      <**
+	     @description : routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value
+	  **>
+      Handle routeHandle
+      
+      <**
+         @description : remaining travel time in seconds.
+         This is the travel time from the decision point to the end of the route.
+         This duration does not include the extra time caused by traffic information.
+         If no decision point exists, then the value is 0.
+      **>
+      UInt32  freeFlowTravelTime
+
+      <**
+         @description : additional travel time in seconds.
+         This is the travel time from the decision point to the end of the route.
+         This duration only contains the extra time caused by traffic information.
+         If no decision point exists, then the value is 0.
+      **>
+      UInt32  additionalTravelTime
+
+      <**
+         @description : remaining distance in meters.
+          This is the distance from the decision point to the end of the route.
+          If no decision point exists, then the value is 0.
+      **>
+      UInt32 distance
+   }
+   
+    <**
+	    @description : struct for CostDifference
+	    Costs of the original route and the alternative route
+    **>
+    struct CostDifference
+    {
+        RouteCostData originalRoute
+        RouteCostData alternativeRoute                   
+    }
+ 
+     <**
+        @description : WaypointInfo = Information about a Waypoint
+    **>
+    struct WaypointInfo {
+
+		<**
+			@description : Unique location id for the waypoint. To be used with LocationMemory to retrieve details about the destination.
+		**>
+		LocationMemoryTypes.UniqueItemId waypointId
+
+        <**
+            @description : Roadside (left, right) of the waypoint.
+        **>
+        Side side
+
+        <**
+            @description : True, if this destination has already been reached in the current guidance session.
+        **>
+        Boolean hasBeenReached
+
+        <**
+            @description : The stop-over number of this waypoint (starting at 0).
+        **>
+        UInt16 number
+
+        <**
+            @description : The position of this waypoint in GPS coordinates.
+        **>
+        Coordinate3D position
+
+		<**
+			@description : timeZone = time zone of the destination. It is expressed as the time difference from the UTC in minutes
+		**>
+		Int16 timeZone
+
+		<**
+			@description : daylightSavingTime = daylight saving time of the destination. It is expressed as the time difference from the UTC in minutes
+		**>
+		Int16 daylightSavingTime
+    }
+
+	array WaypointInfoList of WaypointInfo
+
+    struct TravelCosts {
+ 
+        <**
+            @description : Remaining distance to the waypoint.
+        **>
+        Distance distance
+
+        <**
+            @description : Remaining time to the waypoint in seconds.
+        **>
+        UInt32 travelTime   	
+
+        <**
+            @description : Direction to the waypoint in degrees relative to North.
+        **>
+        Int32 direction
+    }
+
+	struct WaypointCosts {
+        <**
+            @description : Waypoint number
+        **>
+		UInt16 number
+		
+		<**
+            @description : Remaining distance to the waypoint.
+        **>
+		TravelCosts travelCosts
+	}
+
+	array WaypointCostsList of WaypointCosts
+
+    <**
+        @description : Defines on "towards"-entry on the sign-post; e.g. "[A9] NÃ¼rnberg/Berlin/Leipzig" or "[490] [East] Rochester
+    **>
+    struct Towards {
+
+        <**
+            @description : The road(s) which leads up to the city/poi/etc. mentioned on the sign-post
+        **>
+        RoadNumberList viaRoad
+    }
+
+	array TowardsList of Towards
+
+    <**
+        @description : Defines sign-post information.
+    **>
+    struct SignPostInfo {
+
+        <**
+            @description : Exit number of a road-exit.
+        **>
+        String exitNumber
+
+        <**
+            @description : Contains the towards-entries of a sign-post at the maneuver
+        **>
+        TowardsList towardsList
+    }
+
+    <**
+        @description : Compass direction used for example in US: I-95 North
+    **>
+    enumeration CompassDirection {
+
+        <**
+            @description : Undefined.
+        **>
+        UNDEFINED = "0"
+
+        <**
+            @description : North.
+        **>
+        NORTH = "1"
+
+        <**
+            @description : East.
+        **>
+        EAST = "2"
+
+        <**
+            @description : West.
+        **>
+        WEST = "3"
+
+        <**
+            @description : South.
+        **>
+        SOUTH = "4"
+    }
+
+    <**
+        @description : Information about a Road Number
+    **>
+    struct RoadNumber {
+
+        <**
+            @description : A string representation of the road-number (e.g. "A8" for German Autobahn 8.)
+        **>
+        String text
+
+        <**
+            @description : The compass direction of a road-number (mostly relevent for US).
+        **>
+        CompassDirection compassDirection
+    }
+
+	array RoadNumberList of RoadNumber
+
+	typedef RoadName is String  
+	
+	array RoadNameList of RoadName
+
+    <**
+        @description : Information about a Road
+    **>
+    struct RoadInfo {
+
+        <**
+            @description : A list of RoadNumber structs. The list should be ordered by relevance, so that in case not all items fit in the HMI, the most relevant are shown. E.g. in Germany A9 should be placed before E45.
+        **>
+        RoadNumberList roadNumbers
+
+        <**
+            @description : A list of road names. The list should be ordered by relevance, so that at least the most relevant ones are shown, if not all names fit in the HMI.
+        **>
+        RoadNameList roadNames
+
+        <**
+            @description : The road class.
+        **>
+        ERoadClass roadClass
+    }
+
+    <**
+        @description : The directions of a lane
+    **>
+	enumeration LaneDirection {
+		LANE_INFO_BITMASK_NONE   		= "0x0000"
+		LANE_INFO_BITMASK_STRAIGHT		= "0x0001"
+		LANE_INFO_BITMASK_SLIGHTRIGHT	= "0x0002"
+		LANE_INFO_BITMASK_RIGHT			= "0x0004"
+		LANE_INFO_BITMASK_SHARPRIGHT	= "0x0008"
+		LANE_INFO_BITMASK_RIGHTUTURN	= "0x0010"
+		LANE_INFO_BITMASK_SLIGHTLEFT	= "0x0020"
+		LANE_INFO_BITMASK_LEFT			= "0x0040"
+		LANE_INFO_BITMASK_SHARPLEFT		= "0x0080"
+		LANE_INFO_BITMASK_LEFTUTURN		= "0x1000"
+	}
+
+    <**
+        @description : The type of a lane
+    **>
+    enumeration LaneTypeCategory {
+
+        <**
+            @description : It is possible to reach the maneuver using this lane.
+        **>
+        POSSIBLE_LANE = "0"
+
+        <**
+            @description : Using this lane is recommended.
+        **>
+        RECOMMENDED_LANE = "1"
+
+        <**
+            @description : This lane is reserved for busses.
+        **>
+        BUS_LANE = "2"
+
+        <**
+            @description : This lane is reserved for high occupancy vehicles (relevant e.g. in the US).
+        **>
+        HOV_LANE = "3"
+
+        <**
+            @description : Some other lane, which will not lead to the maneuver.
+        **>
+        OTHER_LANE = "4"
+    }
+
+    <**
+        @description : Information describing a single lane-guiding lane
+    **>
+    struct LaneInfo {
+
+        <**
+            @description : A bitmask of LaneDirection values, that specifies which directions can be taken from this lane in the upcoming intersection.
+        **>
+        LaneDirection laneDirections
+
+        <**
+            @description : A single LaneDirection value that specifies which of the possible directions the driver should follow. Should be LANE_INFO_BITMASK_NONE, in case this is not a possible or recommended lane.
+        **>
+        LaneDirection directionToFollow
+
+        <**
+            @description : Specifies the lane divider type to the right of this lane.
+        **>
+        LaneDivider divider
+
+        <**
+            @description : Specifies the lane type (RECOMMENDED, POSSIBLE, OTHER, ...).
+        **>
+        LaneTypeCategory type
+    }
+
+	array LaneInfoList of LaneInfo
+
+    <**
+        @description : Information related to lane guidance
+    **>
+    struct LaneGuidanceInfo {
+
+        <**
+            @description : A list of LaneInfo-structs. The first entry is only used to store the lane-divider left of the first lane (i.e. the first actual lane is at index 1). The order of the lanes should be left-to-right (as shown to the driver).
+        **>
+        LaneInfoList lanes
+
+        <**
+            @description : The distance (to destination) at which the lane-change should be completed.
+        **>
+        Distance distance
+        
+
+        Coordinate2D geoCoordinate
+    }
+
+	array LaneGuidanceInfoList of LaneGuidanceInfo
+
+    <**
+        @description : Extended maneuver information
+    **>
+    struct ManeuverDetails {
+
+        <**
+            @description : Road class of the road that leads to the maneuver point.
+        **>
+        ERoadClass entryRoadClass
+
+        <**
+            @description : The stopover-number (starting from 0), if this maneuver represents reaching a waypoint/destination.
+        **>
+        UInt16 wayPointStopoverNumber
+    }
+
+    <**
+        @description : Information that describes a maneuver
+    **>
+    struct ManeuverInfo {
+
+        <**
+            @description : An Id that can be used to uniquely identify this maneuver.
+        **>
+        UInt64 uniqueID
+
+        <**
+            @description : The distance from the start of the maneuver to the destination.
+        **>
+        Distance distance
+        
+        
+        Coordinate2D geoCoordinate
+
+        <**
+            @description : The length of the maneuver in meters.
+        **>
+        Distance maneuverLength
+
+        <**
+            @description : Information about the road coming after the maneuver.
+        **>
+        RoadInfo comingRoadInfo
+
+        <**
+            @description : Signpost related information.
+        **>
+        SignPostInfo signPostInfo
+
+        <**
+            @description : The direction that the driver should turn to during the maneuver (STRAIGHT_ON, LEFT, SLIGHT_LEFT, ...).
+        **>
+        ManeuverDirection turnDirection
+
+        <**
+            @description : The type of maneuver (STRAIGHT_ON, TURN, CROSSROAD, ROUNDABOUT, ...).
+        **>
+        ManeuverType maneuverType
+
+        <**
+            @description : More detailed maneuver information.
+        **>
+        ManeuverDetails maneuverDetails
+
+        <**
+            @description : Lane guiding information associated with the maneuver.
+        **>
+        LaneGuidanceInfoList laneGuidanceList
+    }
+
+	array ManeuverInfoList of ManeuverInfo
+
+    <**
+        @description : A set of maneuvers that are close to each other
+    **>
+    struct ManeuverGroup {
+
+        <**
+            @description : The list of maneuvers that are part of the group (sorted by their distance to destination).
+        **>
+        ManeuverInfoList maneuvers
+    }
+}

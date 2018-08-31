@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DSI>
+   <Name>org_harman_nav_ctrl_di_OneBoxSearch</Name>
+   <ID>2</ID>
+   <Extern>true</Extern>
+   <Version>
+      <Major>2</Major>
+      <Minor>3</Minor>
+   </Version>
+   <Includes>
+      <Include>
+         <Name>api/nav/ctrl/pf/di/org_harman_nav_ctrl_di_POIServiceTypes.hbtd</Name>
+         <Major>1</Major>
+         <Minor>0</Minor>
+      </Include>
+      <Include>
+         <Name>api/nav/ctrl/pf/common/org_harman_nav_ctrl_CommonTypes.hbtd</Name>
+         <Major>1</Major>
+         <Minor>0</Minor>
+      </Include>
+      <Include>
+         <Name>api/nav/ctrl/pf/di/org_harman_nav_ctrl_di_LocationInputTypes.hbtd</Name>
+         <Major>2</Major>
+         <Minor>2</Minor>
+      </Include>
+      <Include>
+         <Name>api/nav/ctrl/pf/common/list/org_harman_nav_ctrl_common_list_ListTypes.hbtd</Name>
+         <Major>1</Major>
+         <Minor>0</Minor>
+      </Include>
+      <Include>
+         <Name>api/nav/ctrl/pf/di/org_harman_nav_ctrl_di_OneBoxSearchTypes.hbtd</Name>
+         <Major>1</Major>
+         <Minor>0</Minor>
+      </Include>
+      <Include>
+         <Name>api/nav/ctrl/pf/memory/org_harman_nav_ctrl_memory_LocationMemoryTypes.hbtd</Name>
+         <Major>3</Major>
+         <Minor>3</Minor>
+      </Include>
+   </Includes>
+   <DataTypes/>
+   <Enums>
+      <Enum>
+         <Name>Error</Name>
+         <ID>2</ID>
+         <Description>This is the type for error responses.</Description>
+         <EnumIDs>
+            <EnumID>
+               <Name>ERROR_createOneBoxSearch_NoMoreOneBoxHandles</Name>
+               <ID>3</ID>
+            </EnumID>
+            <EnumID>
+               <Name>ERROR_setSearchCountry_HandleNotAvailable</Name>
+               <ID>4</ID>
+            </EnumID>
+            <EnumID>
+               <Name>ERROR_setSearchLanguage_HandleNotAvailable</Name>
+               <ID>5</ID>
+            </EnumID>
+            <EnumID>
+               <Name>ERROR_setSearchParameters_HandleNotAvailable</Name>
+               <ID>6</ID>
+            </EnumID>
+            <EnumID>
+               <Name>ERROR_startOneBoxSearch_HandleNotAvailable</Name>
+               <ID>7</ID>
+            </EnumID>
+            <EnumID>
+               <Name>ERROR_cancelOneBoxSearch_HandleNotAvailable</Name>
+               <ID>8</ID>
+            </EnumID>
+         </EnumIDs>
+      </Enum>
+   </Enums>
+   <Methods>
+      <Method>
+         <Name>getVersion</Name>
+         <ID>1100</ID>
+         <Description>getVersion = This method returns the API version implemented by the server application</Description>
+         <Type>Request</Type>
+         <Response>getVersion</Response>
+      </Method>
+      <Method>
+         <Name>getVersion</Name>
+         <ID>2100</ID>
+         <Description>getVersion = This method returns the API version implemented by the server application</Description>
+         <Type>Response</Type>
+         <Parameters>
+            <Parameter>
+               <Name>getVersion_version</Name>
+               <ID>11</ID>
+               <Type>org_harman_nav_ctrl_CommonTypes::Version</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>createOneBoxSearch</Name>
+         <ID>1101</ID>
+         <Description>createOneBoxSearch = This method creates a new OneBoxSearch and retrieves a handle</Description>
+         <Type>Request</Type>
+         <Response>createOneBoxSearch</Response>
+      </Method>
+      <Method>
+         <Name>createOneBoxSearch</Name>
+         <ID>2101</ID>
+         <Description>createOneBoxSearch = This method creates a new OneBoxSearch and retrieves a handle</Description>
+         <Type>Response</Type>
+         <Parameters>
+            <Parameter>
+               <Name>createOneBoxSearch_oneBoxSearchHandle</Name>
+               <ID>14</ID>
+               <Description>Location input handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>deleteOneBoxSearch</Name>
+         <ID>1102</ID>
+         <Description>deleteLocationInput = This method deletes a location input and its associated resources</Description>
+         <Type>Request</Type>
+         <Response>deleteOneBoxSearch</Response>
+         <Parameters>
+            <Parameter>
+               <Name>deleteOneBoxSearch_R_oneBoxSearchHandle</Name>
+               <ID>16</ID>
+               <Description>oneBoxSearchHandle = Search handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>deleteOneBoxSearch</Name>
+         <ID>2102</ID>
+         <Description>deleteLocationInput = This method deletes a location input and its associated resources</Description>
+         <Type>Response</Type>
+      </Method>
+      <Method>
+         <Name>setSearchCountry</Name>
+         <ID>1103</ID>
+         <Description>setSearchCountry = This method sets the target country for the current search, If no country is set the current center position is used to determine the country</Description>
+         <Type>Request</Type>
+         <Response>setSearchCountry</Response>
+         <Parameters>
+            <Parameter>
+               <Name>setSearchCountry_R_oneBoxSearchHandle</Name>
+               <ID>19</ID>
+               <Description>oneBoxSearchHandle = one box search unique handle</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>setSearchCountry_R_country</Name>
+               <ID>20</ID>
+               <Description>country = Deutschland, Frankreich, Utah, New Jersey, no country set allowed zB USA, European Union, Canada</Description>
+               <Type>CHBString</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>setSearchCountry</Name>
+         <ID>2103</ID>
+         <Description>setSearchCountry = This method sets the target country for the current search, If no country is set the current center position is used to determine the country</Description>
+         <Type>Response</Type>
+      </Method>
+      <Method>
+         <Name>setSearchLanguage</Name>
+         <ID>1104</ID>
+         <Description>setSearchLanguage = for the phonetic search algorithms the language and script are important</Description>
+         <Type>Request</Type>
+         <Response>setSearchLanguage</Response>
+         <Parameters>
+            <Parameter>
+               <Name>setSearchLanguage_R_ftsSearchHandle</Name>
+               <ID>23</ID>
+               <Description>oneBoxSearchHandle = one box search unique handle</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>setSearchLanguage_R_language</Name>
+               <ID>24</ID>
+               <Description>language = ISO language used for the search eng deu fra ita</Description>
+               <Type>CHBString</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>setSearchLanguage_R_script</Name>
+               <ID>25</ID>
+               <Description>script = ISO script Latn1, Latn2, Cyrillic, etc</Description>
+               <Type>CHBString</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>setSearchLanguage</Name>
+         <ID>2104</ID>
+         <Description>setSearchLanguage = for the phonetic search algorithms the language and script are important</Description>
+         <Type>Response</Type>
+      </Method>
+      <Method>
+         <Name>setSearchParameters</Name>
+         <ID>1105</ID>
+         <Description>setSearchParameters = SetSearchParameters = configure if we want to search for addresses and/or pois.
+			  		   			configure if we want to search in the vicinity of the specified center.
+			  		           	configure if we want to search using fuzziness.
+			  		           	Default behaviour if no option is set we search everywhere</Description>
+         <Type>Request</Type>
+         <Response>setSearchParameters</Response>
+         <Parameters>
+            <Parameter>
+               <Name>setSearchParameters_R_oneBoxSearchHandle</Name>
+               <ID>28</ID>
+               <Description>oneBoxSearchHandle = one box search unique handle</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>setSearchParameters_R_searchOptions</Name>
+               <ID>29</ID>
+               <Description>searchOptions = bitmask, default value is 0xFFFF
+			    		            					FTS_SEARCH_BITMASK_ADDRESSES = 0x1, enable search for addresses
+			    		                           		FTS_SEARCH_BITMASK_POIS = 0x2, enable search for pois
+			    		                           		FTS_SEARCH_BITMASK_VICINITY = 0x4 enable search arround position
+			    		                           		FTS_SEARCH_BITMASK_FUZZINESS = 0x8 enable fuzziness</Description>
+               <Type>UInt16</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>setSearchParameters</Name>
+         <ID>2105</ID>
+         <Description>setSearchParameters = SetSearchParameters = configure if we want to search for addresses and/or pois.
+			  		   			configure if we want to search in the vicinity of the specified center.
+			  		           	configure if we want to search using fuzziness.
+			  		           	Default behaviour if no option is set we search everywhere</Description>
+         <Type>Response</Type>
+      </Method>
+      <Method>
+         <Name>startOneBoxSearch</Name>
+         <ID>1106</ID>
+         <Description>startOneBoxSearch = This method sends the search input for the search handle.
+			  		   						The search will start with the location.</Description>
+         <Type>Request</Type>
+         <Response>startOneBoxSearch</Response>
+         <Parameters>
+            <Parameter>
+               <Name>startOneBoxSearch_R_oneBoxSearchHandle</Name>
+               <ID>32</ID>
+               <Description>oneBoxSearchHandle = one box search unique handle</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>startOneBoxSearch_R_inputString</Name>
+               <ID>33</ID>
+               <Description>inputString = contains the name of the poi, address, contact that is searched. It cannot be an empty string.</Description>
+               <Type>CHBString</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>startOneBoxSearch</Name>
+         <ID>2106</ID>
+         <Description>startOneBoxSearch = This method sends the search input for the search handle.
+			  		   						The search will start with the location.</Description>
+         <Type>Response</Type>
+      </Method>
+      <Method>
+         <Name>cancelOneBoxSearch</Name>
+         <ID>1107</ID>
+         <Description>cancelFtsSearch = This method cancels the search for the current session</Description>
+         <Type>Request</Type>
+         <Response>cancelOneBoxSearch</Response>
+         <Parameters>
+            <Parameter>
+               <Name>cancelOneBoxSearch_R_oneBoxSearchHandle</Name>
+               <ID>36</ID>
+               <Description>oneBoxSearchHandle = one box search unique handle</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>cancelOneBoxSearch</Name>
+         <ID>2107</ID>
+         <Description>cancelFtsSearch = This method cancels the search for the current session</Description>
+         <Type>Response</Type>
+      </Method>
+      <Method>
+         <Name>requestResultList</Name>
+         <ID>1108</ID>
+         <Description>requestListUpdate = This method sends a request for more list elements for the current session</Description>
+         <Type>Request</Type>
+         <Response>requestResultList</Response>
+         <Parameters>
+            <Parameter>
+               <Name>requestResultList_R_oneBoxSearchHandle</Name>
+               <ID>39</ID>
+               <Description>oneBoxSearchHandle = One box handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>requestResultList_R_offset</Name>
+               <ID>40</ID>
+               <Description>offset = starting offset of the newly requested list elements</Description>
+               <Type>UInt16</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>requestResultList_R_maxWindowSize</Name>
+               <ID>41</ID>
+               <Description>maxWindowSize = maximum number of elements that should be returned as result</Description>
+               <Type>UInt16</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>requestResultList</Name>
+         <ID>2108</ID>
+         <Description>requestListUpdate = This method sends a request for more list elements for the current session</Description>
+         <Type>Response</Type>
+         <Parameters>
+            <Parameter>
+               <Name>requestResultList_statusValue</Name>
+               <ID>43</ID>
+               <Description>enum(INVALID,NOT_STARTED,SEARCHING,FINISHED, ... ).</Description>
+               <Type>UInt16</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>requestResultList_resultListSize</Name>
+               <ID>44</ID>
+               <Description>Number of items of the results list.</Description>
+               <Type>UInt16</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>requestResultList_locations</Name>
+               <ID>45</ID>
+               <Description>array[locations].</Description>
+               <Type>org_harman_nav_ctrl_memory_LocationMemoryTypes::LocationList</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>selectEntry</Name>
+         <ID>1109</ID>
+         <Description>selectEntry = This method triggers selection of a result list entry by index</Description>
+         <Type>Request</Type>
+         <Response>selectEntry</Response>
+         <Parameters>
+            <Parameter>
+               <Name>selectEntry_R_oneBoxSearchHandle</Name>
+               <ID>47</ID>
+               <Description>oneBoxSearchHandle = One Box handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>selectEntry_R_index</Name>
+               <ID>48</ID>
+               <Description>index = absolute list index of the entry to be selected</Description>
+               <Type>UInt16</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>selectEntry</Name>
+         <ID>2109</ID>
+         <Description>selectEntry = This method triggers selection of a result list entry by index</Description>
+         <Type>Response</Type>
+      </Method>
+      <Method>
+         <Name>getEntry</Name>
+         <ID>1110</ID>
+         <Description>getEntry = This method synchronously gets the address for the given result list entry</Description>
+         <Type>Request</Type>
+         <Response>getEntry</Response>
+         <Parameters>
+            <Parameter>
+               <Name>getEntry_R_oneBoxSearchHandle</Name>
+               <ID>51</ID>
+               <Description>oneBoxSearchHandle = One Box input handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>getEntry_R_index</Name>
+               <ID>52</ID>
+               <Description>index = list index of the entry to be returned</Description>
+               <Type>UInt16</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>getEntry</Name>
+         <ID>2110</ID>
+         <Description>getEntry = This method synchronously gets the address for the given result list entry</Description>
+         <Type>Response</Type>
+         <Parameters>
+            <Parameter>
+               <Name>getEntry_locItem</Name>
+               <ID>54</ID>
+               <Description>location = Location selected for the result list. For a phonebook contact with two addresses, two separate entries will be returned.</Description>
+               <Type>org_harman_nav_ctrl_memory_LocationMemoryTypes::Location</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>searchStatus</Name>
+         <ID>2200</ID>
+         <Description>searchStatus = This signal updates the search status of the specified session</Description>
+         <Type>Information</Type>
+         <Parameters>
+            <Parameter>
+               <Name>searchStatus_oneBoxSearchHandle</Name>
+               <ID>56</ID>
+               <Description>oneBoxSearchHandle = Location input handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>searchStatus_statusValue</Name>
+               <ID>57</ID>
+               <Description>statusValue = enum(INVALID,NOT_STARTED,SEARCHING,FINISHED, ... )</Description>
+               <Type>org_harman_nav_ctrl_di_LocationInputTypes::SearchStatus</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>searchResultList</Name>
+         <ID>2201</ID>
+         <Description>searchResultList = This signal updates the address result list (e.g. after a Search/Spell/Scroll call)</Description>
+         <Type>Information</Type>
+         <Parameters>
+            <Parameter>
+               <Name>searchResultList_oneBoxSearchHandle</Name>
+               <ID>59</ID>
+               <Description>oneBoxSearchHandle = Location input handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>searchResultList_totalSize</Name>
+               <ID>60</ID>
+               <Description>totalSize = total size of the result list</Description>
+               <Type>UInt16</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>searchResultList_windowOffset</Name>
+               <ID>61</ID>
+               <Description>windowOffset = window offset within the complete list</Description>
+               <Type>UInt16</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>searchResultList_windowSize</Name>
+               <ID>62</ID>
+               <Description>windowSize = size of the provided window</Description>
+               <Type>UInt16</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>searchResultListSizeChanged</Name>
+         <ID>2202</ID>
+         <Description>searchResultListSizeChanged = This signal updates the size of the address result list</Description>
+         <Type>Information</Type>
+         <Parameters>
+            <Parameter>
+               <Name>searchResultListSizeChanged_locationInpuHandle</Name>
+               <ID>64</ID>
+               <Description>oneBoxSearchHandle = Location input handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>searchResultListSizeChanged_totalSize</Name>
+               <ID>65</ID>
+               <Description>totalSize = total size of the result list</Description>
+               <Type>UInt16</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+   </Methods>
+   <Attributes/>
+</DSI>

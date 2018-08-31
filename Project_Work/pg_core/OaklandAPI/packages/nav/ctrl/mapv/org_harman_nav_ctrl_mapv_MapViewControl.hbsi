@@ -1,0 +1,3699 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DSI>
+<Name>org_harman_nav_ctrl_mapv_MapViewControl</Name>
+   <ID>2</ID>
+   <Extern>true</Extern>
+	<Version>
+      <Major>1</Major>
+      <Minor>2</Minor>
+   </Version>
+   <Includes>
+   
+   <Include>
+         <Name>api/nav/ctrl/pf/common/org_harman_nav_ctrl_CommonTypes.hbtd</Name>
+         <Major>1</Major>
+         <Minor>0</Minor>
+   </Include>
+   <Include>
+         <Name>api/nav/ctrl/pf/mapv/org_harman_nav_ctrl_mapv_MapViewControlTypes.hbtd</Name>
+         <Major>1</Major>
+         <Minor>1</Minor>
+   </Include>
+   </Includes>
+   
+   
+
+
+   <DataTypes>
+          
+          
+
+<DataType>
+   <Name>THBVector_MapViewType_</Name>
+   <ID>2</ID>
+   <Description> </Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_mapv_MapViewControlTypes::MapViewType</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_MapScaleMode_</Name>
+   <ID>2</ID>
+   <Description> </Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_mapv_MapViewControlTypes::MapScaleMode</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_MapPerspective_</Name>
+   <ID>2</ID>
+   <Description> </Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_mapv_MapViewControlTypes::MapPerspective</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_MapObject_</Name>
+   <ID>2</ID>
+   <Description> </Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_mapv_MapViewControlTypes::MapObject</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_MapScale_</Name>
+   <ID>2</ID>
+   <Description> </Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_mapv_MapViewControlTypes::MapScale</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_ScreenCoordinate_</Name>
+   <ID>2</ID>
+   <Description> array of currently touching finger. If this array is emtpy, all fingers have been removed from screen. A flic can start</Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_mapv_MapViewControlTypes::ScreenCoordinate</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_Visibility_</Name>
+   <ID>2</ID>
+   <Description> </Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_mapv_MapViewControlTypes::Visibility</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_Level_</Name>
+   <ID>2</ID>
+   <Description> </Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_mapv_MapViewControlTypes::Level</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_DisplayedRoute_</Name>
+   <ID>2</ID>
+   <Description> </Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_mapv_MapViewControlTypes::DisplayedRoute</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_ObjectListItem_</Name>
+   <ID>2</ID>
+   <Description> contains enum to other domain, contains session-id of other domain</Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_mapv_MapViewControlTypes::ObjectListItem</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_UInt32_</Name>
+   <ID>2</ID>
+   <Description> </Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>UInt32</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_MapTheme_</Name>
+   <ID>2</ID>
+   <Description> </Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_mapv_MapViewControlTypes::MapTheme</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_Pixel_</Name>
+   <ID>2</ID>
+   <Description> </Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_mapv_MapViewControlTypes::Pixel</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_Coordinate2D_</Name>
+   <ID>2</ID>
+   <Description> </Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_CommonTypes::Coordinate2D</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_CustomElement_</Name>
+   <ID>2</ID>
+   <Description> </Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_mapv_MapViewControlTypes::CustomElement</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_Handle_</Name>
+   <ID>2</ID>
+   <Description> </Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_CommonTypes::Handle</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_SelectableMapType_</Name>
+   <ID>2</ID>
+   <Description> </Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_mapv_MapViewControlTypes::SelectableMapType</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_SelectedMapElement_</Name>
+   <ID>2</ID>
+   <Description> </Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>org_harman_nav_ctrl_mapv_MapViewControlTypes::SelectedMapElement</BaseType>		   
+</DataType>
+          
+          
+
+<DataType>
+   <Name>THBVector_CHBString_</Name>
+   <ID>2</ID>
+   <Description> mapMode-List (string-based)</Description>	  	
+   <Kind>Typedef</Kind>
+   <Container>THBVector</Container>
+<BaseType>CHBString</BaseType>		   
+</DataType>
+   </DataTypes>
+	<Attributes>
+		      <Attribute>
+		         <Name>astatus</Name>
+		         <Description></Description>
+		         <ID>2</ID>
+		<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::Status</Type>
+		         
+		         <Notify>OnChange</Notify>
+		      </Attribute>
+	</Attributes>
+	<Methods>
+			<Method>
+			
+			   <Name>getVersion</Name>
+			   <ID>1200</ID>
+			         <Type>Request</Type>
+			  		   <Description>GetVersion = This method returns the API version implemented by the server application</Description>
+			<Response>getVersion</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getVersion</Name>
+			<ID>2200</ID>
+			         <Type>Response</Type>
+			  		   <Description>GetVersion = This method returns the API version implemented by the server application</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getVersion_version</Name>
+			            <Description></Description>
+			          <ID>5</ID>
+			<Type>org_harman_nav_ctrl_CommonTypes::Version</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>createMapViewInstance</Name>
+			   <ID>1201</ID>
+			         <Type>Request</Type>
+			  		   <Description>createMapViewInstance = This method creates a new map instance</Description>
+			<Response>createMapViewInstance</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>createMapViewInstance_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>7</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>createMapViewInstance_R_mapViewSize</Name>
+			    		            <Description></Description>
+			    		          <ID>8</ID>
+			    		<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::Dimension</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>createMapViewInstance_R_mapViewType</Name>
+			    		            <Description>mapViewType = enum(INVALID,MAIN_MAP,SPLIT_SCREEN, ... )</Description>
+			    		          <ID>9</ID>
+			    		<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::MapViewType</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>createMapViewInstance</Name>
+			<ID>2201</ID>
+			         <Type>Response</Type>
+			  		   <Description>createMapViewInstance = This method creates a new map instance</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>createMapViewInstance_mapViewInstanceHandle</Name>
+			            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			          <ID>11</ID>
+			<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>releaseMapViewInstance</Name>
+			   <ID>1202</ID>
+			         <Type>Request</Type>
+			  		   <Description>releaseMapViewInstance = This method releases (i.e. destroys) a given map instance. Only invisible map instances can be released</Description>
+			<Response>releaseMapViewInstance</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>releaseMapViewInstance_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>13</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>releaseMapViewInstance_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>14</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>releaseMapViewInstance</Name>
+			<ID>2202</ID>
+			         <Type>Response</Type>
+			  		   <Description>releaseMapViewInstance = This method releases (i.e. destroys) a given map instance. Only invisible map instances can be released</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getMapViewType</Name>
+			   <ID>1203</ID>
+			         <Type>Request</Type>
+			  		   <Description>getMapViewType = This method returns the map type of a map instance as it was set using CreateMapViewInstance</Description>
+			<Response>getMapViewType</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getMapViewType_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>17</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getMapViewType</Name>
+			<ID>2203</ID>
+			         <Type>Response</Type>
+			  		   <Description>getMapViewType = This method returns the map type of a map instance as it was set using CreateMapViewInstance</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getMapViewType_mapViewType</Name>
+			            <Description>mapViewType = enum(INVALID,MAIN_MAP,SPLIT_SCREEN, ... )</Description>
+			          <ID>19</ID>
+			<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::MapViewType</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getSupportedMapViewTypes</Name>
+			   <ID>1204</ID>
+			         <Type>Request</Type>
+			  		   <Description>getSupportedMapViewTypes = This method retrieves the supported map view types</Description>
+			<Response>getSupportedMapViewTypes</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getSupportedMapViewTypes</Name>
+			<ID>2204</ID>
+			         <Type>Response</Type>
+			  		   <Description>getSupportedMapViewTypes = This method retrieves the supported map view types</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getSupportedMapViewTypes_mapViewTypeList</Name>
+			            <Description></Description>
+			          <ID>22</ID>
+			<Type>THBVector_MapViewType_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setTargetPoint</Name>
+			   <ID>1205</ID>
+			         <Type>Request</Type>
+			  		   <Description>setTargetPoint = This method sets the position of the point the camera is always aimed at</Description>
+			<Response>setTargetPoint</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setTargetPoint_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>24</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setTargetPoint_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>25</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setTargetPoint_R_targetPoint</Name>
+			    		            <Description></Description>
+			    		          <ID>26</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Coordinate3D</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setTargetPoint</Name>
+			<ID>2205</ID>
+			         <Type>Response</Type>
+			  		   <Description>setTargetPoint = This method sets the position of the point the camera is always aimed at</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getTargetPoint</Name>
+			   <ID>1206</ID>
+			         <Type>Request</Type>
+			  		   <Description>getTargetPoint = This method retrieves the target point position</Description>
+			<Response>getTargetPoint</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getTargetPoint_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>29</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getTargetPoint</Name>
+			<ID>2206</ID>
+			         <Type>Response</Type>
+			  		   <Description>getTargetPoint = This method retrieves the target point position</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getTargetPoint_targetPoint</Name>
+			            <Description></Description>
+			          <ID>31</ID>
+			<Type>org_harman_nav_ctrl_CommonTypes::Coordinate3D</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setFollowCarMode</Name>
+			   <ID>1207</ID>
+			         <Type>Request</Type>
+			  		   <Description>setFollowCarMode = This method sets the FollowCar mode</Description>
+			<Response>setFollowCarMode</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setFollowCarMode_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>33</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setFollowCarMode_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>34</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setFollowCarMode_R_followCarMode</Name>
+			    		            <Description>followCarMode = flag. If true, the current car position is interpreted as position of the point the camera must look at</Description>
+			    		          <ID>35</ID>
+			    		<Type>bool</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setFollowCarMode</Name>
+			<ID>2207</ID>
+			         <Type>Response</Type>
+			  		   <Description>setFollowCarMode = This method sets the FollowCar mode</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getFollowCarMode</Name>
+			   <ID>1208</ID>
+			         <Type>Request</Type>
+			  		   <Description>getFollowCarMode = This method returns the current FollowCar-mode</Description>
+			<Response>getFollowCarMode</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getFollowCarMode_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>38</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getFollowCarMode</Name>
+			<ID>2208</ID>
+			         <Type>Response</Type>
+			  		   <Description>getFollowCarMode = This method returns the current FollowCar-mode</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getFollowCarMode_followCarMode</Name>
+			            <Description>followCarMode = flag. If true, the current car position is interpreted as position of the point the camera must look at</Description>
+			          <ID>40</ID>
+			<Type>bool</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setCameraPosition</Name>
+			   <ID>1209</ID>
+			         <Type>Request</Type>
+			  		   <Description>setCameraPosition = This method sets the coordinates of the point at which the camera must be positioned</Description>
+			<Response>setCameraPosition</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setCameraPosition_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>42</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setCameraPosition_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>43</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setCameraPosition_R_position</Name>
+			    		            <Description></Description>
+			    		          <ID>44</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Coordinate3D</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setCameraPosition</Name>
+			<ID>2209</ID>
+			         <Type>Response</Type>
+			  		   <Description>setCameraPosition = This method sets the coordinates of the point at which the camera must be positioned</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getCameraPosition</Name>
+			   <ID>1210</ID>
+			         <Type>Request</Type>
+			  		   <Description>getCameraPosition = This method returns the coordinates of the point at which the camera is positioned</Description>
+			<Response>getCameraPosition</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getCameraPosition_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>47</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getCameraPosition</Name>
+			<ID>2210</ID>
+			         <Type>Response</Type>
+			  		   <Description>getCameraPosition = This method returns the coordinates of the point at which the camera is positioned</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getCameraPosition_position</Name>
+			            <Description></Description>
+			          <ID>49</ID>
+			<Type>org_harman_nav_ctrl_CommonTypes::Coordinate3D</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setCameraHeadingAngle</Name>
+			   <ID>1211</ID>
+			         <Type>Request</Type>
+			  		   <Description>setCameraHeadingAngle = This method sets the map view heading angle</Description>
+			<Response>setCameraHeadingAngle</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setCameraHeadingAngle_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>51</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setCameraHeadingAngle_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>52</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setCameraHeadingAngle_R_heading</Name>
+			    		            <Description>heading = heading angle in degrees. Range [0:360]</Description>
+			    		          <ID>53</ID>
+			    		<Type>Int32</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setCameraHeadingAngle</Name>
+			<ID>2211</ID>
+			         <Type>Response</Type>
+			  		   <Description>setCameraHeadingAngle = This method sets the map view heading angle</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setCameraHeadingToTarget</Name>
+			   <ID>1212</ID>
+			         <Type>Request</Type>
+			  		   <Description>setCameraHeadingToTarget = This method sets the camera heading in such a way, that the camera always looks at a given target</Description>
+			<Response>setCameraHeadingToTarget</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setCameraHeadingToTarget_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>56</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setCameraHeadingToTarget_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>57</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setCameraHeadingToTarget_R_target</Name>
+			    		            <Description></Description>
+			    		          <ID>58</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Coordinate2D</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setCameraHeadingToTarget</Name>
+			<ID>2212</ID>
+			         <Type>Response</Type>
+			  		   <Description>setCameraHeadingToTarget = This method sets the camera heading in such a way, that the camera always looks at a given target</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setCameraHeadingTrackUp</Name>
+			   <ID>1213</ID>
+			         <Type>Request</Type>
+			  		   <Description>setCameraHeadingTrackUp = This method sets the camera heading in such a way, that the camera always looks in the direction in which the car is moving</Description>
+			<Response>setCameraHeadingTrackUp</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setCameraHeadingTrackUp_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>61</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setCameraHeadingTrackUp_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>62</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setCameraHeadingTrackUp</Name>
+			<ID>2213</ID>
+			         <Type>Response</Type>
+			  		   <Description>setCameraHeadingTrackUp = This method sets the camera heading in such a way, that the camera always looks in the direction in which the car is moving</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getCameraHeading</Name>
+			   <ID>1214</ID>
+			         <Type>Request</Type>
+			  		   <Description>getCameraHeading = This method returns the current camera heading</Description>
+			<Response>getCameraHeading</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getCameraHeading_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>65</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getCameraHeading</Name>
+			<ID>2214</ID>
+			         <Type>Response</Type>
+			  		   <Description>getCameraHeading = This method returns the current camera heading</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getCameraHeading_headingType</Name>
+			            <Description>headingType = enum(INVALID,CONSTANT_ANGLE,TRACK_UP,TOWARDS_TARGET, ... )</Description>
+			          <ID>67</ID>
+			<Type>UInt16</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			        <Parameter>
+			            <Name>getCameraHeading_headingAngle</Name>
+			            <Description>headingAngle = heading angle in degrees measured from the North axis clockwise. Range[0:360]</Description>
+			          <ID>68</ID>
+			<Type>Int32</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			        <Parameter>
+			            <Name>getCameraHeading_target</Name>
+			            <Description></Description>
+			          <ID>69</ID>
+			<Type>org_harman_nav_ctrl_CommonTypes::Coordinate2D</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setCameraTiltAngle</Name>
+			   <ID>1215</ID>
+			         <Type>Request</Type>
+			  		   <Description>setCameraTiltAngle = This method sets the camera tilt angle</Description>
+			<Response>setCameraTiltAngle</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setCameraTiltAngle_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>71</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setCameraTiltAngle_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>72</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setCameraTiltAngle_R_tilt</Name>
+			    		            <Description>tilt = tilt angle in degrees. Range [-180:180]</Description>
+			    		          <ID>73</ID>
+			    		<Type>Int32</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setCameraTiltAngle</Name>
+			<ID>2215</ID>
+			         <Type>Response</Type>
+			  		   <Description>setCameraTiltAngle = This method sets the camera tilt angle</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getCameraTiltAngle</Name>
+			   <ID>1216</ID>
+			         <Type>Request</Type>
+			  		   <Description>getCameraTiltAngle = This method returns the camera tilt angle</Description>
+			<Response>getCameraTiltAngle</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getCameraTiltAngle_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>76</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getCameraTiltAngle</Name>
+			<ID>2216</ID>
+			         <Type>Response</Type>
+			  		   <Description>getCameraTiltAngle = This method returns the camera tilt angle</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getCameraTiltAngle_tilt</Name>
+			            <Description>tilt = tilt angle in degrees. Range [-180:180]</Description>
+			          <ID>78</ID>
+			<Type>Int32</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setCameraRollAngle</Name>
+			   <ID>1217</ID>
+			         <Type>Request</Type>
+			  		   <Description>setCameraRollAngle = This method sets the camera roll angle</Description>
+			<Response>setCameraRollAngle</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setCameraRollAngle_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>80</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setCameraRollAngle_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>81</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setCameraRollAngle_R_roll</Name>
+			    		            <Description>roll = roll angle in degrees. Range [-180:180]</Description>
+			    		          <ID>82</ID>
+			    		<Type>Int32</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setCameraRollAngle</Name>
+			<ID>2217</ID>
+			         <Type>Response</Type>
+			  		   <Description>setCameraRollAngle = This method sets the camera roll angle</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getCameraRollAngle</Name>
+			   <ID>1218</ID>
+			         <Type>Request</Type>
+			  		   <Description>getCameraRollAngle = This method returns the camera roll angle</Description>
+			<Response>getCameraRollAngle</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getCameraRollAngle_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>85</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getCameraRollAngle</Name>
+			<ID>2218</ID>
+			         <Type>Response</Type>
+			  		   <Description>getCameraRollAngle = This method returns the camera roll angle</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getCameraRollAngle_roll</Name>
+			            <Description>roll = roll angle in degrees. Range [-180:180]</Description>
+			          <ID>87</ID>
+			<Type>Int32</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setCameraDistanceFromTargetPoint</Name>
+			   <ID>1219</ID>
+			         <Type>Request</Type>
+			  		   <Description>setCameraDistanceFromTargetPoint = This method sets the mode and the camera distance from the target point</Description>
+			<Response>setCameraDistanceFromTargetPoint</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setCameraDistanceFromTargetPoint_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>89</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setCameraDistanceFromTargetPoint_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>90</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setCameraDistanceFromTargetPoint_R_distance</Name>
+			    		            <Description>distance = distance from the view point in meters</Description>
+			    		          <ID>91</ID>
+			    		<Type>UInt32</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setCameraDistanceFromTargetPoint</Name>
+			<ID>2219</ID>
+			         <Type>Response</Type>
+			  		   <Description>setCameraDistanceFromTargetPoint = This method sets the mode and the camera distance from the target point</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getCameraDistanceFromTargetPoint</Name>
+			   <ID>1220</ID>
+			         <Type>Request</Type>
+			  		   <Description>getCameraDistanceFromTargetPoint = This method gets the mode and the camera distance from the target point</Description>
+			<Response>getCameraDistanceFromTargetPoint</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getCameraDistanceFromTargetPoint_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>94</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getCameraDistanceFromTargetPoint</Name>
+			<ID>2220</ID>
+			         <Type>Response</Type>
+			  		   <Description>getCameraDistanceFromTargetPoint = This method gets the mode and the camera distance from the target point</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getCameraDistanceFromTargetPoint_distance</Name>
+			            <Description>distance = distance from the view point in meters</Description>
+			          <ID>96</ID>
+			<Type>UInt32</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setMapViewScaleMode</Name>
+			   <ID>1221</ID>
+			         <Type>Request</Type>
+			  		   <Description>setMapViewScaleMode = This method sets the scaling mode.</Description>
+			<Response>setMapViewScaleMode</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setMapViewScaleMode_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>98</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewScaleMode_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>99</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewScaleMode_R_scaleMode</Name>
+			    		            <Description>scaleMode = enum(AUTOMATIC,MANUAL,HYBRID)</Description>
+			    		          <ID>100</ID>
+			    		<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::MapScaleMode</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setMapViewScaleMode</Name>
+			<ID>2221</ID>
+			         <Type>Response</Type>
+			  		   <Description>setMapViewScaleMode = This method sets the scaling mode.</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getMapViewScaleMode</Name>
+			   <ID>1222</ID>
+			         <Type>Request</Type>
+			  		   <Description>getMapViewScaleMode = This method gets the scaling mode.</Description>
+			<Response>getMapViewScaleMode</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getMapViewScaleMode_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>103</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getMapViewScaleMode</Name>
+			<ID>2222</ID>
+			         <Type>Response</Type>
+			  		   <Description>getMapViewScaleMode = This method gets the scaling mode.</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getMapViewScaleMode_scaleMode</Name>
+			            <Description>scaleMode = enum(AUTOMATIC,MANUAL,HYBRID)</Description>
+			          <ID>105</ID>
+			<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::MapScaleMode</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getSupportedMapViewScaleModes</Name>
+			   <ID>1223</ID>
+			         <Type>Request</Type>
+			  		   <Description>getSupportedMapViewScaleModes = This method gets the supported scaling modes.</Description>
+			<Response>getSupportedMapViewScaleModes</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getSupportedMapViewScaleModes_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>107</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getSupportedMapViewScaleModes</Name>
+			<ID>2223</ID>
+			         <Type>Response</Type>
+			  		   <Description>getSupportedMapViewScaleModes = This method gets the supported scaling modes.</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getSupportedMapViewScaleModes_scaleModeList</Name>
+			            <Description></Description>
+			          <ID>109</ID>
+			<Type>THBVector_MapScaleMode_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>addMapViewScaleChangedListener</Name>
+			   <ID>1224</ID>
+			         <Type>Request</Type>
+			  		   <Description>addMapViewScaleChangedListener = This method adds a listener which is notified when map view scale changes.</Description>
+			<Response>addMapViewScaleChangedListener</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>addMapViewScaleChangedListener</Name>
+			<ID>2224</ID>
+			         <Type>Response</Type>
+			  		   <Description>addMapViewScaleChangedListener = This method adds a listener which is notified when map view scale changes.</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>removeMapViewScaleChangedListener</Name>
+			   <ID>1225</ID>
+			         <Type>Request</Type>
+			  		   <Description>removeMapViewScaleChangedListener = This method removes a listener which is notified when map view scale changes.</Description>
+			<Response>removeMapViewScaleChangedListener</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>removeMapViewScaleChangedListener</Name>
+			<ID>2225</ID>
+			         <Type>Response</Type>
+			  		   <Description>removeMapViewScaleChangedListener = This method removes a listener which is notified when map view scale changes.</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setCameraHeight</Name>
+			   <ID>1226</ID>
+			         <Type>Request</Type>
+			  		   <Description>setCameraHeight = This method sets the camera height</Description>
+			<Response>setCameraHeight</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setCameraHeight_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>115</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setCameraHeight_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>116</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setCameraHeight_R_height</Name>
+			    		            <Description>height = height from the ground in meters</Description>
+			    		          <ID>117</ID>
+			    		<Type>UInt32</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setCameraHeight</Name>
+			<ID>2226</ID>
+			         <Type>Response</Type>
+			  		   <Description>setCameraHeight = This method sets the camera height</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getCameraHeight</Name>
+			   <ID>1227</ID>
+			         <Type>Request</Type>
+			  		   <Description>getCameraHeight = This method gets the camera height</Description>
+			<Response>getCameraHeight</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getCameraHeight_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>120</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getCameraHeight</Name>
+			<ID>2227</ID>
+			         <Type>Response</Type>
+			  		   <Description>getCameraHeight = This method gets the camera height</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getCameraHeight_height</Name>
+			            <Description>height = height from the ground in meters</Description>
+			          <ID>122</ID>
+			<Type>UInt32</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setMapViewPerspective</Name>
+			   <ID>1228</ID>
+			         <Type>Request</Type>
+			  		   <Description>setMapViewPerspective = This method sets the map perspective</Description>
+			<Response>setMapViewPerspective</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setMapViewPerspective_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>124</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewPerspective_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>125</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewPerspective_R_perspective</Name>
+			    		            <Description>perspective = enum(INVALID,2D,3D, ... )</Description>
+			    		          <ID>126</ID>
+			    		<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::MapPerspective</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setMapViewPerspective</Name>
+			<ID>2228</ID>
+			         <Type>Response</Type>
+			  		   <Description>setMapViewPerspective = This method sets the map perspective</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getMapViewPerspective</Name>
+			   <ID>1229</ID>
+			         <Type>Request</Type>
+			  		   <Description>getMapViewPerspective = This method returns the current map perspective</Description>
+			<Response>getMapViewPerspective</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getMapViewPerspective_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>129</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getMapViewPerspective</Name>
+			<ID>2229</ID>
+			         <Type>Response</Type>
+			  		   <Description>getMapViewPerspective = This method returns the current map perspective</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getMapViewPerspective_perspective</Name>
+			            <Description>perspective = enum(INVALID,2D,3D, ... )</Description>
+			          <ID>131</ID>
+			<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::MapPerspective</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getSupportedMapViewPerspectives</Name>
+			   <ID>1230</ID>
+			         <Type>Request</Type>
+			  		   <Description>getSupportedMapViewPerspectives = This method retrieves the supported mapview perspectives</Description>
+			<Response>getSupportedMapViewPerspectives</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getSupportedMapViewPerspectives</Name>
+			<ID>2230</ID>
+			         <Type>Response</Type>
+			  		   <Description>getSupportedMapViewPerspectives = This method retrieves the supported mapview perspectives</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getSupportedMapViewPerspectives_perspectiveList</Name>
+			            <Description></Description>
+			          <ID>134</ID>
+			<Type>THBVector_MapPerspective_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setMapViewObjectVisibility</Name>
+			   <ID>1231</ID>
+			         <Type>Request</Type>
+			  		   <Description>setMapViewObjectVisibility = This method specifies the type of objects to show on the map.</Description>
+			<Response>setMapViewObjectVisibility</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setMapViewObjectVisibility_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>136</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewObjectVisibility_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>137</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewObjectVisibility_R_objectVisibilityList</Name>
+			    		            <Description></Description>
+			    		          <ID>138</ID>
+			    		<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::MapObjectVisibility</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setMapViewObjectVisibility</Name>
+			<ID>2231</ID>
+			         <Type>Response</Type>
+			  		   <Description>setMapViewObjectVisibility = This method specifies the type of objects to show on the map.</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getMapViewObjectVisibility</Name>
+			   <ID>1232</ID>
+			         <Type>Request</Type>
+			  		   <Description>getMapViewObjectVisibility = This method gets the type of objects shown on the map.</Description>
+			<Response>getMapViewObjectVisibility</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getMapViewObjectVisibility_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>141</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getMapViewObjectVisibility</Name>
+			<ID>2232</ID>
+			         <Type>Response</Type>
+			  		   <Description>getMapViewObjectVisibility = This method gets the type of objects shown on the map.</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getMapViewObjectVisibility_objectVisibilityList</Name>
+			            <Description></Description>
+			          <ID>143</ID>
+			<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::MapObjectVisibility</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getSupportedMapViewObjectVisibilities</Name>
+			   <ID>1233</ID>
+			         <Type>Request</Type>
+			  		   <Description>getSupportedMapViewObjectVisibilities = This method gets the supported object visibilities.</Description>
+			<Response>getSupportedMapViewObjectVisibilities</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getSupportedMapViewObjectVisibilities_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>145</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getSupportedMapViewObjectVisibilities</Name>
+			<ID>2233</ID>
+			         <Type>Response</Type>
+			  		   <Description>getSupportedMapViewObjectVisibilities = This method gets the supported object visibilities.</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getSupportedMapViewObjectVisibilities_objectVisibilityList</Name>
+			            <Description></Description>
+			          <ID>147</ID>
+			<Type>THBVector_MapObject_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getScaleList</Name>
+			   <ID>1234</ID>
+			         <Type>Request</Type>
+			  		   <Description>getScaleList = This method returns a list of supported map scales</Description>
+			<Response>getScaleList</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getScaleList_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>149</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getScaleList</Name>
+			<ID>2234</ID>
+			         <Type>Response</Type>
+			  		   <Description>getScaleList = This method returns a list of supported map scales</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getScaleList_scaleList</Name>
+			            <Description></Description>
+			          <ID>151</ID>
+			<Type>THBVector_MapScale_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setMapViewScale</Name>
+			   <ID>1235</ID>
+			         <Type>Request</Type>
+			  		   <Description>setMapViewScale = This method sets the map scale by specifying a ScaleID</Description>
+			<Response>setMapViewScale</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setMapViewScale_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>153</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewScale_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>154</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewScale_R_scaleID</Name>
+			    		            <Description>scaleID = scale identifier. Range[0:256]</Description>
+			    		          <ID>155</ID>
+			    		<Type>UInt16</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setMapViewScale</Name>
+			<ID>2235</ID>
+			         <Type>Response</Type>
+			  		   <Description>setMapViewScale = This method sets the map scale by specifying a ScaleID</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setMapViewScaleByDelta</Name>
+			   <ID>1236</ID>
+			         <Type>Request</Type>
+			  		   <Description>setMapViewScaleByDelta = This method sets the map scale by specifying a delta value with respect to the currently set ScaleID</Description>
+			<Response>setMapViewScaleByDelta</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setMapViewScaleByDelta_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>158</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewScaleByDelta_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>159</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewScaleByDelta_R_scaleDelta</Name>
+			    		            <Description>scaleDelta = This parameter can have either positive or negative values. '0' means no change. Positive values indicate larger scales</Description>
+			    		          <ID>160</ID>
+			    		<Type>Int16</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setMapViewScaleByDelta</Name>
+			<ID>2236</ID>
+			         <Type>Response</Type>
+			  		   <Description>setMapViewScaleByDelta = This method sets the map scale by specifying a delta value with respect to the currently set ScaleID</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setMapViewScaleByMetersPerPixel</Name>
+			   <ID>1237</ID>
+			         <Type>Request</Type>
+			  		   <Description>setMapViewScaleByMetersPerPixel = This method sets the map scale by specifying the number of meters that a pixel represents</Description>
+			<Response>setMapViewScaleByMetersPerPixel</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setMapViewScaleByMetersPerPixel_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>163</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewScaleByMetersPerPixel_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>164</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewScaleByMetersPerPixel_R_metersPerPixel</Name>
+			    		            <Description>metersPerPixel = meters per pixel</Description>
+			    		          <ID>165</ID>
+			    		<Type>double</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setMapViewScaleByMetersPerPixel</Name>
+			<ID>2237</ID>
+			         <Type>Response</Type>
+			  		   <Description>setMapViewScaleByMetersPerPixel = This method sets the map scale by specifying the number of meters that a pixel represents</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getMapViewScale</Name>
+			   <ID>1238</ID>
+			         <Type>Request</Type>
+			  		   <Description>getMapViewScale = This method returns the currently used map scale</Description>
+			<Response>getMapViewScale</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getMapViewScale_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>168</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getMapViewScale</Name>
+			<ID>2238</ID>
+			         <Type>Response</Type>
+			  		   <Description>getMapViewScale = This method returns the currently used map scale</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getMapViewScale_scaleID</Name>
+			            <Description>scaleID = scale identifier. Range[0:256]</Description>
+			          <ID>170</ID>
+			<Type>Int8</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			        <Parameter>
+			            <Name>getMapViewScale_isMinMax</Name>
+			            <Description>isMinMax = enum(INVALID,MIN,MAX,MID, ... )</Description>
+			          <ID>171</ID>
+			<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::MapScaleType</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setMapViewBoundingBox</Name>
+			   <ID>1239</ID>
+			         <Type>Request</Type>
+			  		   <Description>setMapViewBoundingBox = This method sets the map bounding box</Description>
+			<Response>setMapViewBoundingBox</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setMapViewBoundingBox_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>173</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewBoundingBox_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>174</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewBoundingBox_R_boundingBox</Name>
+			    		            <Description></Description>
+			    		          <ID>175</ID>
+			    		<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::ScreenRectangle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setMapViewBoundingBox</Name>
+			<ID>2239</ID>
+			         <Type>Response</Type>
+			  		   <Description>setMapViewBoundingBox = This method sets the map bounding box</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getMapViewBoundingBox</Name>
+			   <ID>1240</ID>
+			         <Type>Request</Type>
+			  		   <Description>getMapViewBoundingBox = This method returns the bounding box of a given map instance</Description>
+			<Response>getMapViewBoundingBox</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getMapViewBoundingBox_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>178</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getMapViewBoundingBox</Name>
+			<ID>2240</ID>
+			         <Type>Response</Type>
+			  		   <Description>getMapViewBoundingBox = This method returns the bounding box of a given map instance</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getMapViewBoundingBox_boundingBox</Name>
+			            <Description></Description>
+			          <ID>180</ID>
+			<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::ScreenRectangle</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setMapViewSaveArea</Name>
+			   <ID>1241</ID>
+			         <Type>Request</Type>
+			  		   <Description>setMapViewSaveArea = This methods defines the area that the HMI guarantees not to 
+			  		   cover with other windows or user interface elements</Description>
+			<Response>setMapViewSaveArea</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setMapViewSaveArea_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>182</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewSaveArea_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>183</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewSaveArea_R_saveArea</Name>
+			    		            <Description></Description>
+			    		          <ID>184</ID>
+			    		<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::ScreenRectangle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setMapViewSaveArea</Name>
+			<ID>2241</ID>
+			         <Type>Response</Type>
+			  		   <Description>setMapViewSaveArea = This methods defines the area that the HMI guarantees not to 
+			  		   cover with other windows or user interface elements</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getMapViewSaveArea</Name>
+			   <ID>1242</ID>
+			         <Type>Request</Type>
+			  		   <Description>SetMapViewSaveArea = This methods defines the area that the HMI guarantees not to 
+			  		   cover with other getMapViewSaveArea or user interface elements</Description>
+			<Response>getMapViewSaveArea</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getMapViewSaveArea_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>187</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getMapViewSaveArea</Name>
+			<ID>2242</ID>
+			         <Type>Response</Type>
+			  		   <Description>SetMapViewSaveArea = This methods defines the area that the HMI guarantees not to 
+			  		   cover with other getMapViewSaveArea or user interface elements</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getMapViewSaveArea_saveArea</Name>
+			            <Description></Description>
+			          <ID>189</ID>
+			<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::ScreenRectangle</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setMapViewPan</Name>
+			   <ID>1243</ID>
+			         <Type>Request</Type>
+			  		   <Description>setMapViewPan = This method pans a given map instance</Description>
+			<Response>setMapViewPan</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setMapViewPan_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>191</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewPan_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>192</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewPan_R_systemMilisecondsTime</Name>
+			    		            <Description>any internal time of system-HMI-clock in ms. This timestamp should be used for smoothing the movement within controller</Description>
+			    		          <ID>193</ID>
+			    		<Type>Int32</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewPan_R_panningAction</Name>
+			    		            <Description>panningAction = enum(PAN_START,PAN_TO,PAN_END). Whenever a finger is start to touch the screen: PAN_START, whenever a finger leaves the screen: PAN_END</Description>
+			    		          <ID>194</ID>
+			    		<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::PanAction</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewPan_R_pixelCoordinates</Name>
+			    		            <Description>array of currently touching finger. If this array is emtpy, all fingers have been removed from screen. A flic can start</Description>
+			    		          <ID>195</ID>
+			    		<Type>THBVector_ScreenCoordinate_</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setMapViewPan</Name>
+			<ID>2243</ID>
+			         <Type>Response</Type>
+			  		   <Description>setMapViewPan = This method pans a given map instance</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setMapViewRotation</Name>
+			   <ID>1244</ID>
+			         <Type>Request</Type>
+			  		   <Description>setMapViewRotation = This method rotates the map</Description>
+			<Response>setMapViewRotation</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setMapViewRotation_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>198</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewRotation_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>199</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewRotation_R_rotationAngle</Name>
+			    		            <Description>rotationAngle = rotation angle in degrees measured from the North axis clockwise. Range[0:360]</Description>
+			    		          <ID>200</ID>
+			    		<Type>Int32</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewRotation_R_rotationAnglePerSecond</Name>
+			    		            <Description>rotationAnglePerSecond = partial rotation for each second</Description>
+			    		          <ID>201</ID>
+			    		<Type>Int32</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setMapViewRotation</Name>
+			<ID>2244</ID>
+			         <Type>Response</Type>
+			  		   <Description>setMapViewRotation = This method rotates the map</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getMapViewRotation</Name>
+			   <ID>1245</ID>
+			         <Type>Request</Type>
+			  		   <Description>getMapViewRotation = This method is particularly interesting for debugging purposes</Description>
+			<Response>getMapViewRotation</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getMapViewRotation_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>204</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getMapViewRotation</Name>
+			<ID>2245</ID>
+			         <Type>Response</Type>
+			  		   <Description>getMapViewRotation = This method is particularly interesting for debugging purposes</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getMapViewRotation_rotationAngle</Name>
+			            <Description>rotationAngle = rotation angle in degrees measured from the North axis clockwise. Range[0:360]</Description>
+			          <ID>206</ID>
+			<Type>Int32</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			        <Parameter>
+			            <Name>getMapViewRotation_rotationAnglePerFrame</Name>
+			            <Description>rotationAnglePerFrame = partial rotation for each map frame in degrees</Description>
+			          <ID>207</ID>
+			<Type>Int32</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setMapViewVisibilityMode</Name>
+			   <ID>1246</ID>
+			         <Type>Request</Type>
+			  		   <Description>setMapViewVisibilityMode = This method sets the current visibility mode</Description>
+			<Response>setMapViewVisibilityMode</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setMapViewVisibilityMode_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>209</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewVisibilityMode_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>210</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewVisibilityMode_R_visibilityMode</Name>
+			    		            <Description>visibilityMode = enum(INVALID,VISIBLE,INVISIBLE,FROZEN, ... )</Description>
+			    		          <ID>211</ID>
+			    		<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::Visibility</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setMapViewVisibilityMode</Name>
+			<ID>2246</ID>
+			         <Type>Response</Type>
+			  		   <Description>setMapViewVisibilityMode = This method sets the current visibility mode</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getMapViewVisibilityMode</Name>
+			   <ID>1247</ID>
+			         <Type>Request</Type>
+			  		   <Description>getMapViewVisibilityMode = This method returns the current visibility mode</Description>
+			<Response>getMapViewVisibilityMode</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getMapViewVisibilityMode_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>214</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getMapViewVisibilityMode</Name>
+			<ID>2247</ID>
+			         <Type>Response</Type>
+			  		   <Description>getMapViewVisibilityMode = This method returns the current visibility mode</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getMapViewVisibilityMode_visibilityMode</Name>
+			            <Description>visibilityMode = enum(INVALID,VISIBLE,INVISIBLE,FROZEN, ... )</Description>
+			          <ID>216</ID>
+			<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::Visibility</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getSupportedMapViewVisibilityModes</Name>
+			   <ID>1248</ID>
+			         <Type>Request</Type>
+			  		   <Description>getSupportedMapViewVisibilityModes = This method retrieves the supported mapview visibility modes</Description>
+			<Response>getSupportedMapViewVisibilityModes</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getSupportedMapViewVisibilityModes</Name>
+			<ID>2248</ID>
+			         <Type>Response</Type>
+			  		   <Description>getSupportedMapViewVisibilityModes = This method retrieves the supported mapview visibility modes</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getSupportedMapViewVisibilityModes_visibilityModeList</Name>
+			            <Description></Description>
+			          <ID>219</ID>
+			<Type>THBVector_Visibility_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setMapViewPerformanceLevel</Name>
+			   <ID>1249</ID>
+			         <Type>Request</Type>
+			  		   <Description>setMapViewPerformanceLevel = This method sets the perfomance level of a given map instance</Description>
+			<Response>setMapViewPerformanceLevel</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setMapViewPerformanceLevel_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>221</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewPerformanceLevel_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>222</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewPerformanceLevel_R_performanceLevel</Name>
+			    		            <Description>performanceLevel = enum(INVALID,LEVEL1,LEVEL2,LEVEL3,LEVEL4,LEVEL5, ... )</Description>
+			    		          <ID>223</ID>
+			    		<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::Level</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setMapViewPerformanceLevel</Name>
+			<ID>2249</ID>
+			         <Type>Response</Type>
+			  		   <Description>setMapViewPerformanceLevel = This method sets the perfomance level of a given map instance</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getMapViewPerformanceLevel</Name>
+			   <ID>1250</ID>
+			         <Type>Request</Type>
+			  		   <Description>getMapViewPerformanceLevel = This method returns the perfomance level of a given map instance</Description>
+			<Response>getMapViewPerformanceLevel</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getMapViewPerformanceLevel_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>226</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getMapViewPerformanceLevel</Name>
+			<ID>2250</ID>
+			         <Type>Response</Type>
+			  		   <Description>getMapViewPerformanceLevel = This method returns the perfomance level of a given map instance</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getMapViewPerformanceLevel_performanceLevel</Name>
+			            <Description>performanceLevel = enum(INVALID,LEVEL1,LEVEL2,LEVEL3,LEVEL4,LEVEL5, ... )</Description>
+			          <ID>228</ID>
+			<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::Level</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getSupportedMapViewPerformanceLevels</Name>
+			   <ID>1251</ID>
+			         <Type>Request</Type>
+			  		   <Description>getSupportedMapViewPerformanceLevels = This method retrieves the supported perfomance levels</Description>
+			<Response>getSupportedMapViewPerformanceLevels</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getSupportedMapViewPerformanceLevels</Name>
+			<ID>2251</ID>
+			         <Type>Response</Type>
+			  		   <Description>getSupportedMapViewPerformanceLevels = This method retrieves the supported perfomance levels</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getSupportedMapViewPerformanceLevels_performanceLevelList</Name>
+			            <Description></Description>
+			          <ID>231</ID>
+			<Type>THBVector_Level_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>displayRoute</Name>
+			   <ID>1252</ID>
+			         <Type>Request</Type>
+			  		   <Description>displayRoute = This method visualizes one of the calculated routes</Description>
+			<Response>displayRoute</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>displayRoute_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>233</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>displayRoute_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>234</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>displayRoute_R_routeHandle</Name>
+			    		            <Description>routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>235</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>displayRoute_R_highlighted</Name>
+			    		            <Description>highlighted = flag. TRUE means highligted,FALSE means not highlighted</Description>
+			    		          <ID>236</ID>
+			    		<Type>bool</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>displayRoute</Name>
+			<ID>2252</ID>
+			         <Type>Response</Type>
+			  		   <Description>displayRoute = This method visualizes one of the calculated routes</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>hideRoute</Name>
+			   <ID>1253</ID>
+			         <Type>Request</Type>
+			  		   <Description>hideRoute = This method hides one of the visible routes</Description>
+			<Response>hideRoute</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>hideRoute_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>239</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>hideRoute_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>240</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>hideRoute_R_routeHandle</Name>
+			    		            <Description>routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>241</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>hideRoute</Name>
+			<ID>2253</ID>
+			         <Type>Response</Type>
+			  		   <Description>hideRoute = This method hides one of the visible routes</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getDisplayedRoutes</Name>
+			   <ID>1254</ID>
+			         <Type>Request</Type>
+			  		   <Description>getDisplayedRoutes = This method returns a list of displayed routes</Description>
+			<Response>getDisplayedRoutes</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getDisplayedRoutes_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>244</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getDisplayedRoutes</Name>
+			<ID>2254</ID>
+			         <Type>Response</Type>
+			  		   <Description>getDisplayedRoutes = This method returns a list of displayed routes</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getDisplayedRoutes_displayedRoutes</Name>
+			            <Description></Description>
+			          <ID>246</ID>
+			<Type>THBVector_DisplayedRoute_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>addKml</Name>
+			   <ID>1255</ID>
+			         <Type>Request</Type>
+			  		   <Description>addKml = add Kml Content to MapViewer</Description>
+			<Response>addKml</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>addKml_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>248</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>addKml_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>249</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>addKml_R_kmlType</Name>
+			    		            <Description>defines if kml is of KmlType:(KML_URL/KML_CONTENT)</Description>
+			    		          <ID>250</ID>
+			    		<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::KmlType</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>addKml_R_kml</Name>
+			    		            <Description>is either the kml-url or a kml-content</Description>
+			    		          <ID>251</ID>
+			    		<Type>CHBString</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>addKml_R_show</Name>
+			    		            <Description>show if TRUE then kmlContent is shown on MapViewer</Description>
+			    		          <ID>252</ID>
+			    		<Type>bool</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>addKml</Name>
+			<ID>2255</ID>
+			         <Type>Response</Type>
+			  		   <Description>addKml = add Kml Content to MapViewer</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>addKml_kmlHandle</Name>
+			            <Description>kmlHandle = NAV2010-kmlHandle</Description>
+			          <ID>254</ID>
+			<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>deleteKml</Name>
+			   <ID>1256</ID>
+			         <Type>Request</Type>
+			  		   <Description>deleteKml = deletes (and hides) Kml Content to MapViewer</Description>
+			<Response>deleteKml</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>deleteKml_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>256</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>deleteKml_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>257</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>deleteKml_R_kmlHandle</Name>
+			    		            <Description>kmlHandle = NAV2010-kmlHandle</Description>
+			    		          <ID>258</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>deleteKml</Name>
+			<ID>2256</ID>
+			         <Type>Response</Type>
+			  		   <Description>deleteKml = deletes (and hides) Kml Content to MapViewer</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setKmlVisibility</Name>
+			   <ID>1257</ID>
+			         <Type>Request</Type>
+			  		   <Description>setKmlVisibility = shows/hides a kmlFile (without deleting it actually)</Description>
+			<Response>setKmlVisibility</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setKmlVisibility_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>261</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setKmlVisibility_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>262</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setKmlVisibility_R_kmlHandle</Name>
+			    		            <Description>kmlHandle = NAV2010-kmlHandle</Description>
+			    		          <ID>263</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setKmlVisibility_R_show</Name>
+			    		            <Description>show if TRUE then kmlContent is shown on MapViewer</Description>
+			    		          <ID>264</ID>
+			    		<Type>bool</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setKmlVisibility</Name>
+			<ID>2257</ID>
+			         <Type>Response</Type>
+			  		   <Description>setKmlVisibility = shows/hides a kmlFile (without deleting it actually)</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>pushSettings</Name>
+			   <ID>1258</ID>
+			         <Type>Request</Type>
+			  		   <Description>pushSettings = stores the current map-ctrl setting (scale, orientation, visible objects ...) to an internal stack</Description>
+			<Response>pushSettings</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>pushSettings_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>267</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>pushSettings_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>268</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>pushSettings</Name>
+			<ID>2258</ID>
+			         <Type>Response</Type>
+			  		   <Description>pushSettings = stores the current map-ctrl setting (scale, orientation, visible objects ...) to an internal stack</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>popSettings</Name>
+			   <ID>1259</ID>
+			         <Type>Request</Type>
+			  		   <Description>popSettings = re-stores the current map-ctrl setting (scale, orientation, visible objects ...) from the stack (called after pushSetting)</Description>
+			<Response>popSettings</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>popSettings_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>271</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>popSettings_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>272</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>popSettings</Name>
+			<ID>2259</ID>
+			         <Type>Response</Type>
+			  		   <Description>popSettings = re-stores the current map-ctrl setting (scale, orientation, visible objects ...) from the stack (called after pushSetting)</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>resetSettings</Name>
+			   <ID>1260</ID>
+			         <Type>Request</Type>
+			  		   <Description>resetSettings = resets the mapInstance to a dedicated state (same as startup)</Description>
+			<Response>resetSettings</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>resetSettings_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>275</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>resetSettings_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>276</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>resetSettings</Name>
+			<ID>2260</ID>
+			         <Type>Response</Type>
+			  		   <Description>resetSettings = resets the mapInstance to a dedicated state (same as startup)</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>displayObjectList</Name>
+			   <ID>1261</ID>
+			         <Type>Request</Type>
+			  		   <Description>displayObjectList = This method visualizes a list of objects, created in another domain</Description>
+			<Response>displayObjectList</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>displayObjectList_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>279</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>displayObjectList_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>280</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>displayObjectList_R_objectList</Name>
+			    		            <Description>contains enum to other domain + session-id of other domain</Description>
+			    		          <ID>281</ID>
+			    		<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::ObjectList</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>displayObjectList</Name>
+			<ID>2261</ID>
+			         <Type>Response</Type>
+			  		   <Description>displayObjectList = This method visualizes a list of objects, created in another domain</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>hideObjectList</Name>
+			   <ID>1262</ID>
+			         <Type>Request</Type>
+			  		   <Description>hideObjectList = This method hides a list of objects, created in another domain</Description>
+			<Response>hideObjectList</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>hideObjectList_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>284</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>hideObjectList_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>285</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>hideObjectList_R_objectList</Name>
+			    		            <Description>contains enum to other domain + session-id of other domain</Description>
+			    		          <ID>286</ID>
+			    		<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::ObjectList</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>hideObjectList</Name>
+			<ID>2262</ID>
+			         <Type>Response</Type>
+			  		   <Description>hideObjectList = This method hides a list of objects, created in another domain</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>highlightObjectListItem</Name>
+			   <ID>1263</ID>
+			         <Type>Request</Type>
+			  		   <Description>highlightObjectListItem = highlights exclusively a various number of items within an objectList. For unhighlight all, objectListItems is empty</Description>
+			<Response>highlightObjectListItem</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>highlightObjectListItem_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>289</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>highlightObjectListItem_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>290</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>highlightObjectListItem_R_objectListItems</Name>
+			    		            <Description>contains enum to other domain, contains session-id of other domain</Description>
+			    		          <ID>291</ID>
+			    		<Type>THBVector_ObjectListItem_</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>highlightObjectListItem</Name>
+			<ID>2263</ID>
+			         <Type>Response</Type>
+			  		   <Description>highlightObjectListItem = highlights exclusively a various number of items within an objectList. For unhighlight all, objectListItems is empty</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>centerOnObjectListItems</Name>
+			   <ID>1264</ID>
+			         <Type>Request</Type>
+			  		   <Description>centerOnObjectListItems = This method shows an overview map with the current route in the center</Description>
+			<Response>centerOnObjectListItems</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>centerOnObjectListItems_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>294</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>centerOnObjectListItems_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>295</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>centerOnObjectListItems_R_objectListItems</Name>
+			    		            <Description>objectListItems = list of ObjectListItmes to center on (if 1 element is in list, don't change scale)</Description>
+			    		          <ID>296</ID>
+			    		<Type>THBVector_ObjectListItem_</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>centerOnObjectListItems</Name>
+			<ID>2264</ID>
+			         <Type>Response</Type>
+			  		   <Description>centerOnObjectListItems = This method shows an overview map with the current route in the center</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getPoiCategoriesVisible</Name>
+			   <ID>1265</ID>
+			         <Type>Request</Type>
+			  		   <Description>getPoiCategoriesVisible = Get the set of POI categories displayed on the map.</Description>
+			<Response>getPoiCategoriesVisible</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getPoiCategoriesVisible_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>299</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getPoiCategoriesVisible</Name>
+			<ID>2265</ID>
+			         <Type>Response</Type>
+			  		   <Description>getPoiCategoriesVisible = Get the set of POI categories displayed on the map.</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getPoiCategoriesVisible_poiCategoryIds</Name>
+			            <Description></Description>
+			          <ID>301</ID>
+			<Type>THBVector_UInt32_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setPoiCategoriesVisible</Name>
+			   <ID>1266</ID>
+			         <Type>Request</Type>
+			  		   <Description>setPoiCategoriesVisible = Add POI categories to the set of POI categories displayed on the map.
+			  		                      Any specified category that until now was displayed with scale limits is now displayed without limits.</Description>
+			<Response>setPoiCategoriesVisible</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setPoiCategoriesVisible_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>303</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setPoiCategoriesVisible_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>304</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setPoiCategoriesVisible_R_poiCategoryIds</Name>
+			    		            <Description>poiCategoryIds = list of POI-categories</Description>
+			    		          <ID>305</ID>
+			    		<Type>THBVector_UInt32_</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setPoiCategoriesVisible</Name>
+			<ID>2266</ID>
+			         <Type>Response</Type>
+			  		   <Description>setPoiCategoriesVisible = Add POI categories to the set of POI categories displayed on the map.
+			  		                      Any specified category that until now was displayed with scale limits is now displayed without limits.</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setPoiCategoriesVisibleMode</Name>
+			   <ID>1267</ID>
+			         <Type>Request</Type>
+			  		   <Description>setPoiCategoriesVisibleMode = gives the possibility to show or hide all POI categories regardsless of
+			  		                      of which one are enabled with setPoiCategoriesVisible/setPoiCategoriesNotVisible.
+			  		                      The selection which is done with setPoiCategoriesVisible/setPoiCategoriesNotVisible is not changed by this command.</Description>
+			<Response>setPoiCategoriesVisibleMode</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setPoiCategoriesVisibleMode_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>308</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setPoiCategoriesVisibleMode_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>309</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setPoiCategoriesVisibleMode_R_poiCategoriesVisibleMode</Name>
+			    		            <Description>poiCategoriesVisibleMode = {SELECTED(default) / ALL / NONE}</Description>
+			    		          <ID>310</ID>
+			    		<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::PoiCategoriesVisibleMode</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setPoiCategoriesVisibleMode</Name>
+			<ID>2267</ID>
+			         <Type>Response</Type>
+			  		   <Description>setPoiCategoriesVisibleMode = gives the possibility to show or hide all POI categories regardsless of
+			  		                      of which one are enabled with setPoiCategoriesVisible/setPoiCategoriesNotVisible.
+			  		                      The selection which is done with setPoiCategoriesVisible/setPoiCategoriesNotVisible is not changed by this command.</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setPoiCategoriesVisibleWithinLimits</Name>
+			   <ID>1268</ID>
+			         <Type>Request</Type>
+			  		   <Description>setPoiCategoriesVisible = Add POI categories to the set of POI categories displayed on the map, where the POI's are only displayed in a specific range of scales.
+			  		                      Any specified category that until now was displayed without scale limits is now displayed with limits.</Description>
+			<Response>setPoiCategoriesVisibleWithinLimits</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setPoiCategoriesVisibleWithinLimits_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>313</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setPoiCategoriesVisibleWithinLimits_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>314</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setPoiCategoriesVisibleWithinLimits_R_poiCategoryIds</Name>
+			    		            <Description></Description>
+			    		          <ID>315</ID>
+			    		<Type>THBVector_UInt32_</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setPoiCategoriesVisibleWithinLimits_R_minScaleID</Name>
+			    		            <Description>minScaleID = minimun scale on which the POI categories are displayed</Description>
+			    		          <ID>316</ID>
+			    		<Type>Int8</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setPoiCategoriesVisibleWithinLimits_R_maxScaleID</Name>
+			    		            <Description>maxScaleID = maximum scale on which the POI categories are displayed</Description>
+			    		          <ID>317</ID>
+			    		<Type>Int8</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setPoiCategoriesVisibleWithinLimits</Name>
+			<ID>2268</ID>
+			         <Type>Response</Type>
+			  		   <Description>setPoiCategoriesVisible = Add POI categories to the set of POI categories displayed on the map, where the POI's are only displayed in a specific range of scales.
+			  		                      Any specified category that until now was displayed without scale limits is now displayed with limits.</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setPoiCategoriesNotVisible</Name>
+			   <ID>1269</ID>
+			         <Type>Request</Type>
+			  		   <Description>setPoiCategoriesNotVisible = Remove POI categories from the set of POI categories displayed on the map.</Description>
+			<Response>setPoiCategoriesNotVisible</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setPoiCategoriesNotVisible_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>320</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setPoiCategoriesNotVisible_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>321</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setPoiCategoriesNotVisible_R_poiCategoryIds</Name>
+			    		            <Description>poiCategoryIds = list of POI-categories</Description>
+			    		          <ID>322</ID>
+			    		<Type>THBVector_UInt32_</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setPoiCategoriesNotVisible</Name>
+			<ID>2269</ID>
+			         <Type>Response</Type>
+			  		   <Description>setPoiCategoriesNotVisible = Remove POI categories from the set of POI categories displayed on the map.</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setTrafficIncidentsVisibility</Name>
+			   <ID>1270</ID>
+			         <Type>Request</Type>
+			  		   <Description>setTrafficIncidentsVisibility = Set the visibility of Traffic Incidents on the map.</Description>
+			<Response>setTrafficIncidentsVisibility</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setTrafficIncidentsVisibility_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>325</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setTrafficIncidentsVisibility_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>326</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setTrafficIncidentsVisibility_R_visible</Name>
+			    		            <Description>visible = If true, Traffic Incidents are shown on the map, else they are not shown.</Description>
+			    		          <ID>327</ID>
+			    		<Type>bool</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setTrafficIncidentsVisibility</Name>
+			<ID>2270</ID>
+			         <Type>Response</Type>
+			  		   <Description>setTrafficIncidentsVisibility = Set the visibility of Traffic Incidents on the map.</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setMapViewTheme</Name>
+			   <ID>1271</ID>
+			         <Type>Request</Type>
+			  		   <Description>setMapViewTheme = This method configures the theme of a given map view instance</Description>
+			<Response>setMapViewTheme</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setMapViewTheme_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>330</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewTheme_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>331</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapViewTheme_R_mapViewTheme</Name>
+			    		            <Description>mapViewTheme = enum(DAY / NIGHT)</Description>
+			    		          <ID>332</ID>
+			    		<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::MapTheme</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setMapViewTheme</Name>
+			<ID>2271</ID>
+			         <Type>Response</Type>
+			  		   <Description>setMapViewTheme = This method configures the theme of a given map view instance</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getMapViewTheme</Name>
+			   <ID>1272</ID>
+			         <Type>Request</Type>
+			  		   <Description>getMapViewTheme = This method returns the current theme of a given map view instance</Description>
+			<Response>getMapViewTheme</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getMapViewTheme_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>335</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getMapViewTheme</Name>
+			<ID>2272</ID>
+			         <Type>Response</Type>
+			  		   <Description>getMapViewTheme = This method returns the current theme of a given map view instance</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getMapViewTheme_mapViewTheme</Name>
+			            <Description>mapViewTheme = enum(INVALID,THEME_1,THEME_2,THEME_3, ... )</Description>
+			          <ID>337</ID>
+			<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::MapTheme</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getSupportedMapViewThemes</Name>
+			   <ID>1273</ID>
+			         <Type>Request</Type>
+			  		   <Description>getSupportedMapViewThemes = This method retrieves the supported mapview themes</Description>
+			<Response>getSupportedMapViewThemes</Response>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getSupportedMapViewThemes</Name>
+			<ID>2273</ID>
+			         <Type>Response</Type>
+			  		   <Description>getSupportedMapViewThemes = This method retrieves the supported mapview themes</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getSupportedMapViewThemes_mapViewThemeList</Name>
+			            <Description></Description>
+			          <ID>340</ID>
+			<Type>THBVector_MapTheme_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>convertPixelCoordsToGeoCoords</Name>
+			   <ID>1274</ID>
+			         <Type>Request</Type>
+			  		   <Description>convertPixelCoordsToGeoCoords = This method converts pixel coordinates to geographical coordinates</Description>
+			<Response>convertPixelCoordsToGeoCoords</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>convertPixelCoordsToGeoCoords_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>342</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>convertPixelCoordsToGeoCoords_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>343</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>convertPixelCoordsToGeoCoords_R_pixelCoordinates</Name>
+			    		            <Description></Description>
+			    		          <ID>344</ID>
+			    		<Type>THBVector_Pixel_</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>convertPixelCoordsToGeoCoords</Name>
+			<ID>2274</ID>
+			         <Type>Response</Type>
+			  		   <Description>convertPixelCoordsToGeoCoords = This method converts pixel coordinates to geographical coordinates</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>convertPixelCoordsToGeoCoords_geoCoordinates</Name>
+			            <Description></Description>
+			          <ID>346</ID>
+			<Type>THBVector_Coordinate2D_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>convertGeoCoordsToPixelCoords</Name>
+			   <ID>1275</ID>
+			         <Type>Request</Type>
+			  		   <Description>convertGeoCoordsToPixelCoords = This method converts geographical coordinates into pixel coordinates</Description>
+			<Response>convertGeoCoordsToPixelCoords</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>convertGeoCoordsToPixelCoords_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>348</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>convertGeoCoordsToPixelCoords_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>349</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>convertGeoCoordsToPixelCoords_R_geoCoordinates</Name>
+			    		            <Description></Description>
+			    		          <ID>350</ID>
+			    		<Type>THBVector_Coordinate2D_</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>convertGeoCoordsToPixelCoords</Name>
+			<ID>2275</ID>
+			         <Type>Response</Type>
+			  		   <Description>convertGeoCoordsToPixelCoords = This method converts geographical coordinates into pixel coordinates</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>convertGeoCoordsToPixelCoords_pixelCoordinates</Name>
+			            <Description></Description>
+			          <ID>352</ID>
+			<Type>THBVector_Pixel_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>displayCustomElements</Name>
+			   <ID>1276</ID>
+			         <Type>Request</Type>
+			  		   <Description>displayCustomElements = This method visualizes a set of custom elements on the map</Description>
+			<Response>displayCustomElements</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>displayCustomElements_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>354</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>displayCustomElements_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>355</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>displayCustomElements_R_customElements</Name>
+			    		            <Description></Description>
+			    		          <ID>356</ID>
+			    		<Type>THBVector_CustomElement_</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>displayCustomElements</Name>
+			<ID>2276</ID>
+			         <Type>Response</Type>
+			  		   <Description>displayCustomElements = This method visualizes a set of custom elements on the map</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>displayCustomElements_customElemenHandles</Name>
+			            <Description></Description>
+			          <ID>358</ID>
+			<Type>THBVector_Handle_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>hideCustomElements</Name>
+			   <ID>1277</ID>
+			         <Type>Request</Type>
+			  		   <Description>hideCustomElements = This method hides a set of custom elements which were visualized by DisplayCustomElements</Description>
+			<Response>hideCustomElements</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>hideCustomElements_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>360</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>hideCustomElements_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>361</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>hideCustomElements_R_customElemenHandles</Name>
+			    		            <Description></Description>
+			    		          <ID>362</ID>
+			    		<Type>THBVector_Handle_</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>hideCustomElements</Name>
+			<ID>2277</ID>
+			         <Type>Response</Type>
+			  		   <Description>hideCustomElements = This method hides a set of custom elements which were visualized by DisplayCustomElements</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getDisplayedCustomElements</Name>
+			   <ID>1278</ID>
+			         <Type>Request</Type>
+			  		   <Description>getDisplayedCustomElements = This method retrieves the visualized custom elements on the map</Description>
+			<Response>getDisplayedCustomElements</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getDisplayedCustomElements_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>365</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getDisplayedCustomElements</Name>
+			<ID>2278</ID>
+			         <Type>Response</Type>
+			  		   <Description>getDisplayedCustomElements = This method retrieves the visualized custom elements on the map</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getDisplayedCustomElements_customElements</Name>
+			            <Description></Description>
+			          <ID>367</ID>
+			<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::tCustomElementDict</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>selectElementsOnMap</Name>
+			   <ID>1279</ID>
+			         <Type>Request</Type>
+			  		   <Description>selectElementsOnMap = This method selects elements on the map view which are at the position specified by user input</Description>
+			<Response>selectElementsOnMap</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>selectElementsOnMap_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>369</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>selectElementsOnMap_R_pixelCoordinate</Name>
+			    		            <Description></Description>
+			    		          <ID>370</ID>
+			    		<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::Pixel</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>selectElementsOnMap_R_selectableTypes</Name>
+			    		            <Description></Description>
+			    		          <ID>371</ID>
+			    		<Type>THBVector_SelectableMapType_</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>selectElementsOnMap_R_maxNumberOfSelectedElements</Name>
+			    		            <Description>maxNumberOfSelectedElements = maximum number of selected elements to return. If 0, all possible elements which can be selected will be returned</Description>
+			    		          <ID>372</ID>
+			    		<Type>UInt16</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>selectElementsOnMap</Name>
+			<ID>2279</ID>
+			         <Type>Response</Type>
+			  		   <Description>selectElementsOnMap = This method selects elements on the map view which are at the position specified by user input</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>selectElementsOnMap_selectedElements</Name>
+			            <Description></Description>
+			          <ID>374</ID>
+			<Type>THBVector_SelectedMapElement_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>mapViewGesture</Name>
+			   <ID>1280</ID>
+			         <Type>Request</Type>
+			  		   <Description>mapViewGesture = This method is a compound gesture command</Description>
+			<Response>mapViewGesture</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>mapViewGesture_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>376</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>mapViewGesture_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>377</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>mapViewGesture_R_systemMilisecondsTime</Name>
+			    		            <Description>any internal time of system-HMI-clock in ms. This timestamp should be used for smoothing the movement within controller</Description>
+			    		          <ID>378</ID>
+			    		<Type>Int32</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>mapViewGesture_R_isFingerDown</Name>
+			    		            <Description>while gesture is running, set to true
+			    		            				if gesture ends (last finger lifted from touchscreen) set to false.
+			    		            				in case of false, anchorScreen, scrollOffset, zoomFactor, rorationAngle and pitchAngle are ignored</Description>
+			    		          <ID>379</ID>
+			    		<Type>bool</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>mapViewGesture_R_anchorScreen</Name>
+			    		            <Description>anchorScreen = center "pixels" of gesture to have a rotation axis and scrolling-center</Description>
+			    		          <ID>380</ID>
+			    		<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::ScreenCoordinate</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>mapViewGesture_R_scrollOffset</Name>
+			    		            <Description>scrollOffset = scrolling in pixels to a direction. 0/0 = default (no scroll)</Description>
+			    		          <ID>381</ID>
+			    		<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::ScreenCoordinate</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>mapViewGesture_R_zoomFactor</Name>
+			    		            <Description>zoomFactor = changing scale. 1.0 = no change</Description>
+			    		          <ID>382</ID>
+			    		<Type>double</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>mapViewGesture_R_rotationAngle</Name>
+			    		            <Description>rotationAngle = rotate in degree 0.0 = no change 90.0 = 90 degree</Description>
+			    		          <ID>383</ID>
+			    		<Type>double</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>mapViewGesture_R_pitchAngle</Name>
+			    		            <Description>pitchAngle = pitch the view. 0.0 = no change, positive values goto birdview, negative-values goto 2D</Description>
+			    		          <ID>384</ID>
+			    		<Type>double</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>mapViewGesture</Name>
+			<ID>2280</ID>
+			         <Type>Response</Type>
+			  		   <Description>mapViewGesture = This method is a compound gesture command</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>mapShowRouteOverview</Name>
+			   <ID>1281</ID>
+			         <Type>Request</Type>
+			  		   <Description>mapShowRouteOverview = This method shows an overview map with the current route in the center</Description>
+			<Response>mapShowRouteOverview</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>mapShowRouteOverview_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>387</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>mapShowRouteOverview_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>388</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>mapShowRouteOverview_R_routeId</Name>
+			    		            <Description>Route-Id</Description>
+			    		          <ID>389</ID>
+			    		<Type>UInt32</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>mapShowRouteOverview_R_orientation</Name>
+			    		            <Description>orientation = orientation of mapViewer during route-overview</Description>
+			    		          <ID>390</ID>
+			    		<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::MapViewOrientation</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>mapShowRouteOverview</Name>
+			<ID>2281</ID>
+			         <Type>Response</Type>
+			  		   <Description>mapShowRouteOverview = This method shows an overview map with the current route in the center</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>mapSetStyle</Name>
+			   <ID>1282</ID>
+			         <Type>Request</Type>
+			  		   <Description>mapSetStyle = Changes the StyleSet of the MapViewer. e.g. day/night switch</Description>
+			<Response>mapSetStyle</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>mapSetStyle_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>393</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>mapSetStyle_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>394</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>mapSetStyle_R_styleSet</Name>
+			    		            <Description>styleSet = StyleSet enum. {DAY, NIGHT}</Description>
+			    		          <ID>395</ID>
+			    		<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::MapViewStyleSet</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>mapSetStyle</Name>
+			<ID>2282</ID>
+			         <Type>Response</Type>
+			  		   <Description>mapSetStyle = Changes the StyleSet of the MapViewer. e.g. day/night switch</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getMapModeList</Name>
+			   <ID>1283</ID>
+			         <Type>Request</Type>
+			  		   <Description>getMapModeList = This method returns a list of supported map modes</Description>
+			<Response>getMapModeList</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getMapModeList_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>398</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getMapModeList</Name>
+			<ID>2283</ID>
+			         <Type>Response</Type>
+			  		   <Description>getMapModeList = This method returns a list of supported map modes</Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getMapModeList_mapModeList</Name>
+			            <Description>mapMode-List (string-based)</Description>
+			          <ID>400</ID>
+			<Type>THBVector_CHBString_</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setMapMode</Name>
+			   <ID>1284</ID>
+			         <Type>Request</Type>
+			  		   <Description>setMapMode = This method sets the map mode (String-datatype, could be hard-coded in HMI if controller is known)</Description>
+			<Response>setMapMode</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setMapMode_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>402</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapMode_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>403</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setMapMode_R_mapMode</Name>
+			    		            <Description>mapMode</Description>
+			    		          <ID>404</ID>
+			    		<Type>CHBString</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setMapMode</Name>
+			<ID>2284</ID>
+			         <Type>Response</Type>
+			  		   <Description>setMapMode = This method sets the map mode (String-datatype, could be hard-coded in HMI if controller is known)</Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getMapMode</Name>
+			   <ID>1285</ID>
+			         <Type>Request</Type>
+			  		   <Description></Description>
+			<Response>getMapMode</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getMapMode_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>407</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>getMapMode_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>408</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getMapMode</Name>
+			<ID>2285</ID>
+			         <Type>Response</Type>
+			  		   <Description></Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getMapMode_mapMode</Name>
+			            <Description>mapMode</Description>
+			          <ID>410</ID>
+			<Type>CHBString</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setAutozoomSetting</Name>
+			   <ID>1286</ID>
+			         <Type>Request</Type>
+			  		   <Description></Description>
+			<Response>setAutozoomSetting</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setAutozoomSetting_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>412</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setAutozoomSetting_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>413</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setAutozoomSetting_R_autozoomSetting</Name>
+			    		            <Description>autozoomSetting (NEAR / NORMAL / FAR)</Description>
+			    		          <ID>414</ID>
+			    		<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::AutozoomSetting</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setAutozoomSetting</Name>
+			<ID>2286</ID>
+			         <Type>Response</Type>
+			  		   <Description></Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getAutozoomSetting</Name>
+			   <ID>1287</ID>
+			         <Type>Request</Type>
+			  		   <Description></Description>
+			<Response>getAutozoomSetting</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getAutozoomSetting_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>417</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>getAutozoomSetting_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>418</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getAutozoomSetting</Name>
+			<ID>2287</ID>
+			         <Type>Response</Type>
+			  		   <Description></Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getAutozoomSetting_autozoomSetting</Name>
+			            <Description>autozoomSetting (NEAR / NORMAL / FAR)</Description>
+			          <ID>420</ID>
+			<Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::AutozoomSetting</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>setAutozoomEnabled</Name>
+			   <ID>1288</ID>
+			         <Type>Request</Type>
+			  		   <Description></Description>
+			<Response>setAutozoomEnabled</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>setAutozoomEnabled_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>422</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setAutozoomEnabled_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>423</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>setAutozoomEnabled_R_enabled</Name>
+			    		            <Description>enabled</Description>
+			    		          <ID>424</ID>
+			    		<Type>bool</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>setAutozoomEnabled</Name>
+			<ID>2288</ID>
+			         <Type>Response</Type>
+			  		   <Description></Description>
+			  		   <Parameters>
+			  		   </Parameters>
+			</Method>
+			<Method>
+			
+			   <Name>getAutozoomEnabled</Name>
+			   <ID>1289</ID>
+			         <Type>Request</Type>
+			  		   <Description></Description>
+			<Response>getAutozoomEnabled</Response>
+			  		   <Parameters>
+			    		        <Parameter>
+			    		            <Name>getAutozoomEnabled_R_sessionHandle</Name>
+			    		            <Description>sessionHandle = Session handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>427</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			    		        <Parameter>
+			    		            <Name>getAutozoomEnabled_R_mapViewInstanceHandle</Name>
+			    		            <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+			    		          <ID>428</ID>
+			    		<Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+			    		           <IsDefault>false</IsDefault>
+			    		        </Parameter>
+			  		   </Parameters>
+			</Method>
+			<Method>
+				<Name>getAutozoomEnabled</Name>
+			<ID>2289</ID>
+			         <Type>Response</Type>
+			  		   <Description></Description>
+			  		   <Parameters>
+			        <Parameter>
+			            <Name>getAutozoomEnabled_enabled</Name>
+			            <Description>enabled</Description>
+			          <ID>430</ID>
+			<Type>bool</Type>
+			           <IsDefault>false</IsDefault>
+			        </Parameter>
+			  		   </Parameters>
+			</Method>
+               <Method>
+                  <Name>mapViewScaleChanged</Name>
+                  <Description>mapViewScaleChanged = This signal is emitted when the mapview scale changes</Description>
+         <ID>2300</ID>
+                  <Type>Information</Type>
+                  <Description>mapViewScaleChanged = This signal is emitted when the mapview scale changes</Description>
+                  <Parameters>
+                          <Parameter>
+                              <Name>mapViewScaleChanged_mapViewInstanceHandle</Name>
+                              <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+                            <ID>432</ID>
+                  <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                          <Parameter>
+                              <Name>mapViewScaleChanged_scaleID</Name>
+                              <Description>scaleID = scale identifier. Range[0:256]</Description>
+                            <ID>433</ID>
+                  <Type>Int8</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                          <Parameter>
+                              <Name>mapViewScaleChanged_isMinMax</Name>
+                              <Description>isMinMax = enum(INVALID,MIN,MAX,MID, ... )</Description>
+                            <ID>434</ID>
+                  <Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::MapScaleType</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                  </Parameters>
+               </Method>
+               <Method>
+                  <Name>mapViewVisibilityChanged</Name>
+                  <Description>mapViewVisibilityChanged = This signal is emitted when the MapView visibility changes</Description>
+         <ID>2301</ID>
+                  <Type>Information</Type>
+                  <Description>mapViewVisibilityChanged = This signal is emitted when the MapView visibility changes</Description>
+                  <Parameters>
+                          <Parameter>
+                              <Name>mapViewVisibilityChanged_mapViewInstanceHandle</Name>
+                              <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+                            <ID>436</ID>
+                  <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                          <Parameter>
+                              <Name>mapViewVisibilityChanged_visibilityMode</Name>
+                              <Description>visibilityMode = enum(INVALID,VISIBLE,INVISIBLE,FROZEN, ... )</Description>
+                            <ID>437</ID>
+                  <Type>org_harman_nav_ctrl_mapv_MapViewControlTypes::Visibility</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                  </Parameters>
+               </Method>
+               <Method>
+                  <Name>displayedRoutes</Name>
+                  <Description>displayedRoutes = This signal is emitted when the list of displayed routes change</Description>
+         <ID>2302</ID>
+                  <Type>Information</Type>
+                  <Description>displayedRoutes = This signal is emitted when the list of displayed routes change</Description>
+                  <Parameters>
+                          <Parameter>
+                              <Name>displayedRoutes_mapViewInstanceHandle</Name>
+                              <Description>mapViewInstanceHandle = Map instance handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+                            <ID>439</ID>
+                  <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                          <Parameter>
+                              <Name>displayedRoutes_displayedRoutes</Name>
+                              <Description></Description>
+                            <ID>440</ID>
+                  <Type>THBVector_DisplayedRoute_</Type>
+                             <IsDefault>false</IsDefault>
+                          </Parameter>
+                  </Parameters>
+               </Method>
+</Methods>
+
+
+</DSI>
+

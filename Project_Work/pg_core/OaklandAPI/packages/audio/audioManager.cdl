@@ -1,0 +1,33 @@
+import fidl "../genivi/intf/fidl/org/genivi/am/CommandInterface.fidl"
+import fidl "../genivi/intf/fidl/org/genivi/am/AudioManagerTypes.fidl"
+import fidl "../genivi/intf/fidl/org/genivi/am/RoutingInterface.fidl"
+
+import cdl "../swpl/orinoco_base.cdl"
+import cdl "../genivi/Genivi.cdl"
+
+/*
+ * 
+ */ 
+package audioManger{
+	generator true
+
+	component audioManager extends orinoco_component {
+		buildType CMake
+		language cpp
+		rpc dbus
+		provides interface org.genivi.am.commandinterface.CommandControl as commandInst
+		provides interface org.genivi.am.routinginterface.RoutingControlObserver as routingInst	
+		consumes interface org.genivi.am.routinginterface.RoutingControl instance dynamic as RoutingControlProxy
+		consumes interface com.harman.vehicle.VehicleSpeedProvider instance dynamic as VehicleSpeedProviderProxy
+		consumes interface com.harman.vehicle.OperationalModeStatusProvider instance dynamic as OperationalModeProxy 
+	}
+	
+	component audioManagerTestClient {
+		buildType CMake
+		language cpp
+		rpc dbus
+		consumes interface org.genivi.am.commandinterface.CommandControl instance audioManager::commandInst as CommandControlProxy
+		consumes interface org.genivi.am.routinginterface.RoutingControlObserver instance audioManager::routingInst as RoutingControlObserverProxy
+        provides interface org.genivi.am.routinginterface.RoutingControl as Inst
+	}
+}

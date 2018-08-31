@@ -1,0 +1,28 @@
+package com.harman.vehicle
+
+import model "VehicleDataTypes.fidl"
+
+interface KeyStatusProvider
+{
+	version { major 0 minor 1}
+	
+	/*Provides the status of Ignition. */
+	
+	attribute IgnitionStatus ignitionStatus readonly
+	
+	enumeration IgnitionStatusEnum
+	{
+		INA = 0
+		IGN_LK = 1
+		ACC = 3
+		RUN = 4
+		START = 5
+		SNA = 7
+	}
+	
+	
+	struct IgnitionStatus extends com.harman.vehicle.VehicleDataTypes.VehiclePropertyBase
+	{
+		IgnitionStatusEnum value
+	}
+}

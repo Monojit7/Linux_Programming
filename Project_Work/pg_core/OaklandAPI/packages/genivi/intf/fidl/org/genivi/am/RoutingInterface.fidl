@@ -1,0 +1,455 @@
+package org.genivi.am.routinginterface
+import org.genivi.am_t.* from "AudioManagerTypes.fidl"
+
+<**
+    @description : This class implements everything from Audiomanager -&gt; RoutingAdapter
+    @author : lian zhang
+**>
+
+interface RoutingControl {
+    version {
+        major 1
+        minor 1
+    }
+    <**
+        @description : Acknowledges for asyncSetSourceState.
+    **>
+    broadcast ackSetSourceState selective {
+        out {
+            am_Handle_s handle
+
+            <**
+                @description : E_OK on success, E_ABORTED if action was aborted, E_UNKNOWN on error
+            **>
+            am_Error_e amError
+        }
+    }
+
+    <**
+    @description : This function is used to set the source state of a particular source.
+(at)return E_OK on success, E_UNKNOWN on error
+    **>
+    method asyncSetSourceState {
+        in {
+            am_Handle_s handle
+            am_sourceID_t sourceID
+            am_SourceState_e ^state
+        }
+    }
+
+}
+
+<**
+    @description : Routing Receive sendInterface description.
+    @author : lian zhang
+**>
+
+interface RoutingControlObserver {
+    version {
+        major 3
+        minor 5
+    }
+
+    <**
+    @description : Registers a domain.
+(at)return E_OK on success, E_ALREADY_EXISTENT if already registered E_UNKNOWN on error
+    **>
+    method registerDomain {
+        in {
+
+            <**
+                @description : DomainID in am_Domain_s must be 0!
+            **>
+            am_Domain_s domainData
+            <**
+                @description :the instance name of your service. After running 'generate project' command of codegen tool, the instance will be generated in main.cpp file. This argument let audioManager know how to call the method of the domain. 
+            **>                
+            String returnBusname
+            String returnInterface
+        }
+        out {
+            am_domainID_t domainID
+            am_Error_e amError
+        }
+    }
+
+    <**
+    @description : Deregisters a domain. All sources, sinks, gateways and crossfaders from that domain will be removed as well.
+(at)return E_OK on success, E_NON_EXISTENT if not found E_UNKNOWN on error
+    **>
+    method deregisterDomain {
+        in {
+            am_domainID_t domainID
+        }
+        out {
+            am_Error_e amError
+        }
+    }
+
+    <**
+    @description : This function returns the ID to the given domain name. If already a domain is registered with this name, it will return the corresponding ID, if not it will reserve an ID but not register the domain. The other parameters of the domain will be overwritten when the domain is registered.
+(at)return E_OK on success, E_UNKNOWN on error
+    please use pulseAudio as the name to peek domainID. now all the sources and sinks are defined in domain pulseAudio.
+    **>
+    method peekDomain {
+        in {
+            String name
+        }
+        out {
+            am_domainID_t domainID
+            am_Error_e amError
+        }
+    }
+
+    <**
+    @description : Registers a sink. If the sink is part of a gateway, the list connection formats are copied to the gateway information
+(at)return E_OK on success, E_ALREADY_EXISTENT if already registered E_UNKNOWN on error
+    **>
+    method registerSink {
+        in {
+
+            <**
+                @description : all the fixed sinkID has been defined in am_sinkID_e.
+            **>
+            am_Sink_s sinkData
+        }
+        out {
+            am_sinkID_t sinkID
+            am_Error_e amError
+        }
+    }
+
+    <**
+    @description : Deregisters a sink.
+(at)return E_OK on success, E_NON_EXISTENT if not found E_UNKNOWN on error
+    **>
+    method deregisterSink {
+        in {
+            am_sinkID_t sinkID
+        }
+        out {
+            am_Error_e amError
+        }
+    }
+
+    <**
+    @description : This function returns the ID to the given sink name. If already a sink is registered with this name, it will return the corresponding ID, if not it will reserve an ID but not register the sink. The other parameters of the sink will be overwritten when the sink is registered.
+(at)return E_OK on success, E_UNKNOWN on error
+    **>
+    method peekSink {
+        in {
+
+            <**
+                @description : ID is not valid since not created yet.
+            **>
+            String name
+        }
+        out {
+            am_sinkID_t sinkID
+            am_Error_e amError
+        }
+    }
+
+    <**
+    @description : This function peeks a sink class ID. It is used by the RoutingPlugins to determine the sink class IDs of a sink class.
+(at)return E_OK on success, E_DATABASE_ERROR on error
+    **>
+    method peekSinkClassID {
+        in {
+            String name
+        }
+        out {
+            am_sinkClass_t sinkClassID
+            am_Error_e amError
+        }
+    }
+
+    <**
+    @description : Updates data of a sink.
+(at)return E_OK on success, E_NON_EXISTENT if the sink ID is not valid.
+    **>
+    method updateSink {
+        in {
+
+            <**
+                @description : The sinkID of the sink.
+            **>
+            am_sinkID_t sinkID
+            am_sinkClass_t sinkClassID
+            am_SoundProperty_L listSoundProperties
+            am_ConnectionFormat_L listConnectionFormats
+            am_MainSoundProperty_L listMainSoundProperties
+        }
+        out {
+            am_Error_e amError
+        }
+    }
+
+    <**
+    @description : Registers a source.  If the source is part of a gateway, the list connection formats are copied to the gateway information
+(at)return E_OK on success, E_UNKNOWN on error, E_ALREADY_EXIST if either name or source ID already exists
+    **>
+    method registerSource {
+        in {
+
+            <**
+                @description : all the fixed sourceID has been defined in am_sourceID_e.
+            **>
+            am_Source_s sourceData
+        }
+        out {
+            am_sourceID_t sourceID
+            am_Error_e amError
+        }
+    }
+
+    <**
+    @description : Deregisters a source.
+(at)return E_OK on success, E_NON_EXISTENT if not found E_UNKNOWN on error
+    **>
+    method deregisterSource {
+        in {
+            am_sourceID_t sourceID
+        }
+        out {
+            am_Error_e amError
+        }
+    }
+
+    <**
+    @description : This function returns the ID to the given source name. If already a source is registered with this name, it will return the corresponding ID, if not it will reserve an ID but not register the source. The other parameters of the source will be overwritten when the source is registered.
+(at)return E_OK on success, E_UNKNOWN on error
+    **>
+    method peekSource {
+        in {
+            String name
+        }
+        out {
+            am_sourceID_t sourceID
+            am_Error_e amError
+        }
+    }
+
+    <**
+    @description : Peeks a source class ID. It is used by the RoutingPlugins to determine the source class IDs of a source class.
+(at)return E_OK on success, E_DATABASE_ERROR on error
+    **>
+    method peekSourceClassID {
+        in {
+            String name
+        }
+        out {
+            am_sourceClass_t sourceClassID
+            am_Error_e amError
+        }
+    }
+
+    <**
+    @description : Updates data of a source.
+(at)return E_OK on success, E_NON_EXISTENT if the source ID in the struct is not valid. 
+Please note that only the following data out of am_Source_s have effect when they are changed:
+sourceClassID,
+listSoundProperties,
+listConnectionFormats,
+listMainSoundProperties
+    **>
+    method updateSource {
+        in {
+
+            <**
+                @description : The source ID of the source.
+            **>
+            am_sourceID_t sourceID
+            am_sourceClass_t sourceClassID
+            am_SoundProperty_L listSoundProperties
+            am_ConnectionFormat_L listConnectionFormats
+            am_MainSoundProperty_L listMainSoundProperties
+        }
+        out {
+            am_Error_e amError
+        }
+    }
+
+    <**
+        @description : Is called when a low level interrupt changes it status.
+    **>
+    method hookInterruptStatusChange {
+        in {
+            am_sourceID_t sourceID
+            am_InterruptState_e interruptState
+        }
+    }
+
+    <**
+    @description : This hook is called when all elements from a domain are registered.
+Is used by the Controller to know when all expected domains are finally registered.
+    **>
+    method hookDomainRegistrationComplete {
+        in {
+            am_domainID_t domainID
+        }
+    }
+
+    <**
+        @description : Is called when a sink changes its availability.
+    **>
+    method hookSinkAvailablityStatusChange {
+        in {
+            am_sinkID_t sinkID
+            am_Availability_s availability
+        }
+    }
+
+    <**
+        @description : Is called when a source changes its availability.
+    **>
+    method hookSourceAvailablityStatusChange {
+        in {
+            am_sourceID_t sourceID
+            am_Availability_s availability
+        }
+    }
+
+    <**
+        @description : Is called when a domain changes its status. This used for early domains only.
+    **>
+    method hookDomainStateChange {
+        in {
+            am_domainID_t domainID
+            am_DomainState_e domainState
+        }
+    }
+
+
+
+    <**
+        @description : This function is used to send out all data that has been changed in an early state.
+    **>
+    method sendChangedData {
+        in {
+            am_EarlyData_L earlyData
+        }
+    }
+	
+// tuning interfaces
+    <**
+    @description : This function send parameters of limiter. If there is no error it will return 0. If not it will return -1.
+    **>
+    method sendLimiter {
+        in {
+            hq_limiterStruct_param limiter
+        }
+        out {
+            am_Error_e hqError
+        }
+    }
+
+    <**
+    @description : This function send parameters of EQ filter. If there is no error it will return 0. If not it will return -1.
+    **>
+    method sendEQFilter {
+        in {
+            hq_eqFilterStruct_param bsFilter
+        }
+        out {
+            am_Error_e qhError
+        }
+    }
+
+    <**
+    @description : This function send parameters of delay time. If there is no error it will return 0. If not it will return -1.
+    **>
+    method sendDelayTime {
+        in {
+            hq_delayTimeStruct_param delayTime
+        }
+        out {
+            am_Error_e qhError
+        }
+    }
+
+    <**
+        @description : This function send parameters of loudness. If there is no error it will return 0. If not it will return -1.
+    **>
+    method sendLoudness {
+        in {
+            hq_londnessStruct_param bs
+        }
+        out {
+            am_Error_e qhError
+        }
+    }
+    
+    <**
+        @description : This function send parameters of channel gain. If there is no error it will return 0. If not it will return -1.
+    **>
+    method sendChannelGain {
+        in {
+            hq_channelGainStruct_param bs
+        }
+        out {
+            am_Error_e qhError
+        }
+    }
+   
+    <**
+        @description : This function send parameters of maximum volume of source. If there is no error it will return 0. If not it will return -1.
+    **>
+    method sendVolumeMax {
+        in {
+            hq_sourceID_t sourceID
+            hq_volume_t volume
+        }
+        out {
+            am_Error_e qhError
+        }
+    }
+    
+    <**
+        @description : This function send parameters of minimum volume of source. If there is no error it will return 0. If not it will return -1.
+    **>
+    method sendVolumeMin {
+        in {
+            hq_sourceID_t sourceID
+            hq_volume_t volume
+        }
+        out {
+            am_Error_e qhError
+        }
+    }
+    
+        
+    <**
+        @description : This function send parameters of absolute volume of source. If there is no error it will return 0. If not it will return -1.
+    **>
+    method sendVolumeAbs {
+        in {
+            hq_sourceID_t sourceID
+            hq_volume_t volume
+        }
+        out {
+            am_Error_e qhError
+        }
+    }
+    
+    <**
+        @description : This function send parameters of ratio volume of source. If there is no error it will return 0. If not it will return -1.
+    **>
+    method sendVolumeRatio {
+        in {
+            hq_sourceID_t sourceID
+            hq_volume_t volume
+        }
+        out {
+            am_Error_e qhError
+        }
+    }
+	
+    
+    <**
+    @description : This attribute signals the current routing state to the clients.
+A client should notify himself to this attribute in order to know the current state and act accordingly.
+    **>
+    attribute am_RoutingReady_e routingReady readonly
+
+}

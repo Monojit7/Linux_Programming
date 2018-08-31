@@ -1,0 +1,418 @@
+package com.harman.connectivity
+import com.harman.connectivity.BaseType.* from "BaseType.fidl"
+
+interface PhoneBook {
+        version {major 1 minor 0}
+
+// Generic interfaces
+method getProperties {
+in {
+   String   bdAddr
+   arString properties
+}
+out{
+   Int32    errorCode
+   String   Description
+   arString propertiesValue
+   }
+}
+
+method getItemsCount {
+in {
+   String bdAddr
+   String databaseType
+}
+out{
+   Int32  errorCode
+   String Description
+   Int32  contactsCount
+   }
+}
+
+method getItems {
+in {
+   String   bdAddr
+   String   databaseType
+   arString fieldsList
+   Int32    index
+   Int32    count
+   String   sortCriteria
+   String   sortOrder
+   String   condition
+   String   filterCriteria
+}
+out{
+   Int32     errorCode
+   String    Description
+   arString  resultPhonebook
+   Int32     outIndex  /* ROCK-3599 */
+   }
+}
+
+method getItemsMoreInfo {
+in {
+   String bdAddr
+   Int32  moreInfoByte
+   Int32  contactsId
+   String databaseType
+}
+out{
+   Int32    errorCode
+   String   Description
+   arString moreInfo
+   }
+}
+
+method manualSync {
+in {
+   String bdAddr
+   String databaseType
+}
+out{
+   Int32  errorCode
+   String Description
+   }
+}
+
+method refreshPhonebook {
+in {
+   String bdAddr
+   String databaseType
+}
+out{
+   Int32  errorCode
+   String refresh_status
+   }
+}
+
+// Calllist interfaces
+method getCallStackCount {
+in {
+   String bdAddr
+   String storageType
+}	
+out{
+   Int32  errorCode
+   String description
+   Int32  callStackCount
+   }
+}
+
+method getCallStackList {
+in {
+   String bdAddr
+   String storageType
+   Int32  startCallstacksFrom
+   Int32  numCallstacks
+}	
+out{
+   Int32     errorCode
+   String    Description
+   arString  resultCallstacks
+   }
+}
+
+method getAlphaJumpTable {
+in {
+   String bdAddr
+   String database
+}
+out {
+    Int32 errorCode
+    arAlphaTable alphaTable
+    }
+}
+
+// Database interfaces
+method getNameByPhoneNum {
+in {
+   String bdAddr
+   String database
+   String phoneNumber
+   String fieldList
+}
+out{
+   Int32 errorCode
+   String get_status
+   arString result
+   }
+}
+
+method searchContactsByNumber {
+in {
+   String bdAddr
+   String database
+   String sortCriteria
+   String condition
+   String sortOrder
+   Int32 startId
+   Int32 count
+   String filterCriteria
+}
+out{
+   Int32 errorCode
+   String search_status
+   Int32 itemNumber
+   arString result
+   }
+}
+
+method getNextValidCharacters {
+in {
+   String bdAddr
+   String databaseType
+   String inputName
+   String sortCriteria
+   String sortOrder
+   String condition   
+}
+out{
+   Int32 errorCode
+   String get_char_status
+   Int32 contactsCount
+   Int32 index
+   String charactersMask
+   String firstMatch
+   }
+}
+
+method setFormattedNameOrder {
+in {
+   String bdAddr
+   String formattedNameOrder	
+}
+out{
+   Int32 errorCode
+   String Description
+   }
+}
+
+method getFormattedNameOrder {
+in {
+   String bdAddr
+}
+out{
+   Int32 errorCode
+   String Description
+   String formattedNameOrder
+   }
+}
+
+//SMS interfaces
+
+// to get the full details of the sms, this api should be used.
+method getSMS {
+in {
+   String bdAddr
+   Int32 smsId   
+}
+out{
+   Int32 errorCode
+   smsentry sms
+   }
+}
+// to getSMSCount - bdAddr of the device whose sent or inbox sms count is to be fetched. type - sent or inbox.
+method getSMSCount {
+in {
+   String bdAddr
+   foldertype folder
+}
+out{
+   Int32 errorCode
+   Int32 count
+   }
+}
+
+// to getSMSList - bdAddr of the device whose sent or inbox sms is to be fetched. startSMSFrom - sms number offset from which sms list is to be fetched and returned. type - sent or inbox. numSMS - total number of sms to be fetched
+method getSMSList {
+in {
+   String bdAddr
+   Int32 startSMSFrom
+   foldertype folder
+   Int32 numSMS
+}
+out{
+   Int32 errorCode
+   arSMS smsList
+   }
+}
+
+// to getUnreadSMSCount - bdAddr of the device whose unread sms count is to be fetched.
+method getUnreadSMSCount {
+in {
+   String bdAddr
+}
+out{
+   Int32 errorCode
+   Int32 count
+   }
+}
+
+// to getUnreadSMSList - bdAddr of the device unread sms is to be fetched. Returns list of unread SMS.
+method getUnreadSMSList {
+in {
+   String bdAddr
+}
+out{
+   Int32 errorCode
+   arSMS smsList
+   }
+}
+
+// to sendSMS - bdAddr of the device from which sms is to be sent, destinationNumber - to whom the sms is to be sent, smsBody - actual sms text.
+method sendSMS {
+in {
+   String bdAddr
+   String destinationNumber
+   String smsBody
+}
+out{
+   Int32 errorCode
+   String contactName
+   }
+}
+
+// to change read status of an unread sms this api should be called. bdAddr of the device whose sms read status is to be set, smsId - unique id of the message recvd in smslist, status - read or unread to be set.
+method setSMSReadStatus {
+in {
+   String bdAddr
+   Int32 smsId
+   String read_status
+}
+out{
+   Int32 errorCode
+   }
+}
+
+//favourites interfaces : ROCK-3974
+// to add a contact to favourite, bdAddr - device address of which this contact should be favourite. database is to be specified as "ab" & contactId is the id received on getItems for the resepective contact which is to be added to favourite
+method insertItem {
+in {
+   String bdAddr
+   String database
+   Int32  contactId
+}
+out{
+   Int32 errorCode
+   }
+}
+
+// to remove a contact from favourite, bdAddr - device address of which this contact is favourite. database is to be specified as "ab" & contactId is the id received from getItems for the resepective contact which is to be deleted from favourite
+method deleteItem {
+in {
+   String bdAddr
+   String database
+   Int32  contactId
+}
+out{
+   Int32 errorCode
+   }
+}
+
+// to delete all the favourites, bdAddr - device address of which all contacts is to be deleted, database should be specified as "ab".
+method deleteAllItems {
+in {
+   String bdAddr
+   String database
+}
+out{
+   Int32 errorCode
+   }
+}
+
+//Broadcast Events
+broadcast PIMSYNCSTATUS{
+    out{
+       String bdAddr
+       String objectType
+       Int32 code 
+       String sync_status
+       String syncState
+   }
+}
+
+broadcast pimObjectBackGndSyncInfo{
+    out {
+		String bdAddr
+		Int32 code 
+		String objectType
+		String syncType
+	}
+}
+
+broadcast databaseReady{
+	out {
+		String bdAddr
+		Int32 databaseStatus
+	}
+}
+
+broadcast databaseChanged{
+	out {
+		String bdAddr
+		String database
+		Int32 count
+		Int32 totalCount
+		String modifyType
+	}
+}
+
+broadcast unreadMissedCall{
+	out {
+		String bdAddr
+		String number /* ROCK-4063 */
+		String name
+		Int32 unreadCount
+	}
+}
+		
+
+broadcast newCallList {
+	out {
+		String bdAddr
+		String givenName
+		String formattedName
+		String lastName
+		String number
+		String timeStamp
+		String storageType
+		String url
+		String NumberType
+	}
+}
+
+broadcast connectedDeviceTableUpdated {
+	out {
+		String bdAddr
+		Int32 phoneID
+		String reason
+		Int32 reservedPhoneId
+	}
+}
+
+broadcast connectedBtDevice{
+	out{
+		String bdAddr
+		String connectedService
+	}
+}
+
+//event that will be broadcasted when a new sms is received. sms_id - id of the latest received sms, messageCount - tells about total number of sms received.
+broadcast newSMS{
+    out {
+        String bdAddr
+        Int32 smsId
+        Int32 messageCount
+    }
+}
+
+//event that will be broadcasted when send sms is invoked : sent & delivered (success or failure)
+broadcast sendSMSNotification{
+    out {
+	String bdAddr
+	Int32 smsId
+	smsnotification notification	
+    }
+}
+
+}

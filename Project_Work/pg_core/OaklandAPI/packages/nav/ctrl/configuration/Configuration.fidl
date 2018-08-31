@@ -1,0 +1,213 @@
+package org.harman.nav.ctrl.configuration
+
+import org.harman.nav.ctrl.CommonTypes.* from "../common/CommonTypes.fidl"
+import org.harman.nav.ctrl.configuration.ConfigurationTypes.* from "ConfigurationTypes.fidl"
+
+
+
+<**
+    @author: Rico Schuster
+    @description : Configuration interface which extends the ConfigurationBase interface to be able to set several configuration values.
+    Note: Usually Franca supports the extension of Interface via "extends" keyword. But Mocca is not able to handle the inheritance of Interfaces.
+    Therefore all Methods of ConfigurationBase are also part of the Configuration Interface.
+    
+    @see: org.harman.nav.ctrl.configuration.ConfigurationBase.fidl
+    @see: ConfigurationBase
+**>
+
+interface Configuration 
+{
+    version
+    {
+        major 1
+        minor 0
+    }
+ 
+ 	<**
+        @description : Methode for getting version of Navigation Controller.
+    **>
+    method getNavigationVersion
+    {
+        out
+        {
+            NavigationVersion navigationVersion
+        }
+        error GetVersionError
+    }
+
+    <**
+        @description : Methode for setting units of measurements.
+    **>
+    method setUnitsOfMeasurement
+    {
+        in
+        {
+            UnitsOfMeasurement unitsOfMeasurement
+        }
+        error SetUnitsOfMeasurementError
+    } 
+  
+
+    <**
+        @description : Methode for setting time format.
+    **>
+    method setTimeFormat
+    {
+        in
+        {
+            TimeFormat timeFormat
+        }
+        error SetTimeFormatError
+    }
+   
+
+    <**
+        @description : Methode for getting supported time formats.
+    **>
+    method getSupportedTimeFormats
+    {
+        out
+        {
+            TimeFormats timeFormats
+        }
+        error GetSupportedTimeFormatsError
+    }
+
+    <**
+        @description : Methode for setting coordinates format.
+    **>
+    method setCoordinatesFormat
+    {
+        in
+        {
+            CoordinatesFormat coordinatesFormat
+        }
+        error SetCoordinatesFormatError
+    }
+     
+
+    <**
+        @description : Methode for setting locale.
+    **>
+    method setLocale
+    {
+        in
+        {
+            Locale locale
+        }
+        error SetLocaleError
+    } 
+	
+    
+    ///// This next method collecation are the subset of the ConfigurationBase Interface //////
+    <**
+        @description : Methode for getting supported units of measurements.
+    **>
+    method getSupportedUnitsOfMeasurement
+    {
+        out
+        {
+            UnitsOfMeasurement unitsOfMeasurement
+        }
+        error GetSupportedUnitsOfMeasurementError
+    }
+
+    <**
+        @description : Methode for getting units of measurements.
+    **>
+    method getUnitsOfMeasurement
+    {
+        out
+        {
+            UnitsOfMeasurement unitsOfMeasurement
+        }
+        error GetUnitsOfMeasurementError
+    }
+    
+
+    <**
+        @description : Methode for getting time format.
+    **>
+    method getTimeFormat
+    {
+        out
+        {
+            TimeFormat timeFormat
+        }
+        error GetTimeFormatError
+    }
+ 
+    <**
+        @description : Methode for getting coordinates format.
+    **>
+    method getCoordinatesFormat
+    {
+        out
+        {
+            CoordinatesFormat coordinatesFormat
+        }
+        error GetCoordinatesFormatError
+    }
+   
+   
+    <**
+        @description : Methode for getting supported coordinates format.
+    **>
+    method getSupportedCoordinatesFormats
+    {
+        out
+        {
+            CoordinatesFormats coordinatesFormats
+        }
+        error GetSupportedCoordinatesFormatsError
+    }  
+
+    <**
+        @description : Methode for getting locale.
+    **>
+    method getLocale
+    {
+        out
+        {
+            Locale locale
+        }
+        error GetLocaleError
+    }
+
+    <**
+        @description : Methode for getting supported locales.
+    **>
+    method getSupportedLocales
+    {
+        out
+        {
+            Locales locales
+        }
+        error GetLocalesError
+    }   
+	
+		
+	<**
+        @description : Methode for setting style for theme.
+    **>
+    method setStyleTheme
+    {
+        in
+        {
+            StyleTheme style
+        }
+        error SetStyleThemeError
+    } 
+      
+
+    <**
+        @description : This signals there was a change is configuration.
+    **>
+    broadcast configurationChanges
+    {
+        out
+        {
+            Settings changedSettings
+        }
+    }       
+}

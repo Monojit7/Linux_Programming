@@ -1,0 +1,62 @@
+package com.harman.onboardcomputer
+
+typeCollection {
+	struct Time {
+		UInt8 hour
+		UInt8 minutes
+		UInt8 seconds
+		Boolean range // false: 0-24, true: 0-12 
+		Boolean ampm  // false: am, true: pm		 
+	}	
+
+	struct Date {
+		UInt8 day
+		UInt8 month
+		UInt16 year
+	}
+}
+
+interface OnBoardComputer {
+	version {major 0 minor 1}
+	method setTime {
+		in {Time t}
+	}
+	
+	method setDate {
+		in {Date d}
+	}
+	
+	method setDateAndTime {
+		in {
+			Date d 
+			Time t
+		}
+	}
+	
+	method getTime {
+		out {
+			Time t
+		}
+	}
+	
+	method getDate {
+		out {
+			Date t
+		}
+	}
+	
+	method getDateAndTime {
+		out {
+			Date d
+			Time t
+		}
+	}
+	
+	// should be broadcasted every second to update the time on the display
+	broadcast dateAndTime {
+		out {
+			Date d
+			Time t
+		}
+	}
+}

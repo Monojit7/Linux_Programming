@@ -1,0 +1,1464 @@
+
+
+<DSI>
+   <Name>org_harman_nav_ctrl_GuidanceTypes</Name>
+   <ID>1</ID>   
+   <Extern>true</Extern>
+   <Version>
+     <Major>1</Major>
+     <Minor>2</Minor>
+   </Version>
+   <Includes>
+   <Include>
+         <Name>api/nav/ctrl/pf/common/org_harman_nav_ctrl_CommonTypes.hbtd</Name>
+<Major>1</Major>
+<Minor>0</Minor>
+         
+   </Include>
+   <Include>
+         <Name>api/nav/ctrl/pf/pos/org_harman_nav_ctrl_PositioningTypes.hbtd</Name>
+<Major>1</Major>
+<Minor>2</Minor>
+         
+   </Include>
+   <Include>
+         <Name>api/nav/ctrl/pf/configuration/org_harman_nav_ctrl_configuration_ConfigurationTypes.hbtd</Name>
+<Major>1</Major>
+<Minor>0</Minor>
+         
+   </Include>
+   <Include>
+         <Name>api/nav/ctrl/pf/memory/org_harman_nav_ctrl_memory_LocationMemoryTypes.hbtd</Name>
+<Major>3</Major>
+<Minor>4</Minor>
+         
+   </Include>
+   <Include>
+         <Name>api/nav/ctrl/pf/common/list/org_harman_nav_ctrl_common_list_ListTypes.hbtd</Name>
+<Major>1</Major>
+<Minor>0</Minor>
+         
+   </Include>
+   <Include>
+         <Name>api/nav/ctrl/pf/di/org_harman_nav_ctrl_di_LocationInputTypes.hbtd</Name>
+<Major>2</Major>
+<Minor>2</Minor>
+         
+   </Include>
+   <Include>
+         <Name>api/nav/ctrl/pf/di/org_harman_nav_ctrl_di_POIServiceTypes.hbtd</Name>
+<Major>1</Major>
+<Minor>0</Minor>
+         
+   </Include>
+   </Includes>
+   <Enums>
+    <Enum>
+      <Name>ManueverPhase</Name>
+      <Description></Description>
+      <ID>2</ID>
+      <Description></Description>
+      <EnumIDs>
+      <EnumID>
+         <Name>ManueverPhase_BasicEnum_INVALID</Name>
+         <ID>3</ID>
+         <Description></Description>
+         <Value>0x0000</Value>
+      </EnumID>
+         <EnumID>
+            <Name>ManueverPhase_CRUISE</Name>
+            <ID>4</ID>
+            <Description></Description>
+            <Value>0x0050</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManueverPhase_MANEUVER_APPEARED</Name>
+            <ID>5</ID>
+            <Description></Description>
+            <Value>0x0051</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManueverPhase_PRE_ADVICE</Name>
+            <ID>6</ID>
+            <Description></Description>
+            <Value>0x0052</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManueverPhase_ADVICE</Name>
+            <ID>7</ID>
+            <Description></Description>
+            <Value>0x0053</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManueverPhase_PASSED</Name>
+            <ID>8</ID>
+            <Description></Description>
+            <Value>0x0054</Value>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+    <Enum>
+      <Name>Side</Name>
+      <Description></Description>
+      <ID>9</ID>
+      <Description></Description>
+      <EnumIDs>
+      <EnumID>
+         <Name>Side_BasicEnum_INVALID</Name>
+         <ID>10</ID>
+         <Description></Description>
+         <Value>0x0000</Value>
+      </EnumID>
+         <EnumID>
+            <Name>Side_LEFT</Name>
+            <ID>11</ID>
+            <Description></Description>
+            <Value>0x0080</Value>
+         </EnumID>
+         <EnumID>
+            <Name>Side_RIGHT</Name>
+            <ID>12</ID>
+            <Description></Description>
+            <Value>0x0083</Value>
+         </EnumID>
+         <EnumID>
+            <Name>Side_NOT_AVAILABLE</Name>
+            <ID>13</ID>
+            <Description></Description>
+            <Value>0x0002</Value>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+    <Enum>
+      <Name>RoadProperty</Name>
+      <Description></Description>
+      <ID>14</ID>
+      <Description></Description>
+      <EnumIDs>
+      <EnumID>
+         <Name>RoadProperty_BasicEnum_INVALID</Name>
+         <ID>15</ID>
+         <Description></Description>
+         <Value>0x0000</Value>
+      </EnumID>
+      </EnumIDs>
+   </Enum>
+    <Enum>
+      <Name>ManeuverType</Name>
+      <Description></Description>
+      <ID>16</ID>
+      <Description></Description>
+      <EnumIDs>
+      <EnumID>
+         <Name>ManeuverType_BasicEnum_INVALID</Name>
+         <ID>17</ID>
+         <Description></Description>
+         <Value>0x0000</Value>
+      </EnumID>
+         <EnumID>
+            <Name>ManeuverType_STRAIGHT_ON</Name>
+            <ID>18</ID>
+            <Description></Description>
+            <Value>0x0070</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManeuverType_TURN</Name>
+            <ID>19</ID>
+            <Description></Description>
+            <Value>0x0078</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManeuverType_CROSSROAD</Name>
+            <ID>20</ID>
+            <Description></Description>
+            <Value>0x0071</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManeuverType_ROUNDABOUT</Name>
+            <ID>21</ID>
+            <Description></Description>
+            <Value>0x0072</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManeuverType_HIGHWAY_ENTER</Name>
+            <ID>22</ID>
+            <Description></Description>
+            <Value>0x0073</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManeuverType_HIGHWAY_EXIT</Name>
+            <ID>23</ID>
+            <Description></Description>
+            <Value>0x0074</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManeuverType_BIFURCATION</Name>
+            <ID>24</ID>
+            <Description></Description>
+            <Value>0x0079</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManeuverType_HIGHWAY_CHANGE_LANE</Name>
+            <ID>25</ID>
+            <Description></Description>
+            <Value>0x0075</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManeuverType_DESTINATION</Name>
+            <ID>26</ID>
+            <Description></Description>
+            <Value>0x0076</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManeuverType_WAYPOINT</Name>
+            <ID>27</ID>
+            <Description></Description>
+            <Value>0x0077</Value>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+    <Enum>
+      <Name>ManeuverDirectionType</Name>
+      <Description></Description>
+      <ID>28</ID>
+      <Description></Description>
+      <EnumIDs>
+      <EnumID>
+         <Name>ManeuverDirectionType_BasicEnum_INVALID</Name>
+         <ID>29</ID>
+         <Description></Description>
+         <Value>0x0000</Value>
+      </EnumID>
+         <EnumID>
+            <Name>ManeuverDirectionType_LENGTH</Name>
+            <ID>30</ID>
+            <Description></Description>
+            <Value>0x0031</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManeuverDirectionType_DIRECTION</Name>
+            <ID>31</ID>
+            <Description></Description>
+            <Value>0x0240</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManeuverDirectionType_EXIT_NUMBER</Name>
+            <ID>32</ID>
+            <Description></Description>
+            <Value>0x0241</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManeuverDirectionType_ROAD_FORM</Name>
+            <ID>33</ID>
+            <Description></Description>
+            <Value>0x0242</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManeuverDirectionType_LANE_INFO</Name>
+            <ID>34</ID>
+            <Description></Description>
+            <Value>0x0243</Value>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+    <Enum>
+      <Name>LaneType</Name>
+      <Description></Description>
+      <ID>35</ID>
+      <Description></Description>
+      <EnumIDs>
+      <EnumID>
+         <Name>LaneType_BasicEnum_INVALID</Name>
+         <ID>36</ID>
+         <Description></Description>
+         <Value>0x0000</Value>
+      </EnumID>
+         <EnumID>
+            <Name>LaneType_LANE_INFO_BITMASK_STRAIGHT</Name>
+            <ID>37</ID>
+            <Description></Description>
+            <Value>0x0001</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneType_LANE_INFO_BITMASK_SLIGHTRIGHT</Name>
+            <ID>38</ID>
+            <Description></Description>
+            <Value>0x0002</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneType_LANE_INFO_BITMASK_RIGHT</Name>
+            <ID>39</ID>
+            <Description></Description>
+            <Value>0x0004</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneType_LANE_INFO_BITMASK_SHARPRIGHT</Name>
+            <ID>40</ID>
+            <Description></Description>
+            <Value>0x0008</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneType_LANE_INFO_BITMASK_RIGHTUTURN</Name>
+            <ID>41</ID>
+            <Description></Description>
+            <Value>0x0010</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneType_LANE_INFO_BITMASK_SLIGHTLEFT</Name>
+            <ID>42</ID>
+            <Description></Description>
+            <Value>0x0020</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneType_LANE_INFO_BITMASK_LEFT</Name>
+            <ID>43</ID>
+            <Description></Description>
+            <Value>0x0040</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneType_LANE_INFO_BITMASK_SHARPLEFT</Name>
+            <ID>44</ID>
+            <Description></Description>
+            <Value>0x0080</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneType_LANE_INFO_BITMASK_LEFTUTURN</Name>
+            <ID>45</ID>
+            <Description></Description>
+            <Value>0x1000</Value>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+    <Enum>
+      <Name>LaneDivider</Name>
+      <Description></Description>
+      <ID>46</ID>
+      <Description></Description>
+      <EnumIDs>
+      <EnumID>
+         <Name>LaneDivider_BasicEnum_INVALID</Name>
+         <ID>47</ID>
+         <Description></Description>
+         <Value>0x0000</Value>
+      </EnumID>
+         <EnumID>
+            <Name>LaneDivider_DIVIDER_UNDEFINED</Name>
+            <ID>48</ID>
+            <Description></Description>
+            <Value>0x0250</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneDivider_DIVIDER_INTERRUPTEDLONG</Name>
+            <ID>49</ID>
+            <Description></Description>
+            <Value>0x0251</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneDivider_DIVIDER_INTERRUPTEDSHORT</Name>
+            <ID>50</ID>
+            <Description></Description>
+            <Value>0x0252</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneDivider_DIVIDER_SOLIDSINGLE</Name>
+            <ID>51</ID>
+            <Description></Description>
+            <Value>0x0253</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneDivider_DIVIDER_SOLIDDOUBLE</Name>
+            <ID>52</ID>
+            <Description></Description>
+            <Value>0x0254</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneDivider_DIVIDER_SOLIDINTERRUPTED</Name>
+            <ID>53</ID>
+            <Description></Description>
+            <Value>0x0255</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneDivider_DIVIDER_INTERRUPTEDSOLID</Name>
+            <ID>54</ID>
+            <Description></Description>
+            <Value>0x0256</Value>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+    <Enum>
+      <Name>CalculationMode</Name>
+      <Description></Description>
+      <ID>55</ID>
+      <Description></Description>
+      <EnumIDs>
+      <EnumID>
+         <Name>CalculationMode_BasicEnum_INVALID</Name>
+         <ID>56</ID>
+         <Description></Description>
+         <Value>0x0000</Value>
+      </EnumID>
+         <EnumID>
+            <Name>CalculationMode_ALL_MANUAL</Name>
+            <ID>57</ID>
+            <Description></Description>
+            <Value>0x0090</Value>
+         </EnumID>
+         <EnumID>
+            <Name>CalculationMode_ALL_AUTOMATIC</Name>
+            <ID>58</ID>
+            <Description></Description>
+            <Value>0x0091</Value>
+         </EnumID>
+         <EnumID>
+            <Name>CalculationMode_TRAFFIC_MANUAL</Name>
+            <ID>59</ID>
+            <Description></Description>
+            <Value>0x0092</Value>
+         </EnumID>
+         <EnumID>
+            <Name>CalculationMode_OFF_ROUTE_MANUAL</Name>
+            <ID>60</ID>
+            <Description></Description>
+            <Value>0x0093</Value>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+    <Enum>
+      <Name>GuidanceStatus</Name>
+      <Description></Description>
+      <ID>61</ID>
+      <Description></Description>
+      <EnumIDs>
+      <EnumID>
+         <Name>GuidanceStatus_BasicEnum_INVALID</Name>
+         <ID>62</ID>
+         <Description></Description>
+         <Value>0x0000</Value>
+      </EnumID>
+         <EnumID>
+            <Name>GuidanceStatus_ACTIVE</Name>
+            <ID>63</ID>
+            <Description></Description>
+            <Value>0x0060</Value>
+         </EnumID>
+         <EnumID>
+            <Name>GuidanceStatus_INACTIVE</Name>
+            <ID>64</ID>
+            <Description></Description>
+            <Value>0x0061</Value>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+    <Enum>
+      <Name>PromptMode</Name>
+      <Description></Description>
+      <ID>65</ID>
+      <Description></Description>
+      <EnumIDs>
+      <EnumID>
+         <Name>PromptMode_BasicEnum_INVALID</Name>
+         <ID>66</ID>
+         <Description></Description>
+         <Value>0x0000</Value>
+      </EnumID>
+         <EnumID>
+            <Name>PromptMode_DISABLED_PROMPT</Name>
+            <ID>67</ID>
+            <Description></Description>
+            <Value>0x0041</Value>
+         </EnumID>
+         <EnumID>
+            <Name>PromptMode_AUTOMATIC_PROMPT</Name>
+            <ID>68</ID>
+            <Description></Description>
+            <Value>0x0042</Value>
+         </EnumID>
+         <EnumID>
+            <Name>PromptMode_MANUAL_PROMPT</Name>
+            <ID>69</ID>
+            <Description></Description>
+            <Value>0x0043</Value>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+    <Enum>
+      <Name>RouteChangedCause</Name>
+      <Description></Description>
+      <ID>70</ID>
+      <Description></Description>
+      <EnumIDs>
+      <EnumID>
+         <Name>RouteChangedCause_BasicEnum_INVALID</Name>
+         <ID>71</ID>
+         <Description></Description>
+         <Value>0x0000</Value>
+      </EnumID>
+         <EnumID>
+            <Name>RouteChangedCause_TRAFFIC</Name>
+            <ID>72</ID>
+            <Description></Description>
+            <Value>0x0210</Value>
+         </EnumID>
+         <EnumID>
+            <Name>RouteChangedCause_OFF_ROUTE</Name>
+            <ID>73</ID>
+            <Description></Description>
+            <Value>0x0211</Value>
+         </EnumID>
+         <EnumID>
+            <Name>RouteChangedCause_MANUAL</Name>
+            <ID>74</ID>
+            <Description></Description>
+            <Value>0x0212</Value>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+    <Enum>
+      <Name>ManeuverDirection</Name>
+      <Description></Description>
+      <ID>75</ID>
+      <Description></Description>
+      <EnumIDs>
+      <EnumID>
+         <Name>ManeuverDirection_BasicEnum_INVALID</Name>
+         <ID>76</ID>
+         <Description></Description>
+         <Value>0x0000</Value>
+      </EnumID>
+         <EnumID>
+            <Name>ManeuverDirection_STRAIGHT_ON</Name>
+            <ID>77</ID>
+            <Description></Description>
+            <Value>0x0070</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManeuverDirection_LEFT</Name>
+            <ID>78</ID>
+            <Description></Description>
+            <Value>0x0080</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManeuverDirection_SLIGHT_LEFT</Name>
+            <ID>79</ID>
+            <Description></Description>
+            <Value>0x0081</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManeuverDirection_HARD_LEFT</Name>
+            <ID>80</ID>
+            <Description></Description>
+            <Value>0x0082</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManeuverDirection_RIGHT</Name>
+            <ID>81</ID>
+            <Description></Description>
+            <Value>0x0083</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManeuverDirection_SLIGHT_RIGHT</Name>
+            <ID>82</ID>
+            <Description></Description>
+            <Value>0x0084</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManeuverDirection_HARD_RIGHT</Name>
+            <ID>83</ID>
+            <Description></Description>
+            <Value>0x0085</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManeuverDirection_UTURN_RIGHT</Name>
+            <ID>84</ID>
+            <Description></Description>
+            <Value>0x0086</Value>
+         </EnumID>
+         <EnumID>
+            <Name>ManeuverDirection_UTURN_LEFT</Name>
+            <ID>85</ID>
+            <Description></Description>
+            <Value>0x0087</Value>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+    <Enum>
+      <Name>CompassDirection</Name>
+      <Description>Compass direction used for example in US: I-95 North</Description>
+      <ID>86</ID>
+      <Description></Description>
+      <EnumIDs>
+         <EnumID>
+            <Name>CompassDirection_UNDEFINED</Name>
+            <ID>87</ID>
+            <Description>Undefined.</Description>
+            <Value>0</Value>
+         </EnumID>
+         <EnumID>
+            <Name>CompassDirection_NORTH</Name>
+            <ID>88</ID>
+            <Description>North.</Description>
+            <Value>1</Value>
+         </EnumID>
+         <EnumID>
+            <Name>CompassDirection_EAST</Name>
+            <ID>89</ID>
+            <Description>East.</Description>
+            <Value>2</Value>
+         </EnumID>
+         <EnumID>
+            <Name>CompassDirection_WEST</Name>
+            <ID>90</ID>
+            <Description>West.</Description>
+            <Value>3</Value>
+         </EnumID>
+         <EnumID>
+            <Name>CompassDirection_SOUTH</Name>
+            <ID>91</ID>
+            <Description>South.</Description>
+            <Value>4</Value>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+    <Enum>
+      <Name>LaneDirection</Name>
+      <Description>The directions of a lane</Description>
+      <ID>92</ID>
+      <Description></Description>
+      <EnumIDs>
+         <EnumID>
+            <Name>LaneDirection_LANE_INFO_BITMASK_NONE</Name>
+            <ID>93</ID>
+            <Description></Description>
+            <Value>0x0000</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneDirection_LANE_INFO_BITMASK_STRAIGHT</Name>
+            <ID>94</ID>
+            <Description></Description>
+            <Value>0x0001</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneDirection_LANE_INFO_BITMASK_SLIGHTRIGHT</Name>
+            <ID>95</ID>
+            <Description></Description>
+            <Value>0x0002</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneDirection_LANE_INFO_BITMASK_RIGHT</Name>
+            <ID>96</ID>
+            <Description></Description>
+            <Value>0x0004</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneDirection_LANE_INFO_BITMASK_SHARPRIGHT</Name>
+            <ID>97</ID>
+            <Description></Description>
+            <Value>0x0008</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneDirection_LANE_INFO_BITMASK_RIGHTUTURN</Name>
+            <ID>98</ID>
+            <Description></Description>
+            <Value>0x0010</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneDirection_LANE_INFO_BITMASK_SLIGHTLEFT</Name>
+            <ID>99</ID>
+            <Description></Description>
+            <Value>0x0020</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneDirection_LANE_INFO_BITMASK_LEFT</Name>
+            <ID>100</ID>
+            <Description></Description>
+            <Value>0x0040</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneDirection_LANE_INFO_BITMASK_SHARPLEFT</Name>
+            <ID>101</ID>
+            <Description></Description>
+            <Value>0x0080</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneDirection_LANE_INFO_BITMASK_LEFTUTURN</Name>
+            <ID>102</ID>
+            <Description></Description>
+            <Value>0x1000</Value>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+    <Enum>
+      <Name>LaneTypeCategory</Name>
+      <Description>The type of a lane</Description>
+      <ID>103</ID>
+      <Description></Description>
+      <EnumIDs>
+         <EnumID>
+            <Name>LaneTypeCategory_POSSIBLE_LANE</Name>
+            <ID>104</ID>
+            <Description>It is possible to reach the maneuver using this lane.</Description>
+            <Value>0</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneTypeCategory_RECOMMENDED_LANE</Name>
+            <ID>105</ID>
+            <Description>Using this lane is recommended.</Description>
+            <Value>1</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneTypeCategory_BUS_LANE</Name>
+            <ID>106</ID>
+            <Description>This lane is reserved for busses.</Description>
+            <Value>2</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneTypeCategory_HOV_LANE</Name>
+            <ID>107</ID>
+            <Description>This lane is reserved for high occupancy vehicles (relevant e.g. in the US).</Description>
+            <Value>3</Value>
+         </EnumID>
+         <EnumID>
+            <Name>LaneTypeCategory_OTHER_LANE</Name>
+            <ID>108</ID>
+            <Description>Some other lane, which will not lead to the maneuver.</Description>
+            <Value>4</Value>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+   </Enums>
+   <DataTypes>
+       <DataType>
+          <Name>ManeuverDetails</Name>
+          <ID>109</ID>
+          <Description>Extended maneuver information</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>entryRoadClass</Name>
+   	        <Description>Road class of the road that leads to the maneuver point.</Description>
+               <ID>110</ID>
+   <Type>org_harman_nav_ctrl_PositioningTypes::ERoadClass</Type>
+               <Description>Road class of the road that leads to the maneuver point.</Description>
+            </Field>
+            <Field>
+               <Name>wayPointStopoverNumber</Name>
+   	        <Description>The stopover-number (starting from 0), if this maneuver represents reaching a waypoint/destination.</Description>
+               <ID>111</ID>
+   <Type>UInt16</Type>
+               <Description>The stopover-number (starting from 0), if this maneuver represents reaching a waypoint/destination.</Description>
+            </Field>
+         </Fields>
+      </DataType>
+       <DataType>
+          <Name>LaneInfo</Name>
+          <ID>112</ID>
+          <Description>Information describing a single lane-guiding lane</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>laneDirections</Name>
+   	        <Description>A bitmask of LaneDirection values, that specifies which directions can be taken from this lane in the upcoming intersection.</Description>
+               <ID>113</ID>
+   <Type>LaneDirection</Type>
+               <Description>A bitmask of LaneDirection values, that specifies which directions can be taken from this lane in the upcoming intersection.</Description>
+            </Field>
+            <Field>
+               <Name>directionToFollow</Name>
+   	        <Description>A single LaneDirection value that specifies which of the possible directions the driver should follow. Should be LANE_INFO_BITMASK_NONE, in case this is not a possible or recommended lane.</Description>
+               <ID>114</ID>
+   <Type>LaneDirection</Type>
+               <Description>A single LaneDirection value that specifies which of the possible directions the driver should follow. Should be LANE_INFO_BITMASK_NONE, in case this is not a possible or recommended lane.</Description>
+            </Field>
+            <Field>
+               <Name>divider</Name>
+   	        <Description>Specifies the lane divider type to the right of this lane.</Description>
+               <ID>115</ID>
+   <Type>LaneDivider</Type>
+               <Description>Specifies the lane divider type to the right of this lane.</Description>
+            </Field>
+            <Field>
+               <Name>type</Name>
+   	        <Description>Specifies the lane type (RECOMMENDED, POSSIBLE, OTHER, ...).</Description>
+               <ID>116</ID>
+   <Type>LaneTypeCategory</Type>
+               <Description>Specifies the lane type (RECOMMENDED, POSSIBLE, OTHER, ...).</Description>
+            </Field>
+         </Fields>
+      </DataType>
+   <DataType>
+      <Name>LaneInfoList</Name>
+      <ID>117</ID>
+      <Description></Description>	  	
+      <Kind>Typedef</Kind>
+      <Container>THBVector</Container>
+     <BaseType>LaneInfo</BaseType>
+   </DataType>
+       <DataType>
+          <Name>LaneGuidanceInfo</Name>
+          <ID>118</ID>
+          <Description>Information related to lane guidance</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>lanes</Name>
+   	        <Description>A list of LaneInfo-structs. The first entry is only used to store the lane-divider left of the first lane (i.e. the first actual lane is at index 1). The order of the lanes should be left-to-right (as shown to the driver).</Description>
+               <ID>119</ID>
+   <Type>LaneInfoList</Type>
+               <Description>A list of LaneInfo-structs. The first entry is only used to store the lane-divider left of the first lane (i.e. the first actual lane is at index 1). The order of the lanes should be left-to-right (as shown to the driver).</Description>
+            </Field>
+            <Field>
+               <Name>distance</Name>
+   	        <Description>The distance (to destination) at which the lane-change should be completed.</Description>
+               <ID>120</ID>
+   <Type>org_harman_nav_ctrl_CommonTypes::Distance</Type>
+               <Description>The distance (to destination) at which the lane-change should be completed.</Description>
+            </Field>
+            <Field>
+               <Name>geoCoordinate</Name>
+   	        <Description></Description>
+               <ID>121</ID>
+   <Type>org_harman_nav_ctrl_CommonTypes::Coordinate2D</Type>
+               <Description></Description>
+            </Field>
+         </Fields>
+      </DataType>
+   <DataType>
+      <Name>LaneGuidanceInfoList</Name>
+      <ID>122</ID>
+      <Description></Description>	  	
+      <Kind>Typedef</Kind>
+      <Container>THBVector</Container>
+     <BaseType>LaneGuidanceInfo</BaseType>
+   </DataType>
+   <DataType>
+      <Name>RoadName</Name>
+      <ID>123</ID>
+      <Description></Description>	  	
+      <Kind>Typedef</Kind>
+      <Container></Container>
+      <BaseType>CHBString</BaseType>
+   </DataType>
+   <DataType>
+      <Name>RoadNameList</Name>
+      <ID>124</ID>
+      <Description></Description>	  	
+      <Kind>Typedef</Kind>
+      <Container>THBVector</Container>
+     <BaseType>RoadName</BaseType>
+   </DataType>
+       <DataType>
+          <Name>RoadNumber</Name>
+          <ID>125</ID>
+          <Description>Information about a Road Number</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>text</Name>
+   	        <Description>A string representation of the road-number (e.g. "A8" for German Autobahn 8.)</Description>
+               <ID>126</ID>
+   <Type>CHBString</Type>
+               <Description>A string representation of the road-number (e.g. "A8" for German Autobahn 8.)</Description>
+            </Field>
+            <Field>
+               <Name>compassDirection</Name>
+   	        <Description>The compass direction of a road-number (mostly relevent for US).</Description>
+               <ID>127</ID>
+   <Type>CompassDirection</Type>
+               <Description>The compass direction of a road-number (mostly relevent for US).</Description>
+            </Field>
+         </Fields>
+      </DataType>
+   <DataType>
+      <Name>RoadNumberList</Name>
+      <ID>128</ID>
+      <Description></Description>	  	
+      <Kind>Typedef</Kind>
+      <Container>THBVector</Container>
+     <BaseType>RoadNumber</BaseType>
+   </DataType>
+       <DataType>
+          <Name>RoadInfo</Name>
+          <ID>129</ID>
+          <Description>Information about a Road</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>roadNumbers</Name>
+   	        <Description>A list of RoadNumber structs. The list should be ordered by relevance, so that in case not all items fit in the HMI, the most relevant are shown. E.g. in Germany A9 should be placed before E45.</Description>
+               <ID>130</ID>
+   <Type>RoadNumberList</Type>
+               <Description>A list of RoadNumber structs. The list should be ordered by relevance, so that in case not all items fit in the HMI, the most relevant are shown. E.g. in Germany A9 should be placed before E45.</Description>
+            </Field>
+            <Field>
+               <Name>roadNames</Name>
+   	        <Description>A list of road names. The list should be ordered by relevance, so that at least the most relevant ones are shown, if not all names fit in the HMI.</Description>
+               <ID>131</ID>
+   <Type>RoadNameList</Type>
+               <Description>A list of road names. The list should be ordered by relevance, so that at least the most relevant ones are shown, if not all names fit in the HMI.</Description>
+            </Field>
+            <Field>
+               <Name>roadClass</Name>
+   	        <Description>The road class.</Description>
+               <ID>132</ID>
+   <Type>org_harman_nav_ctrl_PositioningTypes::ERoadClass</Type>
+               <Description>The road class.</Description>
+            </Field>
+         </Fields>
+      </DataType>
+       <DataType>
+          <Name>Towards</Name>
+          <ID>133</ID>
+          <Description>Defines on "towards"-entry on the sign-post; e.g. "[A9] Nrnberg/Berlin/Leipzig" or "[490] [East] Rochester</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>viaRoad</Name>
+   	        <Description>The road(s) which leads up to the city/poi/etc. mentioned on the sign-post</Description>
+               <ID>134</ID>
+   <Type>RoadNumberList</Type>
+               <Description>The road(s) which leads up to the city/poi/etc. mentioned on the sign-post</Description>
+            </Field>
+         </Fields>
+      </DataType>
+   <DataType>
+      <Name>TowardsList</Name>
+      <ID>135</ID>
+      <Description></Description>	  	
+      <Kind>Typedef</Kind>
+      <Container>THBVector</Container>
+     <BaseType>Towards</BaseType>
+   </DataType>
+       <DataType>
+          <Name>SignPostInfo</Name>
+          <ID>136</ID>
+          <Description>Defines sign-post information.</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>exitNumber</Name>
+   	        <Description>Exit number of a road-exit.</Description>
+               <ID>137</ID>
+   <Type>CHBString</Type>
+               <Description>Exit number of a road-exit.</Description>
+            </Field>
+            <Field>
+               <Name>towardsList</Name>
+   	        <Description>Contains the towards-entries of a sign-post at the maneuver</Description>
+               <ID>138</ID>
+   <Type>TowardsList</Type>
+               <Description>Contains the towards-entries of a sign-post at the maneuver</Description>
+            </Field>
+         </Fields>
+      </DataType>
+       <DataType>
+          <Name>TravelCosts</Name>
+          <ID>139</ID>
+          <Description></Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>distance</Name>
+   	        <Description>Remaining distance to the waypoint.</Description>
+               <ID>140</ID>
+   <Type>org_harman_nav_ctrl_CommonTypes::Distance</Type>
+               <Description>Remaining distance to the waypoint.</Description>
+            </Field>
+            <Field>
+               <Name>travelTime</Name>
+   	        <Description>Remaining time to the waypoint in seconds.</Description>
+               <ID>141</ID>
+   <Type>UInt32</Type>
+               <Description>Remaining time to the waypoint in seconds.</Description>
+            </Field>
+            <Field>
+               <Name>direction</Name>
+   	        <Description>Direction to the waypoint in degrees relative to North.</Description>
+               <ID>142</ID>
+   <Type>Int32</Type>
+               <Description>Direction to the waypoint in degrees relative to North.</Description>
+            </Field>
+         </Fields>
+      </DataType>
+       <DataType>
+          <Name>WaypointCosts</Name>
+          <ID>143</ID>
+          <Description></Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>number</Name>
+   	        <Description>Waypoint number</Description>
+               <ID>144</ID>
+   <Type>UInt16</Type>
+               <Description>Waypoint number</Description>
+            </Field>
+            <Field>
+               <Name>travelCosts</Name>
+   	        <Description>Remaining distance to the waypoint.</Description>
+               <ID>145</ID>
+   <Type>TravelCosts</Type>
+               <Description>Remaining distance to the waypoint.</Description>
+            </Field>
+         </Fields>
+      </DataType>
+   <DataType>
+      <Name>WaypointCostsList</Name>
+      <ID>146</ID>
+      <Description></Description>	  	
+      <Kind>Typedef</Kind>
+      <Container>THBVector</Container>
+     <BaseType>WaypointCosts</BaseType>
+   </DataType>
+       <DataType>
+          <Name>RouteCostData</Name>
+          <ID>147</ID>
+          <Description></Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>routeHandle</Name>
+   	        <Description>routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+               <ID>148</ID>
+   <Type>org_harman_nav_ctrl_CommonTypes::Handle</Type>
+               <Description>routeHandle = Route handle. Range[0x0:0x7fffffff]. 0x0 is reserved as an invalid handle value</Description>
+            </Field>
+            <Field>
+               <Name>freeFlowTravelTime</Name>
+   	        <Description>remaining travel time in seconds.
+   	                 This is the travel time from the decision point to the end of the route.
+   	                 This duration does not include the extra time caused by traffic information.
+   	                 If no decision point exists, then the value is 0.</Description>
+               <ID>149</ID>
+   <Type>UInt32</Type>
+               <Description>remaining travel time in seconds.
+                        This is the travel time from the decision point to the end of the route.
+                        This duration does not include the extra time caused by traffic information.
+                        If no decision point exists, then the value is 0.</Description>
+            </Field>
+            <Field>
+               <Name>additionalTravelTime</Name>
+   	        <Description>additional travel time in seconds.
+   	                 This is the travel time from the decision point to the end of the route.
+   	                 This duration only contains the extra time caused by traffic information.
+   	                 If no decision point exists, then the value is 0.</Description>
+               <ID>150</ID>
+   <Type>UInt32</Type>
+               <Description>additional travel time in seconds.
+                        This is the travel time from the decision point to the end of the route.
+                        This duration only contains the extra time caused by traffic information.
+                        If no decision point exists, then the value is 0.</Description>
+            </Field>
+            <Field>
+               <Name>distance</Name>
+   	        <Description>remaining distance in meters.
+   	                  This is the distance from the decision point to the end of the route.
+   	                  If no decision point exists, then the value is 0.</Description>
+               <ID>151</ID>
+   <Type>UInt32</Type>
+               <Description>remaining distance in meters.
+                         This is the distance from the decision point to the end of the route.
+                         If no decision point exists, then the value is 0.</Description>
+            </Field>
+         </Fields>
+      </DataType>
+       <DataType>
+          <Name>CostDifference</Name>
+          <ID>152</ID>
+          <Description>struct for CostDifference
+          	    Costs of the original route and the alternative route</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>originalRoute</Name>
+   	        <Description></Description>
+               <ID>153</ID>
+   <Type>RouteCostData</Type>
+               <Description></Description>
+            </Field>
+            <Field>
+               <Name>alternativeRoute</Name>
+   	        <Description></Description>
+               <ID>154</ID>
+   <Type>RouteCostData</Type>
+               <Description></Description>
+            </Field>
+         </Fields>
+      </DataType>
+       <DataType>
+          <Name>ManeuverTurn</Name>
+          <ID>155</ID>
+          <Description>Maneuver turn</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>maneuverDirection</Name>
+   	        <Description></Description>
+               <ID>156</ID>
+   <Type>ManeuverDirection</Type>
+               <Description></Description>
+            </Field>
+            <Field>
+               <Name>exitNumber</Name>
+   	        <Description></Description>
+               <ID>157</ID>
+   <Type>CHBString</Type>
+               <Description></Description>
+            </Field>
+         </Fields>
+      </DataType>
+       <DataType>
+          <Name>ManeuverInfo</Name>
+          <ID>158</ID>
+          <Description>Information that describes a maneuver</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>uniqueID</Name>
+   	        <Description>An Id that can be used to uniquely identify this maneuver.</Description>
+               <ID>159</ID>
+   <Type>UInt64</Type>
+               <Description>An Id that can be used to uniquely identify this maneuver.</Description>
+            </Field>
+            <Field>
+               <Name>distance</Name>
+   	        <Description>The distance from the start of the maneuver to the destination.</Description>
+               <ID>160</ID>
+   <Type>org_harman_nav_ctrl_CommonTypes::Distance</Type>
+               <Description>The distance from the start of the maneuver to the destination.</Description>
+            </Field>
+            <Field>
+               <Name>geoCoordinate</Name>
+   	        <Description></Description>
+               <ID>161</ID>
+   <Type>org_harman_nav_ctrl_CommonTypes::Coordinate2D</Type>
+               <Description></Description>
+            </Field>
+            <Field>
+               <Name>maneuverLength</Name>
+   	        <Description>The length of the maneuver in meters.</Description>
+               <ID>162</ID>
+   <Type>org_harman_nav_ctrl_CommonTypes::Distance</Type>
+               <Description>The length of the maneuver in meters.</Description>
+            </Field>
+            <Field>
+               <Name>comingRoadInfo</Name>
+   	        <Description>Information about the road coming after the maneuver.</Description>
+               <ID>163</ID>
+   <Type>RoadInfo</Type>
+               <Description>Information about the road coming after the maneuver.</Description>
+            </Field>
+            <Field>
+               <Name>signPostInfo</Name>
+   	        <Description>Signpost related information.</Description>
+               <ID>164</ID>
+   <Type>SignPostInfo</Type>
+               <Description>Signpost related information.</Description>
+            </Field>
+            <Field>
+               <Name>turnDirection</Name>
+   	        <Description>The direction that the driver should turn to during the maneuver (STRAIGHT_ON, LEFT, SLIGHT_LEFT, ...).</Description>
+               <ID>165</ID>
+   <Type>ManeuverDirection</Type>
+               <Description>The direction that the driver should turn to during the maneuver (STRAIGHT_ON, LEFT, SLIGHT_LEFT, ...).</Description>
+            </Field>
+            <Field>
+               <Name>maneuverType</Name>
+   	        <Description>The type of maneuver (STRAIGHT_ON, TURN, CROSSROAD, ROUNDABOUT, ...).</Description>
+               <ID>166</ID>
+   <Type>ManeuverType</Type>
+               <Description>The type of maneuver (STRAIGHT_ON, TURN, CROSSROAD, ROUNDABOUT, ...).</Description>
+            </Field>
+            <Field>
+               <Name>maneuverDetails</Name>
+   	        <Description>More detailed maneuver information.</Description>
+               <ID>167</ID>
+   <Type>ManeuverDetails</Type>
+               <Description>More detailed maneuver information.</Description>
+            </Field>
+            <Field>
+               <Name>laneGuidanceList</Name>
+   	        <Description>Lane guiding information associated with the maneuver.</Description>
+               <ID>168</ID>
+   <Type>LaneGuidanceInfoList</Type>
+               <Description>Lane guiding information associated with the maneuver.</Description>
+            </Field>
+         </Fields>
+      </DataType>
+   <DataType>
+      <Name>ManeuverInfoList</Name>
+      <ID>169</ID>
+      <Description></Description>	  	
+      <Kind>Typedef</Kind>
+      <Container>THBVector</Container>
+     <BaseType>ManeuverInfo</BaseType>
+   </DataType>
+       <DataType>
+          <Name>ManeuverGroup</Name>
+          <ID>170</ID>
+          <Description>A set of maneuvers that are close to each other</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>maneuvers</Name>
+   	        <Description>The list of maneuvers that are part of the group (sorted by their distance to destination).</Description>
+               <ID>171</ID>
+   <Type>ManeuverInfoList</Type>
+               <Description>The list of maneuvers that are part of the group (sorted by their distance to destination).</Description>
+            </Field>
+         </Fields>
+      </DataType>
+       <DataType>
+          <Name>ManeuverSegment</Name>
+          <ID>172</ID>
+          <Description>Maneuver segment</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>maneuver</Name>
+   	        <Description></Description>
+               <ID>173</ID>
+   <Type>ManeuverType</Type>
+               <Description></Description>
+            </Field>
+            <Field>
+               <Name>maneuverLength</Name>
+   	        <Description></Description>
+               <ID>174</ID>
+   <Type>UInt16</Type>
+               <Description></Description>
+            </Field>
+         </Fields>
+      </DataType>
+       <DataType>
+          <Name>tManeuverItem</Name>
+          <ID>175</ID>
+          <Description>Maneuver Item</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>offsetOfManeuver</Name>
+   	        <Description></Description>
+               <ID>176</ID>
+   <Type>UInt32</Type>
+               <Description></Description>
+            </Field>
+            <Field>
+               <Name>travelTime</Name>
+   	        <Description></Description>
+               <ID>177</ID>
+   <Type>UInt32</Type>
+               <Description></Description>
+            </Field>
+            <Field>
+               <Name>direction</Name>
+   	        <Description></Description>
+               <ID>178</ID>
+   <Type>Int32</Type>
+               <Description></Description>
+            </Field>
+            <Field>
+               <Name>segment</Name>
+   	        <Description></Description>
+               <ID>179</ID>
+   <Type>ManeuverSegment</Type>
+               <Description></Description>
+            </Field>
+            <Field>
+               <Name>turnTo</Name>
+   	        <Description></Description>
+               <ID>180</ID>
+   <Type>ManeuverTurn</Type>
+               <Description></Description>
+            </Field>
+         </Fields>
+      </DataType>
+       <DataType>
+          <Name>WaypointInfo</Name>
+          <ID>181</ID>
+          <Description>WaypointInfo = Information about a Waypoint</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>waypointId</Name>
+   	        <Description>Unique location id for the waypoint. To be used with LocationMemory to retrieve details about the destination.</Description>
+               <ID>182</ID>
+   <Type>org_harman_nav_ctrl_memory_LocationMemoryTypes::UniqueItemId</Type>
+               <Description>Unique location id for the waypoint. To be used with LocationMemory to retrieve details about the destination.</Description>
+            </Field>
+            <Field>
+               <Name>side</Name>
+   	        <Description>Roadside (left, right) of the waypoint.</Description>
+               <ID>183</ID>
+   <Type>Side</Type>
+               <Description>Roadside (left, right) of the waypoint.</Description>
+            </Field>
+            <Field>
+               <Name>hasBeenReached</Name>
+   	        <Description>True, if this destination has already been reached in the current guidance session.</Description>
+               <ID>184</ID>
+   <Type>bool</Type>
+               <Description>True, if this destination has already been reached in the current guidance session.</Description>
+            </Field>
+            <Field>
+               <Name>number</Name>
+   	        <Description>The stop-over number of this waypoint (starting at 0).</Description>
+               <ID>185</ID>
+   <Type>UInt16</Type>
+               <Description>The stop-over number of this waypoint (starting at 0).</Description>
+            </Field>
+            <Field>
+               <Name>position</Name>
+   	        <Description>The position of this waypoint in GPS coordinates.</Description>
+               <ID>186</ID>
+   <Type>org_harman_nav_ctrl_CommonTypes::Coordinate3D</Type>
+               <Description>The position of this waypoint in GPS coordinates.</Description>
+            </Field>
+            <Field>
+               <Name>timeZone</Name>
+   	        <Description>timeZone = time zone of the destination. It is expressed as the time difference from the UTC in minutes</Description>
+               <ID>187</ID>
+   <Type>Int16</Type>
+               <Description>timeZone = time zone of the destination. It is expressed as the time difference from the UTC in minutes</Description>
+            </Field>
+            <Field>
+               <Name>daylightSavingTime</Name>
+   	        <Description>daylightSavingTime = daylight saving time of the destination. It is expressed as the time difference from the UTC in minutes</Description>
+               <ID>188</ID>
+   <Type>Int16</Type>
+               <Description>daylightSavingTime = daylight saving time of the destination. It is expressed as the time difference from the UTC in minutes</Description>
+            </Field>
+         </Fields>
+      </DataType>
+   <DataType>
+      <Name>WaypointInfoList</Name>
+      <ID>189</ID>
+      <Description></Description>	  	
+      <Kind>Typedef</Kind>
+      <Container>THBVector</Container>
+     <BaseType>WaypointInfo</BaseType>
+   </DataType>
+   <DataType>
+      <Name>THBVector_tManeuverItem_</Name>
+      <ID>190</ID>
+      <Description> </Description>	  	
+      <Kind>Typedef</Kind>
+      <Container>THBVector</Container>
+   <BaseType>tManeuverItem</BaseType>
+   </DataType>
+       <DataType>
+          <Name>Maneuver</Name>
+          <ID>190</ID>
+          <Description>Maneuver</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>roadNumberAfterManeuver</Name>
+   	        <Description></Description>
+               <ID>191</ID>
+   <Type>CHBString</Type>
+               <Description></Description>
+            </Field>
+            <Field>
+               <Name>roadNameAfterManeuver</Name>
+   	        <Description></Description>
+               <ID>192</ID>
+   <Type>CHBString</Type>
+               <Description></Description>
+            </Field>
+            <Field>
+               <Name>roadPropertyAfterManeuver</Name>
+   	        <Description></Description>
+               <ID>193</ID>
+   <Type>UInt16</Type>
+               <Description></Description>
+            </Field>
+            <Field>
+               <Name>drivingSide</Name>
+   	        <Description></Description>
+               <ID>194</ID>
+   <Type>Side</Type>
+               <Description></Description>
+            </Field>
+            <Field>
+               <Name>offsetOfNextManeuver</Name>
+   	        <Description></Description>
+               <ID>195</ID>
+   <Type>UInt32</Type>
+               <Description></Description>
+            </Field>
+            <Field>
+               <Name>items</Name>
+   	        <Description></Description>
+               <ID>196</ID>
+               <Type>THBVector_tManeuverItem_</Type>
+               <Description></Description>
+            </Field>
+         </Fields>
+      </DataType>
+       <DataType>
+          <Name>tWaypointStruct</Name>
+          <ID>197</ID>
+          <Description></Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>waypointOffset</Name>
+   	        <Description></Description>
+               <ID>198</ID>
+   <Type>UInt32</Type>
+               <Description></Description>
+            </Field>
+            <Field>
+               <Name>travelTime</Name>
+   	        <Description></Description>
+               <ID>199</ID>
+   <Type>UInt32</Type>
+               <Description></Description>
+            </Field>
+            <Field>
+               <Name>direction</Name>
+   	        <Description></Description>
+               <ID>200</ID>
+   <Type>Int32</Type>
+               <Description></Description>
+            </Field>
+            <Field>
+               <Name>side</Name>
+   	        <Description></Description>
+               <ID>201</ID>
+   <Type>Side</Type>
+               <Description></Description>
+            </Field>
+            <Field>
+               <Name>timeZone</Name>
+   	        <Description></Description>
+               <ID>202</ID>
+   <Type>Int16</Type>
+               <Description></Description>
+            </Field>
+            <Field>
+               <Name>daylightSavingTime</Name>
+   	        <Description></Description>
+               <ID>203</ID>
+   <Type>Int16</Type>
+               <Description></Description>
+            </Field>
+            <Field>
+               <Name>isDestination</Name>
+   	        <Description></Description>
+               <ID>204</ID>
+   <Type>bool</Type>
+               <Description></Description>
+            </Field>
+            <Field>
+               <Name>number</Name>
+   	        <Description></Description>
+               <ID>205</ID>
+   <Type>UInt16</Type>
+               <Description></Description>
+            </Field>
+         </Fields>
+      </DataType>
+	    
+   </DataTypes>
+</DSI>

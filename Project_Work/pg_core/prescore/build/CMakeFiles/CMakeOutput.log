@@ -1,0 +1,545 @@
+The target system is: Linux -  - aarch64
+The host system is: Linux - 3.13.0-137-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-gcc -mcpu=cortex-a72.cortex-a53+crypto;-mtune=cortex-a72.cortex-a53;--sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux
+Build flags: ;-O2;-pipe;-g;-feliminate-unused-debug-types;
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/3.6.1/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-g++ -mcpu=cortex-a72.cortex-a53+crypto;-mtune=cortex-a72.cortex-a53;--sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux
+Build flags: ;-O2;-pipe;-g;-feliminate-unused-debug-types;
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/3.6.1/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make" "cmTC_aee7b/fast"
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make -f CMakeFiles/cmTC_aee7b.dir/build.make CMakeFiles/cmTC_aee7b.dir/build
+make[1]: Entering directory '/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_aee7b.dir/testCCompiler.c.o
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-gcc   -mcpu=cortex-a72.cortex-a53+crypto -mtune=cortex-a72.cortex-a53 --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux   -O2 -pipe -g -feliminate-unused-debug-types     -o CMakeFiles/cmTC_aee7b.dir/testCCompiler.c.o   -c /media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_aee7b
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aee7b.dir/link.txt --verbose=1
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-gcc   -mcpu=cortex-a72.cortex-a53+crypto -mtune=cortex-a72.cortex-a53 --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux  -O2 -pipe -g -feliminate-unused-debug-types     -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_aee7b.dir/testCCompiler.c.o  -o cmTC_aee7b -rdynamic 
+make[1]: Leaving directory '/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make" "cmTC_7628f/fast"
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make -f CMakeFiles/cmTC_7628f.dir/build.make CMakeFiles/cmTC_7628f.dir/build
+make[1]: Entering directory '/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7628f.dir/CMakeCCompilerABI.c.o
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-gcc   -mcpu=cortex-a72.cortex-a53+crypto -mtune=cortex-a72.cortex-a53 --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux   -O2 -pipe -g -feliminate-unused-debug-types     -o CMakeFiles/cmTC_7628f.dir/CMakeCCompilerABI.c.o   -c /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share/cmake-3.6/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_7628f
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7628f.dir/link.txt --verbose=1
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-gcc   -mcpu=cortex-a72.cortex-a53+crypto -mtune=cortex-a72.cortex-a53 --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux  -O2 -pipe -g -feliminate-unused-debug-types     -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -v CMakeFiles/cmTC_7628f.dir/CMakeCCompilerABI.c.o  -o cmTC_7628f -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-gcc
+COLLECT_LTO_WRAPPER=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/lto-wrapper
+Target: aarch64-elina-linux
+Configured with: ../../../../../../work-shared/gcc-6.2.0-r0/gcc-6.2.0/configure --build=x86_64-linux --host=x86_64-elinasdk-linux --target=aarch64-elina-linux --prefix=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr --exec_prefix=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr --bindir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux --sbindir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux --libexecdir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux --datadir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share --sysconfdir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/etc --sharedstatedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/com --localstatedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/var --libdir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux --includedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/include --oldincludedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/include --infodir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share/info --mandir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share/man --disable-silent-rules --disable-dependency-tracking --with-libtool-sysroot=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/geneva_sdk3/project/elina-distro/build-richmond-sdk3/tmp/sysroots/x86_64-nativesdk-elinasdk-linux --with-gnu-ld --enable-shared --enable-languages=c,c++ --enable-threads=posix --enable-multilib --enable-c99 --enable-long-long --enable-symvers=gnu --enable-libstdcxx-pch --program-prefix=aarch64-elina-linux- --without-local-prefix --enable-lto --enable-libssp --enable-libitm --disable-bootstrap --disable-libmudflap --with-system-zlib --with-linker-hash-style=gnu --enable-linker-build-id --with-ppl=no --with-cloog=no --enable-checking=release --enable-cheaders=c_global --without-isl --with-gxx-include-dir=/not/exist/usr/include/c++/6.2.0 --with-build-time-tools=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/geneva_sdk3/project/elina-distro/build-richmond-sdk3/tmp/sysroots/x86_64-linux/usr/aarch64-elina-linux/bin --with-sysroot=/not/exist --with-build-sysroot=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/geneva_sdk3/project/elina-distro/build-richmond-sdk3/tmp/sysroots/richmond --without-long-double-128 --enable-poison-system-directories --with-mpfr=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/geneva_sdk3/project/elina-distro/build-richmond-sdk3/tmp/sysroots/x86_64-nativesdk-elinasdk-linux --with-mpc=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/geneva_sdk3/project/elina-distro/build-richmond-sdk3/tmp/sysroots/x86_64-nativesdk-elinasdk-linux --enable-nls --enable-initfini-array --enable-__cxa_atexit
+Thread model: posix
+gcc version 6.2.0 (GCC) 
+COMPILER_PATH=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/
+LIBRARY_PATH=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/:/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/lib64/:/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0/:/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/
+COLLECT_GCC_OPTIONS='--sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux' '-mcpu=cortex-a72.cortex-a53+crypto' '-mtune=cortex-a72.cortex-a53' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'cmTC_7628f' '-rdynamic' '-mlittle-endian' '-mabi=lp64'
+ /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/collect2 -plugin /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/liblto_plugin.so -plugin-opt=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccJZyxhY.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --build-id --eh-frame-hdr --hash-style=gnu -export-dynamic -dynamic-linker /lib64/ld-linux-aarch64.so.1 -X -EL -maarch64linux -o cmTC_7628f /opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/crt1.o /opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/crti.o /opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0/crtbegin.o -L/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0 -L/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/lib64 -L/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0 -L/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64 -O1 --hash-style=gnu --as-needed CMakeFiles/cmTC_7628f.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0/crtend.o /opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/crtn.o
+COLLECT_GCC_OPTIONS='--sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux' '-mcpu=cortex-a72.cortex-a53+crypto' '-mtune=cortex-a72.cortex-a53' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'cmTC_7628f' '-rdynamic' '-mlittle-endian' '-mabi=lp64'
+make[1]: Leaving directory '/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(aarch64-elina-linux-ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make" "cmTC_7628f/fast"]
+  ignore line: [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make -f CMakeFiles/cmTC_7628f.dir/build.make CMakeFiles/cmTC_7628f.dir/build]
+  ignore line: [make[1]: Entering directory '/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_7628f.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-gcc   -mcpu=cortex-a72.cortex-a53+crypto -mtune=cortex-a72.cortex-a53 --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux   -O2 -pipe -g -feliminate-unused-debug-types     -o CMakeFiles/cmTC_7628f.dir/CMakeCCompilerABI.c.o   -c /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share/cmake-3.6/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_7628f]
+  ignore line: [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7628f.dir/link.txt --verbose=1]
+  ignore line: [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-gcc   -mcpu=cortex-a72.cortex-a53+crypto -mtune=cortex-a72.cortex-a53 --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux  -O2 -pipe -g -feliminate-unused-debug-types     -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -v CMakeFiles/cmTC_7628f.dir/CMakeCCompilerABI.c.o  -o cmTC_7628f -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/lto-wrapper]
+  ignore line: [Target: aarch64-elina-linux]
+  ignore line: [Configured with: ../../../../../../work-shared/gcc-6.2.0-r0/gcc-6.2.0/configure --build=x86_64-linux --host=x86_64-elinasdk-linux --target=aarch64-elina-linux --prefix=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr --exec_prefix=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr --bindir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux --sbindir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux --libexecdir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux --datadir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share --sysconfdir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/etc --sharedstatedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/com --localstatedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/var --libdir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux --includedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/include --oldincludedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/include --infodir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share/info --mandir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share/man --disable-silent-rules --disable-dependency-tracking --with-libtool-sysroot=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/geneva_sdk3/project/elina-distro/build-richmond-sdk3/tmp/sysroots/x86_64-nativesdk-elinasdk-linux --with-gnu-ld --enable-shared --enable-languages=c,c++ --enable-threads=posix --enable-multilib --enable-c99 --enable-long-long --enable-symvers=gnu --enable-libstdcxx-pch --program-prefix=aarch64-elina-linux- --without-local-prefix --enable-lto --enable-libssp --enable-libitm --disable-bootstrap --disable-libmudflap --with-system-zlib --with-linker-hash-style=gnu --enable-linker-build-id --with-ppl=no --with-cloog=no --enable-checking=release --enable-cheaders=c_global --without-isl --with-gxx-include-dir=/not/exist/usr/include/c++/6.2.0 --with-build-time-tools=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/geneva_sdk3/project/elina-distro/build-richmond-sdk3/tmp/sysroots/x86_64-linux/usr/aarch64-elina-linux/bin --with-sysroot=/not/exist --with-build-sysroot=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/geneva_sdk3/project/elina-distro/build-richmond-sdk3/tmp/sysroots/richmond --without-long-double-128 --enable-poison-system-directories --with-mpfr=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/geneva_sdk3/project/elina-distro/build-richmond-sdk3/tmp/sysroots/x86_64-nativesdk-elinasdk-linux --with-mpc=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/geneva_sdk3/project/elina-distro/build-richmond-sdk3/tmp/sysroots/x86_64-nativesdk-elinasdk-linux --enable-nls --enable-initfini-array --enable-__cxa_atexit]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 6.2.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/]
+  ignore line: [LIBRARY_PATH=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/:/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/lib64/:/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0/:/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/]
+  ignore line: [COLLECT_GCC_OPTIONS='--sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux' '-mcpu=cortex-a72.cortex-a53+crypto' '-mtune=cortex-a72.cortex-a53' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'cmTC_7628f' '-rdynamic' '-mlittle-endian' '-mabi=lp64']
+  link line: [ /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/collect2 -plugin /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/liblto_plugin.so -plugin-opt=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccJZyxhY.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --build-id --eh-frame-hdr --hash-style=gnu -export-dynamic -dynamic-linker /lib64/ld-linux-aarch64.so.1 -X -EL -maarch64linux -o cmTC_7628f /opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/crt1.o /opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/crti.o /opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0/crtbegin.o -L/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0 -L/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/lib64 -L/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0 -L/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64 -O1 --hash-style=gnu --as-needed CMakeFiles/cmTC_7628f.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0/crtend.o /opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/crtn.o]
+    arg [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccJZyxhY.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-aarch64.so.1] ==> ignore
+    arg [-X] ==> ignore
+    arg [-EL] ==> ignore
+    arg [-maarch64linux] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_7628f] ==> ignore
+    arg [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/crt1.o] ==> ignore
+    arg [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/crti.o] ==> ignore
+    arg [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0/crtbegin.o] ==> ignore
+    arg [-L/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0] ==> dir [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0]
+    arg [-L/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/lib64] ==> dir [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/lib64]
+    arg [-L/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0] ==> dir [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0]
+    arg [-L/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64] ==> dir [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64]
+    arg [-O1] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [CMakeFiles/cmTC_7628f.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0/crtend.o] ==> ignore
+    arg [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/crtn.o] ==> ignore
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  collapse library dir [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0] ==> [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0]
+  collapse library dir [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/lib64] ==> [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/lib64]
+  collapse library dir [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0] ==> [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0]
+  collapse library dir [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64] ==> [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64]
+  implicit libs: [c]
+  implicit dirs: [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0;/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/lib64;/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0;/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make" "cmTC_3ffa2/fast"
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make -f CMakeFiles/cmTC_3ffa2.dir/build.make CMakeFiles/cmTC_3ffa2.dir/build
+make[1]: Entering directory '/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3ffa2.dir/feature_tests.c.o
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-gcc   -mcpu=cortex-a72.cortex-a53+crypto -mtune=cortex-a72.cortex-a53 --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux   -O2 -pipe -g -feliminate-unused-debug-types     -std=c11 -o CMakeFiles/cmTC_3ffa2.dir/feature_tests.c.o   -c /media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_3ffa2
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3ffa2.dir/link.txt --verbose=1
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-gcc   -mcpu=cortex-a72.cortex-a53+crypto -mtune=cortex-a72.cortex-a53 --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux  -O2 -pipe -g -feliminate-unused-debug-types     -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_3ffa2.dir/feature_tests.c.o  -o cmTC_3ffa2 -rdynamic 
+make[1]: Leaving directory '/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make" "cmTC_9f83c/fast"
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make -f CMakeFiles/cmTC_9f83c.dir/build.make CMakeFiles/cmTC_9f83c.dir/build
+make[1]: Entering directory '/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9f83c.dir/feature_tests.c.o
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-gcc   -mcpu=cortex-a72.cortex-a53+crypto -mtune=cortex-a72.cortex-a53 --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux   -O2 -pipe -g -feliminate-unused-debug-types     -std=c99 -o CMakeFiles/cmTC_9f83c.dir/feature_tests.c.o   -c /media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_9f83c
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9f83c.dir/link.txt --verbose=1
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-gcc   -mcpu=cortex-a72.cortex-a53+crypto -mtune=cortex-a72.cortex-a53 --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux  -O2 -pipe -g -feliminate-unused-debug-types     -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_9f83c.dir/feature_tests.c.o  -o cmTC_9f83c -rdynamic 
+make[1]: Leaving directory '/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make" "cmTC_bebdc/fast"
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make -f CMakeFiles/cmTC_bebdc.dir/build.make CMakeFiles/cmTC_bebdc.dir/build
+make[1]: Entering directory '/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bebdc.dir/feature_tests.c.o
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-gcc   -mcpu=cortex-a72.cortex-a53+crypto -mtune=cortex-a72.cortex-a53 --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux   -O2 -pipe -g -feliminate-unused-debug-types     -std=c90 -o CMakeFiles/cmTC_bebdc.dir/feature_tests.c.o   -c /media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_bebdc
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bebdc.dir/link.txt --verbose=1
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-gcc   -mcpu=cortex-a72.cortex-a53+crypto -mtune=cortex-a72.cortex-a53 --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux  -O2 -pipe -g -feliminate-unused-debug-types     -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_bebdc.dir/feature_tests.c.o  -o cmTC_bebdc -rdynamic 
+make[1]: Leaving directory '/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make" "cmTC_2b043/fast"
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make -f CMakeFiles/cmTC_2b043.dir/build.make CMakeFiles/cmTC_2b043.dir/build
+make[1]: Entering directory '/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_2b043.dir/testCXXCompiler.cxx.o
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-g++   -mcpu=cortex-a72.cortex-a53+crypto -mtune=cortex-a72.cortex-a53 --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux    -O2 -pipe -g -feliminate-unused-debug-types     -o CMakeFiles/cmTC_2b043.dir/testCXXCompiler.cxx.o -c /media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_2b043
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2b043.dir/link.txt --verbose=1
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-g++   -mcpu=cortex-a72.cortex-a53+crypto -mtune=cortex-a72.cortex-a53 --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux   -O2 -pipe -g -feliminate-unused-debug-types     -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_2b043.dir/testCXXCompiler.cxx.o  -o cmTC_2b043 -rdynamic 
+make[1]: Leaving directory '/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make" "cmTC_415b4/fast"
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make -f CMakeFiles/cmTC_415b4.dir/build.make CMakeFiles/cmTC_415b4.dir/build
+make[1]: Entering directory '/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_415b4.dir/CMakeCXXCompilerABI.cpp.o
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-g++   -mcpu=cortex-a72.cortex-a53+crypto -mtune=cortex-a72.cortex-a53 --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux    -O2 -pipe -g -feliminate-unused-debug-types     -o CMakeFiles/cmTC_415b4.dir/CMakeCXXCompilerABI.cpp.o -c /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share/cmake-3.6/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_415b4
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_415b4.dir/link.txt --verbose=1
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-g++   -mcpu=cortex-a72.cortex-a53+crypto -mtune=cortex-a72.cortex-a53 --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux   -O2 -pipe -g -feliminate-unused-debug-types     -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -v CMakeFiles/cmTC_415b4.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_415b4 -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-g++
+COLLECT_LTO_WRAPPER=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/lto-wrapper
+Target: aarch64-elina-linux
+Configured with: ../../../../../../work-shared/gcc-6.2.0-r0/gcc-6.2.0/configure --build=x86_64-linux --host=x86_64-elinasdk-linux --target=aarch64-elina-linux --prefix=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr --exec_prefix=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr --bindir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux --sbindir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux --libexecdir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux --datadir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share --sysconfdir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/etc --sharedstatedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/com --localstatedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/var --libdir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux --includedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/include --oldincludedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/include --infodir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share/info --mandir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share/man --disable-silent-rules --disable-dependency-tracking --with-libtool-sysroot=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/geneva_sdk3/project/elina-distro/build-richmond-sdk3/tmp/sysroots/x86_64-nativesdk-elinasdk-linux --with-gnu-ld --enable-shared --enable-languages=c,c++ --enable-threads=posix --enable-multilib --enable-c99 --enable-long-long --enable-symvers=gnu --enable-libstdcxx-pch --program-prefix=aarch64-elina-linux- --without-local-prefix --enable-lto --enable-libssp --enable-libitm --disable-bootstrap --disable-libmudflap --with-system-zlib --with-linker-hash-style=gnu --enable-linker-build-id --with-ppl=no --with-cloog=no --enable-checking=release --enable-cheaders=c_global --without-isl --with-gxx-include-dir=/not/exist/usr/include/c++/6.2.0 --with-build-time-tools=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/geneva_sdk3/project/elina-distro/build-richmond-sdk3/tmp/sysroots/x86_64-linux/usr/aarch64-elina-linux/bin --with-sysroot=/not/exist --with-build-sysroot=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/geneva_sdk3/project/elina-distro/build-richmond-sdk3/tmp/sysroots/richmond --without-long-double-128 --enable-poison-system-directories --with-mpfr=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/geneva_sdk3/project/elina-distro/build-richmond-sdk3/tmp/sysroots/x86_64-nativesdk-elinasdk-linux --with-mpc=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/geneva_sdk3/project/elina-distro/build-richmond-sdk3/tmp/sysroots/x86_64-nativesdk-elinasdk-linux --enable-nls --enable-initfini-array --enable-__cxa_atexit
+Thread model: posix
+gcc version 6.2.0 (GCC) 
+COMPILER_PATH=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/
+LIBRARY_PATH=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/:/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/lib64/:/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0/:/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/
+COLLECT_GCC_OPTIONS='--sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux' '-mcpu=cortex-a72.cortex-a53+crypto' '-mtune=cortex-a72.cortex-a53' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'cmTC_415b4' '-rdynamic' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64'
+ /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/collect2 -plugin /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/liblto_plugin.so -plugin-opt=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/cc17aiSN.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --build-id --eh-frame-hdr --hash-style=gnu -export-dynamic -dynamic-linker /lib64/ld-linux-aarch64.so.1 -X -EL -maarch64linux -o cmTC_415b4 /opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/crt1.o /opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/crti.o /opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0/crtbegin.o -L/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0 -L/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/lib64 -L/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0 -L/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64 -O1 --hash-style=gnu --as-needed CMakeFiles/cmTC_415b4.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0/crtend.o /opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/crtn.o
+COLLECT_GCC_OPTIONS='--sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux' '-mcpu=cortex-a72.cortex-a53+crypto' '-mtune=cortex-a72.cortex-a53' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'cmTC_415b4' '-rdynamic' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64'
+make[1]: Leaving directory '/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(aarch64-elina-linux-ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make" "cmTC_415b4/fast"]
+  ignore line: [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make -f CMakeFiles/cmTC_415b4.dir/build.make CMakeFiles/cmTC_415b4.dir/build]
+  ignore line: [make[1]: Entering directory '/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_415b4.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-g++   -mcpu=cortex-a72.cortex-a53+crypto -mtune=cortex-a72.cortex-a53 --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux    -O2 -pipe -g -feliminate-unused-debug-types     -o CMakeFiles/cmTC_415b4.dir/CMakeCXXCompilerABI.cpp.o -c /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share/cmake-3.6/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_415b4]
+  ignore line: [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_415b4.dir/link.txt --verbose=1]
+  ignore line: [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-g++   -mcpu=cortex-a72.cortex-a53+crypto -mtune=cortex-a72.cortex-a53 --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux   -O2 -pipe -g -feliminate-unused-debug-types     -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -v CMakeFiles/cmTC_415b4.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_415b4 -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-g++]
+  ignore line: [COLLECT_LTO_WRAPPER=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/lto-wrapper]
+  ignore line: [Target: aarch64-elina-linux]
+  ignore line: [Configured with: ../../../../../../work-shared/gcc-6.2.0-r0/gcc-6.2.0/configure --build=x86_64-linux --host=x86_64-elinasdk-linux --target=aarch64-elina-linux --prefix=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr --exec_prefix=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr --bindir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux --sbindir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux --libexecdir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux --datadir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share --sysconfdir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/etc --sharedstatedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/com --localstatedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/var --libdir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux --includedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/include --oldincludedir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/include --infodir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share/info --mandir=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/share/man --disable-silent-rules --disable-dependency-tracking --with-libtool-sysroot=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/geneva_sdk3/project/elina-distro/build-richmond-sdk3/tmp/sysroots/x86_64-nativesdk-elinasdk-linux --with-gnu-ld --enable-shared --enable-languages=c,c++ --enable-threads=posix --enable-multilib --enable-c99 --enable-long-long --enable-symvers=gnu --enable-libstdcxx-pch --program-prefix=aarch64-elina-linux- --without-local-prefix --enable-lto --enable-libssp --enable-libitm --disable-bootstrap --disable-libmudflap --with-system-zlib --with-linker-hash-style=gnu --enable-linker-build-id --with-ppl=no --with-cloog=no --enable-checking=release --enable-cheaders=c_global --without-isl --with-gxx-include-dir=/not/exist/usr/include/c++/6.2.0 --with-build-time-tools=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/geneva_sdk3/project/elina-distro/build-richmond-sdk3/tmp/sysroots/x86_64-linux/usr/aarch64-elina-linux/bin --with-sysroot=/not/exist --with-build-sysroot=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/geneva_sdk3/project/elina-distro/build-richmond-sdk3/tmp/sysroots/richmond --without-long-double-128 --enable-poison-system-directories --with-mpfr=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/geneva_sdk3/project/elina-distro/build-richmond-sdk3/tmp/sysroots/x86_64-nativesdk-elinasdk-linux --with-mpc=/home/buildserver/work/jenkins/var/lib/jenkins/workspace/geneva_sdk3/project/elina-distro/build-richmond-sdk3/tmp/sysroots/x86_64-nativesdk-elinasdk-linux --enable-nls --enable-initfini-array --enable-__cxa_atexit]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 6.2.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/:/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/]
+  ignore line: [LIBRARY_PATH=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/:/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/lib64/:/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0/:/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/]
+  ignore line: [COLLECT_GCC_OPTIONS='--sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux' '-mcpu=cortex-a72.cortex-a53+crypto' '-mtune=cortex-a72.cortex-a53' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'cmTC_415b4' '-rdynamic' '-shared-libgcc' '-mlittle-endian' '-mabi=lp64']
+  link line: [ /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/collect2 -plugin /opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/liblto_plugin.so -plugin-opt=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/cc17aiSN.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --build-id --eh-frame-hdr --hash-style=gnu -export-dynamic -dynamic-linker /lib64/ld-linux-aarch64.so.1 -X -EL -maarch64linux -o cmTC_415b4 /opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/crt1.o /opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/crti.o /opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0/crtbegin.o -L/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0 -L/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/lib64 -L/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0 -L/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64 -O1 --hash-style=gnu --as-needed CMakeFiles/cmTC_415b4.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0/crtend.o /opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/crtn.o]
+    arg [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/libexec/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cc17aiSN.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-aarch64.so.1] ==> ignore
+    arg [-X] ==> ignore
+    arg [-EL] ==> ignore
+    arg [-maarch64linux] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_415b4] ==> ignore
+    arg [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/crt1.o] ==> ignore
+    arg [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/crti.o] ==> ignore
+    arg [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0/crtbegin.o] ==> ignore
+    arg [-L/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0] ==> dir [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0]
+    arg [-L/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/lib64] ==> dir [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/lib64]
+    arg [-L/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0] ==> dir [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0]
+    arg [-L/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64] ==> dir [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64]
+    arg [-O1] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [CMakeFiles/cmTC_415b4.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0/crtend.o] ==> ignore
+    arg [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/crtn.o] ==> ignore
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  collapse library dir [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0] ==> [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0]
+  collapse library dir [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/lib64] ==> [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/lib64]
+  collapse library dir [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0] ==> [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0]
+  collapse library dir [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64] ==> [/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64]
+  implicit libs: [stdc++;m;c]
+  implicit dirs: [/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/lib/aarch64-elina-linux/gcc/aarch64-elina-linux/6.2.0;/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/lib64;/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64/aarch64-elina-linux/6.2.0;/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux/usr/lib64]
+  implicit fwks: []
+
+
+
+
+Detecting CXX [-std=c++14] compiler features compiled with the following output:
+Change Dir: /media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make" "cmTC_533dd/fast"
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make -f CMakeFiles/cmTC_533dd.dir/build.make CMakeFiles/cmTC_533dd.dir/build
+make[1]: Entering directory '/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_533dd.dir/feature_tests.cxx.o
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-g++   -mcpu=cortex-a72.cortex-a53+crypto -mtune=cortex-a72.cortex-a53 --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux    -O2 -pipe -g -feliminate-unused-debug-types     -std=c++14 -o CMakeFiles/cmTC_533dd.dir/feature_tests.cxx.o -c /media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_533dd
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_533dd.dir/link.txt --verbose=1
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-g++   -mcpu=cortex-a72.cortex-a53+crypto -mtune=cortex-a72.cortex-a53 --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux   -O2 -pipe -g -feliminate-unused-debug-types     -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_533dd.dir/feature_tests.cxx.o  -o cmTC_533dd -rdynamic 
+make[1]: Leaving directory '/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++11] compiler features compiled with the following output:
+Change Dir: /media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make" "cmTC_fbc9f/fast"
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make -f CMakeFiles/cmTC_fbc9f.dir/build.make CMakeFiles/cmTC_fbc9f.dir/build
+make[1]: Entering directory '/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_fbc9f.dir/feature_tests.cxx.o
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-g++   -mcpu=cortex-a72.cortex-a53+crypto -mtune=cortex-a72.cortex-a53 --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux    -O2 -pipe -g -feliminate-unused-debug-types     -std=c++11 -o CMakeFiles/cmTC_fbc9f.dir/feature_tests.cxx.o -c /media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_fbc9f
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fbc9f.dir/link.txt --verbose=1
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-g++   -mcpu=cortex-a72.cortex-a53+crypto -mtune=cortex-a72.cortex-a53 --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux   -O2 -pipe -g -feliminate-unused-debug-types     -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_fbc9f.dir/feature_tests.cxx.o  -o cmTC_fbc9f -rdynamic 
+make[1]: Leaving directory '/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++98] compiler features compiled with the following output:
+Change Dir: /media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make" "cmTC_23045/fast"
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/make -f CMakeFiles/cmTC_23045.dir/build.make CMakeFiles/cmTC_23045.dir/build
+make[1]: Entering directory '/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_23045.dir/feature_tests.cxx.o
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-g++   -mcpu=cortex-a72.cortex-a53+crypto -mtune=cortex-a72.cortex-a53 --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux    -O2 -pipe -g -feliminate-unused-debug-types     -std=c++98 -o CMakeFiles/cmTC_23045.dir/feature_tests.cxx.o -c /media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_23045
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_23045.dir/link.txt --verbose=1
+/opt/elina/2.0.2015143A/sysroots/x86_64-elinasdk-linux/usr/bin/aarch64-elina-linux/aarch64-elina-linux-g++   -mcpu=cortex-a72.cortex-a53+crypto -mtune=cortex-a72.cortex-a53 --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux --sysroot=/opt/elina/2.0.2015143A/sysroots/aarch64-elina-linux   -O2 -pipe -g -feliminate-unused-debug-types     -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_23045.dir/feature_tests.cxx.o  -o cmTC_23045 -rdynamic 
+make[1]: Leaving directory '/media/sf_SMSTSLog/wspace/pres_core/pg_core/prescore/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:0cxx_alias_templates
+    Feature record: CXX_FEATURE:0cxx_alignas
+    Feature record: CXX_FEATURE:0cxx_alignof
+    Feature record: CXX_FEATURE:0cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:0cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:0cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:0cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:0cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:0cxx_default_function_template_args
+    Feature record: CXX_FEATURE:0cxx_defaulted_functions
+    Feature record: CXX_FEATURE:0cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:0cxx_delegating_constructors
+    Feature record: CXX_FEATURE:0cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:0cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:0cxx_explicit_conversions
+    Feature record: CXX_FEATURE:0cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:0cxx_extern_templates
+    Feature record: CXX_FEATURE:0cxx_final
+    Feature record: CXX_FEATURE:0cxx_func_identifier
+    Feature record: CXX_FEATURE:0cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:0cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:0cxx_inline_namespaces
+    Feature record: CXX_FEATURE:0cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:0cxx_local_type_template_args
+    Feature record: CXX_FEATURE:0cxx_long_long_type
+    Feature record: CXX_FEATURE:0cxx_noexcept
+    Feature record: CXX_FEATURE:0cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:0cxx_nullptr
+    Feature record: CXX_FEATURE:0cxx_override
+    Feature record: CXX_FEATURE:0cxx_range_for
+    Feature record: CXX_FEATURE:0cxx_raw_string_literals
+    Feature record: CXX_FEATURE:0cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:0cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:0cxx_rvalue_references
+    Feature record: CXX_FEATURE:0cxx_sizeof_member
+    Feature record: CXX_FEATURE:0cxx_static_assert
+    Feature record: CXX_FEATURE:0cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:0cxx_thread_local
+    Feature record: CXX_FEATURE:0cxx_trailing_return_types
+    Feature record: CXX_FEATURE:0cxx_unicode_literals
+    Feature record: CXX_FEATURE:0cxx_uniform_initialization
+    Feature record: CXX_FEATURE:0cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:0cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:0cxx_variadic_macros
+    Feature record: CXX_FEATURE:0cxx_variadic_templates

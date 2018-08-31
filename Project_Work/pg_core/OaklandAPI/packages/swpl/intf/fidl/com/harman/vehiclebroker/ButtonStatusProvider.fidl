@@ -1,0 +1,24 @@
+package com.harman.vehicle
+
+import model "VehicleDataTypes.fidl"
+
+interface ButtonStatusProvider
+{
+	version { major 0 minor 1}
+
+	attribute ButtonStatus [] buttonStatus readonly
+	/*Signal to block button status. Button task will be OEM Specific. */
+
+	enumeration ButtonStatusEnum
+	{
+		RELEASED = 0
+		PRESSED = 1
+		SNA = 3
+	}
+
+	struct ButtonStatus extends com.harman.vehicle.VehicleDataTypes.VehiclePropertyBase
+	{
+		ButtonStatusEnum value
+		UInt8 commandid
+	}
+}

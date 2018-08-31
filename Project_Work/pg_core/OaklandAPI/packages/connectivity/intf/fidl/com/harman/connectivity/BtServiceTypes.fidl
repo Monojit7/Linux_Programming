@@ -1,0 +1,105 @@
+package com.harman.connectivity
+
+typeCollection btTypedefs {
+
+	struct service {
+		String serviceName
+		Boolean connectionState
+		String serviceState
+//		Int8   priority	
+	}
+	
+//	struct deviceList {
+//		String  deviceName
+//		String  deviceAddr
+//		Boolean deviceInRange
+//		service servicearray
+//	}
+	//Device search entry
+	struct deviceSearchEntry {
+		String  deviceName
+		String  deviceAddr
+		Int32   deviceClass
+	}
+	
+	struct profile {
+		String profileName
+		Int32 majorNum
+		Int32 minorNum
+	}
+	
+ struct durationStruct {
+      Boolean isValid
+      Int32 duration
+   }
+  enumeration eCallState{
+	CALL_STATE_IDLE
+	CALL_STATE_ACTIVE
+	CALL_STATE_ON_HOLD
+	CALL_STATE_TERMINATED
+	CALL_STATE_DIALING
+	CALL_STATE_RINGING
+	CALL_STATE_ALERTING
+	CALL_STATE_WAITING
+	}
+  struct callStateInfo{
+	eCallState cstate
+	String number
+    String name
+	String imageUrl
+	String reqNumber   
+	Int32 callId
+	Boolean callStateChanged
+	Boolean inBand
+	Boolean loc
+	Boolean rhState
+	String codec  
+    Boolean audio	
+ }
+  
+  struct bondedDev {
+   
+      String  deviceName
+	  String  deviceAddr
+	  Boolean deviceInRange
+	  String  date
+      Int32   cod
+      String  vendorId
+      String  vendorIdSource
+      String  productId
+      String  versionnum
+      Boolean complete
+      servicedescription[] list
+            
+   }
+   struct servicedescription extends service{
+      Int32   priority
+      
+   }
+   enumeration transferDelay {
+         YES
+         NO
+         NotAvailable
+   }
+   
+   
+   
+   struct lastConnectedDev {
+      String service
+      String address
+      String name
+      Boolean userDisc
+   }
+   
+   array deviceSearchEntryList of deviceSearchEntry
+   array bondedDevList of bondedDev
+   array profileList of profile
+   array serviceList of service
+   array serviceDesList of servicedescription
+   array callstateInfoList of callStateInfo
+   array integerList of Int32
+   array lastConnectedDevList of lastConnectedDev
+   array stringList of String
+   
+
+}

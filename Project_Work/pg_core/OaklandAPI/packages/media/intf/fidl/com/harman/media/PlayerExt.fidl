@@ -1,0 +1,169 @@
+package com.harman.media
+
+import com.harman.media.BaseType.* from "BaseType.fidl"
+
+import org.genivi.mediamanager.BrowserTypes.* from "../../../../../../genivi/intf/fidl/org/genivi/MediaManager/BrowserTypes.fidl"
+import org.genivi.mediamanager.MediaTypes.* from "../../../../../../genivi/intf/fidl/org/genivi/MediaManager/MediaTypes.fidl"
+
+<** @description: PlayerExt interface provide favorite/most played/recent played songs retrive and delete. **>
+interface PlayerExt {
+    version {
+        major 1
+        minor 0
+    }
+
+    // Methods
+    <** @description: Retrieve the favorite songs of the given devices. **>
+    method getFavoriteList {
+        in {
+		
+		<** @description: Explicitly indicate which device's favorite song should be retrieved. **>
+           UInt64[] devices
+		   
+		<** @description: The offset to use for retrieving part of the results list. **>
+           UInt64   offset
+		   
+		<** @description: The number of results to return, starting from offset. **>
+           UInt64   count
+        }
+        out {
+		<** @description: ResultMapList of the favorite song of devices with song URI as its ID.
+                      See MediaTypes.fidl for a list of allowed keys. 
+		**>
+            ResultMapList m
+			
+		<** @description: S_OK if no error. otherwise, error occurred. **>
+            tBaseError e
+        }
+    }
+
+    <** @description: Retrieve the count of favorite songs of the given devices. **>
+    method getFavoriteCount {
+        in {
+		<** @description: Explicitly indicate which device's favorite song should be retrieved. **>
+           UInt64[] devices
+        }
+        out {
+		<** @description: count of the favorite song of devices. **>
+            UInt64   count
+			
+		<** @description: S_OK if no error. otherwise, error occurred. **>
+            tBaseError e
+        }
+    }
+
+    <** @description: Add songs to favorite list. **>
+    method addToFavoriteList {
+        in {
+		<** @description: The songs to be added as favorite song. **>
+           String[] listToAdd
+        }
+        out {
+		<** @description: S_OK if no error. otherwise, error occurred. **>
+            tBaseError e
+        }
+    }
+
+    <** @description: Delete songs from favorite list. **>
+    method deleteFromFavoriteList {
+        in {
+		<** @description: listToDelete: The songs to be deleted from favorite list. **>
+           String[] listToDelete
+        }
+        out {
+		<** @description: S_OK if no error. otherwise, error occurred. **>
+            tBaseError e
+        }
+    }
+
+    <** @description: Check given song is favorite or not. **>
+    method isFavoriteSong {
+        in {
+		<** @description: the uri of song to be checked for favorite. **>
+           String uri
+        }
+        out {
+		<** @description: true if favorite, otherwise, false. **>
+            Boolean b
+			
+		<** @description: S_OK if no error. otherwise, error occurred. **>
+            tBaseError e
+        }
+    }
+
+    <** @description: Retrieve the most played songs of the given devices. **>
+    method getMostPlayedList {
+        in {
+		<** @description: Explicitly indicate which device's most played songs should be retrieved. **>
+           UInt64[] devices
+		   
+		<** @description: The offset to use for retrieving part of the results list. **>
+           UInt64   offset
+		   
+		<** @description: The number of results to return, starting from offset. **>
+           UInt64   count
+        }
+        out {
+		<** @description: ResultMapList of the most played song of the devices with song URI as its ID.
+                      See MediaTypes.fidl for a list of allowed keys.
+		**>
+            ResultMapList m
+			
+		<** @description: S_OK if no error. otherwise, error occurred. **>
+            tBaseError e
+        }
+    }
+
+    <** @description: Retrieve the count of most played songs of the given devices. **>
+    method getMostPlayedCount {
+        in {
+		<** @description: Explicitly indicate which device's most played song should be retrieved. **>
+           UInt64[] devices
+        }
+        out {
+		<** @description: count of the most played song of devices. **>
+            UInt64   count
+			
+		<** @description: S_OK if no error. otherwise, error occurred. **>
+            tBaseError e
+        }
+    }
+
+    <** @description: Retrieve the recently played songs of the given devices. **>
+    method getRecentPlayedList {
+        in {
+		<** @description: Explicitly indicate which device's recently played songs should be retrieved. **>
+           UInt64[] devices
+		   
+		<** @description: The offset to use for retrieving part of the results list. **>
+           UInt64   offset
+		   
+		<** @description: The number of results to return, starting from offset. **>
+           UInt64   count
+        }
+        out {
+		<** @description: ResultMapList of the recently played songs of the devices with song URI as its ID.
+                      See MediaTypes.fidl for a list of allowed keys. 
+		**>
+            ResultMapList m
+			
+		<** @description: S_OK if no error. otherwise, error occurred. **>
+            tBaseError e
+        }
+    }
+
+    <** @description: Retrieve the count of recently played songs of the given devices. **>
+    method getRecentPlayedCount {
+        in {
+		<** @description: Explicitly indicate which device's recently played song should be retrieved. **>
+           UInt64[] devices
+        }
+        out {
+		<** @description: count of the recently played song of devices. **>
+            UInt64   count
+			
+		<** @description: S_OK if no error. otherwise, error occurred. **>
+            tBaseError e
+        }
+    }
+}

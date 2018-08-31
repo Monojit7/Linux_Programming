@@ -1,0 +1,31 @@
+#----------------------------------------------------------------
+# Project       Harman Car Multimedia System
+# Copyright (C) 2009-2015
+# Company       Harman/Becker Automotive Systems GmbH
+#               All Rights Reserved
+# Secrecy Level STRICTLY CONFIDENTIAL
+#----------------------------------------------------------------
+
+SubDir API_NAV_CTRL_PF ;
+
+
+CFG_CTRL_API_FRANCA_GENERATE  ?= FALSE ; # if TRUE the included fidl and fdepl files from api/ctrl/... will be generated using SomeIP2GenApp
+
+SubInclude [ GetSubDir ] common ;
+SubInclude [ GetSubDir ] configuration ;
+SubInclude [ GetSubDir ] dbupdate ;
+SubInclude [ GetSubDir ] di ;
+SubInclude [ GetSubDir ] dra ;
+SubInclude [ GetSubDir ] gv ;
+SubInclude [ GetSubDir ] highwaymode ;
+SubInclude [ GetSubDir ] icon ;
+SubInclude [ GetSubDir ] ln ;
+SubInclude [ GetSubDir ] pos ;
+SubInclude [ GetSubDir ] rg ;
+SubInclude [ GetSubDir ] mapv ;
+SubInclude [ GetSubDir ] memory ;
+SubInclude [ GetSubDir ] sim ;
+SubInclude [ GetSubDir ] speedcam ;
+SubInclude [ GetSubDir ] tpegoverip ;
+SubInclude [ GetSubDir ] traffic ;
+SubInclude [ GetSubDir ] tunertmc ;

@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DSI>
+   <Name>org_harman_nav_ctrl_highwaymode_HighwayMode</Name>
+   <ID>2</ID>
+   <Extern>true</Extern>
+   <Version>
+      <Major>2</Major>
+      <Minor>2</Minor>
+   </Version>
+   <Includes>
+      <Include>
+         <Name>api/nav/ctrl/pf/highwaymode/org_harman_nav_ctrl_highwaymode_HighwayModeTypes.hbtd</Name>
+         <Major>2</Major>
+         <Minor>2</Minor>
+      </Include>
+      <Include>
+         <Name>api/nav/ctrl/pf/common/org_harman_nav_ctrl_CommonTypes.hbtd</Name>
+         <Major>1</Major>
+         <Minor>0</Minor>
+      </Include>
+      <Include>
+         <Name>api/nav/ctrl/pf/di/org_harman_nav_ctrl_di_POIServiceTypes.hbtd</Name>
+         <Major>1</Major>
+         <Minor>0</Minor>
+      </Include>
+      <Include>
+         <Name>api/nav/ctrl/pf/common/list/org_harman_nav_ctrl_common_list_ListTypes.hbtd</Name>
+         <Major>1</Major>
+         <Minor>0</Minor>
+      </Include>
+      <Include>
+         <Name>api/nav/ctrl/pf/traffic/org_harman_nav_ctrl_traffic_TrafficInformationTypes.hbtd</Name>
+         <Major>2</Major>
+         <Minor>1</Minor>
+      </Include>
+      <Include>
+         <Name>api/nav/ctrl/pf/di/org_harman_nav_ctrl_di_LocationInputTypes.hbtd</Name>
+         <Major>2</Major>
+         <Minor>2</Minor>
+      </Include>
+   </Includes>
+   <DataTypes/>
+   <Enums>
+      <Enum>
+         <Name>Error</Name>
+         <ID>2</ID>
+         <Description>This is the type for error responses.</Description>
+         <EnumIDs>
+            <EnumID>
+               <Name>ERROR_ListError_INVALID</Name>
+               <ID>3</ID>
+               <Value>0x0000</Value>
+            </EnumID>
+            <EnumID>
+               <Name>ERROR_ListError_INVALID_LIST_ID</Name>
+               <ID>4</ID>
+            </EnumID>
+            <EnumID>
+               <Name>ERROR_ListError_INVALID_VIEW</Name>
+               <ID>5</ID>
+            </EnumID>
+            <EnumID>
+               <Name>ERROR_ListError_INVALID_PARAMETER</Name>
+               <ID>6</ID>
+            </EnumID>
+            <EnumID>
+               <Name>ERROR_ListError_SIZE_LIMIT_EXCEEDED</Name>
+               <ID>7</ID>
+            </EnumID>
+            <EnumID>
+               <Name>ERROR_ListError_OUT_OF_RESSOURCES</Name>
+               <ID>8</ID>
+            </EnumID>
+            <EnumID>
+               <Name>ERROR_ListError_OUT_OF_RANGE_POSITION</Name>
+               <ID>9</ID>
+            </EnumID>
+            <EnumID>
+               <Name>ERROR_ListError_POLICY_DENIED</Name>
+               <ID>10</ID>
+            </EnumID>
+         </EnumIDs>
+      </Enum>
+   </Enums>
+   <Methods>
+      <Method>
+         <Name>getListSize</Name>
+         <ID>1200</ID>
+         <Description>get the current number of contained elements in the given list.</Description>
+         <Type>Request</Type>
+         <Response>getListSize</Response>
+         <Parameters>
+            <Parameter>
+               <Name>getListSize_R_list</Name>
+               <ID>13</ID>
+               <Type>org_harman_nav_ctrl_common_list_ListTypes::ListId</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>getListSize</Name>
+         <ID>2200</ID>
+         <Description>get the current number of contained elements in the given list.</Description>
+         <Type>Response</Type>
+         <Parameters>
+            <Parameter>
+               <Name>getListSize_size</Name>
+               <ID>15</ID>
+               <Type>org_harman_nav_ctrl_common_list_ListTypes::ListSize</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>createView</Name>
+         <ID>1201</ID>
+         <Description>create a new view to the mother array. 
+			  		           This view will be maintained until the client uses destroyView, 
+			  		           unsubscribes or service/proxy exit. 
+			  		           After creating a view the client must receive an update.
+			  		           Only one created view is allowed to modify the list entries.
+			  		           Please note: a valid usecase is to specify a viewSize which is 
+			  		           bigger than the inital list size</Description>
+         <Type>Request</Type>
+         <Response>createView</Response>
+         <Parameters>
+            <Parameter>
+               <Name>createView_R_list</Name>
+               <ID>17</ID>
+               <Description>list to create the view upon.</Description>
+               <Type>org_harman_nav_ctrl_common_list_ListTypes::ListId</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>createView_R_viewsize</Name>
+               <ID>18</ID>
+               <Description>individual size of the requested view.</Description>
+               <Type>org_harman_nav_ctrl_common_list_ListTypes::ViewSize</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>createView</Name>
+         <ID>2201</ID>
+         <Description>create a new view to the mother array. 
+			  		           This view will be maintained until the client uses destroyView, 
+			  		           unsubscribes or service/proxy exit. 
+			  		           After creating a view the client must receive an update.
+			  		           Only one created view is allowed to modify the list entries.
+			  		           Please note: a valid usecase is to specify a viewSize which is 
+			  		           bigger than the inital list size</Description>
+         <Type>Response</Type>
+         <Parameters>
+            <Parameter>
+               <Name>createView_view</Name>
+               <ID>20</ID>
+               <Description>view identification used to distinguish several instances of a view for one client. 
+			                            It is never changed by the service nor the client. This id is unique!</Description>
+               <Type>org_harman_nav_ctrl_common_list_ListTypes::ViewId</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>deleteView</Name>
+         <ID>1202</ID>
+         <Description>delete the given view instance</Description>
+         <Type>Request</Type>
+         <Response>deleteView</Response>
+         <Parameters>
+            <Parameter>
+               <Name>deleteView_R_view</Name>
+               <ID>22</ID>
+               <Description>identifies the view to apply this operation upon.</Description>
+               <Type>org_harman_nav_ctrl_common_list_ListTypes::ViewId</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>deleteView</Name>
+         <ID>2202</ID>
+         <Description>delete the given view instance</Description>
+         <Type>Response</Type>
+      </Method>
+      <Method>
+         <Name>setViewSize</Name>
+         <ID>1203</ID>
+         <Description>adjust the view size. It is allowed to set view size to a larger value
+			  		           than the actual size of the list, but less or equal than the maximum size of the list. 
+			  		           The implementation may limit the maximum view size for resource reasons. 
+			  		           After adjusting the window size the client must receive an update.</Description>
+         <Type>Request</Type>
+         <Response>setViewSize</Response>
+         <Parameters>
+            <Parameter>
+               <Name>setViewSize_R_view</Name>
+               <ID>25</ID>
+               <Description>identifies the view to apply this operation upon.</Description>
+               <Type>org_harman_nav_ctrl_common_list_ListTypes::ViewId</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>setViewSize_R_new_size</Name>
+               <ID>26</ID>
+               <Description>new view size</Description>
+               <Type>org_harman_nav_ctrl_common_list_ListTypes::ViewSize</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>setViewSize</Name>
+         <ID>2203</ID>
+         <Description>adjust the view size. It is allowed to set view size to a larger value
+			  		           than the actual size of the list, but less or equal than the maximum size of the list. 
+			  		           The implementation may limit the maximum view size for resource reasons. 
+			  		           After adjusting the window size the client must receive an update.</Description>
+         <Type>Response</Type>
+      </Method>
+      <Method>
+         <Name>setViewPosition</Name>
+         <ID>1204</ID>
+         <Description>set the absolute view position to element key. 
+			  		           The client should use an available snapshot of a view to maintain focused elements 
+			  		           within the view if possible, and change the view position only if an 
+			  		           element to be focused is outside of the given view. A snapshot is generated whenever
+			  		           querying the data contained in a view. Together with that data, the ViewSnapshotPosition is provided.
+			  		           The initial snapshot of the view is always [0, min(viewSize-1, listSize-1)].
+			  		           When creating a new view snapshot, the last call of setViewPosition or setViewAnchor (whichever was the last one)
+			  		           will be the relevant information to reposition the new view snapshot. If setViewPosition was the last call,
+			  		           the view is moved such that the provided key refers to the absolute position on the current snapshot of the view.
+			  		           (This becomes important if the current view snapshot is outdated because the list has been updated.)
+			  		   
+			  		           The following rules are applied to set the position of the new view snapshot [newFrom, newTo], given a snapshot [from, to]:
+			  		           Let elem(k) denote the element at key k in the old snapshot and new(e) denote the key the element e will have 
+			  		           (would have if deleted) in the new snapshot (see also examples (1)-(3) below).
+			  		           (1) If key is less than from, then newFrom will be set to new(elem(from)) - (from-key).
+			  		           (2) If key is contained in [from, to], then newKey will be set to new(elem(key)).
+			  		           (3) If key is greater than to, then newFrom will be set to new(elem(to)) + (key-to).
+			  		           If any of these calculated values are out of the range of the list [0, listSize-1], they will be truncated to fit into the list.
+			  		           (Note that the resulting newFrom is always equal to key if the data wasn't updated, 
+			  		           but it doesn't have to be equal to key if the data was updated.)
+			  		           After setting the view position the anchor offset will automatically be set to 0.
+			  		           There are two special key values to allow scrolling to the top/bottom of the list, independently from the above rules:
+			  		           The key value 0xFFFE always positions the view to the top of the list.
+			  		           The key value 0xFFFF always positions the view to the bottom of the list.
+			  		   
+			  		           As an example for the case in which the data was updated:
+			  		           old list {"a", "b", "c", "d", "e", "f"} with view snapshot ["c", "d"] with viewSize 2 and viewKey 2
+			  		           new list {"b", "d", "f", "h", "j", "l"}
+			  		           (1) setViewPosition(0) =&gt; [from, to] is [2, 3], elem(from) is "c", new(elem(from)) is 1
+			  		                                  =&gt; ["b", "d"] with ViewSnapshotPosition {listSize=6, listKey=0, anchorOffset=0}.
+			  		           (2) setViewPosition(3) =&gt; [from, to] is [2, 3], elem(key) is "d", new(elem(key)) is 1
+			  		                                  =&gt; ["d", "f"] with ViewSnapshotPosition {listSize=6, listKey=1, anchorOffset=0}.
+			  		           (3) setViewPosition(4) =&gt; [from, to] is [2, 3], elem(to) is "d", new(elem(d)) is 1
+			  		                                  =&gt; ["f", "h"] with ViewSnapshotPosition {listSize=6, listKey=2, anchorOffset=0}.</Description>
+         <Type>Request</Type>
+         <Parameters>
+            <Parameter>
+               <Name>setViewPosition_R_view</Name>
+               <ID>29</ID>
+               <Description>identifies the view to apply this operation upon.</Description>
+               <Type>org_harman_nav_ctrl_common_list_ListTypes::ViewId</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>setViewPosition_R_key</Name>
+               <ID>30</ID>
+               <Description>element to position the view upon, according to view policy.</Description>
+               <Type>org_harman_nav_ctrl_common_list_ListTypes::ListKey</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>setViewAnchor</Name>
+         <ID>1205</ID>
+         <Description>set a stable element inside the current view snapshot.
+			  		           The client should use an available snapshot of a view to maintain focused elements 
+			  		           within the view if possible, and change the view position only if an 
+			  		           element to be focused is outside of the given view. A snapshot is generated whenever
+			  		           querying the data contained in a view. Together with that data, the ViewSnapshotPosition is provided.
+			  		           The initial snapshot of the view is always [0, min(viewSize-1, listSize-1)] with anchor offset 0.
+			  		           When creating a new view snapshot, the last call of setViewPosition or setViewAnchor (whichever was the last one)
+			  		           will be the relevant information to reposition the new view snapshot. If setViewAnchor was the last call,
+			  		           the anchor element of the old view snapshot is used for repositioning.
+			  		           (This method only needs to be used if the current view snapshot is outdated because the list has been updated.)
+			  		   
+			  		           The following rules are applied to set the position of the new view snapshot [newFrom, newTo], given a snapshot [from, to]
+			  		           and anchor offset aOff:
+			  		           Let elem(k) denote the element at key k in the old snapshot and new(e) denote the key the element e will have 
+			  		           (would have if deleted) in the new snapshot (see also examples below).
+			  		           newFrom is set to new(elem(from+aOff)) - aOff.
+			  		           If any of these calculated values are out of the range of the list [0, listSize-1], they will be truncated to fit into the list.
+			  		           As a consequence, whenever possible, the anchor element of the old snapshot will be at the same offset within the new snapshot.
+			  		   
+			  		           As an example for the case in which the data was updated:
+			  		           old list {"a", "b", "c", "d", "e", "f"} with view snapshot ["c", "d"] with viewSize 2 and viewKey 2
+			  		           new list {"b", "d", "f", "h", "j", "l"}
+			  		           setViewAnchor(0) =&gt; elem(from+aOff) is "c", new(elem(from+aOff)) is 1 ("c" would be inserted at index 1)
+			  		                            =&gt; ["d", "f"] with ViewSnapshotPosition {listSize=6, listKey=1, anchorOffset=0}.
+			  		           setViewAnchor(1) =&gt; elem(from+aOff) is "d", new(elem(from+aOff)) is 1
+			  		                            =&gt; ["b", "d"] with ViewSnapshotPosition {listSize=6, listKey=0, anchorOffset=1}.</Description>
+         <Type>Request</Type>
+         <Parameters>
+            <Parameter>
+               <Name>setViewAnchor_R_view</Name>
+               <ID>32</ID>
+               <Description>identifies the view to apply this operation upon.</Description>
+               <Type>org_harman_nav_ctrl_common_list_ListTypes::ViewId</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>setViewAnchor_R_anchor</Name>
+               <ID>33</ID>
+               <Description>relative anchor position in the view, referenced from ListKey
+			    		                            Please note: only positive values and 0 are allowed</Description>
+               <Type>org_harman_nav_ctrl_common_list_ListTypes::AnchorOffset</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>setEnable</Name>
+         <ID>1206</ID>
+         <Description>turn on/off highway mode</Description>
+         <Type>Request</Type>
+         <Response>setEnable</Response>
+         <Parameters>
+            <Parameter>
+               <Name>setEnable_R_enabled</Name>
+               <ID>35</ID>
+               <Type>bool</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>setEnable</Name>
+         <ID>2206</ID>
+         <Description>turn on/off highway mode</Description>
+         <Type>Response</Type>
+      </Method>
+      <Method>
+         <Name>getResultList</Name>
+         <ID>1207</ID>
+         <Description>getResultList</Description>
+         <Type>Request</Type>
+         <Response>getResultList</Response>
+         <Parameters>
+            <Parameter>
+               <Name>getResultList_R_view</Name>
+               <ID>38</ID>
+               <Description>Identifies the view this result list is applied for.</Description>
+               <Type>org_harman_nav_ctrl_common_list_ListTypes::ViewId</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>getResultList</Name>
+         <ID>2207</ID>
+         <Description>getResultList</Description>
+         <Type>Response</Type>
+         <Parameters>
+            <Parameter>
+               <Name>getResultList_resultPosition</Name>
+               <ID>40</ID>
+               <Description>list key of the first entry into the received result list.</Description>
+               <Type>org_harman_nav_ctrl_common_list_ListTypes::ListKey</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>getResultList_items</Name>
+               <ID>41</ID>
+               <Description>result items based on the requested position and key what is
+			            				related to the given view id.</Description>
+               <Type>org_harman_nav_ctrl_highwaymode_HighwayModeTypes::HighwayItemArray</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>getMessageDetails</Name>
+         <ID>1208</ID>
+         <Description>get the details of a road junction, interchange, POI or traffic incident</Description>
+         <Type>Request</Type>
+         <Response>getMessageDetails</Response>
+         <Parameters>
+            <Parameter>
+               <Name>getMessageDetails_R_view</Name>
+               <ID>43</ID>
+               <Description>Identifies the view this result list is applied for.</Description>
+               <Type>org_harman_nav_ctrl_common_list_ListTypes::ViewId</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>getMessageDetails_R_itemId</Name>
+               <ID>44</ID>
+               <Type>org_harman_nav_ctrl_highwaymode_HighwayModeTypes::HighwayItemId</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>getMessageDetails</Name>
+         <ID>2208</ID>
+         <Description>get the details of a road junction, interchange, POI or traffic incident</Description>
+         <Type>Response</Type>
+         <Parameters>
+            <Parameter>
+               <Name>getMessageDetails_messageDetails</Name>
+               <ID>46</ID>
+               <Type>org_harman_nav_ctrl_highwaymode_HighwayModeTypes::MessageDetails</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>viewUpdate</Name>
+         <ID>2300</ID>
+         <Description>indicate to the client that the underlying list of a certain view has changed
+                          Whenever elements get inserted/removed or the content of element gets changed, the size 
+                          or the sorting order of a list might change. This might influence the current view and
+                          especially the position of the anchor element in the list. To allow a client to react on such
+                          changes in an approapriate manner, the viewUpdate broadcast will provide all necessary information
+                          to its client. 
+                          It is up to the client to reposition the view to its needs based on the provided information, 
+                          using the methods setViewPosition or setViewAnchor.</Description>
+         <Type>Information</Type>
+         <Parameters>
+            <Parameter>
+               <Name>viewUpdate_view</Name>
+               <ID>48</ID>
+               <Description>unique identifier of a view</Description>
+               <Type>org_harman_nav_ctrl_common_list_ListTypes::ViewId</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>viewUpdate_size</Name>
+               <ID>49</ID>
+               <Description>current size of the underlying list</Description>
+               <Type>org_harman_nav_ctrl_common_list_ListTypes::ListSize</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>viewUpdate_viewChanged</Name>
+               <ID>50</ID>
+               <Description>at least one element of the currently active view snapshot has changed</Description>
+               <Type>bool</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>viewUpdate_listChanged</Name>
+               <ID>51</ID>
+               <Description>at least one element of the list has changed (this might lead to a different new view snapshot)</Description>
+               <Type>bool</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+      <Method>
+         <Name>listSize</Name>
+         <ID>2301</ID>
+         <Description>informs the client about changes of the list size.</Description>
+         <Type>Information</Type>
+         <Parameters>
+            <Parameter>
+               <Name>listSize_id</Name>
+               <ID>53</ID>
+               <Description>list id related to the list size update</Description>
+               <Type>org_harman_nav_ctrl_common_list_ListTypes::ListId</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+            <Parameter>
+               <Name>listSize_size</Name>
+               <ID>54</ID>
+               <Description>changed list size information</Description>
+               <Type>org_harman_nav_ctrl_common_list_ListTypes::ListSize</Type>
+               <IsDefault>false</IsDefault>
+            </Parameter>
+         </Parameters>
+      </Method>
+   </Methods>
+   <Attributes>
+      <Attribute>
+         <Name>astatus</Name>
+         <ID>11</ID>
+         <Description>indicate the statuses of Highway Mode</Description>
+         <Type>org_harman_nav_ctrl_highwaymode_HighwayModeTypes::HighWayStatus</Type>
+         <Notify>OnChange</Notify>
+      </Attribute>
+   </Attributes>
+</DSI>

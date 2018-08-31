@@ -1,0 +1,186 @@
+/* 
+   Harman/Becker Automotive GmbH
+*/
+
+package org.harman.nav.ctrl.memory
+
+import org.harman.nav.ctrl.common.list.* from "../common/list/ListTypes.fidl"
+import org.harman.nav.ctrl.di.LocationInputTypes.* from "../di/LocationInputTypes.fidl"
+import org.harman.nav.ctrl.di.POIServiceTypes.* from "../di/POIServiceTypes.fidl"
+
+typeCollection LocationMemoryTypes {
+ version { major 3  minor 4}
+	
+	 enumeration LocationMemoryError extends ListTypes.ListError {
+	 	<**
+            @description : path is not existing.
+        **>
+        INVALID_PATH
+        <**
+            @description : path is not writable.
+        **>
+        PATH_NOT_WRITABLE
+        <**
+            @description : occurs if the list was empty.
+        **>
+        EMPTY_LIST        
+	 }
+	
+	<**
+		@description : supported Location Memory List Types
+   **>
+	enumeration EProvidedListTypes {
+		<** @description : recent list, only fifo sorting **>
+		E_LIST_RECENT             = "0x01"	
+		<** @description : favorite list, alphabetical **>
+		E_LIST_FAVOURITES         = "0x02"	
+		<** @description : fixed favorites, only custom sorted (fixed) **>
+		E_LIST_FIXED_FAVOURITES   = "0x04"	
+		//<** @description : weather locations, alphabetically sorted **>
+		E_LIST_WEATHER			  =  "0x08"	
+	}	
+	
+	<** @description : supported Location Memory Listsettings **>
+	struct ListSetting {		
+		ListTypes.ListId             listId
+		ListTypes.SortOption []      availableSortings
+		ListTypes.ModificationPolicy policy
+		//UInt32 						 occupiedListSize
+		UInt32                       maxListSize
+	}
+	
+	<** @description : Configuration settings **>
+	map Configurations {
+		EProvidedListTypes to ListSetting
+	}
+
+	<** @description : EItemType **>
+	enumeration EItemType
+	{
+		E_LM_TYPE_POI
+		E_LM_TYPE_ADDRESS
+		E_LM_TYPE_CONTACT
+		E_LM_TYPE_TOUR
+		E_LM_TYPE_EMPTY
+	}
+
+	<**
+		@description : supported Location Memory imports and export locations
+   **>
+	enumeration EExternalSources {
+		<** @description : media storage **>
+		E_EXTERNAL_MEDIA           = "0x01"	
+	}	
+	
+	<** @description : Absolute unique (list independent) item ID, blackbox for the client **>
+	typedef UniqueItemId is ByteBuffer
+
+    <** @description : List of item ids **>
+    array UniqueItemIdList of UniqueItemId
+	
+	<** @description :  Unick**>
+	typedef TItemId is UInt16
+    
+    typedef TItemName is String
+    
+   <** @description : shows on which lists an item is present **>
+    array TItemMembership of EProvidedListTypes
+    
+   <** @description : short item data  **>
+    struct Item {    	
+    	TItemId   id
+    	TItemName name
+    	EItemType type
+    	TItemMembership lists
+    	// addon: geoposition for preview map (availability? What to use for tour?)
+    }    
+    
+    <**
+        @description : Description of a single location enriched with a type.
+    **>
+    struct Location {
+    	<** @description: Type as tour can consist of Poi,Contact,Address **>
+    	EItemType  type
+		<** @description: Location from LocationInputTypes **>
+    	Address    address
+		<** @description: details for POIs **>
+        SearchResultDetails poiDetails
+    }
+    
+    <**
+        @description : List of destinations. 
+        	A regular address will be a single entry, a contact can consist of
+        	home and office address, a poi of postal and entry address, a tour
+        	of several (concrete) destinations. 
+    **>
+    array LocationList of Location 
+    
+    <**
+        @description : All data for a location
+    **>
+    struct LocationItem {
+    	<** @description: type of location **>
+    	EItemType     type
+    	<** @description: list of locations **>
+    	LocationList  locations
+    	<** @description: used timeslot, used only for fixed favorite list **>
+    	Timeslot      time   
+    }
+    
+    <**
+        @description : List of LocationItem. 
+    **>
+    array LocationItemList of LocationItem
+    
+    <**
+        @description : List of Item. 
+    **>
+    array ItemList of Item 
+	
+    <**
+        @description : List of Item. 
+    **>
+    array ViewKeyList of ListTypes.ViewKey 
+	
+	
+    <**
+        @description : Definition of a timeslot
+    **>
+    struct Timeslot {
+    	<** @description: if timeslot is currently active **>
+    	Boolean  active 
+    	<** @description: slots for each day, 0 = Monday **>
+    	DayslotList dayslots
+    }
+    
+    <**
+        @description : Array for the timeslot for each day, 7 slots starting with monday.
+    **>
+    array DayslotList of Dayslot 
+    
+    <**
+        @description :  Definition of a dayslot. User must ensure that start is less than end
+        				(Otherwise it would be undefined if previous/next day is meant)
+    **>
+    struct Dayslot {
+    	<** @description: if slot is active **>
+    	Boolean  active 
+    	<** @description: start time in minutes since midnight, hour = start_min / 60 , min = start_min % 60 **>
+    	UInt16   start_min
+    	<** @description: end time in minutes since midnight **>
+    	UInt16   end_min
+    } 
+	
+	<**
+		@description : A tuple containing the user define name in the list. 
+		Example: location = POI "Pasing Arcaden" with address: Josef-Felder-Straße 53, 81241 München, Deutschland
+				 name = a user given name like "Mein Lieblingsplatz"
+	**>	
+	struct NameLocationItem {
+		<** @description : User given name for a location in the list **>
+		TItemName 		name		// to be brainstormed the name of the name
+		<** @description : the location saved in the list **>
+		LocationItem 	location
+	}
+	
+}

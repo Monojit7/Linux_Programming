@@ -1,0 +1,11 @@
+#----------------------------------------------------------------
+# Project       Harman Car Multimedia System
+# Copyright (C) 2009-2015
+# Company       Harman/Becker Automotive Systems GmbH
+#               All Rights Reserved
+# Secrecy Level STRICTLY CONFIDENTIAL
+#----------------------------------------------------------------
+
+SubDir API_NAV_CTRL_PF memory xsd ;
+
+HBMoxGenGenerator gpx ;

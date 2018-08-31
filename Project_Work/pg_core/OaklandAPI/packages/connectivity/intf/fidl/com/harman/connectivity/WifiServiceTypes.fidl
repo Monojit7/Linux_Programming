@@ -1,0 +1,108 @@
+package com.harman.connectivity
+
+typeCollection WifiTypedefs {
+	
+	struct WiFiSvcNetwork {	
+		String bssid
+		Int32 channel
+		String ssid
+		Int32 rssi		
+		stringList security
+		stringList groupCipher		
+		stringList pairwiseCipherWPA
+		stringList pairwiseCipherWPA2
+		stringList authenticationList
+		Int32 securityOption
+		stringList wirelessMode
+		Int32 keyIndex
+		stringList keyList
+		Int32 priority
+		String lastConnectTime
+		Boolean favorite
+		Boolean hidden
+	}
+	
+	struct interfaces
+	{
+		String role
+		String Interface
+		String macAddr
+	}
+	
+	enumeration Role
+	{
+		eNoRole
+		eClient
+		eAP
+		eAdHoc
+		eDirect
+		eInvalidRole
+	}
+	
+	enumeration PairwiseCipher
+   	{
+        eNoPairwiseCipher
+		eAnyPairwiseCipher
+		eWEP40_Cipher
+		eWEP104_Cipher
+		eTKIP_Cipher
+		eCCMP_Cipher
+   	}
+	
+	enumeration eWPSMode
+	{
+		WPS_MODE_OFF = 0
+		WPS_MODE_REGISTRAR
+		WPS_MODE_ENROLLEE
+		eWPSMode_DEFAULT = 0
+	}
+	
+	struct ClientNode
+	{
+		String macAddr
+		String ipAddr
+		String name
+	}
+	
+	enumeration eOpMode
+	{
+		WLAN_OFF
+		WLAN_ACCESS_POINT = 1
+		WLAN_CLIENT
+		WLAN_ADHOC
+		WLAN_WIFI_DIRECT
+		eMode_DEFAULT = 1
+	}
+	
+	struct interfaceMode
+	{
+		String interfaceName
+		eOpMode mode
+		String mac_addr	
+	}
+	
+	struct knownNetwork
+	{
+		String ssid
+		Int32 priority
+	}
+
+	struct ConnectionStatus
+	{
+		String interfaceName
+		String role
+		Boolean connected
+	}
+	
+	
+	array integerList of Int32
+	array stringList of String
+	array WiFiSvcNetworklist of WiFiSvcNetwork
+	array interfacesList of interfaces  
+	array eWPSModeList of eWPSMode
+	array PairwiseCipherList of PairwiseCipher
+	array clientNodeList of ClientNode
+	array interfaceModeList of interfaceMode
+	array knownNetworkList of knownNetwork
+	array ConnectionStatusList of ConnectionStatus
+}

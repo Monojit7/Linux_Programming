@@ -1,0 +1,33 @@
+#----------------------------------------------------------------
+# Project       Harman Car Multimedia System
+# Copyright (C) 2009-2015
+# Company       Harman/Becker Automotive Systems GmbH
+#               All Rights Reserved
+# Secrecy Level STRICTLY CONFIDENTIAL
+#----------------------------------------------------------------
+
+SubDir API_NAV_CTRL_PF dbupdate ;
+
+if $(CFG_CTRL_API_FRANCA_GENERATE) = TRUE
+{
+   SomeIP2GenApp api_nav_ctrl_pf : DBUpdate.fdepl : true : true : true ;
+   SomeIP2GenApp api_nav_ctrl_pf : DBUpdateTypes.fdepl : true : true : true ;
+   SomeIP2GenApp api_nav_ctrl_pf : MediaConnector.fdepl : true : true : true ;
+   SomeIP2GenApp api_nav_ctrl_pf : MediaConnectorTypes.fdepl : true : true : true ;
+   SomeIP2GenApp api_nav_ctrl_pf : OnlineServiceDBUpdate.fdepl : true : true : true ;
+   SomeIP2GenApp api_nav_ctrl_pf : OnlineServiceDBUpdateTypes.fdepl : true : true : true ;
+}
+else
+{
+   NavAPIDefine api_nav_ctrl_pf :
+      org_harman_nav_ctrl_dbupdate_DBUpdate.hbsi
+      com_harman_nav_media_MediaConnector.hbsi
+      com_harman_redbend_OnlineServiceDBUpdate.hbsi
+      ;
+   
+   NavAPIDefine api_nav_ctrl_pf :
+      org_harman_nav_ctrl_dbupdate_DBUpdateTypes.hbtd
+      com_harman_nav_media_MediaConnectorTypes.hbtd
+      com_harman_redbend_OnlineServiceDBUpdateTypes.hbtd
+   ;
+}

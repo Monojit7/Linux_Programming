@@ -1,0 +1,233 @@
+package com.harman.btpres
+
+import com.harman.btpres.BTPresTypes.* from "BluetoothTypes.fidl"
+
+interface CallManager {
+    version {major 1 minor 0}
+
+    <** @description: broadcast Handsfree supported features to registered clients **>
+    attribute hfpSupportedFeaturesList hfFeaturesList readonly
+
+    <** @description: broadcast phone network operator information to registered clients **>
+    attribute networkOperatorInfoList operatorInfoList readonly
+
+    <** @description: broadcast signal and charge levels to registered clients **>
+    attribute signalChargeInfoList rssiChargeInfoList readonly
+
+    <** @description: broadcast callstate status to registered clients **>
+    attribute callstateInfoList callStateInfo readonly
+
+    <** @description: broadcast HF mode status to registered clients **>
+    attribute hfModeStatusList hfMode readonly
+
+    <** @description: broadcast call duration to registered clients **>
+    attribute callDurationList callDuration readonly
+
+    <** @description: broadcast SCO audio status to registered clients **>
+    attribute audioStatusList audioStatus readonly
+
+    <** @description: broadcast VR status to registered clients **>
+    attribute vrModeStatusList vrMode readonly
+
+    <** @description : Used to initate call from head unit HMI.
+	@param:	  inAddress (String)    	: BD Address of the device to get the properties
+	      : dialNumber (String)	        : Number to be dialled
+	      : contactName (String)    	: Contact Name if available
+	      : imageUrl (String)	        : Image URL if available
+	returns: errorCode (eErrorType)	: API execution output
+    **>
+    method dial {
+        in {
+            String inAddress
+            String dialNumber
+            String contactName
+            String imageUrl
+            eTelType   numType
+        }
+        out {
+            eErrorType errorCode
+        }
+    }
+
+    <** @description : Used to send DTMF tone from head unit to phone.
+	@param: inAddress (String)	: BD Address of the device to get the properties
+	      : dtmfTone (String)	: DTMF tone to be sent
+	returns: errorCode (errorCode)	: API execution ouput
+    **>
+    method sendDtmfTone {
+        in {
+            String inAddress
+            String dtmfTone
+        }
+        out {
+            eErrorType errorCode
+        }
+    }
+
+    <** @description : Accept incoming call from Head Unit
+	@param: inAddress (String)	: BD Address of the device to get the properties
+	      : transfer (Boolean)	: Whether the call has to be transferred to Handset mode upon acceptance
+	returns: errorCode (eErrorType): API execution output
+    **>
+    method acceptIncomingCall {
+        in {
+            String inAddress
+            Boolean transfer
+        }
+        out {
+            eErrorType errorCode
+        }
+    }
+
+    <** @description : End call for passed call ID
+        @param: inAddress (String)	: BD Address of the device to get the properties
+	      : callId (Int32)          : Call ID of the phone call to be ended
+	returns: errorCode (eErrorType): API execution output
+    **>
+    method endCall {
+        in {
+            String inAddress
+            Int8 callId
+        }
+        out {
+            eErrorType errorCode
+        }
+    }
+
+    <** @description : End currently active call for a particular device
+	@param:	inAddress (String)      : BD Address of the device to get the properties
+	returns: errorCode (eErrorType): API execution output
+    **>
+    method endActiveCall {
+        in {
+            String inAddress
+        }
+        out {
+            eErrorType errorCode
+        }
+    }
+
+    <** @description : Ends all available calls
+	@param:	inAddress (String)	: BD Address of the device to get the properties
+	returns: errorCode (eErrorType): API execution output
+    **>
+
+    method endAllCalls {
+        in {
+            String inAddress
+        }
+        out {
+            eErrorType errorCode
+        }
+    }
+
+    <** @description : Reject incoming calls
+	@param:	inAddress (String)	: BD Address of the device to get the properties
+	returns: errorCode (eErrorType): API execution output
+    **>
+    method rejectIncomingCall {
+        in {
+            String inAddress
+        }
+        out {
+            eErrorType errorCode
+        }
+    }
+
+    <** @description : Put current active call on hold
+	@param:	inAddress (String)	: BD Address of the device to get the properties
+	returns: errorCode (eErrorType): API execution output
+    **>
+    method holdActiveCall {
+        in {
+            String inAddress
+        }
+        out {
+            eErrorType errorCode
+        }
+    }
+
+    <** @description : Activate the held from head unit
+	@param: inAddress (String)	: BD Address of the device to get the properties
+	returns: errorCode (eErrorType): API execution output
+    **>
+    method resumeHeldCall {
+        in {
+            String inAddress
+        }
+        out {
+            eErrorType errorCode
+        }
+    }
+
+    <** @description : Conference available calls from Head Unit
+	@param:	inAddress (String)	: BD Address of the device to get the properties
+	returns: errorCode (eErrorType): API execution output
+    **>
+    method conferenceCall {
+        in {
+            String inAddress
+        }
+        out {
+            eErrorType errorCode
+        }
+    }
+
+    <** @description : Interface is used by HMI to select a particular call in case two phone are connected each with a phone call.
+        @param: inAddress (String)	: BD Address of the device to get the properties
+	      : callId (Int32)          : Call ID of the phone call to be selected
+	returns: errorCode (eErrorType): API execution output
+    **>
+    method selectCall {
+        in {
+            String inAddress
+            Int8 callId
+        }
+        out {
+            eErrorType errorCode
+        }
+    }
+
+    <** @description : Interface is used by HMI to transfer call audio from Handsfree to Handset and vise versa
+	@param: inAddress (String)	: BD Address of the device to get the properties
+	      : hfMode (Boolean)	: Handsfree Mode requested from the HMI
+	returns: errorCode (eErrorType): API execution output
+    **>
+    method setHfMode {
+        in {
+            String inAddress
+            Boolean hfMode
+        }
+        out {
+            eErrorType errorCode
+        }
+    }
+
+    <** @description : Interface is used by HMI to active Phone VR mode from Head Unit
+	@param: inAddress (String)	: BD Address of the device to get the properties
+	      : mode (Boolean)		: VR Mode requested from the HMI
+	returns: errorCode (eErrorType): API execution output
+    **>
+    method setVRMode {
+        in {
+            String inAddress
+            Boolean mode
+        }
+        out {
+            eErrorType errorCode
+        }
+    }
+
+    <** @description : Interface is used by HMI to swap the active call available on Head Unit
+	@param:	inAddress (String)	: BD Address of the device to get the properties
+	returns: errorCode (eErrorType): API execution output
+    **>
+    method swapCalls {
+        in {
+            String inAddress
+        }
+        out {
+            eErrorType  errorCode
+        }
+    }
+}

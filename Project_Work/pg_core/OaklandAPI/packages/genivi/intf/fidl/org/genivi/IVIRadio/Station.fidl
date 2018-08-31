@@ -1,0 +1,1596 @@
+package IVIRadio.Station import IVIRadio.Types.Types.* from "Types.fidl" 
+ 
+<** 
+	@author : EGMG_Tuner 
+**> 
+ 
+interface Station { 
+	version { 
+		major 2 
+		minor 1 
+	} 
+ 
+	<** 
+		@description : deallocate a tuner resource   
+	**> 
+	method abortTune { 
+		in { 
+ 
+			<** 
+				@description : device on which tune process shall be aborted 
+			**> 
+			DeviceType deviceType 
+ 
+			<** 
+				@description : an optional handle for identifying the request 
+			**> 
+			UInt32 handle 
+		} 
+		out { 
+ 
+			<** 
+				@description : the handle of the corresponding request 
+			**> 
+			UInt32 handleOut 
+ 
+			<** 
+				@description : the result of the request 
+			**> 
+			Feedback feedback 
+		} 
+	} 
+ 
+	<** 
+		@description : make station permanent (tuning information will not be removed from middleware even if station is not receivable any more) 
+	**> 
+	method makePermanent { 
+		in { 
+ 
+			<** 
+				@description : the frequency/station that should be marked as permanent 
+			**> 
+			StationSelector station 
+ 
+			<** 
+				@description : enable / disable the permanent flag 
+			**> 
+			Boolean permanent 
+ 
+			<** 
+				@description : an optional handle for identifying the request 
+			**> 
+			UInt32 handle 
+		} 
+		out { 
+ 
+			<** 
+				@description : the handle of the corresponding request 
+			**> 
+			UInt32 handleOut 
+ 
+			<** 
+				@description : the result of that request 
+			**> 
+			Feedback feedback 
+		} 
+	} 
+ 
+	<** 
+		@description : request explicit update of currentStation or stationList information. E.g. necessary after startup. 
+	**> 
+	method controlUpdate { 
+		in { 
+ 
+			<** 
+				@description : update element: seek data, current station, station list 
+			**> 
+			StationTypes.UpdateElement updateElement 
+ 
+			<** 
+				@description : update type: One single update or continuously 
+			**> 
+			UpdateType updateType 
+ 
+			<** 
+				@description : the source type of interest (e. g. UNDEF, FM, AMFM) 
+			**> 
+			UInt32 sourceType 
+ 
+			<** 
+				@description : the station type of interest (e. g. RECEIVABLE, AUTOSTORE, PERMANENT) 
+			**> 
+			UInt32 stationType 
+ 
+			<** 
+				@description : an optional handle for identifying the request 
+			**> 
+			UInt32 handle 
+		} 
+		out { 
+ 
+			<** 
+				@description : the handle of the corresponding request 
+			**> 
+			UInt32 handleOut 
+ 
+			<** 
+				@description : the result of the request 
+			**> 
+			Feedback feedback 
+		} 
+	} 
+ 
+	<** 
+		@description : starts/stops a seek process 
+	**> 
+	method seek { 
+		in { 
+ 
+			<** 
+				@description : device on which the seek shall run 
+			**> 
+			DeviceType device 
+ 
+			<** 
+				@description : the requested seek mode and genre/PTY mask 
+			**> 
+			StationTypes.SeekMode seekMode 
+ 
+			<** 
+				@description : consider only satations of this genre 
+			**> 
+			UInt8 genre 
+ 
+			<** 
+				@description : additional flags to be considered (device and project dependent) 
+			**> 
+			UInt32 flags 
+ 
+			<** 
+				@description : an optional handle for identifying the request 
+			**> 
+			UInt32 handle 
+		} 
+		out { 
+ 
+			<** 
+				@description : the handle of the corresponding request 
+			**> 
+			UInt32 handleOut 
+ 
+			<** 
+				@description : the result of the request 
+			**> 
+			Feedback feedback 
+		} 
+	} 
+ 
+	<** 
+		@description : start tuning a frequency or selecting a station 
+	**> 
+	method startTune { 
+		in { 
+ 
+			<** 
+				@description : the station / frequency that should be tuned to 
+			**> 
+			StationSelector station 
+ 
+			<** 
+				@description : required selection mode 
+			**> 
+			StationTypes.SelectionMode selectionMode 
+ 
+			<** 
+				@description : an optional handle for identifying the request 
+			**> 
+			UInt32 handle 
+		} 
+		out { 
+ 
+			<** 
+				@description : handle of the corresponding request 
+			**> 
+			UInt32 handleOut 
+ 
+			<** 
+				@description : the result of the request 
+			**> 
+			Feedback feedback 
+		} 
+	} 
+ 
+	<** 
+		@description : information about the currently active station 
+	**> 
+	broadcast currentStation { 
+		out { 
+ 
+			<** 
+				@description : up-to-date information about the current station (optionally with additional metadata strings) 
+			**> 
+			StationTypes.Station current 
+ 
+			<** 
+				@description : The handle of the corresponding controlUpdate request 
+			**> 
+			UInt32 handleOut 
+ 
+			<** 
+				@description : information of the job execution status 
+			**> 
+			ErrorCodes errorCode 
+		} 
+	} 
+ 
+	<** 
+		@description : seek information sent during an active search. 
+	**> 
+	broadcast seek { 
+		out { 
+ 
+			<** 
+				@description : the current seek data 
+			**> 
+			StationTypes.SeekData seekData 
+ 
+			<** 
+				@description : the handle of the corresponding controlUpdate request 
+			**> 
+			UInt32 handleOut 
+ 
+			<** 
+				@description : information of the job execution status 
+			**> 
+			ErrorCodes errorCode 
+		} 
+	} 
+ 
+	<** 
+		@description : station list information. 
+	**> 
+	broadcast stationList { 
+		out { 
+ 
+			<** 
+				@description : the current station list update (different station types might exist in parallel). 
+			**> 
+			StationTypes.StationList list 
+ 
+			<** 
+				@description : the handle of the corresponding controlUpdate request 
+			**> 
+			UInt32 handleOut 
+ 
+			<** 
+				@description : information of the job execution status 
+			**> 
+			ErrorCodes errorCode 
+		} 
+	} 
+ 
+} 
+ 
+<** 
+	@author : MGEG_Tuner 
+**> 
+typeCollection StationTypes { 
+	version { 
+		major 2 
+		minor 0 
+	} 
+ 
+	<** 
+		@description : Type of meta data (device dependent, refer to specific hbtd file) 
+	**> 
+	struct Metadata { 
+ 
+		<** 
+			@description : additional information to be defined 
+		**> 
+		String str 
+ 
+		<** 
+			@description : Type of meta data (device dependent, refer to specific hbtd file) 
+		**> 
+		UInt8 type 
+	} 
+ 
+	<** 
+		@description : Seek mode relevant data 
+	**> 
+	struct SeekData { 
+ 
+		<** 
+			@description : Value in frequency or progress in percent  
+		**> 
+		UInt32 data 
+ 
+		<** 
+			@description : The current seek mode 
+		**> 
+		SeekMode mode 
+ 
+		<** 
+			@description : The current frequency (during seek mode) 
+		**> 
+		SeekReturnValue returnValue 
+	} 
+ 
+	<** 
+		@description : All important information about a station 
+	**> 
+	struct Station { 
+ 
+		<** 
+			@description : Additional flags (device and project specific, refer to specific hbtd file) 
+		**> 
+		UInt32 flags 
+ 
+		<** 
+			@description : Genres of station (indices are device and project dependent, refer to specific hbtd file) 
+		**> 
+		UInt32s genre 
+ 
+		<** 
+			@description : Vector of metadata (e.g. RT+ or DL+), only currently available types are part of this vector. 
+		**> 
+		Metadatas meta 
+ 
+		<** 
+			@description : Name vector (indices are device and project dependent, refer to specific hbtd file) 
+		**> 
+		Strings name 
+ 
+		<** 
+			@description : The quality vector (indices are device and project dependent, refer to specific hbtd file) 
+		**> 
+		UInt32s quality 
+ 
+		<** 
+			@description : Frequency and ID vector, can be directly passed into requestStartTune(). 
+		**> 
+		StationSelector sel 
+ 
+		<** 
+			@description : Station type characterized by a bit field (available bits are defined in StationType enum) 
+		**> 
+		UInt32 stationType 
+	} 
+ 
+	<** 
+		@description : Station list 
+	**> 
+	struct StationList { 
+ 
+		<** 
+			@description : Bit field characterizing the emitting tuner source (SourceType enum). That is the ORing of all possible deviceTypes in this list. 
+		**> 
+		UInt32 deviceType 
+ 
+		<** 
+			@description : list of stations 
+		**> 
+		Stations stations 
+ 
+		<** 
+			@description : Containing station types characterized by a bit field (available bits are defined in StationType enum). That is the ORing of all possible stationTypes in this list. 
+		**> 
+		UInt32 stationType 
+	} 
+ 
+	<** 
+		@description : A vector of stations 
+	**> 
+	array Stations of Station 
+ 
+	<** 
+		@description : Pairs of MetaData 
+	**> 
+	array Metadatas of Metadata 
+ 
+	<** 
+		@description : possible selection modes 
+	**> 
+	enumeration SelectionMode { 
+ 
+		<** 
+			@description : Undefined selection mode 
+		**> 
+		SM_UNDEF 
+ 
+		<** 
+			@description : Direct frequency input 
+		**> 
+		SM_DIRECT 
+ 
+		<** 
+			@description : Station selected from background list 
+		**> 
+		SM_LIST 
+ 
+		<** 
+			@description : Preset selection 
+		**> 
+		SM_PRESET 
+	} 
+ 
+	<** 
+		@description : No seek off, stop possible running seek mode 
+	**> 
+	enumeration SeekMode { 
+ 
+		<** 
+			@description : No seek off, stop possible running seek mode 
+		**> 
+		SM_OFF 
+ 
+		<** 
+			@description : Skip to next valid frequency 
+		**> 
+		SM_MAN_UP 
+ 
+		<** 
+			@description : Skip to previous valid frequency 
+		**> 
+		SM_MAN_DOWN 
+ 
+		<** 
+			@description : Search next receivable station 
+		**> 
+		SM_AUTO_UP 
+ 
+		<** 
+			@description : Search previous receivable station 
+		**> 
+		SM_AUTO_DOWN 
+ 
+		<** 
+			@description : Scan the available stations (upwards) 
+		**> 
+		SM_SCAN_UP 
+ 
+		<** 
+			@description : Scan the available stations (downwards) 
+		**> 
+		SM_SCAN_DOWN 
+ 
+		<** 
+			@description : While scan is active: Skip to next station 
+		**> 
+		SM_SCAN_SKIP_UP 
+ 
+		<** 
+			@description : While scan is active: Skip to previous station 
+		**> 
+		SM_SCAN_SKIP_DOWN 
+ 
+		<** 
+			@description : Autostore current waveband 
+		**> 
+		SM_AUTOSTORE 
+	} 
+ 
+	<** 
+		@description : This enumeration contains the different possibilities of return values for the seek broadcast. 
+	**> 
+	enumeration SeekReturnValue { 
+ 
+		<** 
+			@description : seek return value is a frequency 
+		**> 
+		SM_FREQUENCY 
+ 
+		<** 
+			@description : seek return value is in percentage 
+		**> 
+		SM_PERCENTAGE 
+	} 
+ 
+	<** 
+		@description : Generic tuner station characteristics 
+	**> 
+	enumeration StationType { 
+		ST_UNDEF = 0 //0x0000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Station receivable 
+		**> 
+		ST_RECEIVABLE = 1 //0x0001 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Station receivable 
+		**> 
+		ST_PERMANENT = 2 //0x0002 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Station is part of autostore list 
+		**> 
+		ST_AUTOSTORED = 4 //0x0004 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : This entry is an ensemble (multiplex), information about the ensemble (e.g. id or name) is part of the station struct. 
+		**> 
+		ST_ENSEMBLE = 8 //0x0008 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : This entry is a service, information about the service (e.g. id or name) is part of the station struct. 
+		**> 
+		ST_SERVICE = 16 //0x0010 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : This entry is a primary component, information about the component (e.g. id or name) is part of the station struct. 
+		**> 
+		ST_PRIMARY = 32 //0x0020 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : This entry is a secondary component, information about the component (e.g. id or name) is part of the station struct. 
+		**> 
+		ST_SECONDARY = 64 //0x0040 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Data changed since last update 
+		**> 
+		ST_CHANGED = 32768 //0x8000 replaced hex value by dec because of buggy CommonaAPI-3.1
+	} 
+ 
+	<** 
+		@description : Update elements that can be received (i.e. broadcasts/informations/attributes/signals) 
+	**> 
+	enumeration UpdateElement { 
+ 
+		<** 
+			@description : Seek data (seek) 
+		**> 
+		UE_SEEK 
+ 
+		<** 
+			@description : Current station (currentStation) 
+		**> 
+		UE_CURRENT_STATION 
+ 
+		<** 
+			@description : Station list (stationList) 
+		**> 
+		UE_STATION_LIST 
+		 
+		<** 
+			@description : Frequency grid 
+		**> 
+		UE_FREQUENCY_GRID 
+	} 
+ 
+	<** 
+		@description : Those flags are describing the properties of a AMFM station 
+	**> 
+	enumeration FlagsDefAmFm { 
+ 
+		<** 
+			@description : station provides TP 
+		**> 
+		AMFM_FLG_TP = 1 //0x0001 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Station provides TA 
+		**> 
+		AMFM_FLG_ANN_TA = 2 //0x0002 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Music/Speech 
+		**> 
+		AMFM_FLG_MS = 4 //0x0004 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Station provides TMC 
+		**> 
+		AMFM_FLG_TMC = 8 //0x0008 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : HD digital audio available 
+		**> 
+		AMFM_FLG_HDDIGAUDIO = 16 //0x0010 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : HD is encrypted 
+		**> 
+		AMFM_FLG_HDENCRYPTED = 32 //0x0020 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : HD Ball game mode 
+		**> 
+		AMFM_FLG_HDBALLGAME = 64 //0x0040 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Station Logo 
+		**> 
+		AMFM_FLG_IMG_STATIONLOGO = 128 //0x0080 replaced hex value by dec because of buggy CommonaAPI-3.1
+	} 
+ 
+	<** 
+		@description : those flags are describing the properties of a DAB station 
+	**> 
+	enumeration FlagsDefDab { 
+ 
+		<** 
+			@description : Reception: Frequency locked		 
+		**> 
+		DAB_FLG_LOCKED = 1 //0x0000001 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Reception: Valid audio stream  
+		**> 
+		DAB_FLG_VALID = 2 //0x0000002 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Reception: Service muted 
+		**> 
+		DAB_FLG_MUTED = 4 //0x0000004 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Reception: Ensemble muted 
+		**> 
+		DAB_FLG_ENS_MUTED = 8 //0x0000008 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Announcement: Information about a serious or even life-threatening situation such as: nuclear fallout or war 
+		**> 
+		DAB_FLG_ANN_ALARM = 16 //0x0000010 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Announcement: Information about problems on the road 
+		**> 
+		DAB_FLG_ANN_TRAFFIC = 32 //0x0000020 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Announcement: Information concerning Public Transport, such as: schedules of buses, derries, plains or trains 
+		**> 
+		DAB_FLG_ANN_TRANSPORT = 64 //0x0000040 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Announcement: Information about incidents of less importance than Alarm  Announcements, such as: disruption of power or water supplies 
+		**> 
+		DAB_FLG_ANN_WARNING = 128 //0x0000080 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Announcement: News bulletin 
+		**> 
+		DAB_FLG_ANN_NEWS = 256 //0x0000100 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Announcement: Weather bulletin 
+		**> 
+		DAB_FLG_ANN_WEATHER = 512 //0x0000200 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Announcement: Information about commercial, cultural or public events 
+		**> 
+		DAB_FLG_ANN_EVENT = 1024 //0x0000400 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Announcement: Information on unscheduled or previously unforeseen events 
+		**> 
+		DAB_FLG_ANN_SPECIAL_EVENT = 2048 //0x0000800 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Announcement: Information about current or future radio broadcasts or programmes 
+		**> 
+		DAB_FLG_ANN_PROGRAMM_INFO = 4096 //0x0001000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Announcement: Bulletin of news about sport 
+		**> 
+		DAB_FLG_ANN_SPORT = 8192 //0x0002000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Announcement: Bulletin of news about finance or business 
+		**> 
+		DAB_FLG_ANN_FINANCES = 16384 //0x0004000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Data service: Electronic program guide (EPG)	  
+		**> 
+		DAB_FLG_EPG = 32768 //0x0008000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Data service: Journaline 
+		**> 
+		DAB_FLG_JLN = 65536 //0x0010000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Data service: Slideshow (NPAD)  
+		**> 
+		DAB_FLG_IMG_SLS_NPAD = 131072 //0x0020000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Data service: Slideshow (XPAD) 
+		**> 
+		DAB_FLG_IMG_SLS_XPAD = 262144 //0x0040000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Data service: TMC 
+		**> 
+		DAB_FLG_TMC = 524288 //0x0080000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Data service: TPEG 
+		**> 
+		DAB_FLG_TPEG = 1048576 //0x0100000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Data Service: Broadcast Website 
+		**> 
+		DAB_FLG_BWS = 2097152 //0x0200000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Coding: MPEG2 coding 
+		**> 
+		DAB_FLG_MPEG2 = 4194304 //0x0400000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Coding: AAC coding 
+		**> 
+		DAB_FLG_AAC = 8388608 //0x0800000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Categorized Slideshow 
+		**> 
+		DAB_FLG_IMG_CSLS = 16777216 //0x1000000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Album Cover 
+		**> 
+		DAB_FLG_IMG_ALBUMCOVER = 33554432 //0x2000000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Station Logo 
+		**> 
+		DAB_FLG_IMG_STATIONLOGO = 67108864 //0x4000000 replaced hex value by dec because of buggy CommonaAPI-3.1
+	} 
+ 
+	<** 
+		@description : flags describing the properties of a UNDEF station 
+	**> 
+	enumeration FlagsDefUndef { 
+ 
+		<** 
+			@description : Reception: Audio muted 
+		**> 
+		UNDEF_FLG_MUTED = 1 //0x0000001 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Announcement: Information about a serious or even life-threatening situation such as: nuclear fallout or war 
+		**> 
+		UNDEF_FLG_ANN_ALARM = 2 //0x0000002 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Announcement: Information about problems on the road 
+		**> 
+		UNDEF_FLG_ANN_TRAFFIC = 4 //0x0000004 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Announcement: Information concerning Public Transport, such as: schedules of buses, derries, plains or trains 
+		**> 
+		UNDEF_FLG_ANN_TRANSPORT = 8 //0x0000008 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Announcement: Information about incidents of less importance than Alarm  Announcements, such as: disruption of power or water supplies 
+		**> 
+		UNDEF_FLG_ANN_WARNING = 16 //0x0000010 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Announcement: News bulletin 
+		**> 
+		UNDEF_FLG_ANN_NEWS = 32 //0x0000020 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Announcement: Weather bulletin 
+		**> 
+		UNDEF_FLG_ANN_WEATHER = 64 //0x0000040 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Announcement: Information about commercial, cultural or public events 
+		**> 
+		UNDEF_FLG_ANN_EVENT = 128 //0x0000080 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Announcement: Information on unscheduled or previously unforeseen events 
+		**> 
+		UNDEF_FLG_ANN_SPECIAL_EVENT = 256 //0x0000100 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Announcement: Information about current or future radio broadcasts or programmes 
+		**> 
+		UNDEF_FLG_ANN_PROGRAMM_INFO = 512 //0x0000200 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Announcement: Bulletin of news about sport 
+		**> 
+		UNDEF_FLG_ANN_SPORT = 1024 //0x0000400 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Announcement: Bulletin of news about finance or business 
+		**> 
+		UNDEF_FLG_ANN_FINANCES = 2048 //0x0000800 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Data service: Electronic program guide (EPG)	  
+		**> 
+		UNDEF_FLG_EPG = 4096 //0x0001000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Data service: Journaline 
+		**> 
+		UNDEF_FLG_JLN = 8192 //0x0002000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Data service: Slideshow (NPAD)<i>  </i> 
+		**> 
+		UNDEF_FLG_IMG_SLS_NPAD = 16384 //0x0004000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Data service: Slideshow (XPAD) 
+		**> 
+		UNDEF_FLG_IMG_SLS_XPAD = 32768 //0x0008000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Data service: TMC 
+		**> 
+		UNDEF_FLG_TMC = 65536 //0x0010000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Data service: TPEG 
+		**> 
+		UNDEF_FLG_TPEG = 131072 //0x0020000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Data service: Broadcast websites 
+		**> 
+		UNDEF_FLG_BWS = 262144 //0x0040000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Coding: MPEG2 coding 
+		**> 
+		UNDEF_FLG_MPEG2 = 524288 //0x0080000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Coding: AAC coding 
+		**> 
+		UNDEF_FLG_AAC = 1048576 //0x0100000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Categorized slideshow 
+		**> 
+		UNDEF_FLG_IMG_CSLS = 2097152 //0x0200000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Album Cover 
+		**> 
+		UNDEF_FLG_IMG_ALBUMCOVER = 4194304 //0x0400000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Station logo 
+		**> 
+		UNDEF_FLG_IMG_STATIONLOGO = 8388608 //0x0800000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Subtitle 
+		**> 
+		UNDEF_FLG_SUBTITLE = 16777216 //0x1000000 replaced hex value by dec because of buggy CommonaAPI-3.1
+ 
+		<** 
+			@description : Teletext 
+		**> 
+		UNDEF_FLG_TELETEXT = 33554432 //0x2000000 replaced hex value by dec because of buggy CommonaAPI-3.1
+	} 
+ 
+	<** 
+		@description : genre vector indices for AM/FM/HD devices 
+	**> 
+	enumeration GenreIndexAmFm { 
+ 
+		<** 
+			@description : PTY code 
+		**> 
+		AMFM_GEN_PTY 
+	} 
+ 
+	<** 
+		@description : genre vector indices for DAB/DMB devices 
+	**> 
+	enumeration GenreIndexDab { 
+ 
+		<** 
+			@description : Static PTY code 
+		**> 
+		DAB_GEN_STATIC_PTY 
+ 
+		<** 
+			@description : Dynamic PTY code 
+		**> 
+		DAB_GEN_DYNAMIC_PTY 
+	} 
+ 
+	<** 
+		@description : Station.genre vector indices for the "UNDEF" device 
+	**> 
+	enumeration GenreIndexUndef { 
+ 
+		<** 
+			@description : Static genre information 
+		**> 
+		UNDEF_GEN_STATIC 
+ 
+		<** 
+			@description : Dynamic genre information 
+		**> 
+		UNDEF_GEN_DYNAMIC 
+	} 
+ 
+	<** 
+		@description : General StationSelector ID vector constants 
+	**> 
+	enumeration IdConstants { 
+		<** 
+			@description : "Undefined value" for all kind of IDs like KEY, PI, etc.  
+		**> 
+		ID_UNDEF = 4294967295 //0xFFFFFFFF replaced hex value by dec because of buggy CommonaAPI-3.1
+	} 
+ 
+	<** 
+		@description : StationSelector ID vector indices for AM/FM/HD devices 
+	**> 
+	enumeration IdIndexAmFm { 
+ 
+		<** 
+			@description : Unique key 
+		**> 
+		AMFM_ID_KEY 
+ 
+		<** 
+			@description : Frequency [kHz] 
+	 
+		**> 
+		AMFM_ID_FREQUENCY 
+ 
+		<** 
+			@description : Program identifier 
+		**> 
+		AMFM_ID_PI 
+ 
+		<** 
+			@description : HD service (0: MPS, 1: SPS1, ..) 
+		**> 
+		AMFM_ID_SERVICE 
+	} 
+ 
+	<** 
+		@description : StationSelector ID vector indices for AM/FM/HD devices: Frequency grid data 
+	**> 
+	enumeration IdIndexAmFmFrequencyGrid { 
+ 
+		<** 
+			@description : Lower band limit [kHz] 
+		**> 
+		AMFM_ID_LOWER_LIMIT 
+ 
+		<** 
+			@description : Upper band limit [kHz] 
+	 
+		**> 
+		AMFM_ID_UPPER_LIMIT 
+ 
+		<** 
+			@description : Step width [kHz] 
+		**> 
+		AMFM_ID_STEP_WIDTH 
+	} 
+	 
+	<** 
+		@description : StationSelector ID vector indices for AM/FM/HD devices 
+	**> 
+	enumeration IdIndexDab { 
+ 
+		<** 
+			@description : Unique key 
+		**> 
+		DAB_ID_KEY 
+ 
+		<** 
+			@description :  Frequency [kHz] 
+		**> 
+		DAB_ID_FREQUENCY 
+ 
+		<** 
+			@description : Ensemble identifier 
+		**> 
+		DAB_ID_ENSEMBLE 
+ 
+		<** 
+			@description : Service identifier 
+		**> 
+		DAB_ID_SERVICE 
+ 
+		<** 
+			@description : Component identifier 
+		**> 
+		DAB_ID_COMPONENT 
+	} 
+ 
+	<** 
+		@description : StationSelector ID vector indices for the "UNDEF" device 
+	**> 
+	enumeration IdIndexUndef { 
+ 
+		<** 
+			@description : Unique key 
+		**> 
+		UNDEF_ID_KEY 
+ 
+		<** 
+			@description : Optional: Unique key of the parent in case of subservices 
+		**> 
+		UNDEF_ID_PARENT 
+	} 
+ 
+	<** 
+		@description : Station.meta vector indices for AM/FM/HD devices 
+	**> 
+	enumeration MetaIndexAmFm { 
+		 
+		AMFM_RTP_DUMMY = 0 
+		 
+		AMFM_RTP_TITLE = 1 
+		 
+		AMFM_RTP_ALBUM = 2 
+		 
+		AMFM_RTP_TRACKNUMBER = 3 
+		 
+		AMFM_RTP_ARTIST = 4 
+		 
+		AMFM_RTP_COMPOSITION = 5 
+		 
+		AMFM_RTP_MOVEMENT = 6 
+		 
+		AMFM_RTP_CONDUCTOR = 7 
+		 
+		AMFM_RTP_COMPOSER = 8 
+		 
+		AMFM_RTP_BAND = 9 
+		 
+		AMFM_RTP_COMMENT = 10 
+		 
+		AMFM_RTP_GENRE = 11 
+		 
+		AMFM_RTP_NEWS = 12 
+		 
+		AMFM_RTP_NEWS_LOCAL = 13 
+		 
+		AMFM_RTP_STOCKMARKET = 14 
+		 
+		AMFM_RTP_SPORT = 15 
+		 
+		AMFM_RTP_LOTTERY = 16 
+		 
+		AMFM_RTP_HOROSCOPE = 17 
+		 
+		AMFM_RTP_DAILY_DIVISION = 18 
+		 
+		AMFM_RTP_HEALTH = 19 
+		 
+		AMFM_RTP_EVENT = 20 
+		 
+		AMFM_RTP_SZENE = 21 
+		 
+		AMFM_RTP_CINEMA = 22 
+		 
+		AMFM_RTP_TV = 23 
+		 
+		AMFM_RTP_DATE_TIME = 24 
+		 
+		AMFM_RTP_WEATHER = 25 
+		 
+		AMFM_RTP_TRAFFIC = 26 
+		 
+		AMFM_RTP_ALARM = 27 
+		 
+		AMFM_RTP_ADVERTISEMENT = 28 
+		 
+		AMFM_RTP_URL = 29 
+		 
+		AMFM_RTP_OTHER = 30 
+		 
+		AMFM_RTP_STATIONNAME_SHORT = 31 
+		 
+		AMFM_RTP_STATIONNAME_LONG = 32 
+		 
+		AMFM_RTP_NOW = 33 
+		 
+		AMFM_RTP_NEXT = 34 
+		 
+		AMFM_RTP_PART = 35 
+		 
+		AMFM_RTP_HOST = 36 
+		 
+		AMFM_RTP_EDITORIAL = 37 
+		 
+		AMFM_RTP_FREQUENCY = 38 
+		 
+		AMFM_RTP_HOMEPAGE = 39 
+		 
+		AMFM_RTP_SUBCHANNEL = 40 
+		 
+		AMFM_RTP_PHONE_HOTLINE = 41 
+		 
+		AMFM_RTP_PHONE_STUDIO = 42 
+		 
+		AMFM_RTP_PHONE_OTHER = 43 
+		 
+		AMFM_RTP_SMS_STUDIO = 44 
+		 
+		AMFM_RTP_SMS_OTHER = 45 
+		 
+		AMFM_RTP_EMAIL_HOTLINE = 46 
+		 
+		AMFM_RTP_EMAIL_STUDIO = 47 
+		 
+		AMFM_RTP_EMAIL_OTHER = 48 
+		 
+		AMFM_RTP_MMS_OTHER = 49 
+		 
+		AMFM_RTP_CHAT = 50 
+		 
+		AMFM_RTP_CHAT_CENTER = 51 
+		 
+		AMFM_RTP_VOTE_QUESTION = 52 
+		 
+		AMFM_RTP_VOTE_CENTER = 53 
+		 
+		AMFM_RTP_PLACE = 59 
+		 
+		AMFM_RTP_APPOINTMENT = 60 
+		 
+		AMFM_RTP_IDENTIFIER = 61 
+		 
+		AMFM_RTP_PURCHASE = 62 
+		 
+		AMFM_RTP_GET_DATA = 63 
+		 
+		AMFM_HD_ARTIST = 128 
+		 
+		AMFM_HD_TITLE = 129 
+		 
+		AMFM_HD_ALBUM = 130 
+		 
+		AMFM_HD_COMMENT_LANGUAGE = 131 
+		 
+		AMFM_HD_COMMENT_SHORT_DESCRIPTION = 132 
+		 
+		AMFM_HD_COMMENT_CONTENT_FIELD = 133 
+	 
+		AMFM_HD_COMMERCIAL_PRICE = 134 
+		 
+		AMFM_HD_COMMERCIAL_VALID_UNTIL = 135 
+		 
+		AMFM_HD_COMMERCIAL_CONTACT_URL = 136 
+		 
+		AMFM_HD_COMMERCIAL_NAME_OF_SELLER = 137 
+		 
+		AMFM_HD_COMMERCIAL_DESCRIPTION = 138 
+		 
+		AMFM_HD_COMMERCIAL_RECEIVE_AS = 139 
+		 
+		AMFM_HD_GENRE = 140 
+	} 
+ 
+	<** 
+		@description : Station.meta vector indices for DAB/DMB devices 
+	**> 
+	enumeration MetaIndexDab { 
+		DAB_DLS_DUMMY = 0 
+ 
+		DAB_DLS_TITLE = 1 
+		 
+		DAB_DLS_ALBUM = 2 
+		 
+		DAB_DLS_TRACKNUMBER = 3 
+		 
+		DAB_DLS_ARTIST = 4 
+		 
+		DAB_DLS_COMPOSITION = 5 
+		 
+		DAB_DLS_MOVEMENT = 6 
+		 
+		DAB_DLS_CONDUCTOR = 7 
+	 
+		DAB_DLS_COMPOSER = 8 
+		 
+		DAB_DLS_BAND = 9 
+		 
+		DAB_DLS_COMMENT = 10 
+		 
+		DAB_DLS_GENRE = 11 
+		 
+		DAB_DLS_NEWS = 12 
+		 
+		DAB_DLS_NEWS_LOCAL = 13 
+		 
+		DAB_DLS_STOCKMARKET = 14 
+		 
+		DAB_DLS_SPORT = 15 
+		 
+		DAB_DLS_LOTTERY = 16 
+		 
+		DAB_DLS_HOROSCOPE = 17 
+		 
+		DAB_DLS_DAILY_DIVISION = 18 
+		 
+		DAB_DLS_HEALTH = 19 
+		 
+		DAB_DLS_EVENT = 20 
+		 
+		DAB_DLS_SZENE = 21 
+		 
+		DAB_DLS_CINEMA = 22 
+		 
+		DAB_DLS_TV = 23 
+		 
+		DAB_DLS_DATE_TIME = 24 
+		 
+		DAB_DLS_WEATHER = 25 
+		 
+		DAB_DLS_TRAFFIC = 26 
+		 
+		DAB_DLS_ALARM = 27 
+		 
+		DAB_DLS_ADVERTISEMENT = 28 
+		 
+		DAB_DLS_URL = 29 
+		 
+		DAB_DLS_OTHER = 30 
+		 
+		DAB_DLS_STATIONNAME_SHORT = 31 
+		 
+		DAB_DLS_STATIONNAME_LONG = 32 
+		 
+		DAB_DLS_NOW = 33 
+		 
+		DAB_DLS_NEXT = 34 
+		 
+		DAB_DLS_PART = 35 
+		 
+		DAB_DLS_HOST = 36 
+		 
+		DAB_DLS_EDITORIAL = 37 
+		 
+		DAB_DLS_FREQUENCY = 38 
+		 
+		DAB_DLS_HOMEPAGE = 39 
+		 
+		DAB_DLS_SUBCHANNEL = 40 
+		 
+		DAB_DLS_PHONE_HOTLINE = 41 
+		 
+		DAB_DLS_PHONE_STUDIO = 42 
+		 
+		DAB_DLS_PHONE_OTHER = 43 
+		 
+		DAB_DLS_SMS_STUDIO = 44 
+		 
+		DAB_DLS_SMS_OTHER = 45 
+		 
+		DAB_DLS_EMAIL_HOTLINE = 46 
+		 
+		DAB_DLS_EMAIL_STUDIO = 47 
+		 
+		DAB_DLS_EMAIL_OTHER = 48 
+		 
+		DAB_DLS_MMS_OTHER = 49 
+		 
+		DAB_DLS_CHAT = 50 
+		 
+		DAB_DLS_CHAT_CENTER = 51 
+		 
+		DAB_DLS_VOTE_QUESTION = 52 
+		 
+		DAB_DLS_VOTE_CENTER = 53 
+		 
+		DAB_DLS_PLACE = 59 
+		 
+		DAB_DLS_APPOINTMENT = 60 
+		 
+		DAB_DLS_IDENTIFIER = 61 
+		 
+		DAB_DLS_PURCHASE = 62 
+		 
+		DAB_DLS_GET_DATA = 63 
+		 
+	} 
+ 
+	<** 
+		@description : Station.meta vector indices for the "UNDEF" device 
+	**> 
+	enumeration MetaIndexUndef { 
+		UNDEF_RTP_DUMMY = 0 
+		 
+		UNDEF_RTP_TITLE = 1 
+		 
+		UNDEF_RTP_ALBUM = 2 
+		 
+		UNDEF_RTP_TRACKNUMBER = 3 
+		 
+		UNDEF_RTP_ARTIST = 4 
+		 
+		UNDEF_RTP_COMPOSITION = 5 
+		 
+		UNDEF_RTP_MOVEMENT = 6 
+		 
+		UNDEF_RTP_CONDUCTOR = 7 
+		 
+		UNDEF_RTP_COMPOSER = 8 
+		 
+		UNDEF_RTP_BAND = 9 
+		 
+		UNDEF_RTP_COMMENT = 10 
+		 
+		UNDEF_RTP_GENRE = 11 
+		 
+		UNDEF_RTP_NEWS = 12 
+		 
+		UNDEF_RTP_NEWS_LOCAL = 13 
+		 
+		UNDEF_RTP_STOCKMARKET = 14 
+		 
+		UNDEF_RTP_SPORT = 15 
+		 
+		UNDEF_RTP_LOTTERY = 16 
+		 
+		UNDEF_RTP_HOROSCOPE = 17 
+		 
+		UNDEF_RTP_DAILY_DIVISION = 18 
+		 
+		UNDEF_RTP_HEALTH = 19 
+		 
+		UNDEF_RTP_EVENT = 20 
+		 
+		UNDEF_RTP_SZENE = 21 
+		 
+		UNDEF_RTP_CINEMA = 22 
+		 
+		UNDEF_RTP_TV = 23 
+		 
+		UNDEF_RTP_DATE_TIME = 24 
+		 
+		UNDEF_RTP_WEATHER = 25 
+		 
+		UNDEF_RTP_TRAFFIC = 26 
+		 
+		UNDEF_RTP_ALARM = 27 
+		 
+		UNDEF_RTP_ADVERTISEMENT = 28 
+		 
+		UNDEF_RTP_URL = 29 
+		 
+		UNDEF_RTP_OTHER = 30 
+		 
+		UNDEF_RTP_STATIONNAME_SHORT = 31 
+		 
+		UNDEF_RTP_STATIONNAME_LONG = 32 
+		 
+		UNDEF_RTP_NOW = 33 
+		 
+		UNDEF_RTP_NEXT = 34 
+		 
+		UNDEF_RTP_PART = 35 
+		 
+		UNDEF_RTP_HOST = 36 
+		 
+		UNDEF_RTP_EDITORIAL = 37 
+		 
+		UNDEF_RTP_FREQUENCY = 38 
+		 
+		UNDEF_RTP_HOMEPAGE = 39 
+		 
+		UNDEF_RTP_SUBCHANNEL = 40 
+		 
+		UNDEF_RTP_PHONE_HOTLINE = 41 
+		 
+		UNDEF_RTP_PHONE_STUDIO = 42 
+		 
+		UNDEF_RTP_PHONE_OTHER = 43 
+		 
+		UNDEF_RTP_SMS_STUDIO = 44 
+		 
+		UNDEF_RTP_SMS_OTHER = 45 
+		 
+		UNDEF_RTP_EMAIL_HOTLINE = 46 
+		 
+		UNDEF_RTP_EMAIL_STUDIO = 47 
+		 
+		UNDEF_RTP_EMAIL_OTHER = 48 
+		 
+		UNDEF_RTP_MMS_OTHER = 49 
+		 
+		UNDEF_RTP_CHAT = 50 
+		 
+		UNDEF_RTP_CHAT_CENTER = 51 
+		 
+		UNDEF_RTP_VOTE_QUESTION = 52 
+		 
+		UNDEF_RTP_VOTE_CENTER = 53 
+		 
+		UNDEF_RTP_PLACE = 59 
+		 
+		UNDEF_RTP_APPOINTMENT = 60 
+		 
+		UNDEF_RTP_IDENTIFIER = 61 
+		 
+		UNDEF_RTP_PURCHASE = 62 
+		 
+		UNDEF_RTP_GET_DATA = 63 
+		 
+		UNDEF_HD_ARTIST = 128 
+		 
+		UNDEF_HD_TITLE = 129 
+		 
+		UNDEF_HD_ALBUM = 130 
+		 
+		UNDEF_HD_COMMENT_LANGUAGE = 131 
+		 
+		UNDEF_HD_COMMENT_SHORT_DESCRIPTION = 132 
+		 
+		UNDEF_HD_COMMENT_CONTENT_FIELD = 133 
+		 
+		UNDEF_HD_COMMERCIAL_PRICE = 134 
+		 
+		UNDEF_HD_COMMERCIAL_VALID_UNTIL = 135 
+		 
+		UNDEF_HD_COMMERCIAL_CONTACT_URL = 136 
+		 
+		UNDEF_HD_COMMERCIAL_NAME_OF_SELLER = 137 
+		 
+		UNDEF_HD_COMMERCIAL_DESCRIPTION = 138 
+		 
+		UNDEF_HD_COMMERCIAL_RECEIVE_AS = 139 
+	 
+		UNDEF_HD_GENRE = 140		 
+	} 
+ 
+	<** 
+		@description : Station.name vector indices for AM/FM/HD devices 
+	**> 
+	enumeration NameIndexAmFm { 
+ 
+		<** 
+			@description : PS code 
+		**> 
+		AMFM_NAM_PS 
+ 
+		<** 
+			@description : HD label 
+		**> 
+		AMFM_NAM_HD 
+ 
+		<** 
+			@description : RadioText 
+		**> 
+		AMFM_NAM_RT 
+	} 
+ 
+	<** 
+		@description : Station.name vector indices for DAB/DMB devices 
+	**> 
+	enumeration NameIndexDab { 
+ 
+		<** 
+			@description : Subcomponent label 
+		**> 
+		DAB_NAM_CLONG 
+ 
+		<** 
+			@description : component label short 
+		**> 
+		DAB_NAM_CSHORT 
+ 
+		<** 
+			@description : dynamic label 
+		**> 
+		DAB_NAM_DYNAMIC 
+ 
+		<** 
+			@description : Service label 
+		**> 
+		DAB_NAM_SLONG 
+ 
+		<** 
+			@description : Service abbreviation 
+		**> 
+		DAB_NAM_SSHORT 
+ 
+		<** 
+			@description : Ensemble label 
+		**> 
+		DAB_NAM_ELONG 
+ 
+		<** 
+			@description : Ensemble abbreviation 
+		**> 
+		DAB_NAM_ESHORT 
+ 
+		<** 
+			@description : Frequency label 
+		**> 
+		DAB_NAM_FREQUENCY 
+	} 
+ 
+	<** 
+		@description : Station.name vector indices for the "UNDEF" device 
+	**> 
+	enumeration NameIndexUndef { 
+ 
+		<** 
+			@description : Long name / label 
+		**> 
+		UNDEF_NAM_LONG 
+ 
+		<** 
+			@description : short name / label 
+		**> 
+		UNDEF_NAM_SHORT 
+ 
+		<** 
+			@description : dynamic name / label 
+		**> 
+		UNDEF_NAM_DYNAMIC 
+	} 
+ 
+	<** 
+		@description : Station.quality vector indices for AM/FM/HD devices 
+	**> 
+	enumeration QualityIndexAmFm { 
+ 
+		<** 
+			@description : Fieldstrength [dbuV] 
+		**> 
+		AMFM_QAL_FIELDSTRENGTH 
+ 
+		<** 
+			@description : Multipath 
+		**> 
+		AMFM_QAL_MULTIPATH 
+ 
+		<** 
+			@description : Digital quality 
+		**> 
+		AMFM_QAL_DIGITAL 
+	} 
+ 
+	enumeration QualityIndexDab { 
+ 
+		<** 
+			@description : Bit error rate 
+		**> 
+		DAB_QAL_BER 
+ 
+		<** 
+			@description : Service quality 
+		**> 
+		DAB_QAL_SERVICE 
+ 
+		<** 
+			@description : Audio qualtiy 
+		**> 
+		DAB_QAL_AUDIO 
+	} 
+ 
+	<** 
+		@description : Station.quality vector indices for the "UNDEF" device 
+	**> 
+	enumeration QualityIndexUndef { 
+ 
+		<** 
+			@description : Generic audio quality, comparable between devices 
+		**> 
+		UNDEF_QAL_AUDIO 
+	} 
+ 
+} 

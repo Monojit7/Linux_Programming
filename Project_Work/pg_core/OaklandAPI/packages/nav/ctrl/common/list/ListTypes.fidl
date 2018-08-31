@@ -1,0 +1,130 @@
+/* 
+   Harman/Becker Automotive GmbH
+*/
+
+package org.harman.nav.ctrl.common.list
+
+import org.harman.nav.ctrl.CommonTypes.* from "../CommonTypes.fidl"
+
+
+typeCollection ListTypes {
+      enumeration ListError extends BasicEnum {
+
+        <**
+            @description : occurs if the list id was invalid.
+        **>
+        INVALID_LIST_ID
+
+        <**
+            @description : view identification used to distinguish several instances of a view for one client. It is never changed by the service nor the client.
+        **>
+        INVALID_VIEW
+
+        <**
+            @description : occurs if one of the provided parameters was not acceptable.
+        **>
+        INVALID_PARAMETER
+
+        <**
+            @description : occurs if the implementation can not provide such large views.
+        **>
+        SIZE_LIMIT_EXCEEDED
+
+        <**
+            @description : occurs if there are not enough resources available to create another view (e.g. memory).
+        **>
+        OUT_OF_RESSOURCES
+        
+        <**
+            @description : occurs if there is request a position which is not available
+        **>
+        OUT_OF_RANGE_POSITION
+        
+        <**
+            @description : Some policy could not be executed. 
+        **>
+        POLICY_DENIED
+        
+    }
+    
+    <**
+        @description : The ListId is the name of a list.
+    **>
+    struct ListId {
+        String listname
+    }
+    
+    <**
+        @description : The different kind of supported sort options.
+        Please note: there are 8 CUSTOM_SORT entries which allows
+        to realize a generic sorting scheme. The sorting credential
+        are part of the contract between concrete client and concrete
+        provider. E.g. CUSTOM_SORT_1 = priority_based, 
+                       CUSTOM_SORT_2 = distance_based, ... 
+    **>
+    enumeration SortOption extends BasicEnum {
+        TYPE
+        NAME
+        TIME
+        CUSTOM_SORT_1
+        CUSTOM_SORT_2
+        CUSTOM_SORT_3
+        CUSTOM_SORT_4
+        CUSTOM_SORT_5
+        CUSTOM_SORT_6
+        CUSTOM_SORT_7
+        CUSTOM_SORT_8
+    }    
+    
+    // TODO: Later we should add here a policy to define if the view is limited to write exclusive only.
+    //       currently exclusive mode is default behavior.
+    //       Import/Export function should be also considered later on.
+    enumeration ModificationPolicy {
+        E_POLLICY_ADD
+        E_POLICY_REMOVE
+        E_POLICY_REMOVE_ALL
+    }
+    
+    <**
+        @description : Absolute position within the whole list
+    **>
+    typedef ListKey is UInt16
+    
+    
+    <**
+        @description : total size of the whole list
+    **>    
+    typedef ListSize is UInt16
+    
+    <**
+        @description : size related to the created view only
+    **>    
+    typedef ViewSize is ListSize
+    
+    <**
+        @description: the relative view anchor based on position ListKey
+    **>
+    typedef AnchorOffset is UInt16
+    
+    <**
+        @description : every create view is assigned to one view id
+    **>    
+    typedef ViewId is UInt16
+    
+    <**
+        @description : relative position within the view window only starting from the first view element
+    **>    
+    typedef ViewKey is UInt16    
+    
+    <**
+       @description : description of how the snapshot of a view was positioned when querying the data contained in a view
+    **>
+    struct ViewSnapshotPosition {
+        <** @description : size of the underlying list **>
+        ListSize     listSize
+        <** @description : key of the first element of the view snapshot **>
+        ListKey      listKey
+        <** @description : offset of the anchor element within the view snapshot **>
+        AnchorOffset anchorOffset
+    }
+}

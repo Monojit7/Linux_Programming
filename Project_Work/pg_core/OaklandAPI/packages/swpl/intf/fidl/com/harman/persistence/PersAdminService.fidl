@@ -1,0 +1,191 @@
+package com.harman.persistence
+
+import com.harman.persistence.PersAdminServiceTypes.* from "PersAdminServiceTypes.fidl"
+
+interface PersAdminService {
+	version { major 1 minor 0 }
+	
+/**
+ * \brief Allow creation of a backup on different level (application, user or complete)
+ *
+ * \param type represent the quality of the data to backup: all, application, user
+ * \param backup_name name of the backup to allow identification
+ * \param applicationID the application identifier
+ * \param user_no the user ID
+ * \param seat_no the seat number (seat 0 to 3)
+ *
+ * \return positive value: number of bytes written; negative value: error code (\ref PAS_RETURNS)
+ */
+ 
+ method persAdminDataBackupCreate{
+		in {  
+			_PersASSelectionType_e type
+			String backup_name
+			String applicationID
+			UInt32 user_no
+			UInt32 seat_no
+		}
+		out {
+			UInt64 retVal
+		}
+	}
+
+/**
+ * \brief Allow recovery of from backup on different level (application, user or complete)
+ *
+ * \param type represent the quality of the data to backup: all, application, user
+ * \param backup_name name of the backup to allow identification
+ * \param applicationID the application identifier
+ * \param user_no the user ID
+ * \param seat_no the seat number (seat 0 to 3)
+ *
+ * \return positive value: number of bytes restored; negative value: error code (\ref PAS_RETURNS)
+ */
+method persAdminDataBackupRecovery{
+		in {  
+			_PersASSelectionType_e type
+			String backup_name
+			String applicationID
+			UInt32 user_no
+			UInt32 seat_no
+		}
+		out {
+			UInt64 retVal
+		}
+	}
+
+/**
+ * \brief Allow to identify and prepare the data to allow an export from system
+ *
+ * \param type represent the quality of the data to backup: all, application, user
+ * \param dst_folder name of the destination folder for the data
+ *
+ * \return positive value: number of bytes written; negative value: error code (\ref PAS_RETURNS)
+ */
+method persAdminDataFolderExport{
+		in {  
+			_PersASSelectionType_e type
+			String dst_folder
+		}
+		out {
+			UInt64 retVal
+		}
+	}
+
+/**
+ * \brief Allow the import of data from specified folder to the system respecting different level (application, user or complete)
+ *
+ * \param type represent the quality of the data to backup: all, application, user
+ * \param src_folder name of the source folder of the data
+ *
+ * \return positive value: number of bytes imported; negative value: error code (\ref PAS_RETURNS)
+ */
+method persAdminDataFolderImport{
+		in {  
+			_PersASSelectionType_e type
+			String src_folder
+		}
+		out {
+			UInt64 retVal
+		}
+	}
+
+/**
+ * \brief Allow to extend the configuration for persistency of data from specified level (application, user).
+ *        Used during new persistency entry installation
+ *
+ * \param resource_file name of the persistency resource configuration to integrate
+ *
+ * \return positive value: number of modified entries in the resource configuration; negative value: error code (\ref PAS_RETURNS)
+ */
+method persAdminResourceConfigAdd{
+		in {  
+			String resource_file
+		}
+		out {
+			UInt64 retVal
+		}
+	}
+ 
+/**
+ * \brief Allow the modification of the resource properties from data (key-values and files)
+ *
+ * \param resource_file name of the persistency resource configuration to integrate
+ *
+ * \return positive value: number of modified properties in the resource configuration; negative value: error code (\ref PAS_RETURNS)
+ */
+method persAdminResourceConfigChangeProperties{
+		in {  
+			String resource_file
+		}
+		out {
+			UInt64 retVal
+		}
+	}
+
+/**
+ * \brief Allow the copy of user related data between different users
+ *
+ * \param src_user_no the user ID source
+ * \param src_seat_no the seat number source (seat 0 to 3)
+ * \param dest_user_no the user ID destination
+ * \param dest_seat_no the seat number destination (seat 0 to 3)
+ *
+ * \return positive value: number of bytes copied; negative value: error code (\ref PAS_RETURNS)
+ */
+method persAdminUserDataCopy{
+		in {  
+			UInt32 src_user_no
+			UInt32 src_seat_no
+			UInt32 dest_user_no
+			UInt32 dest_seat_no
+		}
+		out {
+			UInt64 retVal
+		}
+	}
+
+/**
+ * \brief Delete the user related data from persistency containers
+ *
+ * \param user_no the user ID
+ * \param seat_no the seat number (seat 0 to 3)
+ *
+ * \return positive value: number of bytes deleted; negative value: error code (\ref PAS_RETURNS)
+ */
+method persAdminUserDataDelete{
+		in {  
+			UInt32 user_no
+			UInt32 seat_no
+		}
+		out {
+			UInt64 retVal
+		}
+	}
+/**
+* \brief Allow restore of values from default on different level (application, user or complete)
+*
+* \param type represents the data to restore: all, application, user
+* \param defaultSource source of the default to allow reset
+* \param applicationID the application identifier
+* \param user_no the user ID
+* \param seat_no the seat number (seat 0 to 3)
+*
+* \return positive value: number of bytes restored; negative value: error code (\ref PAS_RETURNS)
+*
+* \since V2.1.0
+*/
+method persAdminDataRestore{
+		in {  
+			_PersASSelectionType_e type
+			_PersASDefaultSource_e defaultSource
+			String applicationID
+			UInt32 user_no
+			UInt32 seat_no
+		}
+		out {
+			UInt64 retVal
+		}
+	}
+
+}

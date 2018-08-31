@@ -1,0 +1,28 @@
+package com.harman.vehicle
+import model "VehicleDataTypes.fidl"
+
+interface OrinocoSpecificData
+{
+		version { major 0 minor 1}
+		
+	attribute ShiftLeverStatus shiftLeverStatus readonly
+	/*Lever Shift Indication for Automatic gear shift vehicles */
+	
+	enumeration ShiftLeverStatusEnum {
+		INVALID = 0
+		PARK = 1
+		REVERSE = 2
+		NEUTRAL = 3
+		DRIVE = 4
+		LOW = 5
+		TIP_AUTOSTICK = 6
+		PLUS = 7
+		MINUS = 8
+		SNA = 9
+	}
+
+	struct ShiftLeverStatus extends
+	com.harman.vehicle.VehicleDataTypes.VehiclePropertyBase {
+		ShiftLeverStatusEnum value
+	}	
+}

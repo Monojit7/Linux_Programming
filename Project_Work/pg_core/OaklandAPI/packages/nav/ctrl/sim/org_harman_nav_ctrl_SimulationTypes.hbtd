@@ -1,0 +1,62 @@
+
+
+<DSI>
+   <Name>org_harman_nav_ctrl_SimulationTypes</Name>
+   <ID>1</ID>   
+   <Extern>true</Extern>
+   <Version>
+      <Major>1</Major>
+      <Minor>0</Minor>
+   </Version>
+   <Includes>
+   <Include>
+         <Name>api/nav/ctrl/pf/common/org_harman_nav_ctrl_CommonTypes.hbtd</Name>
+         
+         <Major>1</Major>
+         <Minor>0</Minor>
+   </Include>
+   </Includes>
+   <Enums>
+    <Enum>
+      <Name>SimulationStatus</Name>
+      <Description></Description>
+      <ID>2</ID>
+      <Description></Description>
+      <EnumIDs>
+      <EnumID>
+         <Name>SimulationStatus_BasicEnum_INVALID</Name>
+         <ID>3</ID>
+         <Description></Description>
+         <Value>0x0000</Value>
+      </EnumID>
+         <EnumID>
+            <Name>SimulationStatus_SIMULATION_STATUS_NO_SIMULATION</Name>
+            <ID>4</ID>
+            <Description></Description>
+            <Value>0x0220</Value>
+         </EnumID>
+         <EnumID>
+            <Name>SimulationStatus_SIMULATION_STATUS_RUNNING</Name>
+            <ID>5</ID>
+            <Description></Description>
+            <Value>0x0221</Value>
+         </EnumID>
+         <EnumID>
+            <Name>SimulationStatus_SIMULATION_STATUS_PAUSED</Name>
+            <ID>6</ID>
+            <Description></Description>
+            <Value>0x0222</Value>
+         </EnumID>
+         <EnumID>
+            <Name>SimulationStatus_SIMULATION_STATUS_FIXED_POSITION</Name>
+            <ID>7</ID>
+            <Description></Description>
+            <Value>0x0223</Value>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+   </Enums>
+   <DataTypes>
+	    
+   </DataTypes>
+</DSI>

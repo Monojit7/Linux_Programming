@@ -1,0 +1,441 @@
+
+
+<DSI>
+   <Name>org_harman_nav_ctrl_tpegoverip_TpegOverIPTypes</Name>
+   <ID>1</ID>   
+   <Extern>true</Extern>
+   <Version>
+     <Major>1</Major>
+     <Minor>1</Minor>
+   </Version>
+   <Includes>
+   </Includes>
+   <Enums>
+    <Enum>
+      <Name>ErrorCode</Name>
+      <Description>Enumeration of different error cases</Description>
+      <ID>2</ID>
+      <Description></Description>
+      <EnumIDs>
+         <EnumID>
+            <Name>ErrorCode_ERROR</Name>
+            <ID>3</ID>
+            <Description>Error described by enum (meaning to be clarified: Server connection lost, invalid server response, ...)</Description>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+    <Enum>
+      <Name>ServiceState</Name>
+      <Description>State of the internet connection of the service</Description>
+      <ID>4</ID>
+      <Description></Description>
+      <EnumIDs>
+         <EnumID>
+            <Name>ServiceState_Offline</Name>
+            <ID>5</ID>
+            <Description>no internet connection established</Description>
+         </EnumID>
+         <EnumID>
+            <Name>ServiceState_Online</Name>
+            <ID>6</ID>
+            <Description>internet connection established, connection is not in roaming mode</Description>
+         </EnumID>
+         <EnumID>
+            <Name>ServiceState_Roaming</Name>
+            <ID>7</ID>
+            <Description>internet connection established, connection is in roaming mode</Description>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+    <Enum>
+      <Name>CompressionType</Name>
+      <Description>Compression method, with which received TPEG data can/will be compressed</Description>
+      <ID>8</ID>
+      <Description></Description>
+      <EnumIDs>
+         <EnumID>
+            <Name>CompressionType_COMPRESSION_TYPE_UNCOMPRESSED</Name>
+            <ID>9</ID>
+            <Description>TPEG data will not be compressed</Description>
+         </EnumID>
+         <EnumID>
+            <Name>CompressionType_COMPRESSION_TYPE_GZIP</Name>
+            <ID>10</ID>
+            <Description>TPEG data will be compressed using gzip</Description>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+    <Enum>
+      <Name>EncryptionType</Name>
+      <Description>Encryption type, which can/will be used</Description>
+      <ID>11</ID>
+      <Description></Description>
+      <EnumIDs>
+         <EnumID>
+            <Name>EncryptionType_ENCRYPTION_TYPE_UNENCRYPTED</Name>
+            <ID>12</ID>
+            <Description>No encryption will be used</Description>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+    <Enum>
+      <Name>DataType</Name>
+      <Description>Type of data, which can/will be provided</Description>
+      <ID>13</ID>
+      <Description></Description>
+      <EnumIDs>
+         <EnumID>
+            <Name>DataType_DATA_TYPE_TPEG_BINARY</Name>
+            <ID>14</ID>
+            <Description>Binary TPEG data</Description>
+         </EnumID>
+         <EnumID>
+            <Name>DataType_DATA_TYPE_XML_ENVELOPE</Name>
+            <ID>15</ID>
+            <Description>TPEG data is contained in an xml envelope</Description>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+    <Enum>
+      <Name>TPEGApplicationType</Name>
+      <Description>Enumeration of application types supported by the TPEG group</Description>
+      <ID>16</ID>
+      <Description></Description>
+      <EnumIDs>
+         <EnumID>
+            <Name>TPEGApplicationType_TEC</Name>
+            <ID>17</ID>
+            <Description>Traffic event compact</Description>
+         </EnumID>
+         <EnumID>
+            <Name>TPEGApplicationType_TFP</Name>
+            <ID>18</ID>
+            <Description>Traffic flow prediction</Description>
+         </EnumID>
+         <EnumID>
+            <Name>TPEGApplicationType_PTI</Name>
+            <ID>19</ID>
+            <Description>Public transport information</Description>
+         </EnumID>
+         <EnumID>
+            <Name>TPEGApplicationType_PKI</Name>
+            <ID>20</ID>
+            <Description>Parking information</Description>
+         </EnumID>
+         <EnumID>
+            <Name>TPEGApplicationType_SPI</Name>
+            <ID>21</ID>
+            <Description>Speed limit information</Description>
+         </EnumID>
+         <EnumID>
+            <Name>TPEGApplicationType_WEA</Name>
+            <ID>22</ID>
+            <Description>Weather</Description>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+    <Enum>
+      <Name>LocationReferencingType</Name>
+      <Description>Types of location referencing</Description>
+      <ID>23</ID>
+      <Description></Description>
+      <EnumIDs>
+         <EnumID>
+            <Name>LocationReferencingType_DLR1</Name>
+            <ID>24</ID>
+            <Description>Decoding according to AGORA-C standard</Description>
+         </EnumID>
+         <EnumID>
+            <Name>LocationReferencingType_TMC_LOC</Name>
+            <ID>25</ID>
+            <Description>Decoding using TMC location tables</Description>
+         </EnumID>
+         <EnumID>
+            <Name>LocationReferencingType_TMC_LOC_PLR</Name>
+            <ID>26</ID>
+            <Description>Decoding using TMC location tables with precise location referencing</Description>
+         </EnumID>
+         <EnumID>
+            <Name>LocationReferencingType_OPENLR</Name>
+            <ID>27</ID>
+            <Description>Decoding according to OpenLR standard</Description>
+         </EnumID>
+      </EnumIDs>
+   </Enum>
+   </Enums>
+   <DataTypes>
+       <DataType>
+          <Name>Version</Name>
+          <ID>28</ID>
+          <Description>Numerical description of the version of an application</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>versionMajor</Name>
+   	        <Description>when the major changes, then backward compatibility with previous releases is not granted.</Description>
+               <ID>29</ID>
+   <Type>UInt16</Type>
+               <Description>when the major changes, then backward compatibility with previous releases is not granted.</Description>
+            </Field>
+            <Field>
+               <Name>versionMinor</Name>
+   	        <Description>when the minor changes, then backward compatibility with previous releases is granted, but something changed in the implementation of the API (e.g. new methods may have been added).</Description>
+               <ID>30</ID>
+   <Type>UInt16</Type>
+               <Description>when the minor changes, then backward compatibility with previous releases is granted, but something changed in the implementation of the API (e.g. new methods may have been added).</Description>
+            </Field>
+            <Field>
+               <Name>versionMicro</Name>
+   	        <Description>when the micro changes, then backward compatibility with previous releases is granted (bug fixes or documentation modifications).</Description>
+               <ID>31</ID>
+   <Type>UInt16</Type>
+               <Description>when the micro changes, then backward compatibility with previous releases is granted (bug fixes or documentation modifications).</Description>
+            </Field>
+         </Fields>
+      </DataType>
+       <DataType>
+          <Name>SLocationReferencingInfo</Name>
+          <ID>32</ID>
+          <Description>Information about a location referencing method</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>type</Name>
+   	        <Description>Type of location referencing</Description>
+               <ID>33</ID>
+   <Type>LocationReferencingType</Type>
+               <Description>Type of location referencing</Description>
+            </Field>
+            <Field>
+               <Name>maxNbrMessages</Name>
+   	        <Description>Maximum number of messages supported when using the set location referencing method</Description>
+               <ID>34</ID>
+   <Type>UInt16</Type>
+               <Description>Maximum number of messages supported when using the set location referencing method</Description>
+            </Field>
+         </Fields>
+      </DataType>
+   <DataType>
+      <Name>TLocationReferencingInfos</Name>
+      <ID>35</ID>
+      <Description>List of location referencing information</Description>	  	
+      <Kind>Typedef</Kind>
+      <Container>THBVector</Container>
+     <BaseType>SLocationReferencingInfo</BaseType>
+   </DataType>
+       <DataType>
+          <Name>SApplicationInfo</Name>
+          <ID>36</ID>
+          <Description>Information about a TPEG application</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>type</Name>
+   	        <Description>Type of TPEG application</Description>
+               <ID>37</ID>
+   <Type>TPEGApplicationType</Type>
+               <Description>Type of TPEG application</Description>
+            </Field>
+            <Field>
+               <Name>appVersion</Name>
+   	        <Description>version of used TPEGApplication</Description>
+               <ID>38</ID>
+   <Type>Version</Type>
+               <Description>version of used TPEGApplication</Description>
+            </Field>
+            <Field>
+               <Name>locationReferencingInfos</Name>
+   	        <Description>List of supported location referencing methods and associated maximum number of messages</Description>
+               <ID>39</ID>
+   <Type>TLocationReferencingInfos</Type>
+               <Description>List of supported location referencing methods and associated maximum number of messages</Description>
+            </Field>
+         </Fields>
+      </DataType>
+   <DataType>
+      <Name>TApplicationInfos</Name>
+      <ID>40</ID>
+      <Description>List of decoding mechanisms</Description>	  	
+      <Kind>Typedef</Kind>
+      <Container>THBVector</Container>
+     <BaseType>SApplicationInfo</BaseType>
+   </DataType>
+       <DataType>
+          <Name>STmcLocationTable</Name>
+          <ID>41</ID>
+          <Description>Unique identification of a TMC location table</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>locationTableNumber</Name>
+   	        <Description>unique identifier of TMC location table (LTN)</Description>
+               <ID>42</ID>
+   <Type>UInt32</Type>
+               <Description>unique identifier of TMC location table (LTN)</Description>
+            </Field>
+            <Field>
+               <Name>versionId</Name>
+   	        <Description>version identifier of the TMC location table (certification number) in format "1 or 2 digits, ., 1 or 2 digits"</Description>
+               <ID>43</ID>
+   <Type>CHBString</Type>
+               <Description>version identifier of the TMC location table (certification number) in format "1 or 2 digits, ., 1 or 2 digits"</Description>
+            </Field>
+            <Field>
+               <Name>countryCode</Name>
+   	        <Description>country code in ISO-3166-1 alpha 3 code</Description>
+               <ID>44</ID>
+   <Type>CHBString</Type>
+               <Description>country code in ISO-3166-1 alpha 3 code</Description>
+            </Field>
+         </Fields>
+      </DataType>
+   <DataType>
+      <Name>TTmcLocationTables</Name>
+      <ID>45</ID>
+      <Description>List of TMC location tables</Description>	  	
+      <Kind>Typedef</Kind>
+      <Container>THBVector</Container>
+     <BaseType>STmcLocationTable</BaseType>
+   </DataType>
+       <DataType>
+          <Name>RefreshRecommendation</Name>
+          <ID>46</ID>
+          <Description>recommandation of refresh rates for this online client
+             This struct specifies the valid range of request-intervals for an
+             online service. All values are given as a multiple of seconds. 
+             The recommandation is used to prevent excessive load conditions on 
+             server side. While the highProfile_sec specifies the mandatory lower
+             bound of time between two requests, the lowProfile_sec specifies the
+             recommended upper bound of time between two requests.</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>highProfile_sec</Name>
+   	        <Description>valid minimum time between two requests</Description>
+               <ID>47</ID>
+   <Type>UInt16</Type>
+               <Description>valid minimum time between two requests</Description>
+            </Field>
+            <Field>
+               <Name>lowProfile_sec</Name>
+   	        <Description>valid maximum time between two requests</Description>
+               <ID>48</ID>
+   <Type>UInt16</Type>
+               <Description>valid maximum time between two requests</Description>
+            </Field>
+         </Fields>
+      </DataType>
+       <DataType>
+          <Name>ServerConfig</Name>
+          <ID>49</ID>
+          <Description>Configuration of TPEG data offered by the server</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>compressionType</Name>
+   	        <Description>Type of used compression</Description>
+               <ID>50</ID>
+   <Type>CompressionType</Type>
+               <Description>Type of used compression</Description>
+            </Field>
+            <Field>
+               <Name>encryptionType</Name>
+   	        <Description>Type of used encryption</Description>
+               <ID>51</ID>
+   <Type>EncryptionType</Type>
+               <Description>Type of used encryption</Description>
+            </Field>
+            <Field>
+               <Name>dataType</Name>
+   	        <Description>Type of used data</Description>
+               <ID>52</ID>
+   <Type>DataType</Type>
+               <Description>Type of used data</Description>
+            </Field>
+            <Field>
+               <Name>refresh</Name>
+   	        <Description>refresh recommandation for a client</Description>
+               <ID>53</ID>
+   <Type>RefreshRecommendation</Type>
+               <Description>refresh recommandation for a client</Description>
+            </Field>
+         </Fields>
+      </DataType>
+       <DataType>
+          <Name>ClientConfig</Name>
+          <ID>54</ID>
+          <Description>Configuration parameters for traffic over IP</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>databaseVersion</Name>
+   	        <Description>Database version encoded in a byte buffer (specifics are delegated to project-DB)</Description>
+               <ID>55</ID>
+   <Type>CHBBuffer</Type>
+               <Description>Database version encoded in a byte buffer (specifics are delegated to project-DB)</Description>
+            </Field>
+            <Field>
+               <Name>tmcTables</Name>
+   	        <Description>List of TMC location tables, which will be used for decoding of traffic over IP</Description>
+               <ID>56</ID>
+   <Type>TTmcLocationTables</Type>
+               <Description>List of TMC location tables, which will be used for decoding of traffic over IP</Description>
+            </Field>
+            <Field>
+               <Name>applicationInfos</Name>
+   	        <Description>List of applications, which support traffic over IP</Description>
+               <ID>57</ID>
+   <Type>TApplicationInfos</Type>
+               <Description>List of applications, which support traffic over IP</Description>
+            </Field>
+            <Field>
+               <Name>serverConfig</Name>
+   	        <Description>Server configuration, with which the server shall send TPEG over IP data.</Description>
+               <ID>58</ID>
+   <Type>ServerConfig</Type>
+               <Description>Server configuration, with which the server shall send TPEG over IP data.</Description>
+            </Field>
+         </Fields>
+      </DataType>
+   <DataType>
+      <Name>ServerConfigs</Name>
+      <ID>59</ID>
+      <Description>List of possible server configurations</Description>	  	
+      <Kind>Typedef</Kind>
+      <Container>THBVector</Container>
+     <BaseType>ServerConfig</BaseType>
+   </DataType>
+   <DataType>
+      <Name>Handle</Name>
+      <ID>60</ID>
+      <Description>Session identifier, for which traffic data can be requested.
+                           The session identifier of -1 indicates an error (e.g., too many sessions, no valid configuration, ...).</Description>	  	
+      <Kind>Typedef</Kind>
+      <Container></Container>
+      <BaseType>Int32</BaseType>
+   </DataType>
+       <DataType>
+          <Name>Coordinate2D</Name>
+          <ID>61</ID>
+          <Description>Coordinates in WGS84 format</Description>	  	
+         <Kind>Structure</Kind>
+         <Fields>
+            <Field>
+               <Name>latitude</Name>
+   	        <Description></Description>
+               <ID>62</ID>
+   <Type>double</Type>
+               <Description></Description>
+            </Field>
+            <Field>
+               <Name>longitude</Name>
+   	        <Description></Description>
+               <ID>63</ID>
+   <Type>double</Type>
+               <Description></Description>
+            </Field>
+         </Fields>
+      </DataType>
+	    
+   </DataTypes>
+</DSI>

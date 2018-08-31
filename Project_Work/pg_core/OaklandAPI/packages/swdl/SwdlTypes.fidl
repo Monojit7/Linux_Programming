@@ -1,0 +1,70 @@
+package com.harman.swdl
+
+
+
+typeCollection SwdlTypes {
+	version { major 1 minor 0 }
+	
+	
+	
+	<** @description : Result of check for Update **>
+	struct tUpdateCheckResult {
+		eUpdateAvailability       updateAvailability
+		tPackageDetails packageDetails
+	}
+	
+	<** @description : Update availability status. **>
+	enumeration eUpdateAvailability {
+		UPDATE_AVAILABLE		
+		SERVER_SESSION_ERROR
+		NO_CONNECTION_AVAILABLE
+		NW_NOT_IN_UPDATABLE_MODE			
+		NO_UPDATE_AVAILABLE	
+	    UPDATE_ALREADY_IN_PROGRESS
+	}
+	
+	<** @description : Update package details. **>	
+	struct tPackageDetails {
+		String      PackageName
+		UInt32      PackageSize
+	}
+	
+	
+	<** @description : SoftwareUpdate Status Result code. **>
+	enumeration eRequestDownload {
+		START_DOWNLOAD
+		DEFER_DOWNLOAD
+		DECLINE_DOWNLOAD
+	}
+	
+
+	<** @description : SoftwareUpdate Status Result code. **>
+	enumeration eInstallPackage {
+		START_INSTALLATION
+		DEFER_INSTALLATION
+		DECLINE_INSTALLATION
+	}
+	
+	<** @description : error types, the caller should check this value to find out 
+                       whether this call success or not.
+     **>    
+    enumeration eSwdlError {
+    	REQ_OK
+    	REQ_FAILED
+    	REQ_UNKNOWN
+    	REQ_UNSUPPORTED
+    	REQ_BUSY
+    }	
+	
+	<** @description : Software Package Download status **>
+	struct tDownloadStatus {
+		eDownloadState   downloadState
+		String			 errorInfo
+	}
+	
+	<** @description : download status **>
+	enumeration eDownloadState {
+		DOWNLOAD_COMPLETE
+		DOWNLOAD_FAILED
+	}	
+}

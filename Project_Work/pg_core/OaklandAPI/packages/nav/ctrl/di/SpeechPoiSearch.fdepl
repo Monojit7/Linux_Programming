@@ -1,0 +1,27 @@
+import "SpeechPoiSearch.fidl"
+import "POIServiceTypes.fdepl"
+import "LocationInputTypes.fdepl"
+import "../common/CommonTypes.fdepl"
+import "SpeechLocationInputTypes.fdepl"
+import "../some_ip.fdepl"
+
+define someip.franca.SOMEIP_Deployment for interface
+org.harman.nav.ctrl.di.SpeechPoiSearch {
+	use org.harman.nav.ctrl.di.POIServiceTypes use
+	org.harman.nav.ctrl.di.LocationInputTypes use org.harman.nav.ctrl.CommonTypes
+	use org.harman.nav.ctrl.di.SpeechLocationInputTypes
+	ServiceID = 5000
+
+	method getSpeechInputModes {
+		MMethodID = 200
+	}
+
+	method getCategoriesSpeechInfoList {
+		MMethodID = 201
+	}
+
+	method getCategoriesSpeechOrthographies {
+		MMethodID = 202
+	}
+
+}

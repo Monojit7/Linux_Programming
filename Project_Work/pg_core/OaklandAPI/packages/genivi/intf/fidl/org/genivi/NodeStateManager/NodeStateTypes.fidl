@@ -1,0 +1,174 @@
+package org.genivi.NodeStateManager
+
+
+typeCollection NodeStateTypes {
+    version {
+        major 2
+        minor 0
+    }
+    
+    enumeration NsmErrorStatus
+    {
+		NsmErrorStatus_NotSet               /**< Initial value when error type is not set             */
+  		NsmErrorStatus_Ok                   /**< Value when no error occurred                         */
+  		NsmErrorStatus_Error                /**< A general, non-specific error occurred               */
+  		NsmErrorStatus_Dbus                 /**< Error in D-Bus communication                         */
+  		NsmErrorStatus_Internal             /**< Internal error (memory alloc. failed, etc.)          */
+  		NsmErrorStatus_Parameter            /**< A passed parameter was incorrect                     */
+  		NsmErrorStatus_WrongSession         /**< The requested session is unknown.                    */
+  		NsmErrorStatus_ResponsePending      /**< Command accepted, return value delivered asynch.     */
+  		NsmErrorStatus_Last                  /**< Last error value to identify valid errors            */
+		NsmErrorStatus_e
+    }
+    
+    /**
+	 * Possible application modes of the node.
+	 */
+	enumeration NsmApplicationMode
+	{
+	  NsmApplicationMode_NotSet          /**< Initial state                                        */
+	  NsmApplicationMode_Parking          /**< Parking          mode                                */
+	  NsmApplicationMode_Factory          /**< Factory          mode                                */
+	  NsmApplicationMode_Transport        /**< Transport        mode                                */
+	  NsmApplicationMode_Normal           /**< Normal           mode                                */
+	  NsmApplicationMode_Swl              /**< Software loading mode                                */
+	  NsmApplicationMode_Last              /**< Last value to identify valid values                  */
+	}
+	
+	enumeration NsmRestartReason
+	{
+  		NsmRestartReason_NotSet             /**< Initial value when reset reason is not set           */
+  		NsmRestartReason_ApplicationFailure /**< Reset was requested by System Health Mon.            */
+  		NsmRestartReason_Diagnosis          /**< Reset was requested by diagnosis                     */
+  		NsmRestartReason_Swl                /**< Reset was requested by the SWL application           */
+  		NsmRestartReason_User               /**< Reset was requested by an user application           */
+  		NsmRestartReason_Last                /**< Last value to identify valid reset reasons           */
+	}
+	
+	enumeration NsmSeat
+	{
+  		NsmSeat_NotSet                      /**< Initial state                                        */
+  		NsmSeat_Driver                      /**< Driver seat                                          */
+  		NsmSeat_CoDriver                    /**< CoDriver seat                                        */
+  		NsmSeat_Rear1                       /**< Rear 1                                               */
+  		NsmSeat_Rear2                       /**< Rear 2                                               */
+  		NsmSeat_Rear3                       /**< Rear 3                                               */
+  		NsmSeat_Last                        /**< Last valid state                                     */
+	}
+	
+	/**
+	 * The enumeration defines the different wake up reasons.
+	 */
+	enumeration NsmSessionState
+	{
+	  NsmSessionState_Unregistered        /**< Initial state, equals "not set"                         */
+	  NsmSessionState_Inactive            /**< Session is inactive;for OnOff it is treated as OffMode  */
+	  NsmSessionState_Active              /**< Session is active;for OnOff it is treated as ActiveMode */
+	  NsmSessionState_HourMode 			  /**< Session is HourMode Only used by OnOff 				      */
+	  NsmSessionState_Standby 			     /**< Session is Standby Only used by OnOff 				      */
+	  NsmSessionState_Shutdown       	  /**< Session is Shutdown Only used by OnOff 				      */  
+	} 
+
+	enumeration NsmShutdownReason
+	{
+	  NsmShutdownReason_NotSet            /**< Initial value when ShutdownReason not set            */
+	  NsmShutdownReason_Normal            /**< A normal shutdown has been performed                 */
+	  NsmShutdownReason_SupplyBad         /**< Shutdown because of bad supply                       */
+	  NsmShutdownReason_SupplyPoor        /**< Shutdown because of poor supply                      */
+	  NsmShutdownReason_ThermalBad        /**< Shutdown because of bad thermal state                */
+	  NsmShutdownReason_ThermalPoor       /**< Shutdown because of poor thermal state               */
+	  NsmShutdownReason_SwlNotActive      /**< Shutdown after software loading                      */
+	  NsmShutdownReason_Last               /**< Last value. Identify valid ShutdownReasons           */
+	} 
+	
+	/**
+	 * The enumeration defines the different start or wake up reasons.
+	 */
+	enumeration NsmRunningReason
+	{
+	  NsmRunningReason_NotSet                       /**< Initial value when reason is not set.                          */
+	  NsmRunningReason_WakeupCan                    /**< Wake up because of CAN activity                                */
+	  NsmRunningReason_WakeupMediaEject             /**< Wake up because of 'Eject' button                              */
+	  NsmRunningReason_WakeupMediaInsertion         /**< Wake up because of media insertion                             */
+	  NsmRunningReason_WakeupHevac                  /**< Wake up because of user uses the HEVAC unit in the car.
+	                                                      Even if the HEVAC actually causes activity on the CAN bus a
+	                                                      different wakeup reason is required as it could result in a
+	                                                      different level of functionality being started                 */
+	  NsmRunningReason_WakeupPhone                  /**< Wake up because of a phone call being received.
+	                                                      Even if this is passed as a CAN event a different wakeup reason
+	                                                      is required as it could result in a different level of
+	                                                      functionality being started                                    */
+	  NsmRunningReason_WakeupPowerOnButton          /**< Startup because user presses the "Power ON" button in the car.
+	                                                      Even if this is passed as a CAN event a different wakeup reason
+	                                                      is required as it could result in a different level of
+	                                                      functionality being started                                    */
+	  NsmRunningReason_StartupFstp                  /**< System was started due to a first switch to power              */
+	  NsmRunningReason_StartupSwitchToPower         /**< System was switched to power                                   */
+	  NsmRunningReason_RestartSwRequest             /**< System was restarted due to an internal SW Request
+	                                                      (i.e. SWL or Diagnosis)                                        */
+	  NsmRunningReason_RestartInternalHealth        /**< System was restarted due to an internal health problem         */
+	  NsmRunningReason_RestartExternalHealth        /**< System was restarted due to an external health problem
+	                                                      (i.e. external wdog believed node was in failure)              */
+	  NsmRunningReason_RestartUnexpected            /**< System was restarted due to an unexpected kernel restart.
+	                                                      This will be the default catch when no other reason is known   */
+	  NsmRunningReason_RestartUser                  /**< Target was reset due to user action (i.e user 3 finger press)  */
+	  NsmRunningReason_PlatformEnd = 0x7F           /**< Last value (127) to identify where the platform defines end
+	                                                      (product will start from here on)                              */
+	  
+	}
+
+	/**
+	 * The enumeration defines the different node states
+	 */
+	enumeration NsmNodeState
+	{
+	  NsmNodeState_NotSet                 /**< Initial state when node state is not set             */
+	  NsmNodeState_StartUp                /**< Basic system is starting up                          */
+	  NsmNodeState_BaseRunning            /**< Basic system components have been started            */
+	  NsmNodeState_LucRunning             /**< All 'Last user context' components have been started */
+	  NsmNodeState_FullyRunning           /**< All 'foreground' components have been started        */
+	  NsmNodeState_FullyOperational       /**< All components have been started                     */
+	  NsmNodeState_ShuttingDown           /**< The system is shutting down                          */
+	  NsmNodeState_ShutdownDelay          /**< Shutdown request active. System will shutdown soon   */
+	  NsmNodeState_FastShutdown           /**< Fast shutdown active                                 */
+	  NsmNodeState_DegradedPower          /**< Node is in degraded power state                      */
+	  NsmNodeState_Shutdown               /**< Node is completely shut down                         */
+	  NsmNodeState_Last                    /**< Last valid entry to identify valid node states       */
+	} 
+	
+	/** The type defines the structure for a session.                                                */
+	struct NsmSession
+	{
+		String Name
+		String Owner
+		NsmSeat enSeat
+		NsmSessionState enState
+	}
+	
+/*
+	const String NSM_SESSION_RVC 		= "NsmSession_RVC"
+	const String NSM_SESSION_PDC 		= "NsmSession_ParkDistanceControl"
+	const String NSM_SESSION_HMI 		= "NsmSession_HMI"
+	const String NSM_SESSION_PHONE 		= "NsmSession_Phone"
+	const String NSM_SESSION_DIAGNOSIS 	= "NsmSession_Dianosis"
+	const String NSM_SESSION_SWDownload = "NsmSession_SWDownload"
+ */
+
+	/**
+	 * Defines for shutdown handling as bit masks. Used to register for multiple shutdown types and as parameter to
+	 * 	inform clients about the shutdown type via the LifecycleConsumer interface.
+     */
+
+	enumeration NsmShutdownType
+	{
+	  NSM_SHUTDOWNTYPE_NOT    = 0x00000000U   /**< Client not registered for any shutdown           */
+	  NSM_SHUTDOWNTYPE_NORMAL = 0x00000001U   /**< Client registered for normal shutdown            */
+	  NSM_SHUTDOWNTYPE_FAST   = 0x00000002U   /**< Client registered for fast shutdown              */
+	  NSM_SHUTDOWNTYPE_RUNUP  = 0x80000000U	  /**< The shutdown type "run up" can not be used for registration. Clients which are registered and have been shut down, will automatically be informed about the "run up", when the shut down is canceled.*/	 
+	} 
+
+	
+}
+
+
+
