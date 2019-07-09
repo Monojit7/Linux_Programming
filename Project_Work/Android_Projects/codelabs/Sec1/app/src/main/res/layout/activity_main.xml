@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/iTextid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/name_text"
+        android:textAlignment="center"
+        style="@style/NameStyle" />
+
+    <ImageView
+        android:id="@+id/iStarImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/iYellow_Star"
+        app:srcCompat="@android:drawable/btn_star_big_on" />
+
+    <ScrollView
+        android:id="@+id/iScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/iBioText"
+            style="@style/NameStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="@dimen/iLine_spacing"
+            android:paddingStart="@dimen/iLayoutPadding"
+            android:text="@string/iBioText" />
+    </ScrollView>
+</LinearLayout>
