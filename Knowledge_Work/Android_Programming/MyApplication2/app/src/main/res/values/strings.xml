@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">M12</string>
+    <string name="chooser_title">share this content with</string>
+    <string name="title_activity_main3">PostOffice</string>
+    <string name="title_mainact">M14</string>
+    <string name ="channel_name">monojit notif channel </string>
+    <string name="channel_description"> monojit notif channel description</string>
+
+    <string-array name="receipients">
+        <item>mgf@kgf.co</item>
+        <item>sdf@kgf.co</item>
+    </string-array>
+</resources>
