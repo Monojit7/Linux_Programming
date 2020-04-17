@@ -37,18 +37,18 @@ public class Main3Activity extends AppCompatActivity {
         recipient = findViewById ( R.id.RecipientText );
         subjectText = findViewById ( R.id.subjectText );
 
-        Log.i( this.getLocalClassName() ,  String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()) );
+        Log.i( this.getLocalClassName() ,     Thread.currentThread().getStackTrace()[2].getMethodName());
     }
 
     public void onClose ( View view )
     {
-        Log.i( this.getLocalClassName() ,  String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()) );
+        Log.i( this.getLocalClassName() ,     Thread.currentThread().getStackTrace()[2].getMethodName());
        finish();
     }
 
     public void onURL ( View view )
     {
-        Log.i( this.getLocalClassName() ,  String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()) );
+        Log.i( this.getLocalClassName() ,     Thread.currentThread().getStackTrace()[2].getMethodName());
 
         String URL = editText.getText().toString();
         Intent intent = new Intent( Intent.ACTION_VIEW , Uri.parse( URL ));
@@ -57,7 +57,7 @@ public class Main3Activity extends AppCompatActivity {
 
     public void onNextPage ( View view )
     {
-        Log.i( this.getLocalClassName() ,  String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()) );
+        Log.i( this.getLocalClassName() ,     Thread.currentThread().getStackTrace()[2].getMethodName());
         Intent intent = new Intent( this , Main2Activity.class );
         startActivity( intent );
     }
@@ -65,8 +65,8 @@ public class Main3Activity extends AppCompatActivity {
     public void EmailSend ( View view )
     {
 
-        Log.i( this.getLocalClassName() ,  String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()) );
-       /* String EmailContent = emailText.getText().toString();
+        Log.i( this.getLocalClassName() ,     Thread.currentThread().getStackTrace()[2].getMethodName());
+        String EmailContent = emailText.getText().toString();
         String RecipientName = recipient.getText().toString();
         String subject = subjectText.getText().toString();
         String chooser_title = getResources().getString(R.string.chooser_title );
@@ -77,8 +77,11 @@ public class Main3Activity extends AppCompatActivity {
                 "mailto",RecipientName, null));
 
         sendIntent.putExtra(Intent.EXTRA_TEXT, EmailContent);
+        sendIntent.putExtra(Intent.EXTRA_EMAIL, RecipientName);
         sendIntent.putExtra(Intent.EXTRA_SUBJECT , subject );
         sendIntent.setType("message/rfc822");
+
+        sendIntent.setFlags( Intent.FLAG_ACTIVITY_NEW_TASK);
 
 
         Intent chooser = Intent.createChooser(sendIntent , chooser_title );
@@ -86,67 +89,44 @@ public class Main3Activity extends AppCompatActivity {
         if (sendIntent.resolveActivity(getPackageManager()) != null) {
             startActivity(chooser);
         }
-*/
 
-        Intent gmailIntent = new Intent(Intent.ACTION_SEND);
-        gmailIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        gmailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, getResources().getStringArray(R.array.receipients));
-        gmailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,"subject");
-        gmailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "EmailContent");
-        gmailIntent.setType("message/rfc822");
-        gmailIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
-        final PackageManager pm = getApplicationContext().getPackageManager();
-        final List<ResolveInfo> matches = pm.queryIntentActivities(gmailIntent, 0);
-        ResolveInfo best = null;
-        for (final ResolveInfo info : matches)
-            if (info.activityInfo.packageName.endsWith(".gm") ||
-                    info.activityInfo.name.toLowerCase().contains("gmail")) best = info;
-        if (best != null)
-            gmailIntent.setClassName(best.activityInfo.packageName, best.activityInfo.name);
-
-
-        try {
-            startActivity(gmailIntent);
-        } catch (ActivityNotFoundException ex) {
-            Toast.makeText(getApplicationContext(), "you_do_not_have_gmail_installed", Toast.LENGTH_SHORT).show();
-        }
 
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.i( this.getLocalClassName() ,  String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()) );
+        Log.i( this.getLocalClassName() ,     Thread.currentThread().getStackTrace()[2].getMethodName());
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.i( this.getLocalClassName() ,  String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()) );
+        Log.i( this.getLocalClassName() ,     Thread.currentThread().getStackTrace()[2].getMethodName());
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Log.i( this.getLocalClassName() ,  String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()) );
+        Log.i( this.getLocalClassName() ,     Thread.currentThread().getStackTrace()[2].getMethodName());
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.i( this.getLocalClassName() ,  String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()) );
+        Log.i( this.getLocalClassName() ,     Thread.currentThread().getStackTrace()[2].getMethodName());
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.i( this.getLocalClassName() ,  String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()) );
+        Log.i( this.getLocalClassName() ,     Thread.currentThread().getStackTrace()[2].getMethodName());
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        Log.i( this.getLocalClassName() ,  String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()) );
+        Log.i( this.getLocalClassName() ,     Thread.currentThread().getStackTrace()[2].getMethodName());
     }
 
 }
