@@ -1,9 +1,11 @@
 <resources>
-    <string name="app_name">M12</string>
+    <string name="app_name">AA</string>
     <string name="chooser_title">share this content with</string>
     <string name="title_activity_main3">PostOffice</string>
-    <string name="title_mainact">M14</string>
+    <string name="title_mainact">AA</string>
     <string name="channel_name">monojit notif channel </string>
+    <string name="channel_name_latest" > Monojit Notification new Channel </string>
+    <string name="channel_name_custom" > Monojit Notification custom Channel </string>
     <string name="channel_description"> monojit notif channel description</string>
 
     <string-array name="receipients">

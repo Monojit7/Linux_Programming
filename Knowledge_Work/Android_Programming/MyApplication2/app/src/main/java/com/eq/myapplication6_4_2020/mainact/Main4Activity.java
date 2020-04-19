@@ -20,6 +20,7 @@ import com.eq.myapplication6_4_2020.R;
 public class Main4Activity extends AppCompatActivity {
 
     public final static  String CHANNEL_ID = "Monojit Notification new Channel";
+    public static int count = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,11 +36,12 @@ public class Main4Activity extends AppCompatActivity {
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = getString(R.string.channel_name);
+            CharSequence name =    getString(R.string.channel_name_latest);
             String description = getString(R.string.channel_description);
             int importance = NotificationManager.IMPORTANCE_HIGH;
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
             channel.setDescription(description);
+            channel.setShowBadge(true);
             // Register the channel with the system; you can't change the importance
             // or other notification behaviors after this
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
@@ -79,6 +81,8 @@ public class Main4Activity extends AppCompatActivity {
 
                 //  .bigPicture(BitmapFactory.decodeResource(getResources(), R.drawable.mipmap)))
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL)
+                .setNumber ( ++count)
                 .setContentIntent(pendingIntent).build();
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);

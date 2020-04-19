@@ -9,13 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
-
-
         <activity
             android:name=".mainact.MainActivity"
-
             android:label="@string/title_mainact">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,16 +19,10 @@
             </intent-filter>
         </activity>
 
-
         <activity
             android:name=".mainact.Main3Activity"
-            android:label ="2nd Act"
-            android:parentActivityName=".mainact.MainActivity"
-
-           >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".mainact.MainActivity" />
+            android:label="2nd Act"
+            android:parentActivityName=".mainact.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
 
@@ -42,36 +31,43 @@
                 <data android:mimeType="message/rfc822" />
                 <data android:mimeType="image/*" />
             </intent-filter>
-        </activity>
 
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".mainact.MainActivity" />
+        </activity>
         <activity
             android:name=".mainact.Main2Activity"
-            android:label ="3rd Act"
-            android:parentActivityName=".mainact.Main3Activity" >
+            android:label="3rd Act"
+            android:parentActivityName=".mainact.Main3Activity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".mainact.Main3Activity" />
-    </activity>
-
+        </activity>
         <activity
             android:name=".mainact.Main4Activity"
-            android:label ="4th Act"
-            android:parentActivityName=".mainact.Main2Activity" >
+            android:label="4th Act"
+            android:parentActivityName=".mainact.Main2Activity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".mainact.Main2Activity" />
-
-    </activity>
-
+        </activity>
         <activity
             android:name=".mainact.Main5Activity"
-            android:label ="5th Act"
-            android:parentActivityName=".mainact.Main4Activity" >
+            android:label="5th Act"
+            android:parentActivityName=".mainact.Main4Activity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".mainact.Main4Activity" />
+        </activity>
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
-    </activity>
+        <receiver
+            android:name=".mainact.notification_receiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
     </application>
 
 </manifest>
