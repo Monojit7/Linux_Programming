@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AA</string>
+    <string name ="channel_name_bubble" > Bubble Test channel</string>
+    <string name ="channel_description" > Bubble Test Channel Description </string>
+</resources>
