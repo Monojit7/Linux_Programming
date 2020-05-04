@@ -6,6 +6,7 @@ import androidx.appcompat.widget.ShareActionProvider;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.MenuItemCompat;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -13,6 +14,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -32,6 +34,10 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 
+import static android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION;
+import static android.content.Intent.FLAG_GRANT_WRITE_URI_PERMISSION;
+import static androidx.core.content.FileProvider.getUriForFile;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -44,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
         ActionBar myActionBar = getSupportActionBar();
 
         myActionBar.setDisplayHomeAsUpEnabled(true);
+
+
+
+
     }
 
     @Override
@@ -69,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            String[] sPerms = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.GET_ACCOUNTS_PRIVILEGED, Manifest.permission.GET_ACCOUNTS_PRIVILEGED};
+            requestPermissions(sPerms, 23);
+        }*/
         // Get the MenuItem for the action item
         MenuItem actionMenuItem = menu.findItem(R.id.app_bar_search);
         Log.i( this.getLocalClassName() , String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()));
@@ -76,52 +90,73 @@ public class MainActivity extends AppCompatActivity {
         MenuItem shareItem = menu.findItem(R.id.actionprovider_id);
         ShareActionProvider myShareActionProvider =
                 (ShareActionProvider) MenuItemCompat.getActionProvider(shareItem);
-       Bitmap bm = BitmapFactory.decodeResource(this.getResources(), R.mipmap.dog_icon_foreground);
+       //Bitmap bm = BitmapFactory.decodeResource(this.getResources(), R.mipmap.dog_icon_foreground);
 
-      if ( bm == null )
-          Log.i( this.getLocalClassName() , String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()));
-      else
-          Log.i( this.getLocalClassName() , String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()));
+
+        Uri contentUri = null;
 
 
 
-        Log.i( this.getLocalClassName() , String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()));
+      //  try{
 
-        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        Log.i( this.getLocalClassName() , String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()));
-        bm.compress(Bitmap.CompressFormat.PNG, 100, bytes);
-        Log.i( this.getLocalClassName() , String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()));
-      //  String path = MediaStore.Images.Media.insertImage(this.getContentResolver(), bm, "Title", null);
-        Log.i( this.getLocalClassName() , String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()));
-
-      //  if ( path == null )
-            Log.i( this.getLocalClassName() , String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()));
-
-
-        Intent myShareIntent = new Intent(Intent.ACTION_SEND);
-        myShareIntent.setType("png/image");
-        String path = "";
-        try {
-            path = bytes.toString("UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-        myShareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(path));
+            Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.mipmap.brent_goose_icon_new_foreground );
 
 
 
-        //Log.i( this.getLocalClassName() , path );
+            ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+            largeIcon.compress(Bitmap.CompressFormat.PNG, 100, bytes);
 
-        // Assign the listener to that action item
-        myShareActionProvider.setShareIntent(myShareIntent);
-        Log.i( this.getLocalClassName() , String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()));
-        actionMenuItem.setOnActionExpandListener( expandListener) ;
-        Log.i( this.getLocalClassName() , String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()));
-       // ImageView imgView=(ImageView)findViewById(R.id.psdimage1);
-        //Uri imgUri=Uri.parse("android.resource://my.package.name/"+R.drawable.image);
-       // imgView.setImageURI(Uri.parse(path));
-        Log.i( this.getLocalClassName() , String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()));
+            // you can create a new file name "test.jpg" in sdcard folder.
+          //  File f = new File(Environment.getExternalStorageDirectory() + File.separator + "test.png");
+
+
+
+            File imagePath = new File(Environment.getExternalStorageDirectory(), "images");
+            File newFile = new File(imagePath, "default_image.png");
+            contentUri = getUriForFile(getApplicationContext(), "com.eq.actionbar.testprovider", newFile);
+
+            grantUriPermission( getPackageName(), contentUri, FLAG_GRANT_READ_URI_PERMISSION  | FLAG_GRANT_WRITE_URI_PERMISSION);
+
+            Log.i( this.getLocalClassName() , String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()) + "uri =" + contentUri + "  " + Environment.getExternalStorageDirectory().toString());
+
+            //newFile.createNewFile();
+
+            // write the bytes in file
+           // FileOutputStream fo = new FileOutputStream(newFile);
+           // fo.write(bytes.toByteArray());
+
+            // remember close de FileOutput
+           // fo.close();
+     //   }
+     //   catch (IOException e) {
+            // TODO Auto-generated catch block
+       //     e.printStackTrace();
+       //}
+
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("image/*");
+
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Hi"); //set your subject
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "How are you"); //set your message
+
+        Log.i( getLocalClassName(), contentUri.toString() );
+
+        //shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("android.resource://" + C.PROJECT_PATH + "/drawable/" + R.mipmap.dog_icon_foreground);
+
+        shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri);
+
+
+
+        shareIntent.setFlags( Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+
+
+        myShareActionProvider.setShareIntent(shareIntent);
+
+       // ImageView image = findViewById( R.id.psdimage1);
+       // image.setImageURI( contentUri);
+
+        //startActivity(Intent.createChooser(shareIntent, "Share Image"));
         return true;
     }
 
