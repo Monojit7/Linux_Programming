@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // checking if commit works 
       //  MyLayoutBinding binding = MyLayoutBinding
         myMap = new HashMap<>(2);
 
