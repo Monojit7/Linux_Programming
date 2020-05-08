@@ -38,7 +38,13 @@ import static android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION;
 import static android.content.Intent.FLAG_GRANT_WRITE_URI_PERMISSION;
 import static androidx.core.content.FileProvider.getUriForFile;
 
+import static androidx.core.content.FileProvider.getUriForFile;
+
 public class MainActivity extends AppCompatActivity {
+
+    Uri fileUri;
+    File newFile;
+    Intent myShareIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +56,6 @@ public class MainActivity extends AppCompatActivity {
         ActionBar myActionBar = getSupportActionBar();
 
         myActionBar.setDisplayHomeAsUpEnabled(true);
-
-
-
 
     }
 
@@ -79,94 +82,14 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            String[] sPerms = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.GET_ACCOUNTS_PRIVILEGED, Manifest.permission.GET_ACCOUNTS_PRIVILEGED};
-            requestPermissions(sPerms, 23);
-        }*/
         // Get the MenuItem for the action item
         MenuItem actionMenuItem = menu.findItem(R.id.app_bar_search);
-        Log.i( this.getLocalClassName() , String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()));
 
-        MenuItem shareItem = menu.findItem(R.id.actionprovider_id);
-        ShareActionProvider myShareActionProvider =
-                (ShareActionProvider) MenuItemCompat.getActionProvider(shareItem);
-       //Bitmap bm = BitmapFactory.decodeResource(this.getResources(), R.mipmap.dog_icon_foreground);
+        // Removed ShareAction Provider, instead using share icon to share the item
 
-
-        Uri contentUri = null;
-
-
-
-      //  try{
-
-            Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.mipmap.brent_goose_icon_new_foreground );
-
-
-
-            ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-            largeIcon.compress(Bitmap.CompressFormat.PNG, 100, bytes);
-
-            // you can create a new file name "test.jpg" in sdcard folder.
-          //  File f = new File(Environment.getExternalStorageDirectory() + File.separator + "test.png");
-
-
-
-            File imagePath = new File(Environment.getExternalStorageDirectory(), "images");
-            File newFile = new File(imagePath, "default_image.png");
-            contentUri = getUriForFile(getApplicationContext(), "com.eq.actionbar.testprovider", newFile);
-
-            grantUriPermission( getPackageName(), contentUri, FLAG_GRANT_READ_URI_PERMISSION  | FLAG_GRANT_WRITE_URI_PERMISSION);
-
-            Log.i( this.getLocalClassName() , String.valueOf(Thread.currentThread().getStackTrace()[2].getLineNumber()) + "uri =" + contentUri + "  " + Environment.getExternalStorageDirectory().toString());
-
-            //newFile.createNewFile();
-
-            // write the bytes in file
-           // FileOutputStream fo = new FileOutputStream(newFile);
-           // fo.write(bytes.toByteArray());
-
-            // remember close de FileOutput
-           // fo.close();
-     //   }
-     //   catch (IOException e) {
-            // TODO Auto-generated catch block
-       //     e.printStackTrace();
-       //}
-
-        Intent shareIntent = new Intent(Intent.ACTION_SEND);
-        shareIntent.setType("image/*");
-
-        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Hi"); //set your subject
-        shareIntent.putExtra(Intent.EXTRA_TEXT, "How are you"); //set your message
-
-        Log.i( getLocalClassName(), contentUri.toString() );
-
-        //shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("android.resource://" + C.PROJECT_PATH + "/drawable/" + R.mipmap.dog_icon_foreground);
-
-        shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri);
-
-
-
-        shareIntent.setFlags( Intent.FLAG_GRANT_READ_URI_PERMISSION);
-
-
-
-        myShareActionProvider.setShareIntent(shareIntent);
-
-       // ImageView image = findViewById( R.id.psdimage1);
-       // image.setImageURI( contentUri);
-
-        //startActivity(Intent.createChooser(shareIntent, "Share Image"));
+        actionMenuItem.setOnActionExpandListener( expandListener) ;
         return true;
     }
-
-
-  /*  private Uri getImageUri(Context context, Bitmap inImage) {
-        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-        //String path = MediaStore.Images.Media.insertImage(context.getContentResolver(), inImage, "Title", null);
-       // return Uri.parse(path);
-    }*/
 
 
     @Override
@@ -198,8 +121,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.actionprovider_id:
                 // User chose the "Favorite" action, mark the current item
                 // as a favorite...
-;
+                ;
                 displayToast ("Shared action provider action bar touched");
+
+                // Calling startActivity to open other application using createChooser method
+                startActivity(Intent.createChooser(myShareIntent, "Sending attachment"));
 
                 return super.onOptionsItemSelected(item);
 
@@ -227,5 +153,59 @@ public class MainActivity extends AppCompatActivity {
         t.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 180);
         t.show();
 
+    }
+
+    private void getBitmap() {
+
+        // Converting image to Bitmap
+        try {
+            Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.mipmap.dog_icon_foreground);
+            ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+            largeIcon.compress(Bitmap.CompressFormat.JPEG, 40, bytes);
+
+
+            // Creating file for the image
+            File imagePath = new File(Environment.getExternalStorageDirectory(),// for external storage
+                    // we can create file in internal storage also
+                    "Download");// child = path mentioned in filespath.xml under res/xml
+            Log.i("MainActivity: ", "imagePath: " + imagePath);
+
+            newFile = new File(imagePath, "dog_icon_round.jpeg");
+            Log.i("MainActivity: ", "newFile: " + newFile);
+
+            // write the bytes in file
+            FileOutputStream fo = new FileOutputStream(newFile);
+            fo.write(bytes.toByteArray());
+
+            // close the FileOutputfo.close();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        // Creating Uri using File provider to share with intent
+        try {
+            fileUri = getUriForFile(MainActivity.this,
+                    "com.eq.actionbar.fileprovider", newFile);
+            Log.i("MainActivity: ", "fileUri: " + fileUri);
+
+        } catch (IllegalArgumentException e) {
+            Log.e("File Selector",
+                    "The selected file can't be shared: " + newFile.toString());
+        }
+
+        // Creating Intent to pass the attachment
+        myShareIntent = new Intent(Intent.ACTION_SEND);
+        myShareIntent.setType("image/jpeg");
+        myShareIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"xyz@in.abc.com"});
+        myShareIntent.putExtra(Intent.EXTRA_SUBJECT, "Hello!");
+        myShareIntent.putExtra(Intent.EXTRA_STREAM, fileUri);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        getBitmap();
     }
 }
