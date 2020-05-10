@@ -1,9 +1,14 @@
 package com.eq.databindinglib;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.BindingAdapter;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.eq.databindinglib.databinding.ActivityMainBinding;
 
@@ -45,4 +50,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    @BindingAdapter("xyz")
+    public static void setXyz(TextView view, String eq)
+    {
+        Log.i( "MainActivity", "" + eq  );
+    }
+
+
 }
