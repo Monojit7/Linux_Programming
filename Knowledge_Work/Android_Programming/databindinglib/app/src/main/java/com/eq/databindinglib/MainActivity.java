@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private String sName = "My Testing of Data Binding";
     private Map<Integer, String> myMap;
     private int index = 0;
+    ViewBindingTwoWay viewbindingtwoway;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,30 +33,41 @@ public class MainActivity extends AppCompatActivity {
         myBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(myBinding.getRoot());
         myMap.put(0, "My Testing of Data Binding");
+        viewbindingtwoway = new ViewBindingTwoWay( "the two day binding");
+        myBinding.setTwowaydatabinding( viewbindingtwoway);
         myBinding.setDesire1( myMap);
     }
 
     public void onButtonPressed (View view)
     {
-        index = index + 1;
+
 
         myMap.put(0, "I am desir" + index );
-        if ( index <= 100 ) {
+        if ( index < 100 ) {
            // myBinding.setDesire(sName + " >> " + index);
-            myBinding.setDesire1(myMap);
+            index = index + 1;
+            viewbindingtwoway.data_s.set("two way " + ( index ));
+
+
         }
         else {
             index = 0;
-           // myBinding.setDesire(sName + " >> " + index);
-            myBinding.setDesire1(myMap);
-        }
+            viewbindingtwoway.data_s.set("two way set nothing");
 
+        }
+        myBinding.setDesire1(myMap);
     }
 
     @BindingAdapter("xyz")
     public static void setXyz(TextView view, String eq)
     {
         Log.i( "MainActivity", "" + eq  );
+    }
+
+    @BindingAdapter("inversedata")
+    public static void setInverseData ( TextView view , String inversedata )
+    {
+
     }
 
 
