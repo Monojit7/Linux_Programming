@@ -58,17 +58,31 @@ public class MainActivity extends AppCompatActivity {
         myBinding.setDesire1(myMap);
     }
 
-    @BindingAdapter("xyz")
-    public static void setXyz(TextView view, String eq)
+
+    // the view which will be having both will be impacted
+
+    @BindingAdapter( {"android:onClick", "android:text" , "specific"} )
+    public static void setOnClick(TextView view, View.OnClickListener listener, String text, String spec) {
+        view.setOnClickListener(listener);
+        //view.setText(text);
+
+            view.setText(text);
+            if ( text == spec )
+            {
+                Log.i ("Binding", "two matched");
+            }
+            Log.i ("Binding", "else onClickListener and clickable -> "+ view.getText() + view.getLineCount() );
+
+
+
+
+
+    }
+    public  void onTextViewPressed ( View view )
     {
-        Log.i( "MainActivity", "" + eq  );
+        Log.i("Binding", "onTextViewPressed Main");
     }
 
-    @BindingAdapter("inversedata")
-    public static void setInverseData ( TextView view , String inversedata )
-    {
-
-    }
 
 
 }

@@ -1,6 +1,7 @@
 package com.eq.databindinglib;
 import android.database.Observable;
 import android.util.Log;
+import android.view.View;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
@@ -30,5 +31,10 @@ public class ViewBindingTwoWay extends BaseObservable {
         this.data = data;
         notifyPropertyChanged(BR.data);
         data_s.set(this.data);
+    }
+
+    public void onTextViewPressed ( View view )
+    {
+        Log.i("Binding", "onTextViewPressed");
     }
 }
