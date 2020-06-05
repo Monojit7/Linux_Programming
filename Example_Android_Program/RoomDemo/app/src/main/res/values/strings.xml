@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">RoomDemo</string>
+    <string name="add_word">Add Word</string>
+    <string name="hint_word">Word...</string>
+    <string name="button_save">Save </string>
+    <string name="first_word">Monojit</string>
+    <string name="second_word">Chatterjee</string>
+    <string name="empty_not_saved">Word is Empty so not saved </string>
+</resources>
