@@ -1,6 +1,7 @@
 package com.eq.roomdemo;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
         private final TextView wordItemView ;
         public WordViewHolder(@NonNull View itemView) {
             super(itemView);
+            Log.i("Roomflow",  String.valueOf(this.getClass())+ " constructor" );
             wordItemView = itemView.findViewById(R.id.textView);
         }
     }
@@ -28,13 +30,13 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
     @Override
     public WordViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = mInFlator.inflate(R.layout.recyclerview_item, parent, false);
-
+        Log.i("Roomflow",  String.valueOf(this.getClass())+ " onCreateViewHolder" );
         return new WordViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull WordViewHolder holder, int position) {
-
+        Log.i("Roomflow",  String.valueOf(this.getClass())+ " onBindViewHolder" + position);
         if ( mWords != null ) {
             Word current = mWords.get(position);
             holder.wordItemView.setText(current.getWord());
@@ -46,15 +48,18 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
     }
 
     void setWords( List<Word> words ) {
-
+        Log.i("Roomflow",  String.valueOf(this.getClass())+ " setWords" );
         mWords = words;
         notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        if (mWords != null)
+
+        if (mWords != null) {
+            Log.i("Roomflow",  String.valueOf(this.getClass())+ " getItemCount "+ mWords.size());
             return mWords.size();
+        }
 
         return 0;
     }

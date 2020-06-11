@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
        mWordViewModel = new ViewModelProvider(this).get(WordViewModel.class);
-
+        Log.i("Roomflow",  String.valueOf(this.getClass())+ " onCreate" );
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         final WordListAdapter wordListAdapter = new WordListAdapter(this);
         recyclerView.setAdapter(wordListAdapter);
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, NewWordActivity.class);
                 startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
+                Log.i("Roomflow",  String.valueOf(this.getClass())+ " onClick" );
             }
         });
     }
@@ -54,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         {
             Word word = new Word(data.getStringExtra(NewWordActivity.EXTRA_REPLY));
             mWordViewModel.insert(word);
+            Log.i("Roomflow",  String.valueOf(this.getClass())+ " onActivityResult" );
         }
         else
         {

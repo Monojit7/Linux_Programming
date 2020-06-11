@@ -1,0 +1,311 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Android Paging</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="android-paging"
+                  title="Android Paging"
+                  environment="web"
+                  feedback-link="https://github.com/googlecodelabs/android-paging/issues">
+    
+      <google-codelab-step label="Introduction" duration="0">
+        <h2 is-upgraded><strong>What you&#39;ll build</strong></h2>
+<p>In this codelab, you start with a sample app that already displays a list of GitHub repositories, loading data from the database and that is backed by network data. Whenever the user scrolls to the end of the displayed list, a new network request is triggered and its result is saved to the database backing the list. </p>
+<p>You will add code through a series of steps, integrating the <a href="https://developer.android.com/topic/libraries/architecture/paging.html" target="_blank">Paging library</a> components as you progress. These components are described in Step 2.</p>
+<h2 is-upgraded>What you&#39;ll need</h2>
+<ul>
+<li>Android Studio 3.4 or greater.</li>
+<li>Familiarity with the following Architecture Components: <a href="https://developer.android.com/training/data-storage/room/index.html" target="_blank">Room</a>, <a href="https://developer.android.com/reference/android/arch/lifecycle/LiveData.html" target="_blank">LiveData</a>, <a href="https://developer.android.com/reference/android/arch/lifecycle/ViewModel.html" target="_blank">ViewModel</a> and with the architecture suggested in the &#34;<a href="https://developer.android.com/topic/libraries/architecture/guide.html" target="_blank">Guide to App Architecture</a>&#34;.<br><br>For an introduction to Architecture Components, check out the <a href="https://codelabs.developers.google.com/codelabs/android-room-with-a-view/index.html?index=..%2F..%2Findex#0" target="_blank">Room with a View codelab</a>.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Setup Your Environment" duration="1">
+        <p>In this step, you will download the code for the entire codelab and then run a simple example app.</p>
+<p>To get you started as quickly as possible, we have prepared a starter project for you to build on. </p>
+<p>If you have git installed, you can simply run the command below. (You can check by typing <code>git --version</code> in the terminal / command line and verify it executes correctly.)</p>
+<pre> git clone https://github.com/googlecodelabs/android-paging</pre>
+<p>The initial state is on the master branch and the completed state is on the solution branch. </p>
+<p>If you do not have git, you can click the following button to download all the code for this codelab:</p>
+<p><a href="https://github.com/googlecodelabs/android-paging/archive/master.zip" target="_blank"><paper-button class="colored" raised><iron-icon icon="file-download"></iron-icon>Download source code</paper-button></a></p>
+<ol type="1" start="1">
+<li>Unzip the code, and then open the project Android Studio version 3.0 or newer.</li>
+<li>Run the <strong>SearchRepositoriesActivity</strong> run configuration on a device or emulator.</li>
+</ol>
+<p class="image-container"><img style="width: 450.50px" src="img/a09f62b4a76ee079.png"></p>
+<p>The app runs and displays a list of GitHub repositories similar to this one:</p>
+<p class="image-container"><img style="width: 238.92px" src="img/86fcb1b9b845c2f6.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Paging library components" duration="2">
+        <p>The Paging Library makes it easier for you to load data gradually and gracefully within your app&#39;s UI. </p>
+<p>The <a href="https://developer.android.com/topic/libraries/architecture/guide.html" target="_blank">Guide to App Architecture</a> proposes an architecture with the following main components:</p>
+<ul>
+<li>A local database that serves as a single source of truth for data presented to the user and manipulated by the user.</li>
+<li>A web API service.</li>
+<li>A repository that works with the database and the web API service, providing a unified data interface.</li>
+<li>A ViewModel that provides data specific for the UI.</li>
+<li>The UI, which shows a visual representation of the data in the ViewModel.</li>
+</ul>
+<p>The Paging library works with all of these components and coordinates the interactions between them, so that it can load &#34;pages&#34; of  content from a data source and display that content in the UI. </p>
+<p class="image-container"><img style="width: 624.00px" src="img/511a702ae4af43cd.png"></p>
+<p>This codelab introduces you to the Paging library and its main components:</p>
+<ul>
+<li><a href="https://developer.android.com/reference/android/arch/paging/PagedList.html" target="_blank"><strong>PagedList</strong></a> - a collection that loads data in pages, asynchronously. A <code>PagedList</code> can be used to load data from sources you define, and present it easily in your UI with a <a href="https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html" target="_blank"><code>RecyclerView</code></a>. </li>
+<li><a href="https://developer.android.com/reference/android/arch/paging/DataSource.html" target="_blank"><strong>DataSource</strong></a> and <a href="https://developer.android.com/reference/android/arch/paging/DataSource.Factory.html" target="_blank"><strong>DataSource.Factory</strong></a> - a <code>DataSource</code> is the base class for loading snapshots of data into a <code>PagedList</code>. A <code>DataSource.Factory</code> is responsible for creating a <code>DataSource</code>.</li>
+<li><a href="https://developer.android.com/reference/android/arch/paging/LivePagedListBuilder.html" target="_blank"><strong>LivePagedListBuilder</strong></a> - builds a <code>LiveData&lt;PagedList&gt;</code>, based on  <code>DataSource.Factory</code> and a <code>PagedList.Config</code>.</li>
+<li><a href="https://developer.android.com/reference/android/arch/paging/PagedList.BoundaryCallback.html" target="_blank"><strong>BoundaryCallback</strong></a> - signals when a <code>PagedList</code> has reached the end of available data. </li>
+<li><a href="https://developer.android.com/reference/android/arch/paging/PagedListAdapter.html" target="_blank"><strong>PagedListAdapter</strong></a> - a <code>RecyclerView.Adapter</code> that presents paged data from <code>PagedLists</code> in a <code>RecyclerView</code>. <code>PagedListAdapter</code> listens to <code>PagedList</code> loading callbacks as pages are loaded, and uses <code>DiffUtil</code> to compute fine-grained updates as new <code>PagedLists</code> are received. </li>
+</ul>
+<p>In this codelab, you implement examples of each of the components described above. </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Project overview" duration="2">
+        <p>The app allows you to search GitHub for repositories whose name or description contains a specific word. The list of repositories is displayed, in descending order based on the number of stars, then by the name. The database is the source of truth for data that is displayed by the UI, and it&#39;s backed by network requests.  </p>
+<p>The list of repository names is retrieved via a <code>LiveData</code> object in <code>RepoDao.reposByName</code>. Whenever new data from the network is inserted into the database, the <code>LiveData</code> will emit the entire result of the query. </p>
+<p>The current implementation has two memory/performance issues:</p>
+<ul>
+<li>The entire <strong>repo</strong> table of the database is loaded at once.</li>
+<li>The entire list of results from the database is kept in memory.</li>
+</ul>
+<p>The app follows the architecture recommended in the &#34;<a href="https://developer.android.com/topic/libraries/architecture/guide.html" target="_blank">Guide to App Architecture</a>&#34;, using Room as local data storage. Here&#39;s what you will find in each package: </p>
+<ul>
+<li><strong>api</strong> - contains Github API calls, using Retrofit </li>
+<li><strong>db</strong> - database cache for network data</li>
+<li><strong>data</strong> - contains the repository class, responsible for triggering API requests and saving the response in the database</li>
+<li><strong>ui</strong> - contains classes related to displaying an <code>Activity</code> with a <code>RecyclerView</code> </li>
+<li><strong>model </strong>- contains the <code>Repo</code> data model, which is also a table in the Room database; and <code>RepoSearchResult</code>, a class that is used by the UI to observe both search results data and network errors </li>
+</ul>
+<aside class="warning"><p><strong>Caution: </strong>The <code>GithubRepository</code> and <code>Repo</code> classes have similar names but serve very different purposes. The repository class, <code>GithubRepository</code>, works with <code>Repo</code> data objects that represent GitHub code repositories. </p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Load data in chunks with the PagedList" duration="5">
+        <p>In our current implementation, we use a <code>LiveData&lt;List&lt;Repo&gt;&gt;</code> to get the data from the database and pass it to the UI. Whenever the data from the local database is modified, the <code>LiveData</code> emits an updated list.</p>
+<p>The alternative to <code>List&lt;Repo&gt;</code> is a <code>PagedList&lt;Repo&gt;</code>. A <a href="https://developer.android.com/reference/android/arch/paging/PagedList.html" target="_blank"><code>PagedList</code></a> is a version of a <code>List</code> that loads content in chunks. Similar to the <code>List</code>, the <code>PagedList</code> holds a snapshot of content, so updates occur when new instances of <code>PagedList</code> are delivered via <code>LiveData</code>. </p>
+<p>When a <code>PagedList</code> is created, it immediately loads the first chunk of data and expands over time as content is loaded in future passes. The size of <code>PagedList</code> is the number of items loaded during each pass. The class supports both infinite lists and very large lists with a fixed number of elements.</p>
+<p><strong>Replace occurrences of </strong><strong><code>List&lt;Repo&gt;</code></strong><strong> with </strong><strong><code>PagedList&lt;Repo&gt;</code></strong>: </p>
+<ul>
+<li><strong><code>model.RepoSearchResult</code></strong> is the data model that&#39;s used by the UI to display data. Since the data is no longer a <code>LiveData&lt;List&lt;Repo&gt;&gt;</code> but is paginated, it needs to be replaced with <code>LiveData&lt;PagedList&lt;Repo&gt;&gt;</code>. Make this change in the <code>RepoSearchResult</code> class.</li>
+<li><strong><code>ui.SearchRepositoriesViewModel</code></strong> works with the data from the <code>GithubRepository</code>. Change the type of the <code>repos</code> val exposed by the ViewModel, from <code>LiveData&lt;List&lt;Repo&gt;&gt;</code> to <code>LiveData&lt;PagedList&lt;Repo&gt;&gt;</code>. </li>
+<li><strong><code>ui.SearchRepositoriesActivity</code></strong> observes the repos from the ViewModel. Change the type of the observer from <code>List&lt;Repo&gt;</code> to <code>PagedList&lt;Repo&gt;</code>.</li>
+</ul>
+<pre><code>viewModel.repos.observe(this, Observer&lt;PagedList&lt;Repo&gt;&gt; {
+            showEmptyList(it?.size == 0)
+            adapter.submitList(it)
+ })</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Define the source of data for the paged list" duration="5">
+        <p>The <code>PagedList</code> loads content dynamically from a source. In our case, because the database is the main source of truth for the UI, it also represents the source for the <code>PagedList</code>. If your app gets data directly from the network and displays it without caching, then the class that makes network requests would be your data source. </p>
+<p>A source is defined by a <code>DataSource</code> class. To page in data from a source that can change—such as a source that allows inserting, deleting or updating data—you will also need to implement a <code>DataSource.Factory</code> that knows how to create the <code>DataSource</code>. Whenever the data is updated, the <code>DataSource</code> is invalidated and re-created automatically through the <code>DataSource.Factory</code>. </p>
+<p>The <a href="https://developer.android.com/training/data-storage/room/index.html" target="_blank">Room persistence library</a> provides native support for data sources associated with the Paging library. For a given query, Room allows you to return a <code>DataSource.Factory</code> from the DAO and handles the implementation of the <code>DataSource</code> for you. </p>
+<p><strong>Update the code to get a </strong><strong><code>DataSource.Factory</code></strong><strong> from Room:</strong></p>
+<ul>
+<li><strong><code>db.RepoDao:</code></strong> update the <code>reposByName()</code> function to return a <code>DataSource.Factory&lt;Int, Repo&gt;</code>.</li>
+</ul>
+<pre><code>fun reposByName(queryString: String): DataSource.Factory&lt;Int, Repo&gt;</code></pre>
+<ul>
+<li><strong><code>db.GithubLocalCache</code></strong> uses this function. Change the return type of <code>reposByName</code> function to <code>DataSource.Factory&lt;Int, Repo&gt;</code>.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Build and configure a paged list" duration="5">
+        <p>To build and configure a <code>LiveData&lt;PagedList&gt;</code>, use a <code>LivePagedListBuilder</code>. Besides the <code>DataSource.Factory</code>, you need to provide a <code>PagedList</code> configuration, which can include the following options: </p>
+<ul>
+<li>the size of a page loaded by a <code>PagedList</code> </li>
+<li>how far ahead to load </li>
+<li>how many items to load when the first load occurs  </li>
+<li>whether null items can be added to the <code>PagedList</code>, to represent data that hasn&#39;t been loaded yet. </li>
+</ul>
+<p><strong>Update </strong><strong><code>data.GithubRepository</code></strong><strong> to build and configure a paged list:</strong></p>
+<ul>
+<li>Define the number of items per page, to be retrieved by the paging library. In the <code>companion object</code>, add another <code>const val</code> called <code>DATABASE_PAGE_SIZE</code>, and set it to 20. Our <code>PagedList</code> will then page data from the <code>DataSource</code> in chunks of 20 items.</li>
+</ul>
+<pre><code>companion object {
+        private const val NETWORK_PAGE_SIZE = 50
+        private const val DATABASE_PAGE_SIZE = 20
+}</code></pre>
+<aside class="special"><p><strong>Note: </strong>The <code>DataSource</code> page size should be several screens&#39; worth of items. If the page is too small, your list might flicker as pages content doesn&#39;t cover the full screen. Larger page sizes are good for loading efficiency, but can increase latency when the list is updated. </p>
+</aside>
+<p>In <strong><code>data.GithubRepository.search()</code></strong> method, make the following changes:</p>
+<ul>
+<li>Remove the <code>lastRequestedPage</code> initialization and the call to <code>requestAndSaveData()</code>, but don&#39;t completely remove this function for now.</li>
+<li>Create a new value to hold the <code>DataSource.Factory</code> from <code>cache.reposByName()</code>:</li>
+</ul>
+<pre><code>// Get data source factory from the local cache
+val dataSourceFactory = cache.reposByName(query)</code></pre>
+<ul>
+<li>In the <strong><code>search()</code></strong> function, construct the data value from a <code>LivePagedListBuilder</code>. The <code>LivePagedListBuilder</code> is constructed using the <code>dataSourceFactory</code> and the database page size that you each defined earlier.</li>
+</ul>
+<pre><code>fun search(query: String): RepoSearchResult {
+    // Get data source factory from the local cache
+    val dataSourceFactory = cache.reposByName(query)
+
+    // Get the paged list
+    val data = LivePagedListBuilder(dataSourceFactory, DATABASE_PAGE_SIZE).build()
+
+     // Get the network errors exposed by the boundary callback
+     return RepoSearchResult(data, networkErrors)
+}</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Make the RecyclerView Adapter work with a PagedList" duration="5">
+        <p>To bind a <code>PagedList</code> to a <code>RecycleView</code>, use a <code>PagedListAdapter</code>. The <code>PagedListAdapter</code> gets notified whenever the <code>PagedList</code> content is loaded and then signals the RecyclerView to update. </p>
+<p><strong>Update the ui.</strong><strong><code>ReposAdapter</code></strong><strong> to work with a </strong><strong><code>PagedList</code></strong><strong>:</strong></p>
+<ul>
+<li>Right now, <code>ReposAdapter</code> is a <code>ListAdapter</code>. Make it a <code>PagedListAdapter</code>:</li>
+</ul>
+<pre><code>class ReposAdapter : PagedListAdapter&lt;Repo, RecyclerView.ViewHolder&gt;(REPO_COMPARATOR)</code></pre>
+<p>Our app finally compiles! Run it, and check out how it works.  </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Trigger network updates" duration="10">
+        <p>Currently, we use a <code>OnScrollListener</code> attached to the <code>RecyclerView</code> to know when to trigger more data. We can let the Paging library handle list scrolling for us, though.</p>
+<p><strong>Remove the custom scroll handling:</strong></p>
+<ul>
+<li><strong><code>ui.SearchRepositoriesActivity</code></strong>: remove the <code>setupScrollListener()</code> method and all references to it</li>
+<li><strong><code>ui.SearchRepositoriesViewModel</code></strong>: remove the <code>listScrolled()</code> method <strong>and</strong> the companion object</li>
+</ul>
+<p>After removing the custom scroll handling, our app has the following behavior:</p>
+<ul>
+<li>Whenever we scroll, the <code>PagedListAdapter</code> will try to get the item from a specific position. </li>
+<li>If the item at that index isn&#39;t loaded in the <code>PagedList</code> yet, the Paging library tries to get the data from the data source. </li>
+</ul>
+<p>A problem appears when the data source doesn&#39;t have any more data to give us, either because zero items were returned from the initial data request or because we&#39;ve reached the end of the data from the <code>DataSource</code>.</p>
+<p>To resolve this issue, implement a <code>BoundaryCallback</code>. This class notifies us when either situation occurs, so we know when to request more data. Because our <code>DataSource</code> is a Room database, backed by network data, the callbacks let us know that we should request more data from the API.  </p>
+<p><strong>Handle data loading with </strong><strong><code>BoundaryCallback</code></strong><strong>:</strong></p>
+<ul>
+<li>In the <code>data</code> package, create a new class called <strong><code>RepoBoundaryCallback</code></strong> that implements <code>PagedList.BoundaryCallback&lt;Repo&gt;</code>. Because this class handles the network requests and database data saving for a specific query, add the following parameters to the constructor: a query <code>String</code>, the <code>GithubService</code>, and the <code>GithubLocalCache</code>. </li>
+<li>In <code>RepoBoundaryCallback</code>, override <code>onZeroItemsLoaded()</code> and <code>onItemAtEndLoaded()</code>.</li>
+</ul>
+<pre><code>class RepoBoundaryCallback(
+        private val query: String,
+        private val service: GithubService,
+        private val cache: GithubLocalCache
+) : PagedList.BoundaryCallback&lt;Repo&gt;() {
+    override fun onZeroItemsLoaded() {
+    }
+
+    override fun onItemAtEndLoaded(itemAtEnd: Repo) {
+    }
+}</code></pre>
+<ul>
+<li>Move the following fields from <code>GithubRepository</code> to <code>RepoBoundaryCallback</code>:  <code>isRequestInProgress</code>, <code>lastRequestedPage</code>, and <code>networkErrors</code>. </li>
+<li>Remove the visibility modifier from <code>networkErrors</code>. Create a backing property for it, and change the type of <code>networkErrors</code> to <code>LiveData&lt;String&gt;</code>. We need to make this change because, internally, in the <code>RepoBoundaryCallback</code> class, we can work with a <code>MutableLiveData</code>, but outside the class, we only expose a <code>LiveData</code> object, whose values can&#39;t be modified.</li>
+</ul>
+<pre><code>// keep the last requested page. 
+// When the request is successful, increment the page number.
+private var lastRequestedPage = 1
+
+private val _networkErrors = MutableLiveData&lt;String&gt;()
+// LiveData of network errors.
+val networkErrors: LiveData&lt;String&gt;
+     get() = _networkErrors
+
+// avoid triggering multiple requests in the same time
+private var isRequestInProgress = false</code></pre>
+<ul>
+<li>Create a companion object in <code>RepoBoundaryCallback</code>, and move the <code>GithubRepository.NETWORK_PAGE_SIZE</code> constant there.  </li>
+<li>Move  <code>GithubRepository.requestAndSaveData()</code> method to <code>RepoBoundaryCallback</code>.</li>
+<li>Update the <code>requestAndSaveData()</code> method to use the backing property <code>_networkErrors</code>. </li>
+<li>We should request data from network and save it in the cache whenever the Paging data source notifies us that there are no items in the source (when <code>RepoBoundaryCallback.onZeroItemsLoaded()</code> is called) or that the last item from the data source has been loaded (when <code>RepoBoundaryCallback.onItemAtEndLoaded()</code> is called). So, call the <code>requestAndSaveData()</code> method from <code>onZeroItemsLoaded()</code> and <code>onItemAtEndLoaded()</code>:</li>
+</ul>
+<pre><code>override fun onZeroItemsLoaded() {
+    requestAndSaveData(query)
+}
+
+override fun onItemAtEndLoaded(itemAtEnd: Repo) {
+    requestAndSaveData(query)
+}</code></pre>
+<p><strong>Update </strong><strong><code>data.GithubRepository</code></strong> <strong>to use the </strong><strong><code>BoundaryCallback</code></strong><strong> when creating the PagedList:</strong></p>
+<ul>
+<li>In the <code>search()</code> method, construct the <code>RepoBoundaryCallback</code> using the query, service, and cache.</li>
+<li>Create a value in the <code>search()</code> method that maintains a reference to the network errors that <code>RepoBoundaryCallback</code> discovers.</li>
+<li>Set the boundary callback to <code>LivePagedListBuilder</code>.  </li>
+</ul>
+<pre><code>fun search(query: String): RepoSearchResult {
+    Log.d(&#34;GithubRepository&#34;, &#34;New query: $query&#34;)
+
+    // Get data source factory from the local cache
+    val dataSourceFactory = cache.reposByName(query)
+        
+    // Construct the boundary callback
+    val boundaryCallback = RepoBoundaryCallback(query, service, cache)
+    val networkErrors = boundaryCallback.networkErrors
+
+    // Get the paged list
+    val data = LivePagedListBuilder(dataSourceFactory, DATABASE_PAGE_SIZE)
+             .setBoundaryCallback(boundaryCallback)
+             .build()
+
+    // Get the network errors exposed by the boundary callback
+    return RepoSearchResult(data, networkErrors)
+}</code></pre>
+<ul>
+<li>Remove the <code>requestMore()</code> function from <code>GithubRepository</code></li>
+</ul>
+<p>That&#39;s it! With the current setup, the Paging library components are the ones triggering the API requests at the right time, saving data in the database, and displaying the data. So, run the app and search for repositories.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Wrap up" duration="5">
+        <p>Now that we added all the components, let&#39;s take a step back and see how everything works together.</p>
+<p>The <code>DataSource.Factory</code> (implemented by Room) creates the <code>DataSource</code>. Then, <code>LivePagedListBuilder</code> builds the <code>LiveData&lt;PagedList&gt;</code>, using the passed-in <code>DataSource.Factory</code>, <code>BoundaryCallback</code>, and <code>PagedList</code> configuration. This <code>LivePagedListBuilder</code> object is responsible for creating <code>PagedList</code> objects. When a <code>PagedList</code> is created, two things happen at the same time:</p>
+<ul>
+<li>The <code>LiveData</code> emits the new <code>PagedList</code> to the <code>ViewModel</code>, which in turn passes it to the UI. The UI observes the changed <code>PagedList</code> and uses its <code>PagedListAdapter</code> to update the <code>RecyclerView</code> that presents the <code>PagedList</code> data. (The <code>PagedList</code> is represented in the following animation by an empty square).</li>
+<li>The <code>PagedList</code> tries to get the first chunk of data from the <code>DataSource</code>. When the <code>DataSource</code> is empty, for example when the app is started for the first time and the database is empty, it calls <code>BoundaryCallback.onZeroItemsLoaded()</code>. In this method, the <code>BoundaryCallback</code> requests more data from the network and inserts the response data in the database. </li>
+</ul>
+<p class="image-container"><img style="width: 624.00px" src="img/a4f392ad4ae49042.gif"></p>
+<p>After the data is inserted in the <code>DataSource</code>, a new <code>PagedList</code> object is created (represented in the following animation by a filled-in square). This new data object is then passed to the <code>ViewModel</code> and UI using  <code>LiveData</code> and displayed with the help of the <code>PagedListAdapter</code>. </p>
+<p class="image-container"><img style="width: 624.00px" src="img/e6a52e528d1c22db.gif"></p>
+<p>When the user scrolls, the <code>PagedList</code> requests that the <code>DataSource</code> load more data, querying the database for the next chunk of data. When the <code>PagedList</code> paged all the available data from the <code>DataSource</code>,  <code>BoundaryCallback.onItemAtEndLoaded()</code> is called. The <code>BoundaryCallback</code> requests data from the network and inserts the response data in the database. The UI then gets re-populated based on the newly-loaded data. </p>
+<p class="image-container"><img style="width: 624.00px" src="img/576f0df1cc74cb0a.gif"></p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="/elements/codelab-elements/native-shim.js"></script>
+  <script src="/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="/elements/codelab-elements/prettify.js"></script>
+  <script src="/elements/codelab-elements/codelab-elements.js"></script>
+
+</body>
+</html>

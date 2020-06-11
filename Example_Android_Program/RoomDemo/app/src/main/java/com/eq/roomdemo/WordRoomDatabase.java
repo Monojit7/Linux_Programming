@@ -1,6 +1,7 @@
 package com.eq.roomdemo;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.room.Database;
@@ -27,6 +28,7 @@ public abstract  class WordRoomDatabase extends RoomDatabase {
           {
               if (INSTANCE == null)
               {
+                  Log.i("Roomflow",  WordRoomDatabase.class.getName() + " WordRoomDatabase" );
                   INSTANCE = Room.databaseBuilder(context.getApplicationContext(), WordRoomDatabase.class, "word_database").addCallback(sRoomDatabaseCallback).build();
               }
           }
@@ -39,11 +41,12 @@ public abstract  class WordRoomDatabase extends RoomDatabase {
         @Override
         public void onOpen(@NonNull SupportSQLiteDatabase db) {
             super.onOpen(db);
-
+            Log.i("Roomflow",  String.valueOf(this.getClass())+ " onOpen" );
             dataBaseExecutor.execute(()->
             {
+                Log.i("Roomflow",  String.valueOf(getClass())+ " onOpen dataBaseExecutor.execute" );
                 WordDao dao = INSTANCE.wordDao();
-                dao.deleteAll();
+               dao.deleteAll();
                 Word word = new Word("Monojit");
                 dao.insert(word);
                 word = new Word("Chatterjee");

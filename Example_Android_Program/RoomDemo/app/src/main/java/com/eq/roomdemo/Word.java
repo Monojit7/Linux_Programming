@@ -1,5 +1,7 @@
 package com.eq.roomdemo;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -14,7 +16,13 @@ public class Word {
 
     private String mWord;
 
-    public Word (@NonNull String word ) { this.mWord = word ; }
-    public String getWord () { return this.mWord; }
+    public Word (@NonNull String word ) {
+        this.mWord = word ;
+        Log.i("Roomflow",  String.valueOf(this.getClass())+ " constructor" + word ) ;
+    }
+    public String getWord () {
+        Log.i("Roomflow",  String.valueOf(this.getClass())+ " getWord " + this.mWord);
+        return this.mWord;
+    }
 }
 

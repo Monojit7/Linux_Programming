@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,10 +20,13 @@ public class NewWordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_word);
         mEditText = findViewById(R.id.edit_word);
         final Button button = findViewById(R.id.button_save);
+        Log.i("Roomflow",  String.valueOf(this.getClass())+ " onCreate" );
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent replyIntent = new Intent();
+                Log.i("Roomflow",  String.valueOf(this.getClass())+ " onCreate" );
+
                 if (TextUtils.isEmpty(mEditText.getText()))
                 {
                     setResult(RESULT_CANCELED, replyIntent);
@@ -31,6 +35,7 @@ public class NewWordActivity extends AppCompatActivity {
                     String word = mEditText.getText().toString();
                     replyIntent.putExtra(EXTRA_REPLY, word);
                     setResult( RESULT_OK, replyIntent);
+
                 }
 
                 finish();

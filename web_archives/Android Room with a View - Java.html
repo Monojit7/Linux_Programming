@@ -1,0 +1,814 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Android Room with a View - Java</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="android-room-with-a-view"
+                  title="Android Room with a View - Java"
+                  environment="web"
+                  feedback-link="https://github.com/googlecodelabs/android-room-with-a-view/issues">
+    
+      <google-codelab-step label="Before you begin" duration="5">
+        <p>The purpose of <a href="https://developer.android.com/topic/libraries/architecture/index.html" target="_blank">Architecture Components</a> is to provide guidance on app architecture, with libraries for common tasks like lifecycle management and data persistence. Architecture components help you structure your app in a way that is robust, testable, and maintainable with less boilerplate code. The Architecture Component libraries are part of <a href="https://developer.android.com/jetpack" target="_blank">Android Jetpack</a>.</p>
+<p>This is the Java programming language version of the codelab. The version in the Kotlin language can be found <a href="https://codelabs.developers.google.com/codelabs/android-room-with-a-view-kotlin/#0" target="_blank">here</a>.</p>
+<p>If you run into any issues (code bugs, grammatical errors, unclear wording, etc.) as you work through this codelab, please report the issue via the Report a mistake link in the lower left corner of the codelab.</p>
+<h2 is-upgraded><strong>Prerequisites </strong></h2>
+<p>You need to be familiar with Java, object-oriented design concepts, and Android Development Fundamentals. In particular:</p>
+<ul>
+<li><code>RecyclerView</code> and adapters</li>
+<li>SQLite database and the SQLite query language</li>
+<li>Threading and <code>ExecutorService</code></li>
+<li>It helps to be familiar with software architectural patterns that separate data from the user interface, such as MVP or MVC. This codelab implements the architecture defined in the <a href="https://developer.android.com/topic/libraries/architecture/guide.html" target="_blank">Guide to App Architecture</a>.</li>
+</ul>
+<p>This codelab is focused on Android Architecture Components. Off-topic concepts and code are provided for you to simply copy and paste.</p>
+<p>This codelab provides all the code you need to build the complete app.</p>
+<h2 is-upgraded><strong>What you&#39;ll do</strong></h2>
+<p>In this codelab, you&#39;ll learn how to design and construct an app using the Architecture Components Room, ViewModel, and LiveData, and build an app that does the following: </p>
+<ul>
+<li>Implements our <a href="https://developer.android.com/topic/libraries/architecture/guide.html" target="_blank">recommended architecture</a> using the Android Architecture Components.</li>
+<li>Works with a database to get and save the data, and pre-populates the database with some words. </li>
+<li>Displays all the words in a <code>RecyclerView</code> in <code>MainActivity</code>.</li>
+<li>Opens a second activity when the user taps the + button. When the user enters a word, adds the word to the database and the list. </li>
+</ul>
+<p>The app is no-frills, but sufficiently complex that you can use it as a template to build upon. Here&#39;s a preview:</p>
+<table>
+<tr><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 194.00px" src="img/a659fcbf9eb9a5ee.png"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 194.00px" src="img/91f5273394909e39.png"></p>
+</td><td colspan="1" rowspan="1"><p class="image-container"><img style="width: 194.00px" src="img/b924184f07268c35.png"></p>
+</td></tr>
+</table>
+<h2 is-upgraded><strong>What you&#39;ll need</strong></h2>
+<ul>
+<li><a href="https://developer.android.com/studio/index.html" target="_blank">Android Studio 3.0 or later</a> and knowledge of how to use it. Make sure Android Studio is updated, as well as your SDK and Gradle. Otherwise, you may have to wait until all the updates are done.</li>
+<li>An Android device or emulator.</li>
+</ul>
+<aside class="special"><p>Note that the solution code is available as a <a href="https://github.com/googlecodelabs/android-room-with-a-view/archive/kotlin.zip" target="_blank">zip</a> and on <a href="https://github.com/googlecodelabs/android-room-with-a-view/tree/master" target="_blank">github</a>. We encourage you to create the app from scratch and look at this code if you get stuck.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Using the Architecture Components" duration="0">
+        <p>There are a lot of steps to using the Architecture Components and implementing the recommended architecture. The most important thing is to create a mental model of what is going on, understanding how the pieces fit together and how the data flows. As you work through this codelab, don&#39;t just copy and paste the code, but try to start building that inner understanding. </p>
+<h2 is-upgraded><strong>What are the recommended Architecture Components? </strong></h2>
+<p>Here is a short introduction to the Architecture Components and how they work together. Note that this codelab focuses on a subset of the components, namely LiveData, ViewModel and Room. Each component is explained more as you use it.</p>
+<p>This diagram shows a basic form of this architecture:</p>
+<p class="image-container"><img style="width: 624.00px" src="img/a7da8f5ea91bac52.png"></p>
+<p><a href="https://developer.android.com/reference/androidx/room/Entity" target="_blank"><strong>Entity</strong></a><strong>:</strong> Annotated class that describes a database table when working with <a href="https://developer.android.com/topic/libraries/architecture/room" target="_blank">Room</a>. </p>
+<p><strong>SQLite database:</strong> On device storage. The Room persistence library creates and maintains this database for you. </p>
+<p><a href="https://developer.android.com/reference/androidx/room/Dao.html" target="_blank"><strong>DAO</strong></a><strong>:</strong> Data access object. A mapping of SQL queries to functions. When you use a DAO, you call the methods, and Room takes care of the rest. </p>
+<p><a href="https://developer.android.com/topic/libraries/architecture/room" target="_blank"><strong>Room database</strong></a><strong>:</strong> Simplifies database work and serves as an access point to the underlying SQLite database (hides <code>SQLiteOpenHelper)</code>. The Room database uses the DAO to issue queries to the SQLite database.</p>
+<p><strong>Repository: </strong>Used to manage multiple data sources.</p>
+<p><a href="https://developer.android.com/topic/libraries/architecture/viewmodel" target="_blank"><strong>ViewModel</strong></a><strong>:</strong> Acts as a communication center between the Repository (data) and the UI. The UI no longer needs to worry about the origin of the data. ViewModel instances survive Activity/Fragment recreation.</p>
+<p><a href="https://developer.android.com/topic/libraries/architecture/livedata" target="_blank"><strong>LiveData</strong></a><strong>: </strong>A data holder class that can be <a href="https://en.wikipedia.org/wiki/Observer_pattern" target="_blank">observed</a>. Always holds/caches the latest version of data, and notifies its observers when data has changed. <code>LiveData</code> is lifecycle aware. UI components just observe relevant data and don&#39;t stop or resume observation. LiveData automatically manages all of this since it&#39;s aware of the relevant lifecycle status changes while observing.</p>
+<aside class="special"><p>Looking for more? Check out the full <a href="https://developer.android.com/topic/libraries/architecture/guide.html" target="_blank">Guide to App Architecture</a>.</p>
+</aside>
+<h2 is-upgraded>RoomWordSample<strong> architecture overview</strong></h2>
+<p>The following diagram shows all the pieces of the app. Each of the enclosing boxes (except for the SQLite database) represents a class that you will create.</p>
+<p class="image-container"><img style="width: 558.50px" src="img/1205d9f95688b35b.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Create your app" duration="2">
+        <ol type="1" start="1">
+<li>Open Android Studio and click <strong>Start a new Android Studio project.</strong></li>
+<li>In the Create New Project window, choose <strong>Empty Activity and click Next.</strong></li>
+<li>On the next screen, name the app RoomWordSample, and click <strong>Finish</strong>.</li>
+</ol>
+<p class="image-container"><img style="width: 624.00px" src="img/9b6cbaec81794071.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Update Gradle files" duration="2">
+        <p>Next, you&#39;ll have to add the component libraries to your Gradle files. </p>
+<ol type="1" start="1">
+<li>In Android Studio, click the Projects tab and expand the Gradle Scripts folder.</li>
+<li>Open <code>build.gradle</code> (<strong>Module: app</strong>).</li>
+<li>Add the following <a href="https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.CompileOptions.html" target="_blank"><code>compileOptions</code></a> block inside the <code>android</code> block to set target and source compatibility to 1.8, which will allow us to use JDK 8 lambdas later on:</li>
+</ol>
+<pre><code>compileOptions {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}</code></pre>
+<ol type="1" start="4">
+<li>Add the following code to the end of the <code>dependencies</code> block:</li>
+</ol>
+<pre><code>// Room components
+implementation &#34;androidx.room:room-runtime:$rootProject.roomVersion&#34;
+annotationProcessor &#34;androidx.room:room-compiler:$rootProject.roomVersion&#34;
+androidTestImplementation &#34;androidx.room:room-testing:$rootProject.roomVersion&#34;
+
+// Lifecycle components
+implementation &#34;androidx.lifecycle:lifecycle-extensions:$rootProject.archLifecycleVersion&#34;
+annotationProcessor &#34;androidx.lifecycle:lifecycle-compiler:$rootProject.archLifecycleVersion&#34;
+
+// UI
+implementation &#34;com.google.android.material:material:$rootProject.materialVersion&#34;
+
+// Testing
+androidTestImplementation &#34;androidx.arch.core:core-testing:$rootProject.coreTestingVersion&#34;</code></pre>
+<ol type="1" start="5">
+<li>In your <code>build.gradle</code> (<strong>Project: RoomWordsSample</strong>) file, add the version numbers to the end of the file, as given in the code below: </li>
+</ol>
+<aside class="special"><p>Get the most current version numbers from the <a href="https://developer.android.com/topic/libraries/architecture/adding-components.html" target="_blank">Adding Components to your Project</a> page.</p>
+</aside>
+<pre><code>ext {
+    roomVersion = &#39;2.2.1&#39;
+    archLifecycleVersion = &#39;2.2.0&#39;
+    coreTestingVersion = &#39;2.1.0&#39;
+    materialVersion = &#39;1.0.0&#39;
+}</code></pre>
+<ol type="1" start="6">
+<li>Sync your project.</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Create an entity" duration="3">
+        <p>The data for this app is words, and you will need a simple table to hold those values:</p>
+<p class="image-container"><img style="width: 334.00px" src="img/85cfc6940626616c.png"></p>
+<p>Architecture components allow you to create one via an <a href="https://developer.android.com/training/data-storage/room/defining-data.html" target="_blank">Entity</a>. Let&#39;s do this now.</p>
+<ol type="1" start="1">
+<li>Create a new class file called <code>Word</code>. <br>This class will describe the Entity (which represents the SQLite table) for your words. Each property in the class represents a column in the table. Room will ultimately use these properties to both create the table and instantiate objects from rows in the database. Here is the code:</li>
+</ol>
+<pre><code>public class Word {
+
+   private String mWord;
+
+   public Word(@NonNull String word) {this.mWord = word;}
+
+   public String getWord(){return this.mWord;}
+}</code></pre>
+<p>To make the <code>Word</code> class meaningful to a Room database, you need to annotate it. Annotations identify how each part of this class relates to an entry in the database. Room uses this information to generate code.</p>
+<ol type="1" start="2">
+<li>Update your <code>Word</code> class with annotations as shown in this code:</li>
+</ol>
+<pre><code>@Entity(tableName = &#34;word_table&#34;)
+public class Word {
+
+   @PrimaryKey
+   @NonNull
+   @ColumnInfo(name = &#34;word&#34;)
+   private String mWord;
+
+   public Word(String word) {this.mWord = word;}
+
+   public String getWord(){return this.mWord;}
+}</code></pre>
+<aside class="warning"><p><strong>When you copy paste code, you may have to import the annotation classes manually.</strong> You can move the cursor to the code for each error and use the <a href="https://developer.android.com/studio/intro/keyboard-shortcuts" target="_blank">&#34;Project quick fix&#34; keyboard shortcut</a> (Alt+Enter on Windows/Linux, Option+Enter on Mac) to import classes quickly.</p>
+<p><code>import androidx.room.ColumnInfo</code></p>
+<p><code>import androidx.room.Entity</code></p>
+<p><code>import androidx.room.PrimaryKey</code></p>
+<p>Note that if you type the annotations yourself (instead of pasting), Android Studio will auto-import.</p>
+</aside>
+<p>Let&#39;s see what these annotations do:</p>
+<ul>
+<li><code>@Entity(tableName = </code><strong><code>&#34;word_table&#34;</code></strong><code>)</code><br>Each <code>@Entity</code> class represents a SQLite table. Annotate your class declaration to indicate that it&#39;s an entity. You can specify the name of the table if you want it to be different from the name of the class. This names the table &#34;word_table&#34;.</li>
+<li><code>@PrimaryKey</code><br>Every entity needs a primary key. To keep things simple, each word acts as its own primary key.</li>
+<li><code>@NonNull</code><br>Denotes that a parameter, field, or method return value can never be null.</li>
+<li><code>@ColumnInfo(name = </code><strong><code>&#34;word&#34;</code></strong><code>)</code><br>Specify the name of the column in the table if you want it to be different from the name of the member variable.</li>
+<li>Every field that&#39;s stored in the database needs to be either public or have a &#34;getter&#34; method. This sample provides a <code>getWord()</code> method.</li>
+</ul>
+<p>You can find a complete list of annotations in the <a href="https://developer.android.com/reference/androidx/room/package-summary.html" target="_blank">Room package summary reference</a>.</p>
+<aside class="special"><p>See <a href="https://developer.android.com/training/data-storage/room/defining-data.html" target="_blank">Defining data using Room entities</a>.</p>
+</aside>
+<aside class="special"><p><strong>Tip: </strong>You can <a href="https://developer.android.com/reference/androidx/room/PrimaryKey.html" target="_blank">autogenerate</a> unique keys by annotating the primary key as follows:</p>
+<p><code>@Entity(tableName = &#34;word_table&#34;)</code><br><code>public class Word {</code><br><br>    <code>@PrimaryKey(autoGenerate = true)</code><br>    <code>private int id;</code><br><br>    <code>@NonNull</code><br>    <code>private String word;</code><br>    <code>//..other fields, getters, setters</code><br><code>}</code></p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Create the DAO" duration="4">
+        <h2 is-upgraded><strong>What is the DAO?</strong></h2>
+<p>A <a href="https://developer.android.com/training/data-storage/room/accessing-data.html" target="_blank">DAO</a> (data access object) validates your SQL at compile-time and associates it with a method. In your Room DAO, you use handy annotations, like <code>@Insert</code>, to represent the most common database operations! Room uses the DAO to create a clean API for your code.</p>
+<p>The DAO must be an interface or abstract class. By default, all queries must be executed on a separate thread.</p>
+<h2 is-upgraded><strong>Implement the DAO</strong></h2>
+<p>Let&#39;s write a DAO that provides queries for:</p>
+<ul>
+<li>Getting all words ordered alphabetically</li>
+<li>Inserting a word</li>
+<li>Deleting all words</li>
+</ul>
+<ol type="1" start="1">
+<li>Create a new class file called <code>WordDao</code>. </li>
+<li>Copy and paste the following code into <code>WordDao</code> and fix the imports as necessary to make it compile:</li>
+</ol>
+<pre><code>@Dao
+public interface WordDao {
+
+   // allowing the insert of the same word multiple times by passing a 
+   // conflict resolution strategy
+   @Insert(onConflict = OnConflictStrategy.IGNORE)
+   void insert(Word word);
+
+   @Query(&#34;DELETE FROM word_table&#34;)
+   void deleteAll();
+
+   @Query(&#34;SELECT * from word_table ORDER BY word ASC&#34;)
+   List&lt;Word&gt; getAlphabetizedWords();
+}</code></pre>
+<p>Let&#39;s walk through it:</p>
+<ul>
+<li><code>WordDao</code> is an interface; DAOs must either be interfaces or abstract classes.</li>
+<li>The <code>@Dao</code> annotation identifies it as a DAO class for Room. </li>
+<li><code>void insert(Word word);</code> Declares a method to insert one word: </li>
+<li>The <a href="https://developer.android.com/reference/androidx/room/Insert" target="_blank"><code>@Insert</code> annotation</a> is a special DAO method annotation where you don&#39;t have to provide any SQL! (There are also <a href="https://developer.android.com/reference/androidx/room/Delete" target="_blank"><code>@Delete</code></a> and <a href="https://developer.android.com/reference/androidx/room/Update" target="_blank"><code>@Update</code></a> annotations for deleting and updating rows, but you are not using them in this app.)</li>
+<li><code>onConflict = OnConflictStrategy.IGNORE</code>:  The selected on conflict strategy ignores a new word if it&#39;s exactly the same as one already in the list. To know more about the available conflict strategies, check out the <a href="https://developer.android.com/reference/androidx/room/OnConflictStrategy.html" target="_blank">documentation</a>.</li>
+<li><code>deleteAll():</code> declares a method to delete all the words. </li>
+<li>There is no convenience annotation for deleting multiple entities, so it&#39;s annotated with the generic <code>@Query</code>.</li>
+<li><strong><code>@Query(&#34;DELETE FROM word_table&#34;):</code></strong> <code>@Query</code> requires that you provide a SQL query as a string parameter to the annotation.</li>
+<li><strong><code>List&lt;Word&gt; getAlphabetizedWords():</code></strong> A method to get all the words and have it return a <code>List</code> of <code>Words</code>.</li>
+<li><code>@Query(</code><strong><code>&#34;SELECT * from word_table ORDER BY word ASC&#34;</code></strong><code>)</code>: Returns a list of words sorted in ascending order.</li>
+</ul>
+<aside class="special"><p>Learn more about <a href="https://developer.android.com/training/data-storage/room/accessing-data.html" target="_blank">Room DAOs</a>.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="The LiveData class" duration="3">
+        <p>When data changes you usually want to take some action, such as displaying the updated data in the UI. This means you have to observe the data so that when it changes, you can react.</p>
+<p>Depending on how the data is stored, this can be tricky. Observing changes to data across multiple components of your app can create explicit, rigid dependency paths between the components. This makes testing and debugging difficult, among other things.</p>
+<p><a href="https://developer.android.com/topic/libraries/architecture/livedata.html" target="_blank"><code>LiveData</code></a>, a <a href="https://developer.android.com/topic/libraries/architecture/lifecycle.html" target="_blank">lifecycle library </a>class for data observation,  solves this problem. Use a return value of type <a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" target="_blank"><code>LiveData</code></a> in your method description, and Room generates all necessary code to update the <code>LiveData</code> when the database is updated. </p>
+<aside class="special"><p><strong>Note: </strong>If you use <code>LiveData</code> independently from Room, you have to manage updating the data. <code>LiveData</code> has no publicly available methods to update the stored data. </p>
+<p>If you want to update data stored within <code>LiveData</code>, you must use <a href="https://developer.android.com/reference/androidx/lifecycle/MutableLiveData.html" target="_blank"><code>MutableLiveData</code></a> instead of <code>LiveData</code>. The <code>MutableLiveData</code> class has two public methods that allow you to set the value of a <code>LiveData</code> object, <a href="https://developer.android.com/reference/android/arch/lifecycle/MutableLiveData.html#setValue(T)" target="_blank"><code>setValue(T)</code></a> and <a href="https://developer.android.com/reference/androidx/lifecycle/MutableLiveData.html#postValue(T)" target="_blank"><code>postValue(T)</code></a>. Usually, <code>MutableLiveData</code> is used within the <a href="https://developer.android.com/reference/androidx/lifecycle/ViewModel.html" target="_blank"><code>ViewModel</code></a>, and then the <code>ViewModel</code> only exposes immutable <code>LiveData</code> objects to the observers.</p>
+</aside>
+<p>In <code>WordDao</code>, change the <code>getAlphabetizedWords()</code> method signature so that the returned <code>List&lt;Word&gt;</code> is wrapped with <code>LiveData</code>:</p>
+<pre><code>   @Query(&#34;SELECT * from word_table ORDER BY word ASC&#34;)
+   LiveData&lt;List&lt;Word&gt;&gt; getAlphabetizedWords();</code></pre>
+<p>Later in this codelab, you track data changes via an <code>Observer</code> in <code>MainActivity</code>.</p>
+<aside class="special"><p>See the <a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" target="_blank"><code>LiveData</code></a> documentation to learn more about other ways of using <code>LiveData</code>, or watch this <a href="https://www.youtube.com/watch?v=OMcDk2_4LSk&index=8&list=PLWz5rJ2EKKc9mxIBd0DRw9gwXuQshgmn2" target="_blank">Architecture Components: LiveData and Lifecycle</a> video.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Add a Room database" duration="5">
+        <h2 is-upgraded><strong>What is a Room database?</strong></h2>
+<ul>
+<li>Room is a database layer on top of an SQLite database.</li>
+<li>Room takes care of mundane tasks that you used to handle with an <a href="https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper.html" target="_blank"><code>SQLiteOpenHelper</code></a>. </li>
+<li>Room uses the DAO to issue queries to its database.</li>
+<li>By default, to avoid poor UI performance, Room doesn&#39;t allow you to issue queries on the main thread. When Room queries return <a href="https://developer.android.com/topic/libraries/architecture/livedata" target="_blank"><code>LiveData</code></a>,  the queries are automatically run asynchronously on a background thread.</li>
+<li>Room provides compile-time checks of SQLite statements.</li>
+</ul>
+<h2 is-upgraded><strong>Implement the Room database</strong></h2>
+<p>Your Room database class must be abstract and extend <code>RoomDatabase</code>. Usually, you only need one instance of a Room database for the whole app.</p>
+<p>Let&#39;s make one now. Create a class file called <code>WordRoomDatabase</code> and add this code to it:</p>
+<pre><code>@Database(entities = {Word.class}, version = 1, exportSchema = false)
+public abstract class WordRoomDatabase extends RoomDatabase {
+
+   public abstract WordDao wordDao();
+
+   private static volatile WordRoomDatabase INSTANCE;
+   private static final int NUMBER_OF_THREADS = 4;
+   static final ExecutorService databaseWriteExecutor =
+        Executors.newFixedThreadPool(NUMBER_OF_THREADS);
+
+   static WordRoomDatabase getDatabase(final Context context) {
+        if (INSTANCE == null) {
+            synchronized (WordRoomDatabase.class) {
+                if (INSTANCE == null) {
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                            WordRoomDatabase.class, &#34;word_database&#34;)
+                            .build();
+                }
+            }
+        }
+        return INSTANCE;
+    }
+}</code></pre>
+<p>Let&#39;s walk through the code:</p>
+<ul>
+<li>The database class for Room must be <code>abstract</code> and extend <code>RoomDatabase</code></li>
+<li>You annotate the class to be a Room database with <code>@Database</code> and use the annotation parameters to declare the entities that belong in the database and set the version number. Each entity corresponds to a table that will be created in the database. Database migrations are beyond the scope of this codelab, so we set <code>exportSchema</code> to false here to avoid a build warning. In a real app, you should consider setting a directory for Room to use to export the schema so you can check the current schema into your version control system.</li>
+<li>The database exposes DAOs through an abstract &#34;getter&#34; method for each @Dao.  </li>
+<li>We&#39;ve defined a <a href="https://en.wikipedia.org/wiki/Singleton_pattern" target="_blank">singleton</a>, <code>WordRoomDatabase,</code> to prevent having multiple instances of the database opened at the same time. </li>
+<li><code>getDatabase</code> returns the singleton. It&#39;ll create the database the first time it&#39;s accessed, using Room&#39;s database builder to create a <a href="https://developer.android.com/reference/androidx/room/RoomDatabase.html" target="_blank"><code>RoomDatabase</code></a> object in the application context from the <code>WordRoomDatabase</code> class and names it <code>&#34;word_database&#34;</code>. </li>
+<li>We&#39;ve created an <code>ExecutorService</code> with a fixed thread pool that you will use to run database operations asynchronously on a background thread.</li>
+</ul>
+<aside class="special"><p><strong>Note:</strong> When you modify the database schema, you&#39;ll need to update the version number and define a migration strategy</p>
+<p>For a sample, a destroy and re-create strategy can be sufficient. But, for a real app, you must implement a migration strategy. See <a href="https://medium.com/google-developers/understanding-migrations-with-room-f01e04b07929" target="_blank">Understanding migrations with Room</a>.</p>
+</aside>
+<aside class="warning"><p>In Android Studio, if you get errors when you paste code or during the build process, select <strong>Build &gt;Clean Project</strong>. Then select <strong>Build &gt; Rebuild Project</strong>, and then build again. If you use the provided code, there should be no errors whenever you are instructed to build the app.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Create the Repository" duration="7">
+        <h2 is-upgraded>What is a Repository?</h2>
+<p>A <code>Repository</code> class abstracts access to multiple data sources. The Repository is not part of the Architecture Components libraries, but is a suggested best practice for code separation and architecture. A <code>Repository</code> class provides a clean API for data access to the rest of the application.</p>
+<p class="image-container"><img style="width: 496.00px" src="img/57f20bf7a898c03d.png"></p>
+<h2 is-upgraded><strong>Why use a Repository?</strong></h2>
+<p>A Repository manages queries and allows you to use multiple backends. In the most common example, the Repository implements the logic for deciding whether to fetch data from a network or use results cached in a local database.</p>
+<h2 is-upgraded><strong>Implementing the Repository </strong></h2>
+<p>Create a class file called <code>WordRepository</code> and paste the following code into it:</p>
+<pre><code>class WordRepository {
+
+    private WordDao mWordDao;
+    private LiveData&lt;List&lt;Word&gt;&gt; mAllWords;
+
+    // Note that in order to unit test the WordRepository, you have to remove the Application
+    // dependency. This adds complexity and much more code, and this sample is not about testing.
+    // See the BasicSample in the android-architecture-components repository at
+    // https://github.com/googlesamples
+    WordRepository(Application application) {
+        WordRoomDatabase db = WordRoomDatabase.getDatabase(application);
+        mWordDao = db.wordDao();
+        mAllWords = mWordDao.getAlphabetizedWords();
+    }
+
+    // Room executes all queries on a separate thread.
+    // Observed LiveData will notify the observer when the data has changed.
+    LiveData&lt;List&lt;Word&gt;&gt; getAllWords() {
+        return mAllWords;
+    }
+
+    // You must call this on a non-UI thread or your app will throw an exception. Room ensures
+    // that you&#39;re not doing any long running operations on the main thread, blocking the UI.
+    void insert(Word word) {
+        WordRoomDatabase.databaseWriteExecutor.execute(() -&gt; {
+            mWordDao.insert(word);
+        });
+    }
+}</code></pre>
+<p>The main takeaways:</p>
+<ul>
+<li>The DAO is passed into the repository constructor as opposed to the whole database. This is because you only need access to the DAO, since it contains all the read/write methods for the database. There&#39;s no need to expose the entire database to the repository.</li>
+<li>The <code>getAllWords</code> method returns the <code>LiveData</code> list of words from Room; we can do this because of how we defined the <code>getAlphabetizedWords</code> method to return <code>LiveData</code> in the &#34;The LiveData class&#34; step. Room executes all queries on a separate thread. Then observed <code>LiveData</code> will notify the observer on the main thread when the data has changed.</li>
+<li>We need to not run the insert on the main thread, so we use the <code>ExecutorService</code> we created in the <code>WordRoomDatabase</code> to perform the insert on a background thread.</li>
+</ul>
+<aside class="special"><p>Repositories are meant to mediate between different data sources. In this simple example, you only have one data source, so the Repository doesn&#39;t do much. See the <a href="https://github.com/googlesamples/android-architecture-components/tree/master/BasicSample" target="_blank">BasicSample</a> for a more complex implementation.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Create the ViewModel" duration="5">
+        <h2 is-upgraded><strong>What is a ViewModel?</strong></h2>
+<p>The <code>ViewModel</code>&#39;s role is to provide data to the UI and survive configuration changes. A <code>ViewModel</code> acts as a communication center between the Repository and the UI. You can also use a <code>ViewModel</code> to share data between fragments. The ViewModel is part of the <a href="https://developer.android.com/topic/libraries/architecture/lifecycle.html" target="_blank">lifecycle library</a>.</p>
+<p class="image-container"><img style="width: 469.50px" src="img/db13585697ba494f.png"></p>
+<p>For an introductory guide to this topic, see <a href="https://developer.android.com/topic/libraries/architecture/viewmodel.html" target="_blank">ViewModel Overview</a> or the <a href="https://medium.com/androiddevelopers/viewmodels-a-simple-example-ed5ac416317e" target="_blank">ViewModels: A Simple Example</a> blog post.</p>
+<h2 is-upgraded><strong>Why use a ViewModel?</strong></h2>
+<p>A <code>ViewModel</code> holds your app&#39;s UI data in a lifecycle-conscious way that survives configuration changes. Separating your app&#39;s UI data from your <code>Activity</code> and <code>Fragment</code> classes lets you better follow the single responsibility principle: Your activities and fragments are responsible for drawing data to the screen, while your <code>ViewModel</code> can take care of holding and processing all the data needed for the UI.</p>
+<p>In the <code>ViewModel</code>,  use <code>LiveData</code> for changeable data that the UI will use or display. Using <code>LiveData</code> has several benefits:</p>
+<ul>
+<li>You can put an observer on the data (instead of polling for changes) and only update the<br>the UI when the data actually changes.</li>
+<li>The Repository and the UI are completely separated by the <code>ViewModel</code>. </li>
+<li>There are no database calls from the <code>ViewModel</code> (this is all handled in the Repository), making the code more testable.<br></li>
+</ul>
+<h2 is-upgraded><strong>Implement the ViewModel</strong></h2>
+<p>Create a class file for <code>WordViewModel</code> and add this code to it:</p>
+<pre><code>public class WordViewModel extends AndroidViewModel {
+
+   private WordRepository mRepository;
+
+   private LiveData&lt;List&lt;Word&gt;&gt; mAllWords;
+
+   public WordViewModel (Application application) {
+       super(application);
+       mRepository = new WordRepository(application);
+       mAllWords = mRepository.getAllWords();
+   }
+
+   LiveData&lt;List&lt;Word&gt;&gt; getAllWords() { return mAllWords; }
+
+   public void insert(Word word) { mRepository.insert(word); }
+}</code></pre>
+<p>Here we&#39;ve:</p>
+<ul>
+<li>Created a class called <code>WordViewModel</code> that gets the <code>Application</code> as a parameter and extends <code>AndroidViewModel</code>. </li>
+<li>Added a private member variable to hold a reference to the repository. </li>
+<li>Added a <code>getAllWords()</code> method to return a cached list of words.</li>
+<li>Implemented a constructor that creates the <code>WordRepository</code>.</li>
+<li>In the constructor, initialized the <code>allWords</code> LiveData using the repository. </li>
+<li>Created a wrapper <code>insert()</code> method that calls the Repository&#39;s <code>insert()</code> method. In this way, the implementation of <code>insert()</code> is encapsulated from the UI.</li>
+</ul>
+<aside class="warning"><p><strong>Warning</strong>: Don&#39;t keep a reference to a context that has a shorter lifecycle than your ViewModel! Examples are:</p>
+<ul>
+<li>Activity</li>
+<li>Fragment</li>
+<li>View</li>
+</ul>
+<p>Keeping a reference can cause a memory leak, e.g. the ViewModel has a reference to a destroyed Activity! All these objects can be destroyed by the operative system and recreated when there&#39;s a configuration change, and this can happen many times during the lifecycle of a ViewModel.</p>
+<p>If you need the application context (which has a lifecycle that lives as long as the application does), use <code>AndroidViewModel</code>, as shown in this codelab.</p>
+</aside>
+<aside class="warning"><p><strong>Important: </strong><code>ViewModel</code>s don&#39;t survive the app&#39;s process being killed in the background when the OS needs more resources. For UI data that needs to survive process death due to running out of resources, you can use the <a href="https://developer.android.com/topic/libraries/architecture/viewmodel-savedstate" target="_blank">Saved State module for ViewModels</a>. Learn more <a href="https://medium.com/google-developers/viewmodels-persistence-onsaveinstancestate-restoring-ui-state-and-loaders-fc7cc4a6c090" target="_blank">here</a>.</p>
+</aside>
+<aside class="special"><p>To learn more about <code>ViewModel</code> classes, watch the <a href="https://www.youtube.com/watch?v=c9-057jC1ZA" target="_blank">Architecture Components: ViewModel</a> video.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Add XML layout" duration="3">
+        <p>Next, you need to add the XML layout for the list and items.</p>
+<p>This codelab assumes that you are familiar with creating layouts in XML, so we are just providing you with the code. </p>
+<p>Make your application theme material by setting the <code>AppTheme</code> parent to <code>Theme.MaterialComponents.Light.DarkActionBar</code>. Add a style for list items in <code>values/styles.xml</code>:</p>
+<pre><code>&lt;resources&gt;
+
+    &lt;!-- Base application theme. --&gt;
+    &lt;style name=&#34;AppTheme&#34; parent=&#34;Theme.MaterialComponents.Light.DarkActionBar&#34;&gt;
+        &lt;!-- Customize your theme here. --&gt;
+        &lt;item name=&#34;colorPrimary&#34;&gt;@color/colorPrimary&lt;/item&gt;
+        &lt;item name=&#34;colorPrimaryDark&#34;&gt;@color/colorPrimaryDark&lt;/item&gt;
+        &lt;item name=&#34;colorAccent&#34;&gt;@color/colorAccent&lt;/item&gt;
+    &lt;/style&gt;
+
+    &lt;!-- The default font for RecyclerView items is too small.
+    The margin is a simple delimiter between the words. --&gt;
+    &lt;style name=&#34;word_title&#34;&gt;
+        &lt;item name=&#34;android:layout_width&#34;&gt;match_parent&lt;/item&gt;
+        &lt;item name=&#34;android:layout_marginBottom&#34;&gt;8dp&lt;/item&gt;
+        &lt;item name=&#34;android:paddingLeft&#34;&gt;8dp&lt;/item&gt;
+        &lt;item name=&#34;android:background&#34;&gt;@android:color/holo_orange_light&lt;/item&gt;
+        &lt;item name=&#34;android:textAppearance&#34;&gt;@android:style/TextAppearance.Large&lt;/item&gt;
+    &lt;/style&gt;
+&lt;/resources&gt;</code></pre>
+<p>Add a <code>layout/recyclerview_item.xml</code> layout:</p>
+<pre><code>&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;
+&lt;LinearLayout xmlns:android=&#34;http://schemas.android.com/apk/res/android&#34;
+    android:orientation=&#34;vertical&#34; 
+    android:layout_width=&#34;match_parent&#34;
+    android:layout_height=&#34;wrap_content&#34;&gt;
+
+    &lt;TextView
+        android:id=&#34;@+id/textView&#34;
+        style=&#34;@style/word_title&#34;
+        android:layout_width=&#34;match_parent&#34;
+        android:layout_height=&#34;wrap_content&#34;
+        android:background=&#34;@android:color/holo_orange_light&#34; /&gt;
+&lt;/LinearLayout&gt;</code></pre>
+<p>In <code>layout/activity_main.xml</code>, replace the <code>TextView</code> with a <code>RecyclerView</code> and add a floating action button (FAB). Now your layout should look like this:</p>
+<pre><code>&lt;androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android=&#34;http://schemas.android.com/apk/res/android&#34;
+    xmlns:app=&#34;http://schemas.android.com/apk/res-auto&#34;
+    xmlns:tools=&#34;http://schemas.android.com/tools&#34;
+    android:layout_width=&#34;match_parent&#34;
+    android:layout_height=&#34;match_parent&#34;
+    tools:context=&#34;.MainActivity&#34;&gt;
+
+    &lt;androidx.recyclerview.widget.RecyclerView
+        android:id=&#34;@+id/recyclerview&#34;
+        android:layout_width=&#34;0dp&#34;
+        android:layout_height=&#34;0dp&#34;
+        tools:listitem=&#34;@layout/recyclerview_item&#34;
+        android:padding=&#34;@dimen/big_padding&#34;
+        app:layout_constraintBottom_toBottomOf=&#34;parent&#34;
+        app:layout_constraintLeft_toLeftOf=&#34;parent&#34;
+        app:layout_constraintRight_toRightOf=&#34;parent&#34;
+        app:layout_constraintTop_toTopOf=&#34;parent&#34; /&gt;
+
+    &lt;com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id=&#34;@+id/fab&#34;
+        app:layout_constraintBottom_toBottomOf=&#34;parent&#34;
+        app:layout_constraintEnd_toEndOf=&#34;parent&#34;
+        android:layout_width=&#34;wrap_content&#34;
+        android:layout_height=&#34;wrap_content&#34;
+        android:layout_margin=&#34;16dp&#34;
+        android:contentDescription=&#34;@string/add_word&#34;/&gt;
+
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre>
+<p>Your floating action button (FAB)&#39;s appearance should correspond to the available action, so we will want to replace the icon with a + symbol.</p>
+<p>First, we need to add a new Vector Asset:</p>
+<ol type="1" start="1">
+<li>Select  <strong>File &gt; New &gt; Vector Asset</strong>.</li>
+<li>Click the Android robot icon in the <strong>Icon</strong>:</li>
+</ol>
+<p class="image-container"><img style="width: 624.00px" src="img/8d935457de8e7a46.png"></p>
+<ol type="1" start="3">
+<li>Search for &#34;add&#34; and select the &#39;+&#39; asset. Click <strong>OK.</strong></li>
+</ol>
+<p class="image-container"><img style="width: 624.00px" src="img/a5da3beb66e64439.png"></p>
+<ol type="1" start="4">
+<li>After that, click <strong>Next</strong>.<br><img style="width: 624.00px" src="img/672248bada3cfb25.png"></li>
+<li>Confirm the icon path as <code>main &gt; drawable</code> and click <strong>Finish</strong> to add the asset. </li>
+</ol>
+<p class="image-container"><img style="width: 624.00px" src="img/ef118084f96c6176.png"></p>
+<ol type="1" start="6">
+<li>Still in <code>layout/activity_main.xml</code>, update the FAB to include the new drawable:</li>
+</ol>
+<pre><code>&lt;com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id=&#34;@+id/fab&#34;
+        app:layout_constraintBottom_toBottomOf=&#34;parent&#34;
+        app:layout_constraintEnd_toEndOf=&#34;parent&#34;
+        android:layout_width=&#34;wrap_content&#34;
+        android:layout_height=&#34;wrap_content&#34;
+        android:layout_margin=&#34;16dp&#34;
+        android:contentDescription=&#34;@string/add_word&#34;
+        android:src=&#34;@drawable/ic_add_black_24dp&#34;/&gt;</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Add a RecyclerView" duration="3">
+        <p>You are going to display the data in a <code>RecyclerView</code>, which is a little nicer than just throwing the data in a <code>TextView</code>. This codelab assumes that you know how <a href="https://www.google.com/url?q=https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html&sa=U&ved=0ahUKEwj0sqGO0s3XAhVBwVQKHVakBFIQFggEMAA&client=internal-uds-cse&cx=000521750095050289010:zpcpi1ea4s8&usg=AOvVaw0Ze9aHV4aNxBt4fPVYvjKD" target="_blank"><code>RecyclerView</code></a>, <a href="https://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager.html" target="_blank"><code>RecyclerView.LayoutManager</code></a>, <a href="https://www.google.com/url?q=https://developer.android.com/reference/android/support/v7/widget/RecyclerView.ViewHolder.html&sa=U&ved=0ahUKEwjK4Jy00s3XAhUIxlQKHX9jAhkQFggEMAA&client=internal-uds-cse&cx=000521750095050289010:zpcpi1ea4s8&usg=AOvVaw3j_sAR3AnGb855QSn82WEf" target="_blank"><code>RecyclerView.ViewHolder</code></a>, and <a href="https://www.google.com/url?q=https://developer.android.com/reference/android/support/v7/widget/RecyclerView.Adapter.html&sa=U&ved=0ahUKEwiji9DU0s3XAhWCj1QKHSzjDscQFggEMAA&client=internal-uds-cse&cx=000521750095050289010:zpcpi1ea4s8&usg=AOvVaw3CkQoDAgrAMidLMxDz-TC6" target="_blank"><code>RecyclerView.Adapter</code></a> work. </p>
+<p>Note that the <code>mWords</code> variable in the adapter caches the data. In the next task, you add the code that updates the data automatically.</p>
+<p>Create a class <code>WordListAdapter</code> that extends <code>RecyclerView.Adapter</code>. Here is the code: </p>
+<pre><code>public class WordListAdapter extends RecyclerView.Adapter&lt;WordListAdapter.WordViewHolder&gt; {
+
+   class WordViewHolder extends RecyclerView.ViewHolder {
+       private final TextView wordItemView;
+
+       private WordViewHolder(View itemView) {
+           super(itemView);
+           wordItemView = itemView.findViewById(R.id.textView);
+       }
+   }
+
+   private final LayoutInflater mInflater;
+   private List&lt;Word&gt; mWords; // Cached copy of words
+
+   WordListAdapter(Context context) { mInflater = LayoutInflater.from(context); }
+
+   @Override
+   public WordViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+       View itemView = mInflater.inflate(R.layout.recyclerview_item, parent, false);
+       return new WordViewHolder(itemView);
+   }
+
+   @Override
+   public void onBindViewHolder(WordViewHolder holder, int position) {
+       if (mWords != null) {
+           Word current = mWords.get(position);
+           holder.wordItemView.setText(current.getWord());
+       } else {
+           // Covers the case of data not being ready yet.
+           holder.wordItemView.setText(&#34;No Word&#34;);
+       }
+   }
+
+   void setWords(List&lt;Word&gt; words){
+       mWords = words;
+       notifyDataSetChanged();
+   }
+
+   // getItemCount() is called many times, and when it is first called,
+   // mWords has not been updated (means initially, it&#39;s null, and we can&#39;t return null).
+   @Override
+   public int getItemCount() {
+       if (mWords != null)
+           return mWords.size();
+       else return 0;
+   }
+}</code></pre>
+<p>Add the <code>RecyclerView</code> in the <code>onCreate()</code> method of <code>MainActivity</code>.</p>
+<p>In the <code>onCreate()</code> method after <code>setContentView</code>:</p>
+<pre><code>RecyclerView recyclerView = findViewById(R.id.recyclerview);
+final WordListAdapter adapter = new WordListAdapter(this);
+recyclerView.setAdapter(adapter);
+recyclerView.setLayoutManager(new LinearLayoutManager(this));</code></pre>
+<p>Run your app to make sure everything works. There are no items, because you have not hooked up the data yet. </p>
+<p class="image-container"><img style="width: 243.06px" src="img/79cb875d4296afce.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Populate the database" duration="2">
+        <p>There is no data in the database. You will add data in two ways: Add some data when the database is opened, and add an <code>Activity</code> for adding words. </p>
+<p>To delete all content and repopulate the database whenever the app is started, you create a <a href="https://developer.android.com/reference/androidx/room/RoomDatabase.Callback.html" target="_blank"><code>RoomDatabase.Callback</code></a> and override <code>onOpen()</code>. </p>
+<aside class="special"><p><strong>Note:</strong> If you only want to populate the database the first time the app is launched, you can override the <code>onCreate()</code> method within the <a href="https://developer.android.com/reference/androidx/room/RoomDatabase.Callback.html" target="_blank"><code>RoomDatabase.Callback</code></a>.</p>
+</aside>
+<p>Here is the code for creating the callback <strong>within</strong> the <code>WordRoomDatabase</code> class.  Because you cannot do Room database operations on the UI thread, <code>onOpen()</code> uses the previously defined <code>databaseWriteExecutor</code> to execute a lambda on a background thread.  The lambda deletes the contents of the database, then populates it with the two words &#34;Hello&#34; and &#34;World&#34;. Feel free to add more words!</p>
+<pre><code>private static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
+    @Override
+    public void onOpen(@NonNull SupportSQLiteDatabase db) {
+        super.onOpen(db);
+
+        // If you want to keep data through app restarts,
+        // comment out the following block
+        databaseWriteExecutor.execute(() -&gt; {
+            // Populate the database in the background.
+            // If you want to start with more words, just add them.
+            WordDao dao = INSTANCE.wordDao();
+            dao.deleteAll();
+
+            Word word = new Word(&#34;Hello&#34;);
+            dao.insert(word);
+            word = new Word(&#34;World&#34;);
+            dao.insert(word);
+        });
+    }
+};</code></pre>
+<p>Then, add the callback to the database build sequence right before calling <code>.build()</code> on the Room.databaseBuilder():</p>
+<pre><code>.addCallback(sRoomDatabaseCallback)</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Add NewWordActivity" duration="5">
+        <p>Add these string resources in <code>values/strings.xml</code>:</p>
+<pre><code>&lt;string name=&#34;hint_word&#34;&gt;Word...&lt;/string&gt;
+&lt;string name=&#34;button_save&#34;&gt;Save&lt;/string&gt;
+&lt;string name=&#34;empty_not_saved&#34;&gt;Word not saved because it is empty.&lt;/string&gt;</code></pre>
+<p>Add this color resource in <code>value/colors.xml</code>:</p>
+<pre><code>&lt;color name=&#34;buttonLabel&#34;&gt;#FFFFFF&lt;/color&gt;</code></pre>
+<p>Create a new dimension resource file:</p>
+<ol type="1" start="1">
+<li>Select <strong>File &gt; New &gt; Android Resource File</strong>.</li>
+<li>From the <strong>Available qualifiers</strong>, select <strong>Dimension</strong>.</li>
+<li>Set the file name: dimens</li>
+</ol>
+<p class="image-container"><img style="width: 624.00px" src="img/aa5895240838057.png"></p>
+<p>Add these dimension resources in <code>values/dimens.xml</code>:</p>
+<pre><code>&lt;dimen name=&#34;small_padding&#34;&gt;8dp&lt;/dimen&gt;
+&lt;dimen name=&#34;big_padding&#34;&gt;16dp&lt;/dimen&gt;</code></pre>
+<p>Create a new empty Android <code>Activity</code> with the Empty Activity template:</p>
+<ol type="1" start="1">
+<li>Select  <strong>File &gt; New &gt; Activity &gt; Empty Activity</strong></li>
+<li>Enter <code>NewWordActivity</code> for the Activity name.</li>
+<li>Verify that the new activity has been added to the Android Manifest.</li>
+</ol>
+<pre><code>&lt;activity android:name=&#34;.NewWordActivity&#34;&gt;&lt;/activity&gt;</code></pre>
+<p>Update the <code>activity_new_word.xml</code> file in the layout folder with the following code:</p>
+<pre><code>&lt;LinearLayout xmlns:android=&#34;http://schemas.android.com/apk/res/android&#34;
+    android:orientation=&#34;vertical&#34;
+    android:layout_width=&#34;match_parent&#34;
+    android:layout_height=&#34;match_parent&#34;&gt;
+
+    &lt;EditText
+        android:id=&#34;@+id/edit_word&#34;
+        android:layout_width=&#34;match_parent&#34;
+        android:layout_height=&#34;wrap_content&#34;
+        android:minHeight=&#34;@dimen/min_height&#34;
+        android:fontFamily=&#34;sans-serif-light&#34;
+        android:hint=&#34;@string/hint_word&#34;
+        android:inputType=&#34;textAutoComplete&#34;
+        android:layout_margin=&#34;@dimen/big_padding&#34;
+        android:textSize=&#34;18sp&#34; /&gt;
+
+    &lt;Button
+        android:id=&#34;@+id/button_save&#34;
+        android:layout_width=&#34;match_parent&#34;
+        android:layout_height=&#34;wrap_content&#34;
+        android:background=&#34;@color/colorPrimary&#34;
+        android:text=&#34;@string/button_save&#34;
+        android:layout_margin=&#34;@dimen/big_padding&#34;
+        android:textColor=&#34;@color/buttonLabel&#34; /&gt;
+
+&lt;/LinearLayout&gt;</code></pre>
+<p>Update the code for the activity:</p>
+<pre><code>public class NewWordActivity extends AppCompatActivity {
+
+   public static final String EXTRA_REPLY = &#34;com.example.android.wordlistsql.REPLY&#34;;
+
+   private  EditText mEditWordView;
+
+   @Override
+   public void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       setContentView(R.layout.activity_new_word);
+       mEditWordView = findViewById(R.id.edit_word);
+
+       final Button button = findViewById(R.id.button_save);
+       button.setOnClickListener(new View.OnClickListener() {
+           public void onClick(View view) {
+               Intent replyIntent = new Intent();
+               if (TextUtils.isEmpty(mEditWordView.getText())) {
+                   setResult(RESULT_CANCELED, replyIntent);
+               } else {
+                   String word = mEditWordView.getText().toString();
+                   replyIntent.putExtra(EXTRA_REPLY, word);
+                   setResult(RESULT_OK, replyIntent);
+               }
+               finish();
+           }
+       });
+   }
+}</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Connect with the data" duration="7">
+        <p>The final step is to connect the UI to the database by saving new words the user enters and displaying the current contents of the word database in the <code>RecyclerView</code>.</p>
+<p>To display the current contents of the database, add an observer that observes the <code>LiveData</code> in the <code>ViewModel</code>. </p>
+<p>Whenever the data changes, the <code>onChanged()</code> callback is invoked, which calls the adapter&#39;s <code>setWords()</code> method to update the adapter&#39;s cached data and refresh the displayed list.</p>
+<p>In <code>MainActivity</code>, create a member variable for the <code>ViewModel</code>:</p>
+<pre><code>private WordViewModel mWordViewModel;</code></pre>
+<p>Use <a href="https://developer.android.com/reference/androidx/lifecycle/ViewModelProvider" target="_blank"><code>ViewModelProvider</code></a> to associate your <code>ViewModel</code> with your <code>Activity</code>. </p>
+<p>When your <code>Activity</code> first starts, the <code>ViewModelProviders</code> will create the <code>ViewModel</code>. When the activity is destroyed, for example through a configuration change, the <code>ViewModel</code> persists. When the activity is re-created, the <code>ViewModelProviders</code> return the existing <code>ViewModel</code>. For more information, see <a href="https://developer.android.com/topic/libraries/architecture/viewmodel.html" target="_blank"><code>ViewModel</code></a>.</p>
+<p>In <code>onCreate()</code> below the <code>RecyclerView</code> code block, get a <code>ViewModel</code> from the <code>ViewModelProvider</code>:</p>
+<pre><code>mWordViewModel = new ViewModelProvider(this).get(WordViewModel.class);</code></pre>
+<p>Also in <code>onCreate()</code>, add an observer for the <code>LiveData</code> returned by <code>getAlphabetizedWords()</code>. The <code>onChanged()</code> method fires when the observed data changes and the activity is in the foreground:</p>
+<pre><code>mWordViewModel.getAllWords().observe(this, new Observer&lt;List&lt;Word&gt;&gt;() {
+   @Override
+   public void onChanged(@Nullable final List&lt;Word&gt; words) {
+       // Update the cached copy of the words in the adapter.
+       adapter.setWords(words);
+   }
+});</code></pre>
+<p>Define a request code as a member of the <code>MainActivity</code>:</p>
+<pre><code>public static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;</code></pre>
+<p>In <code>MainActivity</code>, add the <code>onActivityResult()</code> code for the <code>NewWordActivity</code>.</p>
+<p>If the activity returns with <code>RESULT_OK</code>, insert the returned word into the database by calling the <code>insert()</code> method of the <code>WordViewModel</code>:</p>
+<pre><code>public void onActivityResult(int requestCode, int resultCode, Intent data) {
+   super.onActivityResult(requestCode, resultCode, data);
+
+   if (requestCode == NEW_WORD_ACTIVITY_REQUEST_CODE &amp;&amp; resultCode == RESULT_OK) {
+       Word word = new Word(data.getStringExtra(NewWordActivity.EXTRA_REPLY));
+       mWordViewModel.insert(word);
+   } else {
+       Toast.makeText(
+               getApplicationContext(),
+               R.string.empty_not_saved,
+               Toast.LENGTH_LONG).show();
+   }
+}</code></pre>
+<p>In <code>MainActivity,</code>start <code>NewWordActivity</code> when the user taps the FAB. In the <code>MainActivity</code> <code>onCreate</code>, find the FAB and add an <code>onClickListener</code> with this code:</p>
+<pre><code>FloatingActionButton fab = findViewById(R.id.fab);
+fab.setOnClickListener(new View.OnClickListener() {
+   @Override
+   public void onClick(View view) {
+       Intent intent = new Intent(MainActivity.this, NewWordActivity.class);
+       startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
+   }
+});</code></pre>
+<p>Now, run your app! When you add a word to the database in <code>NewWordActivity</code>, the UI will automatically update.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Summary" duration="1">
+        <p>Now that you have  a working app, let&#39;s recap what you&#39;ve built. Here is the app structure again:</p>
+<p class="image-container"><img style="width: 558.50px" src="img/1205d9f95688b35b.png"></p>
+<p>The components of the app are:</p>
+<ul>
+<li><code>MainActivity</code>: displays words in a list using a  <code>RecyclerView</code> and the  <code>WordListAdapter</code>. In <code>MainActivity</code>, there is an <code>Observer</code> that observes the words LiveData from the database and is notified when they change.</li>
+<li><code>NewWordActivity:</code> adds a new word to the list.</li>
+<li><code>WordViewModel</code>: provides methods for accessing the data layer, and it returns LiveData so that MainActivity can set up the observer relationship.*</li>
+<li><code>LiveData&lt;List&lt;Word&gt;&gt;</code>: Makes possible the automatic updates in the UI components.  In the <code>MainActivity</code>, there is an <code>Observer</code> that observes the words LiveData from the database and is notified when they change.</li>
+<li><code>Repository:</code> manages one or more data sources. The <code>Repository</code> exposes methods for the ViewModel to interact with the underlying data provider. In this app, that backend is a Room database. </li>
+<li><code>Room</code>: is a wrapper around and implements a SQLite database. Room does a lot of work for you that you used to have to do yourself. </li>
+<li>DAO: maps method calls to database queries, so that when the Repository calls a method such as <code>getAlphabetizedWords()</code>, Room can execute <strong><code>SELECT * from word_table ORDER BY word ASC</code></strong><strong>.</strong></li>
+<li><code>Word</code>: is the  entity class that contains a single word.</li>
+</ul>
+<p>* <code>Views</code> and <code>Activities</code> (and <code>Fragments</code>) only interact with the data through the <code>ViewModel</code>. As such, it doesn&#39;t matter where the data comes from. </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Congratulations!" duration="1">
+        <h2 is-upgraded><strong>[Optional] Download the solution code</strong></h2>
+<p>If you haven&#39;t already, you can take a look at the solution code for the codelab. You can look at the <a href="https://github.com/googlecodelabs/android-room-with-a-view/tree/master" target="_blank">github repository</a> or download the code here:</p>
+<p><a href="https://github.com/googlecodelabs/android-room-with-a-view" target="_blank"><paper-button class="colored" raised><iron-icon icon="file-download"></iron-icon>Download source code</paper-button></a></p>
+<p>Unpack the downloaded zip file. This will unpack a root folder, <code>android-room-with-a-view-master</code>, which contains the complete app.</p>
+<aside class="special"><p>The <a href="https://github.com/googlecodelabs/android-room-with-a-view/tree/master" target="_blank">solution code</a> includes unit tests for the Room database. Testing is beyond the scope of this codelab. Take a look at the code if you are interested. </p>
+</aside>
+<aside class="special"><p>If you need to migrate an app, see <a href="https://medium.com/google-developers/7-steps-to-room-27a5fe5f99b2" target="_blank">7 Steps to Room</a><strong> </strong>after you successfully complete this codelab. Note that it is incredibly satisfying to delete your <a href="https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper.html" target="_blank"><code>SQLiteOpenHelper</code></a> class and a whole lot of other code. </p>
+</aside>
+<aside class="special"><p>When you have lots of data, consider using the <a href="https://developer.android.com/topic/libraries/architecture/paging.html" target="_blank">paging library</a>. The paging codelab is <a href="https://codelabs.developers.google.com/codelabs/android-paging/" target="_blank">here</a>.</p>
+</aside>
+<aside class="special"><p><strong>More on Architecture, Room, LiveData and ViewModel</strong></p>
+<ul>
+<li><a href="https://developer.android.com/topic/libraries/architecture/guide.html" target="_blank">Guide to App Architecture</a></li>
+<li><a href="https://www.youtube.com/watch?v=vOJCrbr144o" target="_blank">Android Architecture</a> overview (video)</li>
+<li><a href="https://codelabs.developers.google.com/codelabs/android-lifecycles/#0" target="_blank">Android lifecycle-aware components codelab</a> (<code>ViewModel</code>, <code>LiveData</code>, <code>LifecycleOwner</code>, <code>LifecycleRegistryOwner</code>)</li>
+<li><a href="https://github.com/googlesamples/android-architecture-components" target="_blank">Architecture Component code samples</a></li>
+<li><a href="https://classroom.udacity.com/courses/ud9012" target="_blank">Developing Android Apps with Kotlin</a> free online training - includes lessons on ViewModel, LiveData, Room, the repository class and more with code examples.  Also see the <a href="https://www.udacity.com/course/kotlin-bootcamp-for-programmers--ud9011" target="_blank">Kotlin Bootcamp for Programmers</a> to get you programming with Kotlin quickly and easily.</li>
+</ul>
+<p><strong>Other Architecture Component codelabs</strong></p>
+<ul>
+<li><a href="https://codelabs.developers.google.com/codelabs/android-databinding/index.html" target="_blank">Databinding Codelab</a> - Remove even more code from your activities and fragments; works great with ViewModel and LiveData</li>
+<li><a href="https://codelabs.developers.google.com/codelabs/android-paging/#0" target="_blank">Paging Codelab</a> - Page through huge lists of data from Room</li>
+<li><a href="https://codelabs.developers.google.com/codelabs/android-navigation" target="_blank">Navigation Codelab</a> - Handle in app navigation using the Navigation component and tooling</li>
+<li><a href="https://codelabs.developers.google.com/codelabs/android-workmanager" target="_blank">WorkManager Codelab</a> - Efficiently do work when your app is in the background</li>
+</ul>
+</aside>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="/elements/codelab-elements/native-shim.js"></script>
+  <script src="/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="/elements/codelab-elements/prettify.js"></script>
+  <script src="/elements/codelab-elements/codelab-elements.js"></script>
+
+</body>
+</html>
