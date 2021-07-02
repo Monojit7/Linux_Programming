@@ -61,6 +61,8 @@ public:
         return this->marrital_status;
     }
 
+    
+
     string getGendre()
 
     {
@@ -74,24 +76,30 @@ class Criteria
 public:
     list<Person *> mCriteriaList;
 
-    virtual list<Person *> meetCriteria(list<Person *> persons) = 0;
+    virtual list<Person *>& meetCriteria(list<Person *> persons) = 0;
 
     void addPerson(Person *person)
     {
         getmCriteriaList().push_back(person);
     }
 
-    list<Person *> &getmCriteriaList()
+    list<Person *>& getmCriteriaList()
     {
         return this->mCriteriaList;
+    }
+
+    void clearList ()
+    {
+        this->mCriteriaList = {};
     }
 };
 
 class MaleCriteria : public Criteria
 {
 public:
-    list<Person *> meetCriteria(list<Person *> persons)
+    list<Person *>& meetCriteria(list<Person *> persons)
     {
+        clearList ();
         for (Person *person : persons)
         {
             if (person->getGendre() == "MALE")
@@ -106,8 +114,9 @@ public:
 class FemaleCriteria : public Criteria
 {
 public:
-    list<Person *> meetCriteria(list<Person *> persons)
+    list<Person *>& meetCriteria(list<Person *> persons)
     {
+        clearList ();
         for (Person *person : persons)
         {
             if (person->getGendre() == "FEMALE")
@@ -123,8 +132,9 @@ public:
 class MarriedCriteria : public Criteria
 {
 public:
-    list<Person *> meetCriteria(list<Person *> persons)
+    list<Person *>& meetCriteria(list<Person *> persons)
     {
+        clearList ();
         for (Person *person : persons)
         {
             if (person->getMarritalStatus() == "MARRIED")
@@ -141,8 +151,9 @@ class SingleCriteria : public Criteria
 {
 public:
 
-    list<Person *> meetCriteria(list<Person *> persons)
+    list<Person *>& meetCriteria(list<Person *> persons)
     {
+        clearList ();
         for (Person *person : persons)
         {
             if (person->getMarritalStatus() == "SINGLE")
@@ -164,16 +175,16 @@ class AndCriteria : public Criteria
 
 public:
 
-    AndCriteria(Criteria *mCriteria, Criteria *otherCriteria)
+    AndCriteria( Criteria *mCriteria, Criteria *otherCriteria)
     {
         this->mCriteria = mCriteria;
         this->otherCriteria = otherCriteria;
     }
 
-    list<Person *> meetCriteria(list<Person *> persons)
+    list<Person *>& meetCriteria(list<Person *> persons)
     {
         list<Person *> firstCriteriaPersons = mCriteria->meetCriteria(persons);
-        return otherCriteria->meetCriteria( firstCriteriaPersons );
+        return otherCriteria->meetCriteria ( firstCriteriaPersons );
     }
 };
 /*
@@ -235,7 +246,7 @@ int main()
     Criteria* femaleCriteria = new FemaleCriteria ;
     Criteria* singleCriteria = new SingleCriteria ;
     Criteria* marriedCriteria = new MarriedCriteria;
-   Criteria* andCriteria = new AndCriteria ( femaleCriteria, singleCriteria );
+    Criteria* andCriteria     = new AndCriteria ( singleCriteria, maleCriteria );
     //Criteria* OrCriteria = new OrCriteria ( singleCriteria, femaleCriteria);
 
     list<Person*> maleList = maleCriteria->meetCriteria ( persons );
@@ -257,10 +268,10 @@ int main()
     cout << "below married list :" << endl;
     printDetails ( marriedlist );
 
-    list <Person*> singleFemalelist = andCriteria->meetCriteria ( persons );
+    list <Person*> marriedFemalelist = andCriteria->meetCriteria ( persons );
 
-    cout << "below single Female  list :" << endl;
-    printDetails ( singleFemalelist );
+    cout << "below single male  list :" << endl;
+    printDetails ( marriedFemalelist );
 
 
 
