@@ -16,7 +16,7 @@ struct Node
 
 void  push ( struct Node** headref, struct Node* newNode )
 {
-	printf ("Adding node with data : %d \n", newNode -> data );
+	printf ("Adding node with data : %d new node %p headref %p \n", newNode -> data, newNode, *headref );
 
 
 	// to add a node Headpointer needs to be changes 
@@ -25,6 +25,8 @@ void  push ( struct Node** headref, struct Node* newNode )
 	// Then newNode becomes the head pointer
 	newNode -> next  = *headref;
 	*headref = newNode;
+
+	printf ("Added node with data : %d newNode->next %p headref %p \n", newNode -> data, newNode ->next, *headref );
 
 	
 }
@@ -152,6 +154,9 @@ void MoveNode ( struct Node** destRef, struct Node** sourceRef )
 	printf ("%s %d Adding node : %d to the destination node  \n", __FUNCTION__ , __LINE__ , newNode->data );
 
 }
+
+
+
 
 // This function is used to sort a given linked list 
 // This works by appending the result parameter 
