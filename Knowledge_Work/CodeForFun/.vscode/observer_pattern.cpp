@@ -39,6 +39,11 @@ class Observer
 
     virtual void update() = 0;
 
+    virtual void subscribe ( ) = 0;
+
+    virtual void unSubscribe ( ) = 0;
+ 
+
 };
 
 class Subject
@@ -56,6 +61,14 @@ class Subject
 
        // NotifyAllUsers ();
     }  
+
+    void unAttach ( Observer* mObserver  )
+    {
+        if ( !Observers.empty())
+        {
+            Observers.remove ( mObserver );
+        }
+    }
 
     void setState ( int state )
     {
@@ -94,7 +107,16 @@ class BinaryState : public Observer
     {
         this->mSubject = vSubject;
 
-        this->mSubject->attach(this);
+    }
+
+    void subscribe ( )
+    {
+        this->mSubject->attach ( this );
+    }
+
+    void unSubscribe ( )
+    {
+        this->mSubject->unAttach ( this );
     }
 
     virtual ~BinaryState ()
@@ -118,8 +140,19 @@ class HexState : public Observer
     HexState ( Subject* vSubject )
     {
         this->mSubject = vSubject;
+
+    }
+
+    void subscribe ( )
+    {
         this->mSubject->attach ( this );
     }
+
+    void unSubscribe ( )
+    {
+        this->mSubject->unAttach ( this );
+    }
+
 
     void update ()
     {
@@ -140,12 +173,21 @@ class OctState : public Observer
     OctState ( Subject* vSubject )
     {
         this->mSubject = vSubject;
+    }
+
+    void subscribe ( )
+    {
         this->mSubject->attach ( this );
+    }
+
+    void unSubscribe ( )
+    {
+        this->mSubject->unAttach ( this );
     }
 
     void update ()
     {
-        cout << "State in hexadecimal is "  << oct << this->mSubject->getState() << endl;
+        cout << "State in Octal is "  << oct << this->mSubject->getState() << endl;
     }
 
   virtual ~OctState ()
@@ -159,27 +201,38 @@ int main()
 {
     Subject* vSubject = new Subject;
 
-    Observer* mOb1 = new BinaryState ( vSubject );
-    Observer* mOb2 = new OctState ( vSubject );
-    Observer* mOb3 = new HexState ( vSubject );
+    Observer* mBinObserve = new BinaryState ( vSubject );
+    Observer* mOctObserve = new OctState ( vSubject );
+    Observer* mHexObserve = new HexState ( vSubject );
+
+    cout << "subscribed only for Binary state update, oct, hex " << endl;
+
+    mBinObserve->subscribe();
+    mOctObserve->subscribe();
+    mHexObserve->subscribe();
 
     cout << "first state change to 15 " << endl;
 
     vSubject->setState ( 15 );
 
-        cout << "first state change to 15 " << endl;
+    cout << "unsubscribed for HexState " << endl;
+
+    mHexObserve->unSubscribe();
+
+        cout << "second state change to 13 " << endl;
     
     vSubject->setState ( 13 );
 
-        cout << "first state change to 15 " << endl;
+   mHexObserve->subscribe ();
+        cout << "third state change to 10 " << endl;
     
     vSubject->setState ( 10 );
 
     delete vSubject;
 
-    delete mOb1;
-    delete mOb2;
-    delete mOb3;
+    delete mBinObserve;
+    delete mOctObserve;
+    delete mHexObserve;
 
     return 0;
 }

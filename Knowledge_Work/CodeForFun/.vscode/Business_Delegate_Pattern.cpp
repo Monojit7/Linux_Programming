@@ -6,7 +6,7 @@ By using LookupService object this has been achieved.
 Client : UI Service Object
 Business Delegate class : This is a single entry class to client entities which provides access
                            to business service object
-LookUp Service : This object provide relative object to Business delegate object to get the object 
+LookUp Service : This object provides relative object to Business delegate object to get the object 
                   which has the requested implementation
 Business Service Interface : This is a interface class which describes the business methods. Concreate 
                              classes of this class implements the business logic of it.
@@ -89,9 +89,11 @@ class BusinessDelegate
        if ( mBusinessLookupService  != nullptr )
        {
 
+                  mBusinessService = mBusinessLookupService->getServiceObject ( serviceType );
+                 mBusinessService->doAction ();
+
        }
-       mBusinessService = mBusinessLookupService->getServiceObject ( serviceType );
-       mBusinessService->doAction ();
+
    }
 
 

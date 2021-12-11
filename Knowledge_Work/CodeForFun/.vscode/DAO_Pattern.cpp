@@ -106,8 +106,17 @@ class DAOImpl : public DAOInterface
   {
       cout << " update student list for student name " << student->name << " with " << name << endl;
       auto it = find ( getAllStudents().begin(), getAllStudents().end(), student );
+
+      if ( it != getAllStudents().end())
+      {
       (*it)->setName (name);
-      cout << "updating  done "   << endl;
+      cout << "updation  done "   << endl;
+      }
+      else
+      {
+          cout << "Student not present in the registry " << endl;
+      }
+
   }
 
   void deleteStudent ( Student* student )
@@ -148,7 +157,5 @@ int main ()
     dao->upDateStudent ( dao->getStudent (14), "puja");
     dao->printDetails ();
 
-    
-    dao->printDetails ();
     return 0;
 }

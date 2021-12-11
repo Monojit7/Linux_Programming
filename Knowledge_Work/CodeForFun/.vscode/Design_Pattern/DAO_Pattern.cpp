@@ -147,8 +147,5 @@ int main ()
     dao->printDetails();
     dao->upDateStudent ( dao->getStudent (14), "puja");
     dao->printDetails ();
-
-    
-    dao->printDetails ();
     return 0;
 }

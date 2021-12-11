@@ -71,6 +71,7 @@ int main ()
     HeadMarketing->add ( salesExe2 ) ;
 
 
+   cout << " name : " << CEO->name << " dept : " << CEO->dept << " salary " << CEO->salary << endl;
     for ( Employee* HeadEmployee : CEO->getSubordinates() )
     {
        cout << " name : " << HeadEmployee->name << " dept : " << HeadEmployee->dept << " salary " << HeadEmployee->salary << endl;

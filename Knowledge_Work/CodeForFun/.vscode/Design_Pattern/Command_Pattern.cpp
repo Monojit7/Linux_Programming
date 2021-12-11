@@ -10,150 +10,129 @@ Invoker object finds appropriate object to process that command
 #include <list>
 using namespace std;
 
-
-class Order 
+class Order
 {
 
-  public:
-
-  virtual void execute () = 0;
-
+public:
+    virtual void execute() = 0;
 };
 
 class Stock
 {
 
-  private :
-  string name = "" ;
+private:
+    string name = "";
 
-  int quantity = 0 ;
+    int quantity = 0;
 
-  public :
-  Stock ( string name , int quantity )
-  {
-      this->name = name ;
-      this->quantity = quantity;
-  }
+public:
+    Stock(string name, int quantity)
+    {
+        this->name = name;
+        this->quantity = quantity;
+    }
 
-  void buy ()
-  {
-      cout << " quantity of " << quantity << " for stock " << this->name << " has been bought " << endl;
-  }
+    void buy()
+    {
+        cout << " quantity of " << quantity << " for stock " << this->name << " has been bought " << endl;
+    }
 
-  void sold ()
-  {
-      cout << " quantity of " << quantity << " for stock  " << this->name << "  has been sold " << endl;
-
-  }
-
-  
-
+    void sold()
+    {
+        cout << " quantity of " << quantity << " for stock  " << this->name << "  has been sold " << endl;
+    }
 };
 
 class BuyStock : public Order
 {
-    Stock* mStock = nullptr;
+    Stock *mStock = nullptr;
 
-    public:
-
-    BuyStock ( Stock* vStock  )
+public:
+    BuyStock(Stock *vStock)
     {
         this->mStock = vStock;
     }
 
-    void execute ()
+    void execute()
     {
         this->mStock->buy();
     }
-
 };
 
 class SellStock : public Order
 {
-    Stock* mStock = nullptr;
+    Stock *mStock = nullptr;
 
-    public:
-
-    SellStock ( Stock* vStock  )
+public:
+    SellStock(Stock *vStock)
     {
         this->mStock = vStock;
     }
 
-    void execute ()
+    void execute()
     {
         this->mStock->sold();
     }
-
 };
 
-class Broker 
+class Broker
 {
-    private:
+private:
+    list<Order *> mOrderList;
 
-    list <Order*>  mOrderList;
-
-    list <Order*> & getOrderList()
+    list<Order *> &getOrderList()
     {
         return mOrderList;
     }
 
-    void clearList ()
+    void clearList()
     {
         mOrderList = {};
     }
 
-    void AddOrder ( Order* mOrder )
+    void AddOrder(Order *mOrder)
     {
-        getOrderList().push_back ( mOrder );
+        getOrderList().push_back(mOrder);
     }
 
-   public:
+public:
+    void takeOrder(Order *mOrder)
+    {
+        AddOrder(mOrder);
+    }
 
-   void takeOrder ( Order* mOrder )
-   {
-      AddOrder ( mOrder);
-   }
+    void placeOrder()
+    {
+        for (Order *mOrder : getOrderList())
+        {
+            mOrder->execute();
+        }
 
-   void placeOrder ()
-   {
-       for ( Order* mOrder :  getOrderList () )
-       {
-           mOrder->execute ();
-       }
-
-       clearList ();
-   }
-
-
-
+        clearList();
+    }
 };
 
-
-int main ()
+int main()
 {
-    Stock* mStock_a = new Stock ( "Ashock Leyland ", 10 );
+    Stock *mStock_a = new Stock("Ashock Leyland ", 10);
 
-    Stock* mStock_b = new Stock ( " Ambuja Cement ", 100 );
+    Stock *mStock_b = new Stock(" Ambuja Cement ", 100);
 
-    BuyStock* mBuyStock = new BuyStock ( mStock_a );
+    BuyStock *mBuyStock = new BuyStock(mStock_a);
 
-    BuyStock* mBuyStock_1 = new BuyStock ( mStock_b );
+    BuyStock *mBuyStock_1 = new BuyStock(mStock_b);
 
-    Broker* mBroker = new Broker;
+    SellStock *mSellStock_a = new SellStock(mStock_a);
 
-    mBroker->takeOrder ( mBuyStock );
-    mBroker->takeOrder ( mBuyStock_1 );
+    SellStock *mSellStock_b = new SellStock(mStock_b);
 
-    mBroker->placeOrder ();
+    Broker *mBroker = new Broker;
 
-    SellStock* mSellStock_a = new SellStock ( mStock_a );
+    mBroker->takeOrder(mBuyStock);
+    mBroker->takeOrder(mBuyStock_1);
 
-    SellStock* mSellStock_b = new SellStock ( mStock_b );
+    mBroker->takeOrder(mSellStock_a);
+    mBroker->takeOrder(mSellStock_b);
 
-    mBroker->takeOrder ( mSellStock_a );
-    mBroker->takeOrder ( mSellStock_b );
-
-    mBroker->placeOrder ();
-
-    
+    mBroker->placeOrder();
 }

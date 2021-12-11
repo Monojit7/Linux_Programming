@@ -8,8 +8,9 @@ in step by step out of multiple simple objects
 
 /*
 
-In the below example nonveg meal and veg meal and its price is calculater 
-using builder patter.
+In the below example nonveg meal and veg meal and its price is calculated 
+using builder pattern
+.
 
 problem : veg burger , chicken burger is packed with wrapper
           coke , pepsi is packed with bottle

@@ -45,11 +45,12 @@ public:
 class NullCustomer : public AbstractCustomer
 {
 
-    string name = " Not a valid name since Object is valid";
+    string name = " is  Not a valid Customer ";
 
 public:
-    NullCustomer()
+    NullCustomer( string name )
     {
+        this->name = name + this->name ;
     }
 
     string getName()
@@ -66,7 +67,7 @@ public:
 class CustomerFactory
 {
 
-    vector<string> nameList = {"Rob", "Roshni", "Sujata", "Puja"};
+    vector<string> nameList = {};
 
 public:
     AbstractCustomer *getCustomer(string name)
@@ -77,14 +78,26 @@ public:
         }
         else
         {
-            return new NullCustomer;
+            return new NullCustomer ( name );
         }
     }
+
+    void addCustomer ( string name )
+    {
+        nameList.push_back ( name );
+    }
+
+    
 };
 
 int main()
 {
     CustomerFactory *mCustomerFactory = new CustomerFactory;
+    mCustomerFactory->addCustomer ("Roshni");
+    mCustomerFactory->addCustomer ("Rob");
+    mCustomerFactory->addCustomer ("Karim");
+    mCustomerFactory->addCustomer ("Jegan");
+
 
     AbstractCustomer *mAbstractCustomer1 = mCustomerFactory->getCustomer("Rob");
     AbstractCustomer *mAbstractCustomer2 = mCustomerFactory->getCustomer("Roshni");
@@ -94,13 +107,13 @@ int main()
     AbstractCustomer *mAbstractCustomer6 = mCustomerFactory->getCustomer("Puja");
     AbstractCustomer *mAbstractCustomer7 = mCustomerFactory->getCustomer("Jagan");
 
-    cout << "customer 1" << mAbstractCustomer1->getName() << endl;
-    cout << "customer 2" << mAbstractCustomer2->getName() << endl;
-    cout << "customer 3" << mAbstractCustomer3->getName() << endl;
-    cout << "customer 4" << mAbstractCustomer4->getName() << endl;
-    cout << "customer 5" << mAbstractCustomer5->getName() << endl;
-    cout << "customer 6" << mAbstractCustomer6->getName() << endl;
-    cout << "customer 7" << mAbstractCustomer7->getName() << endl;
+    cout << "customer 1 " << mAbstractCustomer1->getName() << endl;
+    cout << "customer 2 " << mAbstractCustomer2->getName() << endl;
+    cout << "customer 3 " << mAbstractCustomer3->getName() << endl;
+    cout << "customer 4 " << mAbstractCustomer4->getName() << endl;
+    cout << "customer 5 " << mAbstractCustomer5->getName() << endl;
+    cout << "customer 6 " << mAbstractCustomer6->getName() << endl;
+    cout << "customer 7 " << mAbstractCustomer7->getName() << endl;
 
     return 0;
 }

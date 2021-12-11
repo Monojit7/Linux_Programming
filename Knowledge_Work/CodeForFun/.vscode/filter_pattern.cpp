@@ -176,34 +176,36 @@ public:
         return otherCriteria->meetCriteria( firstCriteriaPersons );
     }
 };
-/*
+
 class OrCriteria : public Criteria
 {
     Criteria *mCriteria;
     Criteria *otherCriteria;
 
+public :
     OrCriteria(Criteria *mCriteria, Criteria *otherCriteria)
     {
         this->mCriteria = mCriteria;
         this->otherCriteria = otherCriteria;
     }
 
-    list<Person *> &meetCriteria(list<Person *> persons)
+private:
+    list<Person *> meetCriteria(list<Person *> persons)
     {
-        list<Person *> &persons = mCriteria->meetCriteria(persons);
-        list<Person *> &otherPersons = otherCriteria->meetCriteria(persons);
+        list<Person *> mPersons = mCriteria->meetCriteria(persons);
+        list<Person *> otherPersons = otherCriteria->meetCriteria(mPersons);
 
         for (Person *person : otherPersons)
         {
-            if (find(persons.begin(), persons.end(), person) != persons.end())
+            if (find(mPersons.begin(), mPersons.end(), person) != mPersons.end())
             {
-                persons.push_back(person);
+                mPersons.push_back(person);
             }
         }
 
         return persons;
     }
-};*/
+};
 
 static void printDetails ( list<Person*>& persons )
 {
@@ -236,7 +238,7 @@ int main()
     Criteria* singleCriteria = new SingleCriteria ;
     Criteria* marriedCriteria = new MarriedCriteria;
    Criteria* andCriteria = new AndCriteria ( femaleCriteria, singleCriteria );
-    //Criteria* OrCriteria = new OrCriteria ( singleCriteria, femaleCriteria);
+    Criteria* mOrCriteria = new OrCriteria ( singleCriteria, femaleCriteria);
 
     list<Person*> maleList = maleCriteria->meetCriteria ( persons );
 
@@ -261,6 +263,12 @@ int main()
 
     cout << "below single Female  list :" << endl;
     printDetails ( singleFemalelist );
+
+
+    list <Person*> singleOrFemalelist = mOrCriteria->meetCriteria ( persons );
+
+    cout << "below single or  Female  list :" << endl;
+    printDetails ( singleOrFemalelist );
 
 
 

@@ -14,12 +14,13 @@ of the object
 using namespace std;
 
 
+// Here DrawAPI is a bridge implementer class
 class DrawAPI 
 {
 
   public :
 
-  virtual void draw ( int x, int y, int radious );
+  virtual void draw ( int x, int y, int radious ) = 0;
 
 };
 
@@ -28,7 +29,7 @@ class RedCircle : public DrawAPI
 
   public:
 
-  RedCircle ();
+
 
   void draw ( int x , int y, int radious )
   {
@@ -43,7 +44,7 @@ class GreenCircle : public DrawAPI
 
   public:
 
-  GreenCircle ();
+
 
   void draw ( int x , int y, int radious )
   {
@@ -93,8 +94,8 @@ class Circle : public Shape
 
 int main ()
 {
-    Circle* redCircle = new Circle ( 10, 15, 7, new RedCircle );
-    Circle* greenCircle = new Circle ( 4, 6, 12, new GreenCircle );
+    Shape* redCircle = new Circle ( 10, 15, 7, new RedCircle );
+    Shape* greenCircle = new Circle ( 4, 6, 12, new GreenCircle );
 
     redCircle->drawCircle();
     greenCircle->drawCircle();

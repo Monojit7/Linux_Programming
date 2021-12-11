@@ -15,120 +15,111 @@ Business Service Interface : This is a interface class which describes the busin
 
 using namespace std;
 
-class BusinessSerice 
+class BusinessSerice
 {
-    public :
-            virtual void doAction () = 0 ;
+public:
+    virtual void doAction() = 0;
 };
-
 
 class SoftwareService : public BusinessSerice
 {
-    public:
-           void doAction ()
-           {
-               cout << "Executing Software Service operation " << endl;
-           }
+public:
+    void doAction()
+    {
+        cout << "Executing Software Service operation " << endl;
+    }
 };
 
 class CarpentorService : public BusinessSerice
 {
-    public:
-           void doAction ()
-           {
-               cout << "Executing Carpentor Service operation " << endl;
-           }
+public:
+    void doAction()
+    {
+        cout << "Executing Carpentor Service operation " << endl;
+    }
 };
+
 
 class BusinessLookupService
 {
-   public :
+public:
 
-
-
-       BusinessSerice* getServiceObject ( string type )
-       {
-           if ( type == "Software")
-           {
-               cout << "returning software sevice object " << endl;
-               return new SoftwareService;
-           }
-           else if ( type == "Carpentor" )
-           {
-               cout << "returning carpentor sevice object " << endl;
-               return new CarpentorService;
-           }
-           else
-           {
-               return nullptr;
-           }
-       }
-
-
+// this is a factory mathod which provides the requested object
+    BusinessSerice *getServiceObject(string type)
+    {
+        if (type == "Software")
+        {
+            cout << "returning software sevice object " << endl;
+            return new SoftwareService;
+        }
+        else if (type == "Carpentor")
+        {
+            cout << "returning carpentor sevice object " << endl;
+            return new CarpentorService;
+        }
+        else
+        {
+            return nullptr;
+        }
+    }
 };
 
-class BusinessDelegate 
+class BusinessDelegate
 {
-   public:
-   BusinessSerice* mBusinessService = nullptr;
-   BusinessLookupService* mBusinessLookupService = nullptr;
-   string serviceType = "";
+public:
+    BusinessSerice *mBusinessService = nullptr;
+    BusinessLookupService *mBusinessLookupService = nullptr;
+    string serviceType = "";
 
-   BusinessDelegate ()
-   {
-       mBusinessLookupService = new BusinessLookupService;
-   }
+    BusinessDelegate()
+    {
+        mBusinessLookupService = new BusinessLookupService;
+    }
 
-   void setServiceType ( string type )
-   {
-       this->serviceType = type;
-   }
+    void setServiceType(string type)
+    {
+        this->serviceType = type;
+    }
 
-   void doAction ()
-   {
-       if ( mBusinessLookupService  != nullptr )
-       {
+    void doAction()
+    {
+        if (mBusinessLookupService != nullptr)
+        {
+            mBusinessService = mBusinessLookupService->getServiceObject(serviceType);
 
-       }
-       mBusinessService = mBusinessLookupService->getServiceObject ( serviceType );
-       mBusinessService->doAction ();
-   }
-
-
-
+            if (mBusinessService != nullptr)
+                mBusinessService->doAction();
+        }
+    }
 };
 
-class Client 
+class Client
 {
-    public :
+public:
+    BusinessDelegate *mBusinessDelegate = nullptr;
 
-    BusinessDelegate* mBusinessDelegate = nullptr;
-
-    Client ( BusinessDelegate* mBusinessDelegate )
+    Client(BusinessDelegate *mBusinessDelegate)
     {
         this->mBusinessDelegate = mBusinessDelegate;
     }
 
-    void doAction ()
+    void doAction()
     {
-        this->mBusinessDelegate->doAction ();
+        this->mBusinessDelegate->doAction();
     }
 };
 
-int main ()
+int main()
 {
-    BusinessDelegate* mBusinessDelegate = new BusinessDelegate;
-    mBusinessDelegate->setServiceType ("Software");
+    BusinessDelegate *mBusinessDelegate = new BusinessDelegate;
+    mBusinessDelegate->setServiceType("Software");
 
-    Client* mClient = new Client ( mBusinessDelegate );
-    mClient->doAction ();
+    Client *mClient = new Client(mBusinessDelegate);
+    mClient->doAction();
 
     //BusinessDelegate* mBusinessDelegate1 = new BusinessDelegate;
-    mBusinessDelegate->setServiceType ( "Carpentor");
-     
-     Client* newClient = new Client (mBusinessDelegate );
-     newClient->doAction ();
+    mBusinessDelegate->setServiceType("Carpentor");
 
-
-
-    }
+    Client *newClient = new Client(mBusinessDelegate);
+    newClient->doAction();
+}

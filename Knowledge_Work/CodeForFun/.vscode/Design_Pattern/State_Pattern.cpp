@@ -6,6 +6,18 @@ pattern comes under behavior pattern.
 In State pattern, we create objects which represent various states and a context 
 object whose behavior varies as its state object changes
 
+
+
+problem : when multiple states has complex behavioural impact then
+          making lean state machine would be a trouble to maintain
+
+solution : each state will be based on a interface super class and will 
+           be separate class and the state class will maintain all 
+        the state related behaviour in it.
+
+        Context class will store the state object and changes all the operation
+        as the state object changes
+
 */
 
 
@@ -19,7 +31,7 @@ class Context;
 class State 
 {
     public:
-    virtual void doAction ( Context* vContext ) = 0;
+    virtual void doAction (  ) = 0;
     virtual void ReportState () = 0;
 };
 
@@ -40,6 +52,18 @@ class Context
         return this->mState;
     }
 
+    void doAction ()
+    {
+        this->mState->doAction ();
+    }
+
+    void ReportState()
+    {
+        this->mState->ReportState();
+    }
+
+
+
 
 };
 
@@ -50,10 +74,10 @@ class StartState : public State
 {
     public:
 
-    void doAction ( Context* vContext )
+    void doAction (  )
     {
         cout << "Start state Action" << endl;
-        vContext->setState(this);
+        
     }
 
     void ReportState ()
@@ -68,13 +92,10 @@ class StopState : public State
 {
     public:
 
-    void doAction ( Context* vContext )
+    void doAction (  )
     {
         cout << "Stop state Action" << endl;
-        vContext->setState(this);
-
-
-
+    
     }
 
     void ReportState ()
@@ -87,18 +108,26 @@ class StopState : public State
 
 int main()
 {
-    State* vState = new StartState();
+    State* vStartState = new StartState;
+
+    State* vStopState = new StopState;
 
     Context* vContext = new Context();
 
-    vContext->setState ( vState );
+   // state change happend
+    vContext->setState ( vStartState );
 
-     vContext->getState()->ReportState();
+   // behaviour changes of doAction
+    vContext->doAction();
+    vContext->ReportState();
 
-       vState = new StopState();
+    // state changes of doAction
+    vContext->setState ( vStopState );
 
-    vContext->setState ( vState );
+   // Behaviour changes
+    vContext->doAction();
+    vContext->ReportState();
 
-    vContext->getState()->ReportState();
+    
 
 }

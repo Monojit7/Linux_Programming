@@ -130,7 +130,7 @@ int main ()
     mAudioPlayer->play();
     mAudioPlayer = new AudioPlayer ("MP4", " Bhige honth tere ");
     mAudioPlayer->play();
-    mAudioPlayer = new AudioPlayer ("VLC", " Bengali porn ");
+    mAudioPlayer = new AudioPlayer ("VLC", " Bengali XYZ ");
     mAudioPlayer->play();
     delete mAudioPlayer;
 }

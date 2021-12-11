@@ -11,7 +11,7 @@ Circle, Rectangle implements Shapes draw method
 
 ShapeFactory is a class which has getShape method
 
-which takes sharetype as argument and returns Shape object
+which takes shapetype as argument and returns Shape object
 
 
 */
@@ -50,14 +50,14 @@ class ShapeFactory
 public:
     Shape *getShape(string shape)
     {
-        if (IgnoreCaseCompare(shape, "circle"))
+        if (Compare(shape, "circle"))
             return new Circle;
-        else if (IgnoreCaseCompare(shape, "rectangle"))
+        else if (Compare(shape, "rectangle"))
             return new Rectangle;
     }
 
 private:
-    bool IgnoreCaseCompare(string a1, string a2)
+    bool Compare(string a1, string a2)
     {
         if (a1 == a2)
             return true;
@@ -66,7 +66,6 @@ private:
             return false;
         }
     }
-
 };
 
 int main()

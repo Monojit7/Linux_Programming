@@ -70,9 +70,14 @@ class Context
     Strategy* mStrategy = nullptr;
 
     public:
-    Context ( Strategy* mStrategy  )
+    Context ( )
     {
-       this->mStrategy = mStrategy;
+       
+    }
+
+    void setStrategy ( Strategy* mStrategy )
+    {
+        this->mStrategy = mStrategy;
     }
 
     void executeStrategy ( int n1 , int n2 )
@@ -87,15 +92,16 @@ int main ()
 {
     int n1 = 11;
     int n2 = 6;
+    Context* mContext = new Context ;
     Strategy* mStrategy = new operationAdd;
-    Context* mContext = new Context ( mStrategy );
+    mContext->setStrategy ( mStrategy );
     mContext->executeStrategy ( n1, n2 );
     mStrategy = new operationMultiPly;
-    Context* mContext1 = new Context ( mStrategy );
-    mContext1->executeStrategy ( n1, n2 );
+    mContext->setStrategy ( mStrategy );
+    mContext->executeStrategy ( n1, n2 );
     mStrategy = new operationSubstract;
-    Context* mContext2 = new Context ( mStrategy );
-    mContext2->executeStrategy ( n1, n2 );
+    mContext->setStrategy ( mStrategy );
+    mContext->executeStrategy ( n1, n2 );
 }
 
 

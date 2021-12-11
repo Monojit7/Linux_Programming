@@ -1,7 +1,7 @@
 /*
 
 memento pattern comes under behavioral pattern. It is used when the objects
-previous state need to be restored
+previous state needs to be restored
 
 */
 
@@ -69,17 +69,19 @@ class CareTaker
 
     Memento* get ( int index )
     {
+        Memento* result = nullptr;
         if ( index < mementoList.size())
         {
             auto it = next ( mementoList.begin() , index );
-            return *it;
+            result = *it;
         }
         else
         {
             cout << "invalid index" << endl;
             
-            return nullptr;
         }
+
+        return result;
     }
 };
 

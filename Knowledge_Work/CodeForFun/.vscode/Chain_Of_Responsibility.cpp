@@ -11,9 +11,9 @@ another receiver.
 
 In the below example we are developing a logging mechanism in which
 if the message log level is INFO then the message will be printed in
-Standard Console , File Logger, and Error memory . If the message is
+Standard Console . If the message is
 DEBUG then it will print in File Logger and Error Memory .If the message
-is Error memory then it will be printed only in Error Memory.
+is Error memory then it will be printed only in Standard Console, File logger, Error Memory.
 
 
 

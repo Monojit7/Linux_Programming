@@ -34,12 +34,12 @@ class NameIterator : public Iterator
 {
     public:
 
-     vector<string>  nameList= {"sujata", "puja", "krishna", "raksha"};
+     vector<string>  nameList ;//s= {"sujata", "puja", "krishna", "raksha"};
     int index = 0 ;
 
-    NameIterator ()
+    NameIterator ( vector <string > nameList )
     {
-       
+       this->nameList = nameList;
     }
     bool hasNext ()
     {
@@ -59,27 +59,32 @@ class NameIterator : public Iterator
             return nameList [index++];
         }
 
-        return nullptr;
+        return "invalid";
     }
 };
 
 class NameRepository :public Container
 {
 
+   vector <string > nameList ;
    public:
 
-  
+  NameRepository ( vector <string > nameList )
+  {
+      this->nameList = nameList;
+  }
 
   Iterator* getIterator ()
   {
-      return new NameIterator;
+      return new NameIterator ( this->nameList );
   }
  
 };
 
 int main ()
 {
-   NameRepository* mNameRepository = new NameRepository;
+    vector <string > nameList = {"ahona", "rita", "puja", "rekha", "saranya"};   
+    NameRepository* mNameRepository = new NameRepository ( nameList );
 
    for ( Iterator* it = mNameRepository->getIterator () ; it->hasNext() == true ;  )
    {

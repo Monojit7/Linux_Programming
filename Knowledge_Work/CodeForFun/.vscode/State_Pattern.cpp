@@ -19,7 +19,7 @@ class Context;
 class State 
 {
     public:
-    virtual void doAction ( Context* vContext ) = 0;
+    virtual void doAction (  ) = 0;
     virtual void ReportState () = 0;
 };
 
@@ -50,10 +50,10 @@ class StartState : public State
 {
     public:
 
-    void doAction ( Context* vContext )
+    void doAction ( )
     {
         cout << "Start state Action" << endl;
-        vContext->setState(this);
+       
     }
 
     void ReportState ()
@@ -68,12 +68,9 @@ class StopState : public State
 {
     public:
 
-    void doAction ( Context* vContext )
+    void doAction ( )
     {
         cout << "Stop state Action" << endl;
-        vContext->setState(this);
-
-
 
     }
 
@@ -93,11 +90,16 @@ int main()
 
     vContext->setState ( vState );
 
+    vContext->getState()->doAction();
+
      vContext->getState()->ReportState();
 
        vState = new StopState();
 
     vContext->setState ( vState );
+
+
+    vContext->getState()->doAction();
 
     vContext->getState()->ReportState();
 

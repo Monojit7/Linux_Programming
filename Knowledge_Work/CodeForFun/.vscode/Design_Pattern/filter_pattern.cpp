@@ -205,7 +205,8 @@ class OrCriteria : public Criteria
 
         for (Person *person : otherCriteriaPersons)
         {
-            if (!(find(firstCriteriaPersons.begin(), firstCriteriaPersons.end(), person) != firstCriteriaPersons.end()))
+            // if the person is not present in first criteria list then  add that in first criteria list
+            if ((find(firstCriteriaPersons.begin(), firstCriteriaPersons.end(), person) == firstCriteriaPersons.end()))
             {
                 firstCriteriaPersons.push_back(person);
             }

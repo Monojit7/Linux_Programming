@@ -1,9 +1,9 @@
 /*
 
 In strategy pattern  , class behaviour or underlying algorithm can be changed at runtime .
-This is behaviour pattern.
+This is behavioural pattern.
 
-In strategy pattern, there are strategy object and context objects. if the strategy objects
+In strategy pattern, there are strategy object and context objects. If the strategy objects
 changes its algorithm context object also behaves accordingly.
 
 strategy object changes the behaviour of the context object
