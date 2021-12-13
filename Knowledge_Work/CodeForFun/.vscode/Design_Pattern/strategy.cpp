@@ -42,7 +42,7 @@ class operationAdd : public Strategy
     public:
     void doOperation( int n1, int n2 )
     {
-        cout << "the result is " << ( n1 + n2 ) << endl;
+        cout  << n1 << " + "  << n2 << " = " << ( n1 + n2 ) << endl;
     }
 };
 
@@ -51,7 +51,7 @@ class operationMultiPly : public Strategy
     public:
     void doOperation( int n1, int n2 )
     {
-        cout << "the result is " << ( n1 * n2 ) << endl;
+        cout  << n1 << " * "  << n2 << " = " << ( n1 * n2 ) << endl;
     }
 };
 
@@ -60,7 +60,7 @@ class operationSubstract : public Strategy
     public:
     void doOperation( int n1, int n2 )
     {
-        cout << "the result is " << ( n1 - n2 ) << endl;
+        cout  << n1 << " - "  << n2 << " = " << ( n1 - n2 ) << endl;
     }
 };
 
@@ -70,9 +70,14 @@ class Context
     Strategy* mStrategy = nullptr;
 
     public:
-    Context ( Strategy* mStrategy  )
+    Context (  )
     {
-       this->mStrategy = mStrategy;
+       
+    }
+
+    void setStrategy ( Strategy* vStrategy )
+    {
+        this->mStrategy = vStrategy;
     }
 
     void executeStrategy ( int n1 , int n2 )
@@ -87,15 +92,17 @@ int main ()
 {
     int n1 = 11;
     int n2 = 6;
-    Strategy* mStrategy = new operationAdd;
-    Context* mContext = new Context ( mStrategy );
+    Strategy* mStrategyAdd = new operationAdd;
+    Context* mContext = new Context ( );
+    mContext->setStrategy ( mStrategyAdd );
     mContext->executeStrategy ( n1, n2 );
-    mStrategy = new operationMultiPly;
-    Context* mContext1 = new Context ( mStrategy );
-    mContext1->executeStrategy ( n1, n2 );
-    mStrategy = new operationSubstract;
-    Context* mContext2 = new Context ( mStrategy );
-    mContext2->executeStrategy ( n1, n2 );
+    Strategy* mStrategyMultiPly = new operationMultiPly;
+    // context class behaviour changes as Strategy changes
+    mContext->setStrategy ( mStrategyMultiPly );
+    mContext->executeStrategy ( n1, n2 );
+    Strategy* mStrategySubstract = new operationSubstract;
+    mContext->setStrategy ( mStrategySubstract );
+    mContext->executeStrategy ( n1, n2 );
 }
 
 

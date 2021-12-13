@@ -37,6 +37,8 @@ class Observer
 
     Subject* mSubject;
 
+ 
+
     virtual void update() = 0;
 
 };
@@ -56,6 +58,12 @@ class Subject
 
        // NotifyAllUsers ();
     }  
+
+    void detach (Observer* mObserver )
+    {
+        Observers.remove (mObserver);
+      //  delete mObserver;
+    }
 
     void setState ( int state )
     {
@@ -103,6 +111,10 @@ class BinaryState : public Observer
 
     };
 
+
+
+
+
     void update ()
     {
         cout << "state in Binary is "  << bitset <8> ( this->mSubject->getState() ) << endl;
@@ -126,6 +138,8 @@ class HexState : public Observer
         cout << "State in hexadecimal is " << hex << this->mSubject->getState() << endl;
     }
 
+
+
      ~HexState ()
     {
         cout << "Hex Observer destructor got called " << endl;
@@ -145,8 +159,10 @@ class OctState : public Observer
 
     void update ()
     {
-        cout << "State in hexadecimal is "  << oct << this->mSubject->getState() << endl;
+        cout << "State in Octa is "  << oct << this->mSubject->getState() << endl;
     }
+
+
 
   virtual ~OctState ()
     {
@@ -167,11 +183,16 @@ int main()
 
     vSubject->setState ( 15 );
 
-        cout << "first state change to 15 " << endl;
+
+        cout << "unsubscribing oct " << endl;
+
+        vSubject->detach ( mOb2 );
+
+         cout << "second state change to 13 " << endl;
     
     vSubject->setState ( 13 );
 
-        cout << "first state change to 15 " << endl;
+        cout << "third state change to 10 " << endl;
     
     vSubject->setState ( 10 );
 

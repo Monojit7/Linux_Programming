@@ -1,6 +1,6 @@
 /*
 
-Adapter pattern provide bridge between two different incompatible interface.
+Adapter pattern provides bridge between two different incompatible interfaces.
 This comes under structural design pattern and combines the capabilities 
 of two independent interfaces
 

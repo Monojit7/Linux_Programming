@@ -8,8 +8,8 @@ in step by step out of multiple simple objects
 
 /*
 
-In the below example nonveg meal and veg meal and its price is calculater 
-using builder patter.
+In the below example nonveg meal and veg meal and its price is calculated
+using builder pattern.
 
 problem : veg burger , chicken burger is packed with wrapper
           coke , pepsi is packed with bottle
@@ -22,7 +22,7 @@ packing will be another abstract class which will be having pack pure virtual fu
 
 burger is inherited from item and will be abstract class and only implements packing and leaves  name and price as pure virtual
 
-cold drinks will be inherited from item and will ibe abstract class and only implement pack and leaves  name and price as pure virtual
+cold drinks will be inherited from item and will be abstract class and only implement pack and leaves  name and price as pure virtual
 
 wrapper will be inherited from packing and will implement pack 
 
@@ -38,7 +38,7 @@ meal will be having list of items as attribute  and showItems , add items as met
 
 mealbuilder is a class which has two functions prepareVegMeal and prepareNonVegMeal and 
 
-both the functions return as meal .
+both the functions returns  meal .
 
 prepareVegMeal creates a meal by adding items in it 
 
